@@ -1,0 +1,31 @@
+// breakpoints
+$desktop: new-breakpoint(min-width 768px 12);
+$mobile: new-breakpoint(max-width 480px);
+
+// fonts
+$boldHeaderFont: $helvetica;
+$textFont: $georgia;
+$chartFont: $helvetica;
+
+// colors
+$offblack: rgb(34, 34, 34);
+$offwhite: rgb(238, 238, 238);
+
+// trib colors
+$yellow: rgb(252, 193, 15);
+$teal: rgb(55, 157, 146);
+$violet: rgb(116, 46, 102);
+$lightviolet: rgb(153, 61, 136);
+$purple: rgb(159, 130, 187);
+$lavender: rgb(231, 222, 238);
+
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

@@ -1,0 +1,139 @@
+.app-container {
+  @include outer-container;
+  padding: 0 0.75em;
+
+  // TODO: Make sure the ads don't load if they don't gotta
+  .ad-container {
+    display: none;
+  }
+
+  @include media($desktop) {
+    .content-container {
+      @include span-columns(8);
+
+      .row {
+        @include row();
+      }
+
+      .stat-column {
+        @include span-columns(2 of 8);
+      }
+
+      .chart-column {
+        @include span-columns(4 of 8);
+      }
+
+      .span-half {
+        @include span-columns(4 of 8);
+      }
+    }
+
+    .ad-container {
+      @include span-columns(4);
+    }
+  }
+}
+
+.search-container {
+  background-color: rgb(221, 221, 221);
+  border-radius: 0.125em;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+
+  input {
+    font-size: 0.875em;
+    padding: 0.5em 0;
+    width: 70%;
+  }
+
+  button {
+    @include button;
+    padding: 0.5em 0.25em;
+  }
+}
+
+.callout {
+  text-align: center;
+
+  div {
+    @include span-columns(4 of 8);
+
+    & :last-child {
+      @include omega;
+    }
+  }
+}
+
+.employee-callout {
+  @include row();
+  text-align: center;
+  margin-bottom: 1em;
+
+  .data-point {
+    @include span-columns(2 of 8);
+
+    & :last-child {
+      @include omega;
+    }
+  }
+}
+
+.entity-header {
+  header {
+    h2 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  ul {
+    padding: 0;
+
+    li {
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+.bars-container {
+  font-size: 0.7em;
+  line-height: 0;
+  width: 50%;
+}
+
+.distribution-chart {
+  .bar-male {
+    background-color: lightblue;
+  }
+
+  .bar-female {
+    background-color: plum;
+  }
+}
+
+.ethnicity-chart .bar {
+  background-color: tomato;
+}
+
+.length-chart .bar {
+  background-color: darkslategray;
+}
+
+.bar-box {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0.5em;
+
+  .bar {
+    height: 1.25em;
+    margin-bottom: 0.25em;
+  }
+
+  .label {
+    font-size: 0.75em;
+  }
+
+    .name {
+      font-weight: bold;
+    }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title><%= current_page.data.title || "Salaries Explorer | The Texas Tribune" %></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <header class='header'>
+    <div class="app-container">
+      <div class="menu-container">
+        <span class="menu icon-bars"></span>
+      </div>
+      <div class="logo">
+        <a href="http://www.texastribune.org/"><img src="//s3.amazonaws.com/static.texastribune.org/common/tt_disposal_wells/images/txtrib-logo-white.svg"></a>
+      </div>
+    </div>
+  </header>
+  <section class="app-container">
+    <section class="content-container">
+      <%= yield %>
+    </section>
+    <aside class="ad-container">
+      <img src="http://placehold.it/300x250&text=Ad Block 1">
+      <img src="http://placehold.it/300x250&text=Ad Block 2">
+      <img src="http://placehold.it/300x250&text=Ad Block 3">
+    </aside>
+  </section>
+  <footer class="footer">
+    <div class="app-container">
+      <div>
+        <a href="https://twitter.com/newsapps"><img class="logo" src="//s3.amazonaws.com/apps.texastribune.org/branding/TxTrib-NewsApps.svg"></a>
+      </div>
+      <div>
+      <ul>
+        <li>SECTIONS</li>
+        <li><a href="/economy/" data-section="economy">Economy</a></li>
+        <li><a href="/education/" data-section="education">Education</a></li>
+        <li><a href="/energy-and-environment/" data-section="energy-and-environment">Energy &amp; Environment</a></li>
+        <li><a href="/government/" data-section="government">Government</a></li>
+        <li><a href="/health-and-human-services/" data-section="health-and-human-services">Health &amp; Human Services</a></li>
+        <li><a href="/law-and-order/" data-section="law-and-order">Law &amp; Order</a></li>
+        <li><a href="/people/" data-section="people">People</a></li>
+        <li><a href="/politics/" data-section="politics">Politics</a></li>
+        <li><a href="/race-and-immigration/" data-section="race-and-immigration">Race &amp; Immigration</a></li>
+        <li><a href="/transportation/" data-section="transportation">Transportation</a></li>
+      </ul>
+      </div>
+      <div>
+        <ul>
+          <li>© 2014 The Texas Tribune</li>
+          <li><a href="#TODO">About Us</a></li>
+          <li><a href="#TODO">Who Funds Us?</a></li>
+          <li><a href="#TODO">Terms of Service</a></li>
+          <li><a href="#TODO">Code of Ethics</a></li>
+          <li><a href="#TODO">Privacy Policy</a></li>
+          <li><a href="#TODO">Corrections</a></li>
+          <li><a href="#TODO">Advertise</a></li>
+          <li><a href="#TODO">Newsletter Signup</a></li>
+          <li><a href="#TODO">Donate</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
+  <script src="/js/plugins.js"></script>
+  <script src="/js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+  // var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+  // (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  // g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  // s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+</body>
+</html>

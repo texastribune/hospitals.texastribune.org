@@ -1,0 +1,123 @@
+body {
+  color: $offblack;
+  line-height: 1;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: $teal;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+hr {
+  border: 0px none;
+  height: 1px;
+  background-color: $lightviolet;
+  margin-bottom: 1em;
+}
+
+.header {
+  height: 3.125em + em(4, 16);
+  line-height: 3.125em + em(4, 16);
+  margin-bottom: 1em;
+  background-color: rgb(34, 34, 34);
+  text-align: center;
+  border-bottom: 4px solid $violet;
+
+  img {
+    height: 1.75em;
+    vertical-align: middle;
+  }
+
+  .menu-container {
+    float: left;
+
+    .menu {
+      color: $offwhite;
+      font-size: 2em;
+      vertical-align: middle;
+      cursor: pointer;
+      @include transition(color 0.3s ease-in-out);
+
+      &:hover {
+        color: $yellow;
+      }
+    }
+  }
+}
+
+.content-container {
+  .app-header {
+    font-family: $boldHeaderFont;
+    line-height: 100%;
+
+    a {
+      color: rgb(34, 34, 34);
+    }
+  }
+
+  .stat-column {
+    h4, p {
+      margin: 0;
+    }
+  }
+}
+
+.footer {
+  background-color: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+  font-size: 0.75em;
+  margin-top: 1em;
+  border-top: 4px solid $violet;
+
+  .logo {
+    width: 100px;
+    margin-top: 1em;
+
+    @include media($desktop) {
+      width: 150px;
+      margin-top: 3em;
+    }
+  }
+
+  .app-container {
+    text-align: center;
+
+    @include media($desktop) {
+      div {
+        text-align: left;
+        @include span-columns(4 of 12);
+      }
+    }
+  }
+
+  ul {
+    li {
+      margin-bottom: 0.5em;
+
+      &:first-child {
+        color: #FFC200;
+        font-weight: bold;
+        margin-bottom: 1em;
+      }
+    }
+
+    a {
+      color: rgb(221, 221, 221);
+      text-decoration: none;
+
+      &:hover {
+        color: rgb(255, 255, 255);
+        text-decoration: underline;
+      }
+    }
+  }
+}
