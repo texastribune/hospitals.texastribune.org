@@ -36,6 +36,10 @@ GEM
       uber (~> 0.0.4)
     http_parser.rb (0.6.0)
     i18n (0.6.9)
+    jshintrb (0.2.4)
+      execjs
+      multi_json (>= 1.3)
+      rake
     json (1.8.1)
     kramdown (1.3.3)
     listen (1.3.1)
@@ -55,6 +59,8 @@ GEM
       uglifier (~> 2.5)
     middleman-bourbon (0.0.2)
       bourbon (>= 2.1.0)
+    middleman-bower (1.0.2)
+      sprockets-bower (>= 0.0.2)
     middleman-core (3.3.2)
       activesupport (~> 4.0.1)
       bundler (~> 1.1)
@@ -93,6 +99,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rake (10.3.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.4)
       ffi (>= 0.5.0)
@@ -104,6 +111,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sprockets-bower (0.0.2)
     sprockets-helpers (1.1.0)
       sprockets (~> 2.0)
     sprockets-sass (1.1.0)
@@ -122,8 +130,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  jshintrb
   middleman (~> 3.3.2)
   middleman-bourbon
+  middleman-bower
   middleman-livereload (~> 3.1.0)
   neat
   tzinfo-data
