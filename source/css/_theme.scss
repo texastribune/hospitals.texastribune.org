@@ -1,6 +1,7 @@
 body {
   color: $offblack;
   line-height: 1;
+  font-family: $helvetica;
 }
 
 ul {
@@ -24,6 +25,42 @@ hr {
   margin-bottom: 1em;
 }
 
+input[type='submit'], button{
+  @include button;
+}
+
+// LAYOUT SPECIFICS
+.app-container {
+  @include outer-container;
+  padding: 0 0.75em;
+  @include media($desktop) {
+    .content-container {
+      @include span-columns(8);
+
+      .row {
+        @include row();
+      }
+
+      .stat-column {
+        @include span-columns(2 of 8);
+      }
+
+      .chart-column {
+        @include span-columns(4 of 8);
+      }
+
+      .span-half {
+        @include span-columns(4 of 8);
+      }
+    }
+
+    .ad-container {
+      @include span-columns(4);
+    }
+  }
+}
+
+// HEADER
 .header {
   height: 3.125em + em(4, 16);
   line-height: 3.125em + em(4, 16);
@@ -54,30 +91,31 @@ hr {
   }
 }
 
-.content-container {
-  .app-header {
-    font-family: $boldHeaderFont;
-    line-height: 100%;
-
-    a {
-      color: rgb(34, 34, 34);
+// APP-CONTAINER
+section.app-container{
+  @include outer-container;
+  .footer-note{
+    margin-top:5em;
+    @include span-columns(10);
+    @include shift(1);
+    @include media($desktop) {
+      @include span-columns(8);
+      @include shift(2); 
     }
-  }
-
-  .stat-column {
-    h4, p {
-      margin: 0;
+    p{
+      font-size: 70%;
+      font-style: italic;
     }
   }
 }
 
-.footer {
-  background-color: rgb(34, 34, 34);
+// FOOTER
+footer.footer {
   color: rgb(255, 255, 255);
   font-size: 0.75em;
   margin-top: 1em;
   border-top: 4px solid $violet;
-
+  background-color: rgb(34, 34, 34);
   .logo {
     width: 100px;
     margin-top: 1em;
@@ -87,18 +125,15 @@ hr {
       margin-top: 3em;
     }
   }
-
   .app-container {
     text-align: center;
-
     @include media($desktop) {
       div {
         text-align: left;
-        @include span-columns(12);
+        @include span-columns(4 of 12);
       }
     }
   }
-
   ul {
     li {
       margin-bottom: 0.5em;
@@ -118,6 +153,79 @@ hr {
         color: rgb(255, 255, 255);
         text-decoration: underline;
       }
+    }
+  }
+}
+// TABLES
+table {
+  border-collapse: collapse;
+  font-size: 0.75em;
+  margin: 0 0 1em 0;
+  padding: 0;
+  width: 100%;
+}
+
+table th {
+  border-bottom: 2px solid rgb(230, 230, 230);
+  padding: 0 1.5em 0 0.5em;
+  text-align: left;
+  vertical-align: middle;
+}
+
+table td {
+  border-bottom: 1px solid rgb(230, 230, 230);
+  padding: 0.5em;
+  text-align: left;
+}
+
+table th:nth-child(1), td:nth-child(1) {
+  padding-left: 0.25em;
+}
+
+table tr:nth-child(odd) td {
+  background-color: rgb(249, 249, 249);
+}
+
+@include media($mobile) {
+  body {
+    font-size: 14px;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  table thead tr {
+    @include visually-hidden;
+  }
+
+  table tr {
+    border-bottom: 2px solid rgb(230, 230, 230);
+
+    &:first-child {
+      border-top: 2px solid rgb(230, 230, 230);
+    }
+  }
+
+  table td {
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    text-align: right;
+
+    &:last-child {
+      border: none;
+    }
+
+    &:before {
+      content: attr(data-title);
+      position: absolute;
+      left: 0.5em;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      text-align:left;
+      font-weight: bold;
     }
   }
 }

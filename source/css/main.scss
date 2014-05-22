@@ -4,110 +4,45 @@
 @import "normalize";
 @import "fonts";
 @import "settings";
-@import "layout";
 @import "theme";
 
-.prose p {
-  font-family: $textFont;
-  line-height: 1.35;
-}
-
-table {
-  border-collapse: collapse;
-  font-size: 0.75em;
-  margin: 0 0 1em 0;
-  padding: 0;
-  width: 100%;
-}
-
-table th {
-  border-bottom: 2px solid rgb(230, 230, 230);
-  padding: 0 1.5em 0 0.5em;
-  text-align: left;
-  vertical-align: middle;
-}
-
-table td {
-  border-bottom: 1px solid rgb(230, 230, 230);
-  padding: 0.5em;
-  text-align: left;
-}
-
-table th:nth-child(1), td:nth-child(1) {
-  padding-left: 0.25em;
-}
-
-table tr:nth-child(odd) td {
-  background-color: rgb(249, 249, 249);
-}
-
-@include media($mobile) {
-  body {
-    font-size: 14px;
+#search{
+  margin-top:3em;
+  @include span-columns(10);
+  @include shift(1);
+  @include media($desktop) {
+    @include span-columns(8);
+    @include shift(2); 
   }
-
-  table, thead, tbody, th, td, tr {
-    display: block;
+  h2{
+    text-align: center;
   }
-
-  table thead tr {
-    @include visually-hidden;
-  }
-
-  table tr {
-    border-bottom: 2px solid rgb(230, 230, 230);
-
-    &:first-child {
-      border-top: 2px solid rgb(230, 230, 230);
+  .searcher{
+    margin: 2em 0;
+    text-align: center;
+    button{
+      margin: 1em 0;
     }
-  }
-
-  table td {
-    position: relative;
-    padding-left: 50%;
-    white-space: normal;
-    text-align: right;
-
-    &:last-child {
-      border: none;
-    }
-
-    &:before {
-      content: attr(data-title);
-      position: absolute;
-      left: 0.5em;
-      width: 45%;
-      padding-right: 10px;
-      white-space: nowrap;
-      text-align:left;
-      font-weight: bold;
+    input[type='search']{
+      height: 30px;
+      width: 300px;
+      background: #FBFBFB;
+      @include border-top-radius(5px);
+      @include border-bottom-radius(5px);
+      @include border-left-radius(5px);
+      @include border-right-radius(5px);
     }
   }
 }
-
-.show-hospital{
-  @include outer-container;
-  .general-info{
-    @include span-columns(12);
-    button {
-      @include button;
-      padding: 0.5em 0.25em;
-    }
-  }
-  .hospital-map{
-    @include span-columns(5);
-    padding-top: 70px;
-    img{
-      display: block;
-    }
+#map{
+  @include span-columns(12);
+}
+section.results{
+  @include span-columns(8);
+  p.no-results{
+    font-size: 75%;
   }
 }
-.hospital-data{
-  @include outer-container;
-}
-.compare-2{
-  @include outer-container;
-  .hospital-compare {
-    @include span-columns(6);
-  }
+section.ad-container{
+  @include span-columns(4);
 }
