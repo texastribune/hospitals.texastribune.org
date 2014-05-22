@@ -7,6 +7,7 @@ gem "middleman-bourbon"
 gem "middleman-bower"
 gem "neat"
 gem "jshintrb"
+gem "activesupport"
 
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"
