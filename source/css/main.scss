@@ -84,10 +84,11 @@ table tr:nth-child(odd) td {
     }
   }
 }
+
 .show-hospital{
   @include outer-container;
   .general-info{
-    @include span-columns(7);
+    @include span-columns(12);
     button {
       @include button;
       padding: 0.5em 0.25em;

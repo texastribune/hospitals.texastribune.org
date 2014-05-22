@@ -94,7 +94,7 @@ hr {
     @include media($desktop) {
       div {
         text-align: left;
-        @include span-columns(4 of 12);
+        @include span-columns(12);
       }
     }
   }
