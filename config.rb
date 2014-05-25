@@ -1,6 +1,7 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 
 require 'jsonificator'
+require 'active_support/all'
 
 activate :bower
 activate :bourbon
@@ -8,7 +9,50 @@ activate :livereload
 activate :jsonificator do |j|
   j.jsonificator_template = 'hospital.html'
 end
+activate :deploy do |deploy|
+  deploy.method = :rsync
+  deploy.host   = "codingnews.info"
+  deploy.path   = "/home/malev/apps/hospital-explorer.codingnews.info"
+  deploy.user   = "malev"
+  deploy.build_before = true
+end
 
 set :css_dir, 'css'
 set :js_dir, 'js'
 set :images_dir, 'img'
+
+helpers do
+  def format_time(var)
+    if var
+      "#{var} min."
+    else
+      'N/A'
+    end
+  end
+
+  def format_str(str)
+    if str.blank?
+      'N/A'
+    else
+      str
+    end
+  end
+
+  def format_percentage(num)
+    if num
+      "#{num}%"
+    else
+      "N/A"
+    end
+  end
+
+  def bool_to_str(bool)
+    if bool.nil?
+      'N/A'
+    elsif bool == false or bool.downcase == "false"
+      "No"
+    else
+      "Yes"
+    end
+  end
+end
