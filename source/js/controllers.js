@@ -91,6 +91,7 @@ app.Controllers.HomeController = Marionette.Controller.extend({
     app.mapView = new app.Views.Map(this.hospitals);
     app.mapRegion.show(app.mapView);
     app.resultsRegion.show(app.hospitalsView);
+    app.mapView.scrollToMap();
   },
 
   hideResults: function(){

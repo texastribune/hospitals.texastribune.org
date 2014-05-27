@@ -73,6 +73,11 @@ app.Views.Map = Marionette.ItemView.extend({
 
   serializeData: function(){
     return {};
+  },
+
+  scrollToMap: function(){
+    var scrollTo = this.$el.offset().top;
+    $('body,html').animate({scrollTop: scrollTo}, 1000)
   }
 });
 
