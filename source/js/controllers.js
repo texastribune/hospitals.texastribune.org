@@ -29,7 +29,7 @@ app.Controllers.HomeController = Marionette.Controller.extend({
   afterSearch: function(findings){
     this.hideResults();
     if(findings.length === 0){
-      console.log("no results");
+      this.searchView.showEmpty();
     } else {
       this.showResults(findings);
     }

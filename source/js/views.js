@@ -19,7 +19,8 @@ app.Views.Search = Marionette.ItemView.extend({
 
   ui: {
     input: "input[type='search']",
-    error: ".error"
+    error: '.error',
+    empty: '.empty'
   },
   events: {
     'click button': 'nearestHospitals',
@@ -30,8 +31,10 @@ app.Views.Search = Marionette.ItemView.extend({
   submit: function(event){
     event.preventDefault();
     var cad = this.ui.input.val().trim().toLowerCase();
-    if (cad === ""){
-      this.showError();
+    this.hideEmpty();
+    if (cad === ''){
+      // TODO: find a better message
+      this.showError('Please type a Zipcode or a Hospital Name');
     } else {
       this.trigger("call:search", cad);
     }
@@ -45,9 +48,18 @@ app.Views.Search = Marionette.ItemView.extend({
     this.ui.error.hide();
   },
 
+  showEmpty: function(){
+    this.ui.empty.show();
+  },
+
+  hideEmpty: function(){
+    this.ui.empty.hide();
+  },
+
   nearestHospitals: function(event){
     event.preventDefault();
     this.hideError();
+    this.hideEmpty();
     this.trigger("neartest:search");
   }
 });
