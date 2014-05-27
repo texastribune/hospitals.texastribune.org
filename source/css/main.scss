@@ -25,12 +25,18 @@
     }
     input[type='search']{
       height: 30px;
-      width: 300px;
+      width: 70%;
       background: #FBFBFB;
+      margin: 0 0 1em 0;
       @include border-top-radius(5px);
       @include border-bottom-radius(5px);
       @include border-left-radius(5px);
       @include border-right-radius(5px);
+    }
+    @include media($mobile){
+      span{
+        display:block;
+      }
     }
   }
 }
@@ -38,11 +44,20 @@
   @include span-columns(12);
 }
 section.results{
-  @include span-columns(8);
   p.no-results{
     font-size: 75%;
   }
+  @include span-columns(12);
+  @include media($desktop){
+    @include span-columns(8);
+  }
 }
 section.ad-container{
-  @include span-columns(4);
+  display:none;
+  @include media($desktop){
+    @include span-columns(4);
+  }
+}
+.hide{
+  display: none;
 }
