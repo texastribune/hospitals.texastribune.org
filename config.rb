@@ -12,7 +12,7 @@ end
 activate :deploy do |deploy|
   deploy.method = :rsync
   deploy.host   = "codingnews.info"
-  deploy.path   = "/home/malev/apps/hospital-explorer.codingnews.info"
+  deploy.path   = "/home/malev/apps/hospital.codingnews.info"
   deploy.user   = "malev"
   deploy.build_before = true
 end
