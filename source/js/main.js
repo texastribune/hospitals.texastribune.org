@@ -4,6 +4,7 @@
 //=require marionette/lib/backbone.marionette
 
 //=require config
+//=require_tree ./templates
 //=require app
 //=require models
 //=require collections

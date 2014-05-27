@@ -19,6 +19,7 @@
     "Marionette",
     "Backbone",
     "app",
-    "_"
+    "_",
+    "JST"
   ]
 }

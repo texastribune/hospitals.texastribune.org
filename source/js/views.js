@@ -3,7 +3,7 @@
 app.Views = app.Views || {};
 
 app.Views.Search = Marionette.ItemView.extend({
-  template: '#search-template',
+  template: JST['templates/search-template'],
 
   ui: {
     input: "input[type='search']",
@@ -41,7 +41,7 @@ app.Views.Search = Marionette.ItemView.extend({
 });
 
 app.Views.Map = Marionette.ItemView.extend({
-  template: "#map-template",
+  template: JST['templates/map'],
 
   initialize: function(collection){
     this.collection = collection;
@@ -53,17 +53,17 @@ app.Views.Map = Marionette.ItemView.extend({
 });
 
 app.Views.Hospital = Marionette.ItemView.extend({
-  template: "#hospital-template",
+  template: JST['templates/hospital-cell'],
   tagName: 'tr',
   className: 'hospital'
 });
 
 app.Views.HospitalEmpty = Marionette.CompositeView.extend({
-  template: "#no-hospitals-template"
+  template: JST['templates/no-hospitals']
 });
 
 app.Views.Hospitals = Marionette.CompositeView.extend({
-  template: "#hospitals-template",
+  template: JST['templates/hospitals'],
   itemView: app.Views.Hospital,
   emptyView: app.Views.HospitalsEmpty,
 

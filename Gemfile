@@ -8,6 +8,7 @@ gem "middleman-bower"
 gem "neat"
 gem "jshintrb"
 gem "activesupport"
+gem "ejs"
 
 gem "middleman-deploy"
 # Live-reloading plugin
