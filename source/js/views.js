@@ -72,7 +72,13 @@ app.Views.Map = Marionette.ItemView.extend({
 app.Views.Hospital = Marionette.ItemView.extend({
   template: JST['templates/hospital-cell'],
   tagName: 'tr',
-  className: 'hospital'
+  className: 'hospital',
+  templateHelpers: function(){
+    var showDistance = this.model.hasDistance();
+    return {
+      showDistance: showDistance
+    };
+  }
 });
 
 app.Views.HospitalEmpty = Marionette.CompositeView.extend({
@@ -83,6 +89,12 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
   template: JST['templates/hospitals'],
   itemView: app.Views.Hospital,
   emptyView: app.Views.HospitalsEmpty,
+  templateHelpers: function(){
+    var showDistance = this.collection.at(0).hasDistance();
+    return {
+      showDistance: showDistance
+    };
+  },
 
   appendHtml: function(collectionView, itemView){
     collectionView.$("tbody").append(itemView.el);
