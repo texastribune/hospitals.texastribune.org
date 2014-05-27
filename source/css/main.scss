@@ -6,6 +6,7 @@
 @import "settings";
 @import "theme";
 
+
 #search{
   margin-top:3em;
   @include span-columns(10);
@@ -16,6 +17,12 @@
   }
   h2{
     text-align: center;
+  }
+  .error{
+    color: $red;
+    font-size: 70%;
+    font-style: italic;
+    margin-top: 8px;
   }
   .searcher{
     margin: 2em 0;
