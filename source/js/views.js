@@ -2,6 +2,18 @@
 
 app.Views = app.Views || {};
 
+app.Views.ErrorMessage = Marionette.ItemView.extend({
+  template: JST['templates/error-message'],
+
+  initialize: function(message){
+    this.message = message
+  },
+
+  serializeData: function(){
+    return {message: this.message};
+  }
+});
+
 app.Views.Search = Marionette.ItemView.extend({
   template: JST['templates/search-template'],
 
@@ -25,8 +37,8 @@ app.Views.Search = Marionette.ItemView.extend({
     }
   },
 
-  showError: function(){
-    this.ui.error.show();
+  showError: function(text){
+    this.ui.error.html(text).show();
   },
 
   hideError: function(){

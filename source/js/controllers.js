@@ -4,42 +4,59 @@ app.Controllers = app.Controllers || {};
 
 app.Controllers.HomeController = Marionette.Controller.extend({
   initialize: function(){
-    var searchView = new app.Views.Search();
+    this.searchView = new app.Views.Search();
     this.hospitals = new app.Collections.Hospitals();
     this.hospitals.fetch();
     this.fetchZipcodes();
 
-    this.listenTo(searchView, "call:search", this.search);
-    this.listenTo(searchView, "neartest:search", this.nearest);
-    // this.listenTo(this, "end:search", this.showResults);
+    this.listenTo(this.searchView, "call:search", this.search);
+    this.listenTo(this.searchView, "neartest:search", this.nearest);
+    this.listenTo(this, "after:search", this.afterSearch);
+    this.listenTo(this, "error:search", this.errorSearch);
 
-    app.searchRegion.show(searchView);
+    app.searchRegion.show(this.searchView);
   },
 
   index: function(){},
 
   show: function(id){},
 
-  search: function(cad){
-    if(/^\d{5}(-\d{4})?$/.test(cad)){
-      this.showResults(this.searchByZipcode(cad));
+  errorSearch: function(msg){
+    this.hideResults();
+    this.searchView.showError(msg);
+  },
+
+  afterSearch: function(findings){
+    this.hideResults();
+    if(findings.length === 0){
+      console.log("no results");
     } else {
-      this.showResults(this.searchByName(cad));
+      this.showResults(findings);
+    }
+  },
+
+  search: function(cad){
+    var findings;
+    if(/^\d{5}(-\d{4})?$/.test(cad)){
+      this.trigger('after:search', this.searchByZipcode(cad));
+    } else {
+      this.trigger('after:search', this.searchByName(cad));
     }
   },
 
   nearest: function(){
-    var self = this;
+    var self = this,
+        findings;
     if ("geolocation" in navigator){
       navigator.geolocation.getCurrentPosition(function(position) {
-        self.showResults(
-            self.searchByProximityTo(
+        findings = self.searchByProximityTo(
             position.coords.latitude,
             position.coords.longitude
-          ).slice(0, 10)
-        );
+        ).slice(0, 10)
+        self.trigger('after:search', findings);
       }, function(){
-        // Error
+        // TODO: Find a better error message
+        self.trigger('error:search', "Geolocation is not working.");
       });
     }
   },
@@ -50,7 +67,8 @@ app.Controllers.HomeController = Marionette.Controller.extend({
     if(coords){
       return this.searchByProximityTo(coords[0], coords[1]).slice(0, 10);
     } else {
-      // non valid zipcode
+      // TODO: Find a better error message
+      this.trigger('error:search', "That's not a Texas' zipcde");
     }
   },
 
@@ -73,6 +91,15 @@ app.Controllers.HomeController = Marionette.Controller.extend({
     app.mapView = new app.Views.Map(this.hospitals);
     app.mapRegion.show(app.mapView);
     app.resultsRegion.show(app.hospitalsView);
+  },
+
+  hideResults: function(){
+    if (app.hospitalsView){
+      app.hospitalsView.close();
+    }
+    if (app.mapView){
+      app.mapView.close();
+    }
   },
 
   searchByProximityTo: function(lat1, lng1){
