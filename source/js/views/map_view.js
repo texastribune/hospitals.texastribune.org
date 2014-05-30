@@ -9,7 +9,7 @@ app.Views.Map = Marionette.ItemView.extend({
       this.zoomLevel = 4;
     } else {
       this.center = center;
-      this.zoomLevel = 17;
+      this.zoomLevel = 12;
     }
   },
 
@@ -18,10 +18,9 @@ app.Views.Map = Marionette.ItemView.extend({
   },
 
   onShow: function(){
-    console.log(this.el);
     this.map = L.mapbox.map('map-location', 'texastribune.map-vjiayly8',{
       minZoom: 5,
-      maxZoom: 10
+      maxZoom: 17
       })
       .setView(this.center, this.zoomLevel)
       .featureLayer.setGeoJSON(app.geoData);
