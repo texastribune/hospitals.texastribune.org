@@ -3,6 +3,9 @@
 /* APPLICATION */
 window.app = new Marionette.Application();
 
+app.Views = app.Views || {};
+app.Controllers = app.Controllers || {};
+
 app.addRegions({
   headerRegion: "#header",
   searchRegion: "#search",

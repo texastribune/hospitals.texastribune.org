@@ -1,7 +1,5 @@
 "use strict";
 
-app.Controllers = app.Controllers || {};
-
 app.Controllers.HomeController = Marionette.Controller.extend({
   initialize: function(){
     this.searchView = new app.Views.Search();
