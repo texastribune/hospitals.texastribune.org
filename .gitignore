@@ -10,7 +10,7 @@
 # Ignore the build directory
 /build
 /vendor
-/data/*.json
+/data/*
 
 # Ignore cache
 /.sass-cache
