@@ -51,6 +51,7 @@
   @include span-columns(12);
   #map-location{
     height: 400px;
+    margin-bottom: 0.7em;
   }
 }
 section.results{
