@@ -12,6 +12,10 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
     };
   },
 
+  ui:{
+    'button': '.compare'
+  },
+
   itemEvents: {
     'select:hospital': 'selectHospital',
   },
@@ -21,10 +25,26 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
   },
 
   selectHospital: function(){
-    if ($('.hospital-selector:checked').length < 3){
+    var checkedHospitals = $('.hospital-selector:checked').length;
+
+    if (checkedHospitals < 3){
       $('.hospital-selector').removeAttr('disabled');
     } else {
       $('.hospital-selector:not(:checked)').attr('disabled', 'disabled');
     }
+
+    if (checkedHospitals > 1){
+      this.showCompareButton();
+    } else {
+      this.hideCompareButton();
+    }
   },
+
+  showCompareButton: function(){
+    this.ui.button.show();
+  },
+
+  hideCompareButton: function(){
+    this.ui.button.hide();
+  }
 });
