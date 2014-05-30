@@ -42,11 +42,11 @@ app.on("initialize:before", function(){
       "marker-size": "large",
       "marker-symbol": "hospital"
     };
-    geoData['features'].forEach(function(feature){
-      _.extend(feature['properties'], markerOptions);
+    geoData.features.forEach(function(feature){
+      _.extend(feature.properties, markerOptions);
     });
     return geoData;
-  }
+  };
   $.getJSON('/api/hospitals.geojson', function(geoData){
     self.geoData = process(geoData);
   }).fail(function(){

@@ -53,7 +53,7 @@ app.Controllers.HomeController = Marionette.Controller.extend({
         findings = self.searchByProximityTo(
             position.coords.latitude,
             position.coords.longitude
-        ).slice(0, 10)
+        ).slice(0, 10);
         self.trigger('after:search', findings);
       }, function(){
         // TODO: Find a better error message
@@ -66,7 +66,7 @@ app.Controllers.HomeController = Marionette.Controller.extend({
     var coords = this.zipcodes[cad]; // {zipcode: [lat, lng]}
 
     if(coords){
-      self.centerLocation = [coords[0], coords[1]]
+      this.centerLocation = [coords[0], coords[1]];
       return this.searchByProximityTo(coords[0], coords[1]).slice(0, 10);
     } else {
       // TODO: Find a better error message
