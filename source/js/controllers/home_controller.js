@@ -11,6 +11,7 @@ app.Controllers.HomeController = Marionette.Controller.extend({
     this.listenTo(this.searchView, "neartest:search", this.nearest);
     this.listenTo(this, "after:search", this.afterSearch);
     this.listenTo(this, "error:search", this.errorSearch);
+    this.centerLocation = [];
 
     app.searchRegion.show(this.searchView);
   },
@@ -47,6 +48,8 @@ app.Controllers.HomeController = Marionette.Controller.extend({
         findings;
     if ("geolocation" in navigator){
       navigator.geolocation.getCurrentPosition(function(position) {
+        self.centerLocation = [position.coords.latitude,
+                                position.coords.longitude];
         findings = self.searchByProximityTo(
             position.coords.latitude,
             position.coords.longitude
@@ -63,6 +66,7 @@ app.Controllers.HomeController = Marionette.Controller.extend({
     var coords = this.zipcodes[cad]; // {zipcode: [lat, lng]}
 
     if(coords){
+      self.centerLocation = [coords[0], coords[1]]
       return this.searchByProximityTo(coords[0], coords[1]).slice(0, 10);
     } else {
       // TODO: Find a better error message
@@ -78,6 +82,7 @@ app.Controllers.HomeController = Marionette.Controller.extend({
         return hospital;
       }
     });
+    this.centerLocation = [];
     return results;
   },
 
@@ -86,7 +91,7 @@ app.Controllers.HomeController = Marionette.Controller.extend({
     app.hospitalsView = new app.Views.Hospitals({
       collection: collection
     });
-    app.mapView = new app.Views.Map(this.hospitals);
+    app.mapView = new app.Views.Map(this.centerLocation);
     app.mapRegion.show(app.mapView);
     app.resultsRegion.show(app.hospitalsView);
     app.mapView.scrollToMap();
