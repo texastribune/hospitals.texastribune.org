@@ -49,6 +49,9 @@
 }
 #map{
   @include span-columns(12);
+  #map-location{
+    height: 400px;
+  }
 }
 section.results{
   p.no-results{
