@@ -34,6 +34,26 @@ app.on("initialize:after", function(){
   }
 });
 
+app.on("initialize:before", function(){
+  var self = this;
+  var process = function(geoData){
+    var markerOptions = {
+      "marker-color": "#fc4353",
+      "marker-size": "large",
+      "marker-symbol": "hospital"
+    };
+    geoData['features'].forEach(function(feature){
+      _.extend(feature['properties'], markerOptions);
+    });
+    return geoData;
+  }
+  $.getJSON('/api/hospitals.geojson', function(geoData){
+    self.geoData = process(geoData);
+  }).fail(function(){
+    this.geoData = {};
+  });
+});
+
 $(document).ready(function(){
   app.start();
 });
