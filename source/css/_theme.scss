@@ -94,6 +94,23 @@ input[type='submit'], button{
 // APP-CONTAINER
 section.app-container{
   @include outer-container;
+  header{
+    @include span-columns(12);
+  }
+  section.search-bar {
+    @include span-columns(8);
+    @include expand-on-mobile;
+  }
+  section.hospital {
+    @include span-columns(8);
+    @include expand-on-mobile;
+  }
+  section.ad-container {
+    @include span-columns(4);
+    @include media($mobile) {
+      display: none;
+    }
+  }
   .footer-note{
     margin-top:5em;
     @include span-columns(10);

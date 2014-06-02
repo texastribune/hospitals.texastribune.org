@@ -63,12 +63,15 @@ section.results{
     @include span-columns(8);
   }
 }
-section.ad-container{
-  display:none;
-  @include media($desktop){
-    @include span-columns(4);
+
+.hospital-information {
+  .hospital-data, .hospital-map {
+    @include media($desktop) {
+      @include span-columns(4 of 8);
+    }
   }
 }
+
 .hide{
   display: none;
 }
