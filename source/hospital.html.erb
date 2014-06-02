@@ -1,31 +1,36 @@
-<h1>Hospital Explorer</h1>
-<section class="app_container">
-  <div class="search_bar">
-
-  </div>
-  <div class="hospital_information">
-    <div class="hospital_data">
-      <h2><%= locals[:name] %></h2>
+<header>
+  <h2>Hospital Explorer</h2>
+  <hr>
+</header>
+<section class="search-bar">
+  <form>
+    <input type="search" placeholder="Find hospital by name or zipcode">
+    <input type="submit" value="Search">
+  </form>
+</section>
+<section class="hospital">
+  <div class="hospital-information">
+    <div class="hospital-data">
+      <h3><%= locals[:name] %></h3>
       <div class="address">
         <p><%= locals[:address] %></p>
         <p><%= "#{locals[:city]}, TX #{locals[:zipcode]}"%></p>
       </div>
-      <div class="hospita_info">
+      <div class="hospita-info">
         <p>Hospital Type: <%= locals[:type] %></p>
         <p>Emergency services: <%= bool_to_str locals[:emergency_services] %></p>
         <p>Ownership: <%= locals[:hospital_ownership] %></p>
       </div>
     </div>
-    <div class="hospital_map">
+    <div class="hospital-map">
       <img src="http://maps.googleapis.com/maps/api/staticmap?center=
       <%= locals[:latitude] %>,<%= locals[:longitude] %>&zoom=11&size=200x200&sensor=false">
     </div>
-    <button class="compare">Compare Hospital</button>
+    <div class="controls">
+      <button class="compare">Compare Hospital</button>
+    </div>
   </div>
-  <div class="hospital_information">
-
-  </div>
-  <div class="hospital_information">
+  <div class="hospital-information">
     <h3>Emergency Care</h3>
     <p class="description">In an emergency, timely and effective care is essential. These indicators show how long you could expect to wait in the emergency room before seeing a healthcare professional, being admitted to the hospital or being sent home. The data is taken from hospitals' medical records, and is audited and verified by CMS.</p>
     <table>
@@ -39,27 +44,27 @@
       </thead>
       <tbody>
         <tr>
-          <td>Before being seen by a healthcare professional</td>
-          <td><%= format_time locals[:door_to_diagnostic] %></td>
-          <td><%= format_time data.state['door_to_diagnostic'] %></td>
-          <td><%= format_time data.national['door_to_diagnostic'] %></td>
+          <td data-title="Average wait time">Before being seen by a healthcare professional</td>
+          <td data-title=""><%= format_time locals[:door_to_diagnostic] %></td>
+          <td data-title="TX"><%= format_time data.state['door_to_diagnostic'] %></td>
+          <td data-title="National"><%= format_time data.national['door_to_diagnostic'] %></td>
         </tr>
         <tr>
-          <td>Before being admited to the hospital</td>
-          <td><%= format_time locals[:ed1] %></td>
-          <td><%= format_time data.state['ed1'] %></td>
-          <td><%= format_time data.national['ed1'] %></td>
+          <td data-title="Average wait time">Before being admited to the hospital</td>
+          <td data-title=""><%= format_time locals[:ed1] %></td>
+          <td data-title="TX"><%= format_time data.state['ed1'] %></td>
+          <td data-title="National"><%= format_time data.national['ed1'] %></td>
         </tr>
         <tr>
-          <td>Before being sent home</td>
-          <td><%= format_time locals[:op_18] %></td>
-          <td><%= format_time data.state['op18'] %></td>
-          <td><%= format_time data.national['op18'] %></td>
+          <td data-title="Average wait time">Before being sent home</td>
+          <td data-title=""><%= format_time locals[:op_18] %></td>
+          <td data-title="TX"><%= format_time data.state['op18'] %></td>
+          <td data-title="National"><%= format_time data.national['op18'] %></td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="hospital_information">
+  <div class="hospital-information">
     <h3>Clinical Care</h3>
     <p class="description">
       The quality of a hospital's clinical care practices can impact the rate at which patients experience surgical complications or acquire infections. These indicators show how the hospital's rates of surgical complications and hospital-associated infections compares to national standards. Lower rates are better. 
@@ -87,7 +92,7 @@
       </tbody>
     </table>
   </div>
-  <div class="hospital_information">
+  <div class="hospital-information">
     <h3>Patient Outcomes</h3>
     <p class="description">
       These indicators show what happened to patients after receiving treatments for serious, common conditions such as heart attack, heart failure and pneumonia. These rates are risk-adjusted, meaning that they take into account how sick a patient was before coming to the hospital.
@@ -152,7 +157,7 @@
       </tbody>
     </table>
   </div>
-  <div class="hospital_information">
+  <div class="hospital-information">
     <h3>Patient Experience</h3>
     <p class="description">
       This data comes from a standardized survey used to evaluated patients' experiences at hospitals. The Centers for Medicare and Medicaid Services and the Agency for Healthcare Research and Quality created the survey, which has been used since 2006 to help consumers compare the quality of care between hospitals.
@@ -188,12 +193,9 @@
       </tbody>
     </table>
   </div>
-  <div class="hospital_information">
-  </div>
 </section>
-<aside class="ad-container">
+<section class="ad-container">
   <img src="http://placehold.it/300x250&text=Ad Block 1">
   <img src="http://placehold.it/300x250&text=Ad Block 2">
   <img src="http://placehold.it/300x250&text=Ad Block 3">
-</aside>
-
+</section>
