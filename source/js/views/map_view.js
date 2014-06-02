@@ -4,7 +4,7 @@ app.Views.Map = Marionette.ItemView.extend({
   template: JST['templates/map'],
 
   initialize: function(center){
-    if (center.length ===1){
+    if (center.length === 0){
       this.center = [31.35, -99.64];
       this.zoomLevel = 4;
     } else {
