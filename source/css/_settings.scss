@@ -30,3 +30,9 @@ $red: #D8000C;
   position: absolute;
   width: 1px;
 }
+
+@mixin expand-on-mobile {
+  @include media($mobile) {
+    @include span-columns(12);
+  }
+}
