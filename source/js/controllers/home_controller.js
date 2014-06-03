@@ -9,7 +9,6 @@ app.Controllers.HomeController = Marionette.Controller.extend({
     this.fetchZipcodes();
 
     this.listenTo(this.searchView, "call:search", this.search);
-    this.listenTo(this.searchView, "neartest:search", this.nearest);
     this.listenTo(this, "after:search", this.afterSearch);
     this.listenTo(this, "error:search", this.errorSearch);
     this.centerLocation = [];

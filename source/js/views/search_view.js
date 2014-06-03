@@ -46,6 +46,6 @@ app.Views.Search = Marionette.ItemView.extend({
     event.preventDefault();
     this.hideError();
     this.hideEmpty();
-    this.trigger("neartest:search");
+    this.trigger("call:search", 'nearest');
   }
 });
