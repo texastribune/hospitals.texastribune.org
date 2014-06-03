@@ -20,6 +20,10 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
     'select:hospital': 'selectHospital',
   },
 
+  events: {
+    'click .more-results': 'moreResults'
+  },
+
   appendHtml: function(collectionView, itemView){
     collectionView.$("tbody").append(itemView.el);
   },
@@ -38,6 +42,11 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
     } else {
       this.hideCompareButton();
     }
+  },
+
+  moreResults: function(event) {
+    event.preventDefault();
+    this.trigger('more-results:hospitals');
   },
 
   showCompareButton: function(){

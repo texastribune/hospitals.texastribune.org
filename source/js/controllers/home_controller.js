@@ -2,6 +2,7 @@
 
 app.Controllers.HomeController = Marionette.Controller.extend({
   initialize: function(){
+    this.perPage = 10;
     this.searchView = new app.Views.Search();
     this.hospitals = new app.Collections.Hospitals();
     this.hospitals.fetch();
@@ -34,16 +35,18 @@ app.Controllers.HomeController = Marionette.Controller.extend({
     }
   },
 
-  search: function(cad){
-    var findings;
-    if(/^\d{5}(-\d{4})?$/.test(cad)){
-      this.trigger('after:search', this.searchByZipcode(cad));
+  search: function(cad, page){
+    this.page = typeof page !== 'undefined' ?  page : 1;
+    if(cad === 'nearest') {
+      this.nearest(this.page);
+    } else if(/^\d{5}(-\d{4})?$/.test(cad)) {
+      this.trigger('after:search', this.searchByZipcode(cad, this.page));
     } else {
-      this.trigger('after:search', this.searchByName(cad));
+      this.trigger('after:search', this.searchByName(cad, page));
     }
   },
 
-  nearest: function(){
+  nearest: function(page){
     var self = this,
         findings;
     if ("geolocation" in navigator){
@@ -53,7 +56,7 @@ app.Controllers.HomeController = Marionette.Controller.extend({
         findings = self.searchByProximityTo(
             position.coords.latitude,
             position.coords.longitude
-        ).slice(0, 10);
+        ).slice((page-1) * this.perPage, page * this.perPage);
         self.trigger('after:search', findings);
       }, function(){
         // TODO: Find a better error message
@@ -62,12 +65,13 @@ app.Controllers.HomeController = Marionette.Controller.extend({
     }
   },
 
-  searchByZipcode: function(cad){ // 76244
+  searchByZipcode: function(cad, page){ // 76244
     var coords = this.zipcodes[cad]; // {zipcode: [lat, lng]}
 
     if(coords){
       this.centerLocation = [coords[0], coords[1]];
-      return this.searchByProximityTo(coords[0], coords[1]).slice(0, 10);
+      return this.searchByProximityTo(coords[0], coords[1]).
+              slice((page-1) * this.perPage, page * this.perPage);
     } else {
       // TODO: Find a better error message
       this.trigger('error:search', "That's not a Texas' zipcde");
