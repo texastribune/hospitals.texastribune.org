@@ -2,13 +2,7 @@
   <h2>Hospital Explorer</h2>
   <hr>
 </header>
-<section class="search-bar">
-  <form>
-    <input type="search" placeholder="Find hospital by name or zipcode">
-    <input type="submit" value="Search">
-  </form>
-</section>
-<section class="hospital">
+<section class="content-container">
   <div class="hospital-information">
     <div class="hospital-data">
       <h3><%= locals[:name] %></h3>
@@ -24,9 +18,7 @@
     </div>
     <div class="hospital-map">
       <img src="http://maps.googleapis.com/maps/api/staticmap?center=
-      <%= locals[:latitude] %>,<%= locals[:longitude] %>&zoom=11&size=200x200&sensor=false">
-    </div>
-    <div class="controls">
+      <%= locals[:latitude] %>,<%= locals[:longitude] %>&zoom=11&size=300x200&sensor=false">
       <button class="compare">Compare Hospital</button>
     </div>
   </div>
