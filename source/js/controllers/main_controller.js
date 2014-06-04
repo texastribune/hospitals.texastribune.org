@@ -2,7 +2,7 @@
 
 app.Controllers.MainController = Marionette.Controller.extend({
   initialize: function() {
-    this.homeController = new app.Controllers.HomeController();
+    this.homeController = new app.Controllers.SearchController();
   },
 
   index: function() {},

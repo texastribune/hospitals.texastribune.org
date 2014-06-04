@@ -1,6 +1,6 @@
 'use strict';
 
-app.Controllers.HomeController = Marionette.Controller.extend( {
+app.Controllers.SearchController = Marionette.Controller.extend( {
   initialize: function() {
     this.perPage = 10;
     this.searchView = new app.Views.Search();
