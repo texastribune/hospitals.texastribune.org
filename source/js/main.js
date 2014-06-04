@@ -8,5 +8,6 @@
 //=require app
 //=require models
 //=require collections
+//=require controllers/main_controller
 //=require controllers/home_controller
 //=require_tree ./views

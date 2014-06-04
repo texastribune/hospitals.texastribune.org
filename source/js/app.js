@@ -15,42 +15,74 @@ app.addRegions({
 });
 
 app.Routers = app.Routers || {};
+
 app.Routers.Main = Backbone.Marionette.AppRouter.extend({
   appRoutes: {
     '': 'index',
-    'query:cad': 'search'
+    'search/:query': 'search',
+    'compare/*hospitals': 'compare',
+    '*default': 'index'
   }
 });
 
-app.addInitializer(function(options){
-  var mainRouter = new app.Routers.Main({
-    controller: new app.Controllers.HomeController()
+app.dataLoaded = function dataLoaded() {
+  // This function will be called as soon as
+  // zipCodes, geoData and hospitals are loaded
+
+  var mainRouter = new app.Routers.Main( {
+    controller: new app.Controllers.MainController()
+  });
+  if ( Backbone.history ) {
+    Backbone.history.start();
+  }
+}
+
+app.loading = _.after(3, app.dataLoaded);
+
+app.vent.on('dataLoaded', function() {
+  app.loading();
+});
+
+app.on('initialize:before', function() {
+  app.hospitals = new app.Collections.Hospitals();
+  app.hospitals.on('reset', function() {
+    app.vent.trigger('dataLoaded');
+  });
+  app.hospitals.fetch( { reset: true } );
+});
+
+app.on('initialize:before', function() {
+  var jqxhr;
+
+  jqxhr = $.getJSON( '/api/zipcodes.json', function(data) {
+    app.zipcodes = data;
+    app.vent.trigger('dataLoaded');
+  })
+  .fail(function() {
+    app.zipcodes = [];
   });
 });
 
-app.on("initialize:after", function(){
-  if(Backbone.history){
-    Backbone.history.start();
-  }
-});
+app.on('initialize:before', function() {
+  var self = this,
+      process;
 
-app.on("initialize:before", function(){
-  var self = this;
-  var process = function(geoData){
+  process = function process(geoData) {
     var markerOptions = {
-      "marker-color": "#fc4353",
-      "marker-size": "large",
-      "marker-symbol": "hospital"
+      'marker-color':  '#fc4353',
+      'marker-size':   'large',
+      'marker-symbol': 'hospital'
     };
-    geoData.features.forEach(function(feature){
+    geoData.features.forEach(function(feature) {
       _.extend(feature.properties, markerOptions);
     });
     return geoData;
   };
-  $.getJSON('/api/hospitals.geojson', function(geoData){
+  $.getJSON('/api/hospitals.geojson', function(geoData) {
     self.geoData = process(geoData);
-  }).fail(function(){
-    this.geoData = {};
+    self.vent.trigger('dataLoaded');
+  }).fail(function() {
+    self.geoData = {};
   });
 });
 

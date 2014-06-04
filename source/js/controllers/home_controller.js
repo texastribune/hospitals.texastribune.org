@@ -4,9 +4,6 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
   initialize: function() {
     this.perPage = 10;
     this.searchView = new app.Views.Search();
-    this.hospitals = new app.Collections.Hospitals();
-    this.hospitals.fetch();
-    this.fetchZipcodes();
 
     this.listenTo(this.searchView, 'call:search', this.search);
     this.listenTo(this, 'after:search', this.afterSearch);
@@ -15,10 +12,6 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
 
     app.searchRegion.show(this.searchView);
   },
-
-  index: function() {},
-
-  show: function(id) {},
 
   errorSearch: function(msg) {
     this.hideResults();
@@ -69,7 +62,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
   },
 
   searchByZipcode: function(cad, page) { // 76244
-    var coords = this.zipcodes[cad]; // {zipcode: [lat, lng]}
+    var coords = app.zipcodes[cad]; // {zipcode: [lat, lng]}
 
     if(coords){
       this.centerLocation = [coords[0], coords[1]];
@@ -85,7 +78,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
     var regex = new RegExp(name, 'i'),
         results;
 
-    results = this.hospitals.filter(function(hospital) {
+    results = app.hospitals.filter(function(hospital) {
       if(hospital.get('name').toLowerCase().search(regex) !== -1){
         return hospital;
       }
@@ -124,7 +117,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
   searchByProximityTo: function(lat1, lng1) {
     var output,
         self = this;
-    output = this.hospitals.sortBy(function(hospital){
+    output = app.hospitals.sortBy(function(hospital) {
       var distance = self.distanceFromLatLng(
         lat1, lng1, hospital.get('latitude'), hospital.get('longitude'));
       hospital.set('distance', distance.toFixed(1));
@@ -157,17 +150,5 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     d = R * c; // Distance in miles
     return d;
-  },
-
-  fetchZipcodes: function() {
-    var self = this,
-        jqxhr;
-
-    jqxhr = $.getJSON( '/api/zipcodes.json', function(data) {
-      self.zipcodes = data;
-    })
-    .fail(function() {
-      self.zipcodes = [];
-    });
   }
 });
