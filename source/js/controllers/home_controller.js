@@ -43,7 +43,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
     } else if(/^\d{5}(-\d{4})?$/.test(cad)) {
       this.trigger('after:search', this.searchByZipcode(cad, this.page));
     } else {
-      this.trigger('after:search', this.searchByName(cad, page));
+      this.trigger('after:search', this.searchByName(cad, this.page));
     }
   },
 
@@ -81,7 +81,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
     }
   },
 
-  searchByName: function(name) {
+  searchByName: function(name, page) {
     var regex = new RegExp(name, 'i'),
         results;
 
@@ -91,7 +91,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
       }
     });
     this.centerLocation = [];
-    return results;
+    return results.slice((page - 1) * this.perPage, page * this.perPage);
   },
 
   moreResults: function() {
