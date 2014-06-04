@@ -26,7 +26,6 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
   },
 
   afterSearch: function(findings) {
-    this.hideResults();
     if(findings.length === 0){
       this.searchView.showEmpty();
     } else {
@@ -35,9 +34,12 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
   },
 
   search: function(cad, page) {
+    this.searching = cad;
     this.page = typeof page !== 'undefined' ?  page : 1;
+
+    if ( this.page === 1 ) this.hideResults();
     if(cad === 'nearest') {
-      this.nearest(this.page);
+      this.searchByLocation(this.page);
     } else if(/^\d{5}(-\d{4})?$/.test(cad)) {
       this.trigger('after:search', this.searchByZipcode(cad, this.page));
     } else {
@@ -45,7 +47,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
     }
   },
 
-  nearest: function(page) {
+  searchByLocation: function(page) {
     var self = this,
         findings;
 
@@ -92,15 +94,26 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
     return results;
   },
 
+  moreResults: function() {
+    this.page += 1;
+    this.search(this.searching, this.page);
+  },
+
   showResults: function(results) {
     var collection = new app.Collections.Hospitals(results);
-    app.hospitalsView = new app.Views.Hospitals( {
-      collection: collection
-    });
-    app.mapView = new app.Views.Map(this.centerLocation);
-    app.mapRegion.show(app.mapView);
-    app.resultsRegion.show(app.hospitalsView);
-    app.mapView.scrollToMap();
+
+    if (typeof app.hospitalsView === 'undefined' || app.hospitalsView.isClosed) {
+      app.hospitalsView = new app.Views.Hospitals( {
+        collection: collection
+      });
+      this.listenTo(app.hospitalsView, 'more-results:hospitals', this.moreResults);
+      app.mapView = new app.Views.Map(this.centerLocation);
+      app.mapRegion.show(app.mapView);
+      app.resultsRegion.show(app.hospitalsView);
+      app.mapView.scrollToMap();
+    } else {
+      app.hospitalsView.collection.add(collection.models);
+    }
   },
 
   hideResults: function() {

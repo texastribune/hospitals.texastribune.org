@@ -21,7 +21,7 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
   },
 
   events: {
-    'click .more-results': 'moreResults'
+    'click a.more-results': 'moreResults'
   },
 
   appendHtml: function(collectionView, itemView){
