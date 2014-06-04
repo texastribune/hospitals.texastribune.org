@@ -30,6 +30,7 @@ app.Controllers.SearchController = Marionette.Controller.extend( {
     this.searching = cad;
     this.page = typeof page !== 'undefined' ?  page : 1;
 
+    app.mainRouter.navigate('search/' + cad);
     if ( this.page === 1 ) this.hideResults();
     if(cad === 'nearest') {
       this.searchByLocation(this.page);

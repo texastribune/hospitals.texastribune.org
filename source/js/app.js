@@ -29,7 +29,7 @@ app.dataLoaded = function dataLoaded() {
   // This function will be called as soon as
   // zipCodes, geoData and hospitals are loaded
 
-  var mainRouter = new app.Routers.Main( {
+  this.mainRouter = new app.Routers.Main( {
     controller: new app.Controllers.MainController()
   });
   if ( Backbone.history ) {
