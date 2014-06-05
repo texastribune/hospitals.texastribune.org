@@ -13,7 +13,7 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
   },
 
   ui:{
-    'button': '.compare'
+    'compare': '.compare'
   },
 
   itemEvents: {
@@ -21,7 +21,18 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
   },
 
   events: {
+    'click @ui.compare': 'compare',
     'click a.more-results': 'moreResults'
+  },
+
+  compare: function(event) {
+    var hospitalIds = [];
+
+    event.preventDefault();
+    $('.hospital-selector:checked').each(function(index) {
+      hospitalIds.push($(this).data('id'));
+    });
+    this.trigger('compare:hospitals', hospitalIds);
   },
 
   appendHtml: function(collectionView, itemView){
@@ -50,10 +61,10 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
   },
 
   showCompareButton: function(){
-    this.ui.button.show();
+    this.ui.compare.show();
   },
 
   hideCompareButton: function(){
-    this.ui.button.hide();
+    this.ui.compare.hide();
   }
 });

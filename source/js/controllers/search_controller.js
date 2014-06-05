@@ -101,6 +101,7 @@ app.Controllers.SearchController = Marionette.Controller.extend( {
         collection: collection
       });
       this.listenTo(app.hospitalsView, 'more-results:hospitals', this.moreResults);
+      this.listenTo(app.hospitalsView, 'compare:hospitals', this.compare);
       app.mapView = new app.Views.Map(this.centerLocation);
       app.mapRegion.show(app.mapView);
       app.resultsRegion.show(app.hospitalsView);
@@ -151,5 +152,11 @@ app.Controllers.SearchController = Marionette.Controller.extend( {
     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     d = R * c; // Distance in miles
     return d;
+  },
+
+  compare: function(hospitalIds) {
+    this.hideResults();
+    this.searchView.close();
+    this.trigger('compare:hospitals', hospitalIds);
   }
 });

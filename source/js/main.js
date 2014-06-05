@@ -10,4 +10,5 @@
 //=require collections
 //=require controllers/main_controller
 //=require controllers/search_controller
+//=require controllers/compare_controller
 //=require_tree ./views
