@@ -19,7 +19,7 @@
     <div class="hospital-map">
       <img src="http://maps.googleapis.com/maps/api/staticmap?center=
       <%= locals[:latitude] %>,<%= locals[:longitude] %>&zoom=11&size=300x200&sensor=false">
-      <button class="compare">Compare Hospital</button>
+      <a href="/#compare/<%= locals[:id] %>" class="button">Compare Hospital</a>
     </div>
   </div>
   <div class="hospital-information">

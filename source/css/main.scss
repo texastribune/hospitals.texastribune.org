@@ -72,7 +72,7 @@ section.results{
     text-align: center;
     @include span-columns(4 of 8);
     @include omega();
-    button{
+    .button{
       margin-top: 1em;
     }
   }

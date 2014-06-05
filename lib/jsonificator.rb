@@ -19,6 +19,7 @@ class Jsonificator < Middleman::Extension
           "#{page_name}.html",
           "#{options.jsonificator_template}",
           locals: {
+            id: json_data["_id"],
             url: json_data["url"],
             name: json_data["name"],
             address: json_data["address"],
