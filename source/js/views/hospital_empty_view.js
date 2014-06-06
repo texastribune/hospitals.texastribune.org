@@ -1,5 +1,5 @@
 "use strict";
 
-app.Views.HospitalEmpty = Marionette.CompositeView.extend({
+app.Views.HospitalEmpty = Marionette.ItemView.extend({
   template: JST['templates/no-hospitals']
 });
