@@ -11,4 +11,10 @@
 //=require controllers/main_controller
 //=require controllers/search_controller
 //=require controllers/compare_controller
-//=require_tree ./views
+//=require views/hospital_empty_view
+//=require views/hospital_view
+//=require views/hospital_to_compare_view
+//=require views/map_view
+//=require views/search_view
+//=require views/hospitals_to_compare_view
+//=require views/hospitals_view
