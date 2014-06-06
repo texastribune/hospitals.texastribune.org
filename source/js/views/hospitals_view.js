@@ -69,16 +69,7 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
     } else {
       this.hideCompareButton();
     }
-    // this.trigger('select:hospitals', this.selectedHospitals());
   },
-
-  // selectedHospitals: function() {
-  //   var output = [];
-  //   $('.hospital-selector:checked').each(function(index) {
-  //     output.push($(this).data('id'));
-  //   });
-  //   return output;
-  // },
 
   moreResults: function(event) {
     event.preventDefault();
