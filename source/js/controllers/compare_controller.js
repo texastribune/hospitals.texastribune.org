@@ -15,6 +15,8 @@ app.Controllers.CompareController = Marionette.Controller.extend({
       collection: new app.Collections.Hospitals([hospital])
     });
     app.compareRegion.show(this.hospitalsToCompare);
+    app.mapView = new app.Views.Map(hospital.coordinates());
+    app.mapRegion.show(app.mapView);
   },
 
   showCompare: function(hospitalIds) {}
