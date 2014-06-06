@@ -53,6 +53,15 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
     } else {
       this.hideCompareButton();
     }
+    this.trigger('select:hospitals', this.selectedHospitals());
+  },
+
+  selectedHospitals: function() {
+    var output = [];
+    $('.hospital-selector:checked').each(function(index) {
+      output.push($(this).data('id'));
+    });
+    return output;
   },
 
   moreResults: function(event) {
@@ -66,5 +75,19 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
 
   hideCompareButton: function(){
     this.ui.compare.hide();
+  },
+
+  selectResults: function(ids) {
+    var self = this;
+
+    _.each(ids, function(id) {
+      if (self.collection.get(id)) {
+        self.check(id);
+      }
+    });
+  },
+
+  check: function(id) {
+    this.$el.find('*[data-id="' + id +'"]').prop('checked', true);
   }
 });
