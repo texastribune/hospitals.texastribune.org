@@ -18,11 +18,21 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
 
   itemEvents: {
     'select:hospital': 'selectHospital',
+    'checked:hospital': 'hospitalChecked',
+    'unchecked:hospital': 'hospitalUnchecked'
   },
 
   events: {
     'click @ui.compare': 'compare',
     'click a.more-results': 'moreResults'
+  },
+
+  hospitalChecked: function(eventName, itemView, una) {
+    this.trigger('hospital:selected', itemView.model.id);
+  },
+
+  hospitalUnchecked: function(eventName, itemView) {
+    this.trigger('hospital:deselected', itemView.model.id);
   },
 
   compare: function(event) {
@@ -39,8 +49,14 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
     collectionView.$("tbody").append(itemView.el);
   },
 
-  selectHospital: function(){
+  selectHospital: function(eventName, itemView){
     var checkedHospitals = $('.hospital-selector:checked').length;
+
+    if (itemView.model.get('selected')) {
+      this.trigger('check:hospital', itemView.model.get('id'));
+    } else {
+      this.trigger('uncheck:hospital', itemView.model.get('id'));
+    }
 
     if (checkedHospitals < 3){
       $('.hospital-selector').removeAttr('disabled');
@@ -53,16 +69,16 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
     } else {
       this.hideCompareButton();
     }
-    this.trigger('select:hospitals', this.selectedHospitals());
+    // this.trigger('select:hospitals', this.selectedHospitals());
   },
 
-  selectedHospitals: function() {
-    var output = [];
-    $('.hospital-selector:checked').each(function(index) {
-      output.push($(this).data('id'));
-    });
-    return output;
-  },
+  // selectedHospitals: function() {
+  //   var output = [];
+  //   $('.hospital-selector:checked').each(function(index) {
+  //     output.push($(this).data('id'));
+  //   });
+  //   return output;
+  // },
 
   moreResults: function(event) {
     event.preventDefault();

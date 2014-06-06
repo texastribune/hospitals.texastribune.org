@@ -22,5 +22,10 @@ app.Views.Hospital = Marionette.ItemView.extend({
 
   hospitalSelected: function(){
     this.trigger('select:hospital');
+    if (this.ui.checkbox.is(':checked')) {
+      this.trigger('checked:hospital', this.model.get('id'));
+    } else {
+      this.trigger('unchecked:hospital', this.model.get('id'));
+    }
   }
 });
