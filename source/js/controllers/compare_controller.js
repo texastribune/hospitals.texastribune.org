@@ -22,8 +22,6 @@ app.Controllers.CompareController = Marionette.Controller.extend({
       narrowSearch: true,
     });
 
-    app.narrowRegion.show(app.searchView);
-
     app.hospitalsView = new app.Views.Hospitals({
       collection: app.hospitals
     });
@@ -32,6 +30,7 @@ app.Controllers.CompareController = Marionette.Controller.extend({
     this.listenTo(app.hospitalsView, 'hospital:selected', this.selectedHospital);
     this.listenTo(app.hospitalsView, 'hospital:deselected', this.deselectedHospital);
 
+    app.narrowRegion.show(app.searchView);
     app.mapRegion.show(app.mapView);
     app.compareRegion.show(this.compareHospitalsView);
     app.resultsRegion.show(app.hospitalsView);
