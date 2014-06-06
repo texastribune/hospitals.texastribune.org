@@ -16,7 +16,12 @@ app.Controllers.CompareController = Marionette.Controller.extend({
     });
     app.compareRegion.show(this.hospitalsToCompare);
     app.mapView = new app.Views.Map(hospital.coordinates());
+    app.searchView  = new app.Views.Search({
+      narrowSearch: true,
+    });
+
     app.mapRegion.show(app.mapView);
+    app.narrowRegion.show(app.searchView);
   },
 
   showCompare: function(hospitalIds) {}

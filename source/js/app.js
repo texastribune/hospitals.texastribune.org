@@ -8,6 +8,7 @@ app.Controllers = app.Controllers || {};
 
 app.addRegions({
   searchRegion:  '#search',
+  narrowRegion:  '#narrow-search',
   mapRegion:     '#map',
   resultsRegion: '#results',
   compareRegion: '#compare'
