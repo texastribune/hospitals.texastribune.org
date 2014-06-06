@@ -28,8 +28,9 @@ app.Controllers.CompareController = Marionette.Controller.extend({
       collection: app.hospitals
     });
 
-    this.listenTo(app.hospitalsView, 'hospital:selected', this.selectHospital);
-    this.listenTo(app.hospitalsView, 'hospital:deselected', this.deselectHospital);
+    this.listenTo(this.hospitalsToCompare, 'remove', this.removeHospital);
+    this.listenTo(app.hospitalsView, 'hospital:selected', this.selectedHospital);
+    this.listenTo(app.hospitalsView, 'hospital:deselected', this.deselectedHospital);
 
     app.mapRegion.show(app.mapView);
     app.compareRegion.show(this.compareHospitalsView);
@@ -39,13 +40,17 @@ app.Controllers.CompareController = Marionette.Controller.extend({
 
   showCompare: function(hospitalIds) {},
 
-  selectHospital: function(hospitalId) {
+  selectedHospital: function(hospitalId) {
     var hospitalToCompare = app.hospitals.get(hospitalId);
     this.hospitalsToCompare.add(hospitalToCompare.attributes);
   },
 
-  deselectHospital: function(hospitalId) {
+  deselectedHospital: function(hospitalId) {
     var hospitalToRemove = app.hospitals.get(hospitalId);
     this.hospitalsToCompare.remove(hospitalToRemove);
+  },
+
+  removeHospital: function(hospital) {
+    app.hospitalsView.uncheck(hospital.id);
   }
 });

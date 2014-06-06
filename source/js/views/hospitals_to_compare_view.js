@@ -7,12 +7,18 @@ app.Views.HospitalsToCompare = Marionette.CollectionView.extend({
 
   ui:{},
 
-  itemEvents: {},
+  itemEvents: {
+    "remove:hospital": 'removeHospitalClicked'
+  },
 
   events: {},
 
   appendHtml: function(collectionView, itemView){
     collectionView.$el.append(this.template())
     collectionView.$("tbody").append(itemView.el);
+  },
+
+  removeHospitalClicked: function(eventName, itemView, hospitalId) {
+    this.collection.remove(itemView.model);
   }
 });
