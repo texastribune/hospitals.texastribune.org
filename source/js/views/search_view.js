@@ -14,6 +14,10 @@ app.Views.Search = Marionette.ItemView.extend({
     'submit form': 'submit'
   },
 
+  initialize: function(options) {
+    this.narrowSearch = options.narrowSearch;
+  },
+
   submit: function(event){
     event.preventDefault();
     var cad = this.ui.input.val().trim().toLowerCase();
@@ -47,5 +51,13 @@ app.Views.Search = Marionette.ItemView.extend({
     this.hideError();
     this.hideEmpty();
     this.trigger("call:search", 'nearest');
+  },
+
+  getTemplate: function() {
+    if (this.narrowSearch) {
+      return JST['templates/narrow-search'];
+    } else {
+      return JST['templates/search-template'];
+    }
   }
 });
