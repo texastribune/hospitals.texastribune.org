@@ -7,11 +7,10 @@ app.Views = app.Views || {};
 app.Controllers = app.Controllers || {};
 
 app.addRegions({
-  headerRegion:  '#header',
   searchRegion:  '#search',
   mapRegion:     '#map',
   resultsRegion: '#results',
-  footerRegion:  '#footer'
+  compareRegion: '#compare'
 });
 
 app.Routers = app.Routers || {};
