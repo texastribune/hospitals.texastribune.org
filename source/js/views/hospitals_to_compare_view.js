@@ -14,7 +14,9 @@ app.Views.HospitalsToCompare = Marionette.CollectionView.extend({
   events: {},
 
   appendHtml: function(collectionView, itemView){
-    collectionView.$el.append(this.template())
+    if (collectionView.$('tbody').length === 0) {
+      collectionView.$el.append(this.template())
+    }
     collectionView.$("tbody").append(itemView.el);
   },
 
