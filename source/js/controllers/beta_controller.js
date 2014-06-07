@@ -35,7 +35,6 @@ app.Controllers.BetaController = Marionette.Controller.extend({
     this.searching = cad;
     this.page = typeof page !== 'undefined' ?  page : 1;
 
-    this.trigger('begin:search', { cad: cad, page: this.page });
     if(cad === 'nearest') {
       this.searchByLocation(this.page);
     } else if(/^\d{5}(-\d{4})?$/.test(cad)) {
