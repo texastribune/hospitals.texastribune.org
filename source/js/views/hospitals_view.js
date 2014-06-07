@@ -3,7 +3,7 @@
 app.Views.Hospitals = Marionette.CompositeView.extend({
   template: JST['templates/hospitals'],
   itemView: app.Views.Hospital,
-  emptyView: app.Views.HospitalsEmpty,
+  emptyView: app.Views.HospitalEmpty,
 
   templateHelpers: function(){
     var showDistance = this.collection.at(0).hasDistance();
