@@ -15,7 +15,9 @@ app.Views.Search = Marionette.ItemView.extend({
   },
 
   initialize: function(options) {
-    this.narrowSearch = options.narrowSearch;
+    if (options) {
+      this.narrowSearch = options.narrowSearch;
+    }
   },
 
   submit: function(event){
