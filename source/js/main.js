@@ -11,6 +11,7 @@
 //=require controllers/main_controller
 //=require controllers/search_controller
 //=require controllers/compare_controller
+//=require controllers/beta_controller
 //=require views/hospital_empty_view
 //=require views/hospital_view
 //=require views/hospital_to_compare_view

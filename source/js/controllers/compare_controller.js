@@ -12,13 +12,19 @@ app.Controllers.CompareController = Marionette.Controller.extend({
       narrowSearch: true,
     });
 
+    this.betaController = new app.Controllers.BetaController({
+      view: app.searchView,
+      begin: this.getFirstZipcode()
+    });
+
     app.hospitalsView = new app.Views.Hospitals({
-      collection: app.hospitals
+      collection: this.betaController.collection
     });
 
     this.listenTo(this.hospitalsToCompare, 'remove', this.removeHospital);
     this.listenTo(app.hospitalsView, 'hospital:selected', this.selectedHospital);
     this.listenTo(app.hospitalsView, 'hospital:deselected', this.deselectedHospital);
+    this.listenTo(app.hospitalsView, 'more-results:hospitals', this.moreResults);
 
     app.compareRegion.show(this.compareHospitalsView);
     app.narrowRegion.show(app.searchView);
@@ -29,6 +35,10 @@ app.Controllers.CompareController = Marionette.Controller.extend({
   },
 
   showCompare: function(hospitalIds) {},
+
+  moreResults: function() {
+    this.betaController.moreResults();
+  },
 
   selectedHospital: function(hospitalId) {
     var hospitalToCompare = app.hospitals.get(hospitalId);
@@ -73,5 +83,16 @@ app.Controllers.CompareController = Marionette.Controller.extend({
     });
 
     return (new app.Collections.Hospitals(hospitals));
+  },
+
+  getFirstZipcode: function() {
+    var hospital;
+
+    if (this.hospitalsToCompare && this.hospitalsToCompare.length > 0) {
+      hospital = this.hospitalsToCompare.at(0);
+      return hospital.get('zipcode');
+    } else {
+      return '';
+    }
   }
 });
