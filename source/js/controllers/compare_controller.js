@@ -42,14 +42,24 @@ app.Controllers.CompareController = Marionette.Controller.extend({
   selectedHospital: function(hospitalId) {
     var hospitalToCompare = app.hospitals.get(hospitalId);
     this.hospitalsToCompare.add(hospitalToCompare.attributes);
+    this.updateURL();
   },
 
   deselectedHospital: function(hospitalId) {
     var hospitalToRemove = app.hospitals.get(hospitalId);
     this.hospitalsToCompare.remove(hospitalToRemove);
+    this.updateURL();
   },
 
   removeHospital: function(hospital) {
     app.hospitalsView.uncheck(hospital.id);
+    this.updateURL();
+  },
+
+  updateURL: function() {
+    var ids = this.hospitalsToCompare.map(function(hospital) {
+      return hospital.id;
+    });
+    app.mainRouter.navigate('compare/' + ids.join('/'));
   }
 });
