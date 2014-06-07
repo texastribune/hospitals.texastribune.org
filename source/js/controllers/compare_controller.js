@@ -2,22 +2,12 @@
 
 app.Controllers.CompareController = Marionette.Controller.extend({
   initialize: function(hospitalIds) {
-    if (hospitalIds.length === 1) {
-      this.showCompareAndSearch(hospitalIds[0]);
-    } else {
-      this.showCompare(hospitalIds);
-    }
-  },
-
-  showCompareAndSearch: function(hospitalId) {
-    var hospital = app.hospitals.get(hospitalId);
-    this.hospitalsToCompare = new app.Collections.Hospitals([hospital])
-
+    this.hospitalsToCompare = this.getHospitals(hospitalIds);
     this.compareHospitalsView = new app.Views.HospitalsToCompare({
       collection: this.hospitalsToCompare
     });
 
-    app.mapView = new app.Views.Map(hospital.coordinates());
+    app.mapView = new app.Views.Map(this.getCenter());
     app.searchView  = new app.Views.Search({
       narrowSearch: true,
     });
@@ -30,11 +20,12 @@ app.Controllers.CompareController = Marionette.Controller.extend({
     this.listenTo(app.hospitalsView, 'hospital:selected', this.selectedHospital);
     this.listenTo(app.hospitalsView, 'hospital:deselected', this.deselectedHospital);
 
+    app.compareRegion.show(this.compareHospitalsView);
     app.narrowRegion.show(app.searchView);
     app.mapRegion.show(app.mapView);
-    app.compareRegion.show(this.compareHospitalsView);
     app.resultsRegion.show(app.hospitalsView);
-    app.hospitalsView.selectResults([hospitalId]);
+
+    app.hospitalsView.selectResults(hospitalIds);
   },
 
   showCompare: function(hospitalIds) {},
@@ -61,5 +52,26 @@ app.Controllers.CompareController = Marionette.Controller.extend({
       return hospital.id;
     });
     app.mainRouter.navigate('compare/' + ids.join('/'));
+  },
+
+  getCenter: function() {
+    var hospital;
+
+    if (this.hospitalsToCompare && this.hospitalsToCompare.length > 0) {
+      hospital = this.hospitalsToCompare.at(0);
+      return [hospital.get('latitude'), hospital.get('longitude')];
+    } else {
+      return [];
+    }
+  },
+
+  getHospitals: function(hospitalIds) {
+    var hospitals = [];
+
+    _.each(hospitalIds, function(hospitalId) {
+      hospitals.push(app.hospitals.get(hospitalId));
+    });
+
+    return (new app.Collections.Hospitals(hospitals));
   }
 });

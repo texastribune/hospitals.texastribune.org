@@ -13,8 +13,14 @@ app.Controllers.MainController = Marionette.Controller.extend({
   },
 
   compare: function(hospitalIdsStr) {
-    // Load CompareController
-    this.showCompare(hospitalIdsStr.split('/'));
+    if (hospitalIdsStr) {
+      var ids = _.map(hospitalIdsStr.split('/'), function(strId) {
+        return parseInt(strId, 10);
+      });
+      this.compareController = new app.Controllers.CompareController(ids);
+    } else {
+      this.compareController = new app.Controllers.CompareController();
+    }
   },
 
   showSearch: function() {
