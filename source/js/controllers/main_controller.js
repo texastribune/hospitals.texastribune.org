@@ -12,6 +12,14 @@ app.Controllers.MainController = Marionette.Controller.extend({
     this.homeController.search(query);
   },
 
+  compare: function(hospitalIdsStr) {
+    // TODO: Solve duplication
+    var ids = _.map(hospitalIdsStr.split('/'), function(strId) {
+      return parseInt(strId, 10);
+    });
+    this.compareController = new app.Controllers.CompareController(ids);
+  },
+
   select: function(hospitalIdsStr) {
     if (hospitalIdsStr) {
       var ids = _.map(hospitalIdsStr.split('/'), function(strId) {
