@@ -1,0 +1,199 @@
+<header class="select">
+  <div class='title'>
+    <h2>Hospital Compare</h2>
+  </div>
+  <div class="controls">
+    <button>Select Different Hospitals to Compare</button>
+  </div>
+  <div class="instructions">
+    <p>Compare the hospitals you've selected before.</p>
+  </div>
+</header>
+<section>
+  <table>
+    <thead>
+      <tr class='titles'>
+        <th></th>
+        <% _(children).each(function(model) { %><th><%= model.name %></th><% }); %>
+      </tr>
+      <tr>
+        <th>General information</th>
+        <% _(children).each(function(model) { %><th></th><% }); %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Address</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= model.address %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Type</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= model.type %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Ownership</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= model['hospital ownership'] %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Emergency Services?</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= model.emergency_services %></td>
+        <% }); %>
+      </tr>
+    </tbody>
+    <thead>
+      <tr>
+        <th>Emergency Care</th>
+        <% _(children).each(function(model) { %><th></th><% }); %>
+      </tr>
+      <tr class="subtitle">
+        <th>Average wait time</th>
+        <% _(children).each(function(model) { %><th></th><% }); %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Before being seen by a healthcare professioanl</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Before being admitted to the hospital</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Before being sent home</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+    </tbody>
+    <thead>
+      <tr>
+        <th>Clinical Care</th>
+        <% _(children).each(function(model) { %><th></th><% }); %>
+      </tr>
+      <tr class="subtitle">
+        <th>Surgical complications</th>
+        <% _(children).each(function(model) { %><th></th><% }); %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Serious surgical complications</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Deaths among patients with serious treatable complications</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Complicatios for knee/hip replacement patientss</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+    </tbody>
+    <thead>
+      <tr>
+        <th>Hospital-associated infections</th>
+        <% _(children).each(function(model) { %><th></th><% }); %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Central-line associated bloodstream infection</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Catheter-associated urinary tract infection</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Surgical site infection from colon surgery</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Surgical site infection from abdominal hysterectomy</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+    </tbody>
+    <thead>
+      <tr>
+        <th>Patient outcomes</th>
+        <% _(children).each(function(model) { %><th></th><% }); %>
+      </tr>
+      <tr class="subtitle">
+        <th>30-day unplanned readmission rates</th>
+        <% _(children).each(function(model) { %><th></th><% }); %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Serious surgical complications</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Deaths among patients with serious treatable complications</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Complications for knee/hip replacement patients</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+    </tbody>
+    <thead>
+      <tr class="subtitle">
+        <th>30-day unplanned readmission rates</th>
+        <% _(children).each(function(model) { %><th></th><% }); %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Serious surgical complications</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Deaths among patients with serious treatable complications</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+      <tr>
+        <td>Complications for knee/hip replacement patients</td>
+        <% _(children).each(function(model) { %>
+        <td data-title="<%= model.name %>"><%= '' %></td>
+        <% }); %>
+      </tr>
+    </tbody>
+  </table>
+</section>
