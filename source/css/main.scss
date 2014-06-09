@@ -6,7 +6,23 @@
 @import "settings";
 @import "theme";
 
-
+#compare{
+  header {
+    .title{
+      @include span-columns(10);
+    }
+    .controls{
+      @include span-columns(2);
+      @include omega();
+    }
+    .instructions{
+      @include span-columns(12);
+    }
+  }
+  section{
+    @include span-columns(12);
+  }
+}
 #search{
   margin-top:3em;
   @include span-columns(10);
