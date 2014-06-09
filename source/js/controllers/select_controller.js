@@ -1,6 +1,6 @@
 'use strinct';
 
-app.Controllers.CompareController = Marionette.Controller.extend({
+app.Controllers.SelectController = Marionette.Controller.extend({
   initialize: function(hospitalIds) {
     this.hospitalsToCompare = this.getHospitals(hospitalIds);
     this.compareHospitalsView = new app.Views.HospitalsToCompare({
@@ -26,7 +26,7 @@ app.Controllers.CompareController = Marionette.Controller.extend({
     this.listenTo(app.hospitalsView, 'hospital:deselected', this.deselectedHospital);
     this.listenTo(app.hospitalsView, 'more-results:hospitals', this.moreResults);
 
-    app.compareRegion.show(this.compareHospitalsView);
+    app.selectRegion.show(this.compareHospitalsView);
     app.narrowRegion.show(app.searchView);
     app.mapRegion.show(app.mapView);
     app.resultsRegion.show(app.hospitalsView);
@@ -61,7 +61,7 @@ app.Controllers.CompareController = Marionette.Controller.extend({
     var ids = this.hospitalsToCompare.map(function(hospital) {
       return hospital.id;
     });
-    app.mainRouter.navigate('compare/' + ids.join('/'));
+    app.mainRouter.navigate('select/' + ids.join('/'));
   },
 
   getCenter: function() {

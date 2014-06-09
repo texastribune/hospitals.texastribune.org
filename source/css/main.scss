@@ -6,7 +6,7 @@
 @import "settings";
 @import "theme";
 
-#compare{
+#select{
   header {
     .title{
       @include span-columns(10);
