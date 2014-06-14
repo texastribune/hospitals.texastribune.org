@@ -32,7 +32,7 @@ app.Controllers.MainController = Marionette.Controller.extend({
   },
 
   showSearch: function() {
-    this.homeController = new app.Controllers.SearchController();
+    this.homeController = new app.Controllers.HomeController();
     this.listenTo(this.homeController, 'compare:hospitals', this.showSelect);
   },
 

@@ -12,13 +12,13 @@ app.Controllers.SelectController = Marionette.Controller.extend({
       narrowSearch: true,
     });
 
-    this.betaController = new app.Controllers.BetaController({
+    this.searchController = new app.Controllers.SearchController({
       view: app.searchView,
       begin: this.getFirstZipcode()
     });
 
     app.hospitalsView = new app.Views.Hospitals({
-      collection: this.betaController.collection
+      collection: this.searchController.collection
     });
 
     this.listenTo(this.hospitalsToCompare, 'remove', this.removeHospital);
@@ -37,7 +37,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
   showCompare: function(hospitalIds) {},
 
   moreResults: function() {
-    this.betaController.moreResults();
+    this.searchController.moreResults();
   },
 
   selectedHospital: function(hospitalId) {

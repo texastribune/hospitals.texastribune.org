@@ -1,77 +1,46 @@
 'use strict';
 
-app.Controllers.SearchController = Marionette.Controller.extend( {
-  initialize: function() {
+app.Controllers.SearchController = Marionette.Controller.extend({
+  initialize: function(options) {
+    this.page = 1;
     this.perPage = 10;
-    this.searchView = new app.Views.Search();
+    this.center = [31.35, -99.64];
+    this.view = options.view;
+    this.collection = new app.Collections.Hospitals();
 
-    this.listenTo(this.searchView, 'call:search', this.search);
-    this.listenTo(this, 'after:search', this.afterSearch);
-    this.listenTo(this, 'error:search', this.errorSearch);
-    this.centerLocation = [];
+    this.listenTo(this.view, 'call:search', this.search);
+    this.listenTo(this, 'more-results:search', this.moreResults);
+    this.listenTo(this, 'around:search', this.updateResults)
 
-    app.searchRegion.show(this.searchView);
-  },
-
-  errorSearch: function(msg) {
-    this.hideResults();
-    this.searchView.showError(msg);
-  },
-
-  afterSearch: function(findings) {
-    if(findings.length === 0){
-      this.searchView.showEmpty();
-    } else {
-      this.showResults(findings);
+    if (options.begin) {
+      this.search(options.begin);
     }
+  },
+
+  updateResults: function(findings) {
+    if (this.page === 1) {
+       this.collection.reset(findings);
+    } else {
+      this.collection.add(findings);
+    }
+    this.trigger('after:search');
+  },
+
+  moreResults: function() {
+    this.page += 1;
+    this.search(this.searching, this.page);
   },
 
   search: function(cad, page) {
     this.searching = cad;
     this.page = typeof page !== 'undefined' ?  page : 1;
 
-    app.mainRouter.navigate('search/' + cad);
-    if ( this.page === 1 ) this.hideResults();
     if(cad === 'nearest') {
       this.searchByLocation(this.page);
     } else if(/^\d{5}(-\d{4})?$/.test(cad)) {
-      this.trigger('after:search', this.searchByZipcode(cad, this.page));
+      this.searchByZipcode(cad, this.page);
     } else {
-      this.trigger('after:search', this.searchByName(cad, this.page));
-    }
-  },
-
-  searchByLocation: function(page) {
-    var self = this,
-        findings;
-
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        self.centerLocation = [position.coords.latitude,
-                                position.coords.longitude];
-        findings = self.searchByProximityTo(
-            position.coords.latitude,
-            position.coords.longitude
-        ).slice((page - 1) * self.perPage, page * self.perPage);
-
-        self.trigger('after:search', findings);
-      }, function() {
-        // TODO: Find a better error message
-        self.trigger('error:search', 'Geolocation is not working.');
-      });
-    }
-  },
-
-  searchByZipcode: function(cad, page) { // 76244
-    var coords = app.zipcodes[cad]; // {zipcode: [lat, lng]}
-
-    if(coords){
-      this.centerLocation = [coords[0], coords[1]];
-      return this.searchByProximityTo(coords[0], coords[1]).
-              slice((page-1) * this.perPage, page * this.perPage);
-    } else {
-      // TODO: Find a better error message
-      this.trigger('error:search', 'That\'s not a Texas\' zipcde');
+      this.searchByName(cad, this.page);
     }
   },
 
@@ -84,41 +53,50 @@ app.Controllers.SearchController = Marionette.Controller.extend( {
         return hospital;
       }
     });
-    this.centerLocation = [];
-    return results.slice((page - 1) * this.perPage, page * this.perPage);
+    this.center = [];
+    results = results.slice((page - 1) * this.perPage, page * this.perPage);
+    this.trigger('around:search', results);
   },
 
-  moreResults: function() {
-    this.page += 1;
-    this.search(this.searching, this.page);
-  },
+  searchByLocation: function(page) {
+    var self = this,
+        results;
 
-  showResults: function(results) {
-    var collection = new app.Collections.Hospitals(results);
-
-    if (typeof app.hospitalsView === 'undefined' || app.hospitalsView.isClosed) {
-      app.hospitalsView = new app.Views.Hospitals( {
-        collection: collection
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        self.centerLocation = [position.coords.latitude,
+                                position.coords.longitude];
+        results = self.searchByProximityTo(
+          position.coords.latitude,
+          position.coords.longitude
+        ).slice((page - 1) * self.perPage, page * self.perPage);
+        self.trigger('around:search', results);
+      }, function() {
+        // TODO: Find a better error message
+        self.trigger('error:search', 'Geolocation is not working.');
       });
-      this.listenTo(app.hospitalsView, 'more-results:hospitals', this.moreResults);
-      this.listenTo(app.hospitalsView, 'compare:hospitals', this.compare);
-      app.mapView = new app.Views.Map(this.centerLocation);
-      app.mapRegion.show(app.mapView);
-      app.resultsRegion.show(app.hospitalsView);
-      app.mapView.scrollToMap();
-    } else {
-      app.hospitalsView.collection.add(collection.models);
     }
   },
 
-  hideResults: function() {
-    if (app.hospitalsView) app.hospitalsView.close();
-    if (app.mapView) app.mapView.close();
+  searchByZipcode: function(cad, page) { // 76244
+    var coords = app.zipcodes[cad],
+        results; // {zipcode: [lat, lng]}
+
+    if(coords){
+      this.centerLocation = [coords[0], coords[1]];
+      results = this.searchByProximityTo(coords[0], coords[1]).
+                        slice((page-1) * this.perPage, page * this.perPage);
+      this.trigger('around:search', results);
+    } else {
+      // TODO: Find a better error message
+      this.trigger('error:search', 'That\'s not a Texas\' zipcde');
+    }
   },
 
   searchByProximityTo: function(lat1, lng1) {
-    var output,
-        self = this;
+    var self = this,
+        output;
+
     output = app.hospitals.sortBy(function(hospital) {
       var distance = self.distanceFromLatLng(
         lat1, lng1, hospital.get('latitude'), hospital.get('longitude'));
@@ -140,7 +118,7 @@ app.Controllers.SearchController = Marionette.Controller.extend( {
 
     deg2rad = function deg2rad(deg) {
       return deg * (Math.PI/180);
-    }
+    };
 
     dLat = deg2rad(lat2-lat1);
     dLon = deg2rad(lon2-lon1);
@@ -152,11 +130,5 @@ app.Controllers.SearchController = Marionette.Controller.extend( {
     c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     d = R * c; // Distance in miles
     return d;
-  },
-
-  compare: function(hospitalIds) {
-    this.hideResults();
-    this.searchView.close();
-    this.trigger('compare:hospitals', hospitalIds);
   }
 });
