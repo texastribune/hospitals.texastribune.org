@@ -61,19 +61,19 @@
       <tr>
         <td>Before being seen by a healthcare professioanl</td>
         <% _(children).each(function(model) { %>
-        <td data-title="<%= model.name %>"><%= '' %></td>
+        <td data-title="<%= model.name %>"><%= model.data.emergency_rates.ed1 %></td>
         <% }); %>
       </tr>
       <tr>
         <td>Before being admitted to the hospital</td>
         <% _(children).each(function(model) { %>
-        <td data-title="<%= model.name %>"><%= '' %></td>
+        <td data-title="<%= model.name %>"><%= model.data.emergency_rates.op_18 %></td>
         <% }); %>
       </tr>
       <tr>
-        <td>Before being sent home</td>
+        <td>Before getting a diagnostic</td>
         <% _(children).each(function(model) { %>
-        <td data-title="<%= model.name %>"><%= '' %></td>
+        <td data-title="<%= model.name %>"><%= model.data.emergency_rates.door_to_diagnostic_eval %></td>
         <% }); %>
       </tr>
     </tbody>
