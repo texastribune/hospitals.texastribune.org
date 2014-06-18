@@ -30,6 +30,8 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     app.narrowRegion.show(this.searchView);
     app.resultsRegion.show(this.layout);
     this.layout.map.show(this.mapView)
+    this.layout.list.show(this.hospitalsView);
+    this.layout.selected.show(this.compareHospitalsView);
   },
 
   showCompare: function(hospitalIds) {},
