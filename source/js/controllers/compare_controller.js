@@ -6,6 +6,8 @@ app.Controllers.CompareController = Marionette.Controller.extend({
     this.hospitalsJSON = [];
     this.on('hospital:loading', loadingFn);
     this.getHospitals(hospitalIds);
+
+    app.mainRouter.navigate('compare/' + hospitalIds.join('/'));
   },
 
   loaded: function() {

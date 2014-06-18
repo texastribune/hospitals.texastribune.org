@@ -57,7 +57,6 @@ app.Controllers.SelectController = Marionette.Controller.extend({
   },
 
   compare: function(ids) {
-    app.mainRouter.navigate('compare/' + ids.join('/'));
     app.compareController = new app.Controllers.CompareController(ids);
     this.close();
   },
