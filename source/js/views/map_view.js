@@ -6,6 +6,7 @@ app.Views.Map = Marionette.ItemView.extend({
   initialize: function(options){
     this.collection = options.collection;
     this.listenTo(this.collection, 'reset', this.update);
+    this.listenTo(this.collection, 'collection:updated', this.update);
   },
 
   serializeData: function(){
