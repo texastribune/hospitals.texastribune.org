@@ -17,6 +17,10 @@ app.Controllers.SearchController = Marionette.Controller.extend({
     }
   },
 
+  onClose: function() {
+    this.view.close();
+  },
+
   updateResults: function(findings) {
     if (this.page === 1) {
        this.collection.reset(findings);

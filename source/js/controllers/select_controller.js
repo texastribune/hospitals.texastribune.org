@@ -1,37 +1,28 @@
 'use strinct';
 
 app.Controllers.SelectController = Marionette.Controller.extend({
-  initialize: function(hospitalIds) {
-    this.hospitalsToCompare = this.getHospitals(hospitalIds);
-    this.compareHospitalsView = new app.Views.HospitalsToCompare({
-      collection: this.hospitalsToCompare
-    });
-
-    app.mapView = new app.Views.Map(this.getCenter());
-    app.searchView  = new app.Views.Search({
+  initialize: function(options) {
+    this.searchView  = new app.Views.Search({
       narrowSearch: true,
     });
 
     this.searchController = new app.Controllers.SearchController({
-      view: app.searchView,
-      begin: this.getFirstZipcode()
+      view: this.searchView
     });
 
-    app.hospitalsView = new app.Views.Hospitals({
+    this.hospitalsView = new app.Views.Hospitals({
       collection: this.searchController.collection
     });
 
-    this.listenTo(this.hospitalsToCompare, 'remove', this.removeHospital);
-    this.listenTo(app.hospitalsView, 'hospital:selected', this.selectedHospital);
-    this.listenTo(app.hospitalsView, 'hospital:deselected', this.deselectedHospital);
-    this.listenTo(app.hospitalsView, 'more-results:hospitals', this.moreResults);
+    app.mapView = new app.Views.Map(this.getCenter());
 
-    app.selectRegion.show(this.compareHospitalsView);
-    app.narrowRegion.show(app.searchView);
+    if (typeof options.searching !== 'undefined') {
+      this.searchController.search(options.searching);
+    }
+
     app.mapRegion.show(app.mapView);
-    app.resultsRegion.show(app.hospitalsView);
-
-    app.hospitalsView.selectResults(hospitalIds);
+    app.narrowRegion.show(this.searchView);
+    app.resultsRegion.show(this.hospitalsView);
   },
 
   showCompare: function(hospitalIds) {},
