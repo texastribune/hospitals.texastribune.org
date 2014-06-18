@@ -47,6 +47,11 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     }
   },
 
+  onClose: function() {
+    this.searchView.close()
+    this.layout.close();
+  },
+
   moreResults: function() {
     this.searchController.moreResults();
   },
