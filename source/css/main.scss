@@ -34,11 +34,17 @@
   h2{
     text-align: center;
   }
+  .messages{
+    height: 16px;
+  }
   .error{
     color: $red;
     font-size: 70%;
     font-style: italic;
     margin-top: 8px;
+  }
+  .empty{
+    font-style: italic;
   }
   .searcher{
     margin: 2em 0;

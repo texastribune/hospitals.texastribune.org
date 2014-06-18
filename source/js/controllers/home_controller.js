@@ -8,11 +8,17 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
     });
 
     this.listenTo(this.searchView, 'show', this.verticalAlign);
+    this.listenTo(this.searchController, 'after:search', this.showSelect);
     app.searchRegion.show(this.searchView);
   },
 
+  showSelect: function() {
+    if (this.searchController.collection.length === 0) {
+      this.searchView.showEmpty();
+    }
+  },
+
   verticalAlign: function() {
-    console.log('fff')
     var documentHeight = $(document).height(),
         $footer = $('footer.footer'),
         footerNoteMarginTop;
