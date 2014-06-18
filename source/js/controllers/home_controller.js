@@ -19,7 +19,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
       this.searchView.showEmpty();
     } else {
       this.selectController = new app.Controllers.SelectController({
-        hospitals: hospitalsCollection,
+        results: hospitalsCollection,
         searching: this.searchController.searching
       });
       this.searchController.close();

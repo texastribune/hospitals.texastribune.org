@@ -6,13 +6,18 @@ app.Controllers.SearchController = Marionette.Controller.extend({
     this.perPage = 10;
     this.center = [31.35, -99.64];
     this.view = options.view;
-    this.collection = new app.Collections.Hospitals();
 
     this.listenTo(this.view, 'call:search', this.search);
     this.listenTo(this, 'more-results:search', this.moreResults);
     this.listenTo(this, 'around:search', this.updateResults);
 
-    if (options.begin) {
+    if (options.collection && options.collection.length > 0) {
+      this.collection = options.collection;
+    } else {
+      this.collection = new app.Collections.Hospitals();
+    }
+
+    if (this.collection.length === 0 && options.begin) {
       this.search(options.begin);
     }
   },

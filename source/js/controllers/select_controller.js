@@ -8,7 +8,8 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     });
 
     this.searchController = new app.Controllers.SearchController({
-      view: this.searchView
+      view: this.searchView,
+      collection: typeof options.results === 'undefined' ? [] : options.results
     });
 
     this.hospitalsView = new app.Views.Hospitals({
