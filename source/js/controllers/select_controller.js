@@ -15,7 +15,9 @@ app.Controllers.SelectController = Marionette.Controller.extend({
       collection: this.searchController.collection
     });
 
-    this.mapView = new app.Views.Map(this.getCenter());
+    this.mapView = new app.Views.Map({
+      collection: this.searchController.collection
+    });
 
     this.hospitalsToCompare = this.getHospitals(options.hospitalIds);
 

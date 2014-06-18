@@ -3,14 +3,9 @@
 app.Views.Map = Marionette.ItemView.extend({
   template: JST['templates/map'],
 
-  initialize: function(center){
-    if (center.length === 0){
-      this.center = [31.35, -99.64];
-      this.zoomLevel = 4;
-    } else {
-      this.center = center;
-      this.zoomLevel = 12;
-    }
+  initialize: function(options){
+    this.collection = options.collection;
+    this.listenTo(this.collection, 'reset', this.update);
   },
 
   serializeData: function(){
@@ -21,13 +16,20 @@ app.Views.Map = Marionette.ItemView.extend({
     this.map = L.mapbox.map('map-location', 'texastribune.map-vjiayly8',{
       minZoom: 5,
       maxZoom: 17
-      })
-      .setView(this.center, this.zoomLevel)
-      .featureLayer.setGeoJSON(app.geoData);
+    });
+    this.featureLayer = L.mapbox.featureLayer()
+      .addTo(this.map)
+      .setGeoJSON(app.geoData);
   },
 
-  scrollToMap: function(){
-    var scrollTo = this.$el.offset().top;
-    $('body,html').animate({scrollTop: scrollTo}, 1000);
+  update: function() {
+    var ids = this.collection.map(function(hospital) {
+      return hospital.id.toString();
+    });
+
+    this.featureLayer.setFilter(function(featureObject) {
+      return _.contains(ids, featureObject.properties.id);
+    });
+    this.map.fitBounds(this.featureLayer.getBounds());
   }
 });
