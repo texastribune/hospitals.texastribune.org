@@ -30,12 +30,13 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.layout.list.show(this.hospitalsView);
     this.layout.selected.show(this.compareHospitalsView);
 
+    this.listenTo(this.compareHospitalsView, 'compare:hospitals', this.compare);
     this.listenTo(this.compareHospitalsView, 'remove:hospital', this.removeHospital);
+    this.listenTo(this.searchController, 'after:search', this.verifyMaxSelected);
     this.listenTo(this.hospitalsView, 'more-results:hospitals', this.moreResults);
     this.listenTo(this.hospitalsView, 'hospital:selected', this.selectHospital);
     this.listenTo(this.hospitalsView, 'hospital:deselected', this.deselectHospital);
     this.listenTo(this.hospitalsView, 'render', this.verifyMaxSelected);
-    this.listenTo(this.searchController, 'after:search', this.verifyMaxSelected);
 
     if (typeof options.searching !== 'undefined') {
       this.searchController.search(options.searching);
@@ -46,6 +47,12 @@ app.Controllers.SelectController = Marionette.Controller.extend({
 
   moreResults: function() {
     this.searchController.moreResults();
+  },
+
+  compare: function(ids) {
+    app.mainRouter.navigate('compare/' + ids.join('/'));
+    app.compareController = new app.Controllers.CompareController(ids);
+    this.close();
   },
 
   selectHospital: function(hospitalId) {

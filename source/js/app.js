@@ -9,7 +9,8 @@ app.Controllers = app.Controllers || {};
 app.addRegions({
   searchRegion:  '#search',
   narrowRegion:  '#narrow-search',
-  resultsRegion: '#results'
+  resultsRegion: '#results',
+  compareRegion: '#compare'
 });
 
 app.Routers = app.Routers || {};

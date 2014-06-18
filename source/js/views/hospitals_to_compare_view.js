@@ -1,6 +1,6 @@
 'use strict';
 
-app.Views.HospitalsToCompare = Marionette.CollectionView.extend({
+app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
   template: JST['templates/hospitals-to-compare'],
   itemView: app.Views.HospitalToCompare,
   emptyView: app.Views.HospitalEmpty,
@@ -9,7 +9,13 @@ app.Views.HospitalsToCompare = Marionette.CollectionView.extend({
     "remove:hospital": 'removeHospitalClicked'
   },
 
-  events: {},
+  ui: {
+    'compare': '.compare'
+  },
+
+  events: {
+    'click @ui.compare': 'compare'
+  },
 
   onAfterItemAdded: function(itemView) {
     this.isReadyToCompare();
@@ -24,6 +30,16 @@ app.Views.HospitalsToCompare = Marionette.CollectionView.extend({
       collectionView.$el.append(this.template())
     }
     collectionView.$("tbody").append(itemView.el);
+  },
+
+  compare: function(event) {
+    var hospitalIds = [];
+
+    event.preventDefault();
+    $('.hospital-selector:checked').each(function(index) {
+      hospitalIds.push($(this).data('id'));
+    });
+    this.trigger('compare:hospitals', hospitalIds);
   },
 
   removeHospitalClicked: function(eventName, itemView, hospitalId) {
