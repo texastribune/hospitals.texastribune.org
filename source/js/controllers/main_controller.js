@@ -8,8 +8,9 @@ app.Controllers.MainController = Marionette.Controller.extend({
   },
 
   search: function(query) {
-    this.showSearch();
-    this.homeController.search(query);
+    this.selectController = new app.Controllers.SelectController({
+      searching: query
+    });
   },
 
   compare: function(hospitalIdsStr) {
