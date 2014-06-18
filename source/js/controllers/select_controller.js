@@ -39,14 +39,10 @@ app.Controllers.SelectController = Marionette.Controller.extend({
 
     if (typeof options.searching !== 'undefined') {
       this.searchController.search(options.searching);
-    }
-
-    if (typeof options.hospitalIds !== 'undefined') {
-      this.showSelected(hospitalIds);
+    } else {
+      this.searchController.search(this.getFirstZipcode());
     }
   },
-
-  showCompare: function(hospitalIds) {},
 
   moreResults: function() {
     this.searchController.moreResults();

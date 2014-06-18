@@ -26,7 +26,9 @@ app.Controllers.MainController = Marionette.Controller.extend({
       var ids = _.map(hospitalIdsStr.split('/'), function(strId) {
         return parseInt(strId, 10);
       });
-      this.selectController = new app.Controllers.SelectController(ids);
+      this.selectController = new app.Controllers.SelectController({
+        hospitalIds: ids
+      });
     } else {
       this.selectController = new app.Controllers.SelectController();
     }
