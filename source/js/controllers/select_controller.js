@@ -42,6 +42,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
 
     if (typeof options.searching !== 'undefined') {
       this.searchController.search(options.searching);
+      app.mainRouter.navigate('search/' + this.searchController.searching);
     } else {
       this.searchController.search(this.getFirstZipcode());
     }

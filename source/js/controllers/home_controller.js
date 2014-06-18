@@ -14,6 +14,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
 
   showSelect: function() {
     var hospitalsCollection = this.searchController.collection;
+
     if (hospitalsCollection.length === 0) {
       this.searchView.showEmpty();
     } else {
@@ -21,7 +22,6 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
         hospitals: hospitalsCollection,
         searching: this.searchController.searching
       });
-      app.mainRouter.navigate('search/' + this.searchController.searching);
       this.searchController.close();
     }
   },
