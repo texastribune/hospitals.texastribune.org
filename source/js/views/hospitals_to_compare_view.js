@@ -28,6 +28,7 @@ app.Views.HospitalsToCompare = Marionette.CollectionView.extend({
 
   removeHospitalClicked: function(eventName, itemView, hospitalId) {
     this.collection.remove(itemView.model);
+    this.trigger('remove:hospital', itemView.model);
   },
 
   isReadyToCompare: function() {

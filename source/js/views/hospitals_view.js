@@ -1,30 +1,34 @@
-"use strict";
+'use strict';
 
 app.Views.Hospitals = Marionette.CompositeView.extend({
   template: JST['templates/hospitals'],
   itemView: app.Views.Hospital,
-  emptyView: app.Views.HospitalEmpty,
 
   templateHelpers: function(){
-    var showDistance = this.collection.at(0).hasDistance();
+    var showResults = (this.collection.length > 0),
+        showDistance = false;
+
+    if (showResults) {
+      showDistance = this.collection.at(0).hasDistance();
+    }
+
     return {
+      showResults: showResults,
       showDistance: showDistance
     };
   },
 
-  ui:{
-    'compare': '.compare'
-  },
-
   itemEvents: {
-    'select:hospital': 'selectHospital',
     'checked:hospital': 'hospitalChecked',
     'unchecked:hospital': 'hospitalUnchecked'
   },
 
-  events: {
-    'click @ui.compare': 'compare',
-    'click a.more-results': 'moreResults'
+  triggers: {
+    'click a.more-results': 'more-results:hospitals'
+  },
+
+  initialize: function() {
+    this.listenTo(this.collection, 'reset', this.render);
   },
 
   hospitalChecked: function(eventName, itemView, una) {
@@ -35,53 +39,16 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
     this.trigger('hospital:deselected', itemView.model.id);
   },
 
-  compare: function(event) {
-    var hospitalIds = [];
-
-    event.preventDefault();
-    $('.hospital-selector:checked').each(function(index) {
-      hospitalIds.push($(this).data('id'));
-    });
-    this.trigger('compare:hospitals', hospitalIds);
-  },
-
   appendHtml: function(collectionView, itemView){
     collectionView.$("tbody").append(itemView.el);
   },
 
-  selectHospital: function(eventName, itemView){
-    var checkedHospitals = $('.hospital-selector:checked').length;
-
-    if (itemView.model.get('selected')) {
-      this.trigger('check:hospital', itemView.model.get('id'));
-    } else {
-      this.trigger('uncheck:hospital', itemView.model.get('id'));
-    }
-
-    if (checkedHospitals < 3){
-      $('.hospital-selector').removeAttr('disabled');
-    } else {
-      $('.hospital-selector:not(:checked)').attr('disabled', 'disabled');
-    }
-
-    if (checkedHospitals > 1){
-      this.showCompareButton();
-    } else {
-      this.hideCompareButton();
-    }
+  disableSelection: function() {
+    $('.hospital-selector:not(:checked)').attr('disabled', 'disabled');
   },
 
-  moreResults: function(event) {
-    event.preventDefault();
-    this.trigger('more-results:hospitals');
-  },
-
-  showCompareButton: function(){
-    this.ui.compare.show();
-  },
-
-  hideCompareButton: function(){
-    this.ui.compare.hide();
+  enableSelection: function() {
+    $('.hospital-selector').removeAttr('disabled');
   },
 
   selectResults: function(ids) {

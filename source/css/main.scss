@@ -65,23 +65,6 @@
     margin-bottom: 0.7em;
   }
 }
-section#hospitals-selected{
-  @include media($desktop){
-    header {
-      .title{
-        @include span-columns(6);
-      }
-      .controls{
-        @include span-columns(2);
-        @include omega();
-      }
-      .instructions{
-        @include span-columns(8);
-        @include omega();
-      }
-    }
-  }
-}
 section#hospital-list{
   p.no-results{
     font-size: 75%;

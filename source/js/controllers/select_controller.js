@@ -2,6 +2,7 @@
 
 app.Controllers.SelectController = Marionette.Controller.extend({
   initialize: function(options) {
+    this.maxHospitals = 3;
     this.searchView  = new app.Views.Search({
       narrowSearch: true,
     });
@@ -22,16 +23,27 @@ app.Controllers.SelectController = Marionette.Controller.extend({
       collection: this.hospitalsToCompare
     });
 
-    if (typeof options.searching !== 'undefined') {
-      this.searchController.search(options.searching);
-    }
-
     this.layout = new app.Layouts.Results();
     app.narrowRegion.show(this.searchView);
     app.resultsRegion.show(this.layout);
     this.layout.map.show(this.mapView)
     this.layout.list.show(this.hospitalsView);
     this.layout.selected.show(this.compareHospitalsView);
+
+    this.listenTo(this.compareHospitalsView, 'remove:hospital', this.removeHospital);
+    this.listenTo(this.hospitalsView, 'more-results:hospitals', this.moreResults);
+    this.listenTo(this.hospitalsView, 'hospital:selected', this.selectHospital);
+    this.listenTo(this.hospitalsView, 'hospital:deselected', this.deselectHospital);
+    this.listenTo(this.hospitalsView, 'render', this.verifyMaxSelected);
+    this.listenTo(this.searchController, 'after:search', this.verifyMaxSelected);
+
+    if (typeof options.searching !== 'undefined') {
+      this.searchController.search(options.searching);
+    }
+
+    if (typeof options.hospitalIds !== 'undefined') {
+      this.showSelected(hospitalIds);
+    }
   },
 
   showCompare: function(hospitalIds) {},
@@ -40,20 +52,29 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.searchController.moreResults();
   },
 
-  selectedHospital: function(hospitalId) {
-    var hospitalToCompare = app.hospitals.get(hospitalId);
-    this.hospitalsToCompare.add(hospitalToCompare.attributes);
+  selectHospital: function(hospitalId) {
+    this.hospitalsToCompare.add(app.hospitals.get(hospitalId));
+    this.verifyMaxSelected();
     this.updateURL();
   },
 
-  deselectedHospital: function(hospitalId) {
-    var hospitalToRemove = app.hospitals.get(hospitalId);
-    this.hospitalsToCompare.remove(hospitalToRemove);
+  deselectHospital: function(hospitalId) {
+    this.hospitalsToCompare.remove(app.hospitals.get(hospitalId));
+    this.verifyMaxSelected();
     this.updateURL();
+  },
+
+  verifyMaxSelected: function() {
+    if (this.hospitalsToCompare.length >= this.maxHospitals) {
+      this.hospitalsView.disableSelection();
+    } else {
+      this.hospitalsView.enableSelection();
+    }
   },
 
   removeHospital: function(hospital) {
-    app.hospitalsView.uncheck(hospital.id);
+    this.hospitalsView.uncheck(hospital.id);
+    this.verifyMaxSelected();
     this.updateURL();
   },
 
