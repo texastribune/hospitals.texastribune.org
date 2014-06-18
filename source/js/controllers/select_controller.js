@@ -96,17 +96,6 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     app.mainRouter.navigate('select/' + ids.join('/'));
   },
 
-  getCenter: function() {
-    var hospital;
-
-    if (this.hospitalsToCompare && this.hospitalsToCompare.length > 0) {
-      hospital = this.hospitalsToCompare.at(0);
-      return [hospital.get('latitude'), hospital.get('longitude')];
-    } else {
-      return [];
-    }
-  },
-
   getHospitals: function(hospitalIds) {
     var hospitals = [];
     hospitalIds = typeof hospitalIds === 'undefined' ? [] : hospitalIds;
