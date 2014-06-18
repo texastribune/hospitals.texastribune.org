@@ -2,7 +2,7 @@
 
 app.Controllers.CompareController = Marionette.Controller.extend({
   initialize: function(hospitalIds) {
-    var loadingFn = _.after(hospitalIds.length, this.loaded)
+    var loadingFn = _.after(hospitalIds.length, this.loaded);
     this.hospitalsJSON = [];
     this.on('hospital:loading', loadingFn);
     this.getHospitals(hospitalIds);
@@ -11,7 +11,7 @@ app.Controllers.CompareController = Marionette.Controller.extend({
   },
 
   loaded: function() {
-    this.hospitals = new app.Collections.Hospitals(this.hospitalsJSON)
+    this.hospitals = new app.Collections.Hospitals(this.hospitalsJSON);
     this.compareView = new app.Views.CompareView({
       collection: this.hospitals
     });

@@ -35,7 +35,7 @@ app.dataLoaded = function dataLoaded() {
   if ( Backbone.history ) {
     Backbone.history.start();
   }
-}
+};
 
 app.loading = _.after(3, app.dataLoaded);
 

@@ -27,7 +27,7 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
 
   appendHtml: function(collectionView, itemView){
     if (collectionView.$('tbody').length === 0) {
-      collectionView.$el.append(this.template())
+      collectionView.$el.append(this.template());
     }
     collectionView.$("tbody").append(itemView.el);
   },
@@ -62,6 +62,6 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
   },
 
   hideCompareButton: function() {
-    this.$el.find('button.compare').hide()
+    this.$el.find('button.compare').hide();
   }
 });

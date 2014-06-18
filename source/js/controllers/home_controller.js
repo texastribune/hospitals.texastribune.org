@@ -32,10 +32,10 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
         footerNoteMarginTop;
 
 
-    footerNoteMarginTop = documentHeight
-                        - $footer.position().top
-                        - $footer.height()
-                        - parseInt($footer.css('marginTop'), 10);
+    footerNoteMarginTop = documentHeight -
+                          $footer.position().top -
+                          $footer.height() -
+                          parseInt($footer.css('marginTop'), 10);
 
     $('.footer-note').css('margin-top', footerNoteMarginTop);
   }

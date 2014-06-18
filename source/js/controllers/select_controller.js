@@ -28,7 +28,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.layout = new app.Layouts.Results();
     app.narrowRegion.show(this.searchView);
     app.resultsRegion.show(this.layout);
-    this.layout.map.show(this.mapView)
+    this.layout.map.show(this.mapView);
     this.layout.list.show(this.hospitalsView);
     this.layout.selected.show(this.compareHospitalsView);
 
@@ -49,7 +49,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
   },
 
   onClose: function() {
-    this.searchView.close()
+    this.searchView.close();
     this.layout.close();
   },
 

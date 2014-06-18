@@ -10,7 +10,7 @@ app.Controllers.SearchController = Marionette.Controller.extend({
 
     this.listenTo(this.view, 'call:search', this.search);
     this.listenTo(this, 'more-results:search', this.moreResults);
-    this.listenTo(this, 'around:search', this.updateResults)
+    this.listenTo(this, 'around:search', this.updateResults);
 
     if (options.begin) {
       this.search(options.begin);
