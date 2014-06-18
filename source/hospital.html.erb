@@ -17,8 +17,7 @@
       </div>
     </div>
     <div class="hospital-map">
-      <img src="http://maps.googleapis.com/maps/api/staticmap?center=
-      <%= locals[:latitude] %>,<%= locals[:longitude] %>&zoom=11&size=300x200&sensor=false">
+      <div id="mapbox" style="height: 200px;"></div>
       <a href="/#select/<%= locals[:id] %>" class="button">Compare Hospital</a>
     </div>
   </div>
@@ -191,3 +190,26 @@
   <img src="http://placehold.it/300x250&text=Ad Block 2">
   <img src="http://placehold.it/300x250&text=Ad Block 3">
 </section>
+<script type="text/javascript">
+  var map = L.mapbox.map('mapbox', 'texastribune.map-vjiayly8')
+              .setView([37.9, -77], 6);
+  var geoJson = [{
+    type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [<%= locals[:longitude] %>, <%= locals[:latitude] %>]
+      },
+      properties: {
+        'description': '<%= "#{locals[:city]}, TX #{locals[:zipcode]}"%>',
+        'id': '<%= locals[:id] %>',
+        'title': '<%= locals[:name] %>',
+        'marker-color': '#fc4353',
+        'marker-size': 'large',
+        'marker-symbol': 'hospital'
+      }
+  }];
+
+  var featureLayer = L.mapbox.featureLayer().addTo(map);
+  featureLayer.setGeoJSON(geoJson);
+  map.fitBounds(featureLayer.getBounds());
+</script>
