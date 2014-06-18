@@ -14,15 +14,22 @@ app.Controllers.SelectController = Marionette.Controller.extend({
       collection: this.searchController.collection
     });
 
-    app.mapView = new app.Views.Map(this.getCenter());
+    this.mapView = new app.Views.Map(this.getCenter());
+
+    this.hospitalsToCompare = this.getHospitals(options.hospitalIds);
+
+    this.compareHospitalsView = new app.Views.HospitalsToCompare({
+      collection: this.hospitalsToCompare
+    });
 
     if (typeof options.searching !== 'undefined') {
       this.searchController.search(options.searching);
     }
 
-    app.mapRegion.show(app.mapView);
+    this.layout = new app.Layouts.Results();
     app.narrowRegion.show(this.searchView);
-    app.resultsRegion.show(this.hospitalsView);
+    app.resultsRegion.show(this.layout);
+    this.layout.map.show(this.mapView)
   },
 
   showCompare: function(hospitalIds) {},
@@ -68,6 +75,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
 
   getHospitals: function(hospitalIds) {
     var hospitals = [];
+    hospitalIds = typeof hospitalIds === 'undefined' ? [] : hospitalIds;
 
     _.each(hospitalIds, function(hospitalId) {
       hospitals.push(app.hospitals.get(hospitalId));

@@ -8,6 +8,7 @@
 //=require app
 //=require models
 //=require collections
+//=require layouts
 //=require controllers/main_controller
 //=require controllers/compare_controller
 //=require controllers/home_controller
