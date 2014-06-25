@@ -10,7 +10,7 @@ ul {
 }
 
 a {
-  color: $teal;
+  color: $link-color;
   text-decoration: none;
 
   &:hover {
@@ -26,7 +26,9 @@ hr {
 }
 
 input[type='submit'], button, a.button{
-  @include button;
+  color: #000;
+  letter-spacing: 0.03em;
+  @include button(flat, #ffc200);
 }
 
 // LAYOUT SPECIFICS
@@ -55,6 +57,7 @@ input[type='submit'], button, a.button{
     }
 
     .ad-container {
+      text-align: center;
       @include span-columns(4);
     }
   }
@@ -65,9 +68,8 @@ input[type='submit'], button, a.button{
   height: 3.125em + em(4, 16);
   line-height: 3.125em + em(4, 16);
   margin-bottom: 1em;
-  background-color: rgb(34, 34, 34);
+  background-color: #111;
   text-align: center;
-  border-bottom: 4px solid $violet;
 
   img {
     height: 1.75em;
@@ -94,9 +96,11 @@ input[type='submit'], button, a.button{
 // APP-CONTAINER
 .footer-note{
   p{
-    font-size: 70%;
-    font-style: italic;
-    margin: 0 5em;
+    color: rgb(102, 102, 102);
+    font: italic 200 0.75em Helvetica;
+    line-height: 1.3em;
+    position: relative;
+    text-align: left;
   }
 }
 
@@ -157,14 +161,18 @@ table {
 }
 
 table th {
-  border-bottom: 2px solid rgb(230, 230, 230);
+  border-bottom: 1px solid #aaa;
   padding: 0 1.5em 0 0.5em;
   text-align: left;
   vertical-align: middle;
 }
 
+// table tbody:before {
+//   line-height:1em; content:"\200C"; display:block;
+// }
+
 table td {
-  border-bottom: 1px solid rgb(230, 230, 230);
+  // border-bottom: 1px solid rgb(230, 230, 230);
   padding: 0.5em;
   text-align: left;
 }
@@ -174,7 +182,7 @@ table th:nth-child(1), td:nth-child(1) {
 }
 
 table tr:nth-child(odd) td {
-  background-color: rgb(249, 249, 249);
+  background-color: #f0f0f0;
 }
 
 @include media($mobile) {
