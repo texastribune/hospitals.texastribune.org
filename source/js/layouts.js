@@ -7,7 +7,6 @@ app.Layouts.Results = Marionette.Layout.extend({
 
   regions: {
     map: '#map',
-    selected: '#hospitals-selected',
     list: '#hospital-list'
   }
 });

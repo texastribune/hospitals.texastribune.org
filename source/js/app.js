@@ -10,7 +10,8 @@ app.addRegions({
   searchRegion:  '#search',
   narrowRegion:  '#narrow-search',
   resultsRegion: '#results',
-  compareRegion: '#compare'
+  compareRegion: '#compare',
+  selectedRegion: '#selected-hospitals'
 });
 
 app.Routers = app.Routers || {};

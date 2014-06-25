@@ -1,24 +1,2 @@
-<td data-title="Hospital">
-  <div class="hospital-name">
-    <a href="/<%= url %>.html"><%= name %></a>
-  </div>
-  <div class="hospital-address">
-    <p><%= address %></p>
-    <p><%= city %>, <%= state %> - <%= zipcode %></p>
-  </div>
-</td>
-<td data-title="Distance">
-  distance
-</td>
-<td data-title="Phone Number">
-  <%= phone_number %>
-</td>
-<td data-title="Hospital Type">
-  <%= type %>
-</td>
-<td data-title="Emergency Services">
-  <%= emergency_services %>
-</td>
-<td class="no-title">
-  <button class="remove" data-id="<%= _id %>">Remove</button>
-</td>
+<a href="/<%= url %>.html"><%= name %></a>
+<button class="remove" data-id="<%= _id %>">x</button>
