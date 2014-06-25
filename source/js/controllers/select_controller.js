@@ -29,9 +29,9 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.layout = new app.Layouts.Results();
     app.narrowRegion.show(this.searchView);
     app.resultsRegion.show(this.layout);
+    app.selectedRegion.show(this.compareHospitalsView)
     this.layout.map.show(this.mapView);
     this.layout.list.show(this.hospitalsView);
-    this.layout.selected.show(this.compareHospitalsView);
 
     this.listenTo(this.compareHospitalsView, 'compare:hospitals', this.compare);
     this.listenTo(this.compareHospitalsView, 'remove:hospital', this.removeHospital);

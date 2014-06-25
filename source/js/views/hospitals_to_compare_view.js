@@ -26,10 +26,41 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
   },
 
   appendHtml: function(collectionView, itemView){
-    if (collectionView.$('tbody').length === 0) {
+    if (collectionView.$('.selected-hospitals').length === 0) {
       collectionView.$el.append(this.template());
     }
-    collectionView.$("tbody").append(itemView.el);
+    collectionView.$('.selected-hospitals').append(itemView.el);
+  },
+
+  onDestroy: function() {
+    $(document).off('scroll', app.upateSelectWinPosition);
+    this.$el.parent().hide();
+  },
+
+  onShow: function() {
+    var $box = this.$el.parent(),
+        leftPos = $('.app-container').position().left,
+        bottomPos = 0;
+
+    app.upateSelectWinPosition = function() {
+      var $win = $(window),
+          $footer = $('footer.footer'),
+          docViewTop = $win.scrollTop(),
+          docViewBottom = docViewTop + $win.height(),
+          elemTop = $footer.offset().top;
+
+      if (docViewBottom >= elemTop) {
+        $box.css('bottom', $win.height() - elemTop + docViewTop);
+      } else {
+        $box.css('bottom', 0);
+      }
+    }
+
+    $box.show();
+    $box.css('bottom', bottomPos);
+    $box.css('left', leftPos);
+
+    $(document).on('scroll', app.upateSelectWinPosition);
   },
 
   compare: function(event) {
