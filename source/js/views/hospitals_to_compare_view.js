@@ -57,9 +57,9 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
     }
 
     $box.show();
-    $box.css('bottom', bottomPos);
     $box.css('left', leftPos);
 
+    app.upateSelectWinPosition();
     $(document).on('scroll', app.upateSelectWinPosition);
   },
 
