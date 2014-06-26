@@ -70,21 +70,32 @@ app.Controllers.SearchController = Marionette.Controller.extend({
 
   searchByLocation: function(page) {
     var self = this,
+        locationFound,
+        noGeolocation,
         results;
 
+    locationFound = function(position) {
+      self.centerLocation = [position.coords.latitude,
+                              position.coords.longitude];
+      results = self.searchByProximityTo(
+        position.coords.latitude,
+        position.coords.longitude
+      ).slice((page - 1) * self.perPage, page * self.perPage);
+      app.position = position;
+      self.trigger('around:search', results);
+    }
+
+    noGeolocation = function() {
+      self.trigger('error:search', 'Geolocation is not working.');
+    }
+
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        self.centerLocation = [position.coords.latitude,
-                                position.coords.longitude];
-        results = self.searchByProximityTo(
-          position.coords.latitude,
-          position.coords.longitude
-        ).slice((page - 1) * self.perPage, page * self.perPage);
-        self.trigger('around:search', results);
-      }, function() {
-        // TODO: Find a better error message
-        self.trigger('error:search', 'Geolocation is not working.');
-      });
+      if (typeof app.position === 'undefined') {
+        navigator.geolocation.getCurrentPosition(locationFound, noGeolocation);
+      } else {
+        locationFound(app.position);
+      }
+      noGeolocation();
     }
   },
 
