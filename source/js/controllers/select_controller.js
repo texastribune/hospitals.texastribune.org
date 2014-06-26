@@ -29,30 +29,33 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.layout = new app.Layouts.Results();
     app.narrowRegion.show(this.searchView);
     app.resultsRegion.show(this.layout);
-    app.selectedRegion.show(this.compareHospitalsView)
     this.layout.map.show(this.mapView);
     this.layout.list.show(this.hospitalsView);
-
-    this.listenTo(this.compareHospitalsView, 'compare:hospitals', this.compare);
-    this.listenTo(this.compareHospitalsView, 'remove:hospital', this.removeHospital);
-    this.listenTo(this.searchController, 'after:search', this.verifyMaxSelected);
     this.listenTo(this.hospitalsView, 'more-results:hospitals', this.moreResults);
     this.listenTo(this.hospitalsView, 'hospital:selected', this.selectHospital);
     this.listenTo(this.hospitalsView, 'hospital:deselected', this.deselectHospital);
     this.listenTo(this.hospitalsView, 'render', this.verifyMaxSelected);
 
-    if (typeof options.searching !== 'undefined') {
-      this.searchController.search(options.searching);
-      app.mainRouter.navigate('search/' + this.searchController.searching);
-    } else {
-      this.searchController.search(this.getFirstZipcode());
-    }
+    this.preloadList(options);
+    app.selectedRegion.show(this.compareHospitalsView)
+    this.listenTo(this.compareHospitalsView, 'compare:hospitals', this.compare);
+    this.listenTo(this.compareHospitalsView, 'remove:hospital', this.removeHospital);
+    this.listenTo(this.searchController, 'after:search', this.verifyMaxSelected);
   },
 
   onClose: function() {
     this.searchView.close();
     this.layout.close();
     app.selectedRegion.close();
+  },
+
+  preloadList: function(options) {
+    if (typeof options.searching !== 'undefined') {
+      this.searchController.search(options.searching);
+      app.mainRouter.navigate('search/' + this.searchController.searching);
+    } else {
+      this.searchController.search(this.getFirstZipcode());
+    }
   },
 
   moreResults: function() {

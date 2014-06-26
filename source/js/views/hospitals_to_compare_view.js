@@ -39,8 +39,7 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
 
   onShow: function() {
     var $box = this.$el.parent(),
-        leftPos = $('.app-container').position().left,
-        bottomPos = 0;
+        leftPos = $('.app-container').position().left;
 
     app.upateSelectWinPosition = function() {
       var $win = $(window),
