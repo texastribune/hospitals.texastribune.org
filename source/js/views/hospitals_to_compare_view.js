@@ -4,6 +4,7 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
   template: JST['templates/hospitals-to-compare'],
   itemView: app.Views.HospitalToCompare,
   emptyView: app.Views.HospitalEmpty,
+  className: 'selected',
 
   itemEvents: {
     "remove:hospital": 'removeHospitalClicked'
