@@ -31,13 +31,13 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     app.resultsRegion.show(this.layout);
     this.layout.map.show(this.mapView);
     this.layout.list.show(this.hospitalsView);
+    this.layout.selected.show(this.compareHospitalsView)
     this.listenTo(this.hospitalsView, 'more-results:hospitals', this.moreResults);
     this.listenTo(this.hospitalsView, 'hospital:selected', this.selectHospital);
     this.listenTo(this.hospitalsView, 'hospital:deselected', this.deselectHospital);
     this.listenTo(this.hospitalsView, 'render', this.verifyMaxSelected);
 
     this.preloadList(options);
-    app.selectedRegion.show(this.compareHospitalsView)
     this.listenTo(this.compareHospitalsView, 'compare:hospitals', this.compare);
     this.listenTo(this.compareHospitalsView, 'remove:hospital', this.removeHospital);
     this.listenTo(this.searchController, 'after:search', this.verifyMaxSelected);
@@ -46,7 +46,6 @@ app.Controllers.SelectController = Marionette.Controller.extend({
   onClose: function() {
     this.searchView.close();
     this.layout.close();
-    app.selectedRegion.close();
   },
 
   preloadList: function(options) {
