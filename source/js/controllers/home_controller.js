@@ -9,7 +9,12 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
 
     this.listenTo(this.searchView, 'show', this.verticalAlign);
     this.listenTo(this.searchController, 'after:search', this.showSelect);
+    $(window).on('resize', this.verticalAlign);
     app.searchRegion.show(this.searchView);
+  },
+
+  onClose: function() {
+    $(window).off('resize', this.verticalAlign);
   },
 
   showSelect: function() {
@@ -23,6 +28,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
         searching: this.searchController.searching
       });
       this.searchController.close();
+      this.close();
     }
   },
 
@@ -31,11 +37,9 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
         $footer = $('footer.footer'),
         footerNoteMarginTop;
 
-
     footerNoteMarginTop = documentHeight -
                           $footer.position().top -
-                          $footer.height() -
-                          parseInt($footer.css('marginTop'), 10);
+                          $footer.height();
 
     $('.footer-note').css('margin-top', footerNoteMarginTop);
   }
