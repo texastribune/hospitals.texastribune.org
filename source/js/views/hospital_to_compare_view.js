@@ -2,7 +2,7 @@
 
 app.Views.HospitalToCompare = Marionette.ItemView.extend({
   template: JST['templates/hospital-to-compare'],
-  tagName: 'tr',
+  tagName: 'div',
 
   ui: {
     'removeButton': 'button.remove'
