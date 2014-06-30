@@ -100,52 +100,122 @@ input[type='submit'], button, a.button{
 }
 
 // FOOTER
-footer.footer {
-  color: rgb(255, 255, 255);
+.footer {
+  background-color: rgb(34, 34, 34);
+  color: $white;
   font-size: 0.75em;
   margin-top: 1em;
-  border-top: 4px solid $violet;
-  background-color: rgb(34, 34, 34);
   .logo {
-    width: 100px;
+    width: 120px;
     margin-top: 1em;
-
-    @include media($desktop) {
-      width: 150px;
-      margin-top: 3em;
-    }
   }
-  .app-container {
+
+  .footer-container {
     text-align: center;
+    margin: auto;
+    @include outer-container;
     @include media($desktop) {
       div {
+        @include span-columns(3 of 12);
+      }
+    }
+    div {
+      @include media($desktop) {
         text-align: left;
-        @include span-columns(4 of 12);
       }
     }
-  }
-  ul {
-    li {
-      margin-bottom: 0.5em;
-
-      &:first-child {
-        color: #FFC200;
-        font-weight: bold;
-        margin-bottom: 1em;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 2em;
+      a {
+        color: rgb(221, 221, 221);
+        text-decoration: none;
+        &:active {
+          color: $white;
+          text-decoration: underline;
+        }
+        &:hover {
+          color: $white;
+          text-decoration: underline;
+        }
       }
+      li {
+        margin-bottom: 0.5em;
+      } 
     }
-
-    a {
-      color: rgb(221, 221, 221);
-      text-decoration: none;
-
+    .icon {
+      color: $white;
+      font-size: 1.5em;
+      display: inline-block;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      padding-right: 0.5em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      @include media($desktop) {
+        text-align: left;
+      }
+      &:active {
+        color: $teal;
+      }
       &:hover {
-        color: rgb(255, 255, 255);
-        text-decoration: underline;
+        color: $teal;
+      }
+    }
+    .internal-links {
+      li {
+        &:last-child {
+          a {
+            color: $dk_teal;
+          }
+        }
+      }
+    }
+    .donate {
+      background: $dk_teal;
+      color: $white;
+      font-family: Helvetica;
+      padding: 0.25em 0;
+      ul {
+        margin: 1.5em 1.5em 0.75em 1.5em;
+        font-size: 1.65em;
+        line-height: 0.9em;
+        border-bottom: 1px solid $white;
+        letter-spacing: 0.03em;
+        li {
+          &:last-child {
+            background-color: $yellow;
+            color: rgb(34, 34, 34);
+            font: 700 0.5em Helvetica;
+            letter-spacing: 1px;
+            line-height: 1.4em;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 1em 0 1.5em 0;
+            padding: 0.25em 0;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+          }
+        }
+      }
+      a {
+        &:active {
+          text-decoration: none;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      @include media($desktop) {
+        padding: 0 0 1em 0;
       }
     }
   }
 }
+
 // TABLES
 table {
   border-collapse: collapse;
