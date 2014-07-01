@@ -41,6 +41,9 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.listenTo(this.compareHospitalsView, 'compare:hospitals', this.compare);
     this.listenTo(this.compareHospitalsView, 'remove:hospital', this.removeHospital);
     this.listenTo(this.searchController, 'after:search', this.verifyMaxSelected);
+
+    this.checkSelectedHospitals();
+    this.verifyMaxSelected();
   },
 
   onClose: function() {
@@ -84,6 +87,10 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     } else {
       this.hospitalsView.enableSelection();
     }
+  },
+
+  checkSelectedHospitals: function() {
+    this.hospitalsView.checkHospitals(this.hospitalsToCompare);
   },
 
   removeHospital: function(hospital) {

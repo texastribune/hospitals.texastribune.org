@@ -51,12 +51,14 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
     $('.hospital-selector').removeAttr('disabled');
   },
 
-  selectResults: function(ids) {
-    var self = this;
+  checkHospitals: function(hospitals) {
+    var self = this,
+        hospitalId;
 
-    _.each(ids, function(id) {
-      if (self.collection.get(id)) {
-        self.check(id);
+    hospitals.each(function(hospital) {
+      hospitalId = hospital.id;
+      if (self.collection.get(hospitalId)) {
+        self.check(hospitalId);
       }
     });
   },
