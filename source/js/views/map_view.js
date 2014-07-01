@@ -14,7 +14,7 @@ app.Views.Map = Marionette.ItemView.extend({
   },
 
   onShow: function(){
-    this.map = L.mapbox.map('map-location', 'texastribune.map-f9zh0xcn',{
+    this.map = L.mapbox.map('map-location', app.Settings.mapId,{
       minZoom: 5,
       maxZoom: 17
     });
