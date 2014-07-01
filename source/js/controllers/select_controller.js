@@ -71,12 +71,14 @@ app.Controllers.SelectController = Marionette.Controller.extend({
 
   selectHospital: function(hospitalId) {
     this.hospitalsToCompare.add(app.hospitals.get(hospitalId));
+    this.mapView.checkHospitals(this.hospitalsToCompare);
     this.verifyMaxSelected();
     this.updateURL();
   },
 
   deselectHospital: function(hospitalId) {
     this.hospitalsToCompare.remove(app.hospitals.get(hospitalId));
+    this.mapView.checkHospitals(this.hospitalsToCompare);
     this.verifyMaxSelected();
     this.updateURL();
   },
@@ -91,6 +93,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
 
   checkSelectedHospitals: function() {
     this.hospitalsView.checkHospitals(this.hospitalsToCompare);
+    this.mapView.checkHospitals(this.hospitalsToCompare);
   },
 
   removeHospital: function(hospital) {

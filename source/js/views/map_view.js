@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 app.Views.Map = Marionette.ItemView.extend({
   template: JST['templates/map'],
@@ -32,5 +32,22 @@ app.Views.Map = Marionette.ItemView.extend({
       return _.contains(ids, featureObject.properties.id);
     });
     this.map.fitBounds(this.featureLayer.getBounds());
+  },
+
+  checkHospitals: function(hospitals) {
+    this.resetMarkers();
+    _.each(app.geoData.features, function(feature) {
+      if (hospitals.get(feature.properties.id)) {
+        feature.properties['marker-color'] = app.Settings.markerSelectedColor;
+      }
+    });
+    this.featureLayer.setGeoJSON(app.geoData);
+  },
+
+  resetMarkers: function() {
+    _.each(app.geoData.features, function(feature) {
+      feature.properties['marker-color'] = app.Settings.markerColor;
+    });
+    this.featureLayer.setGeoJSON(app.geoData);
   }
 });
