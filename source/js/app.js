@@ -5,6 +5,10 @@ window.app = new Marionette.Application();
 
 app.Views = app.Views || {};
 app.Controllers = app.Controllers || {};
+app.Settings = {
+  markerColor: '#fc4353',
+  markerSelectedColor: '#FF0'
+}
 
 app.addRegions({
   searchRegion:  '#search',
@@ -70,7 +74,7 @@ app.on('initialize:before', function() {
 
   process = function process(geoData) {
     var markerOptions = {
-      'marker-color':  '#fc4353',
+      'marker-color':  app.Settings.markerColor,
       'marker-size':   'large',
       'marker-symbol': 'hospital'
     };
