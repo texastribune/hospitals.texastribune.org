@@ -2,7 +2,7 @@
 
 app.Controllers.SelectController = Marionette.Controller.extend({
   initialize: function(options) {
-    this.maxHospitals = 3;
+    this.maxHospitals = app.Settings.maxSelected;
     this.searchView  = new app.Views.Search({
       narrowSearch: true,
     });

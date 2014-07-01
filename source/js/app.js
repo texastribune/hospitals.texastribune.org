@@ -6,6 +6,7 @@ window.app = new Marionette.Application();
 app.Views = app.Views || {};
 app.Controllers = app.Controllers || {};
 app.Settings = {
+  maxSelected: 3,
   markerColor: '#fc4353',
   markerSelectedColor: '#FF0'
 }
