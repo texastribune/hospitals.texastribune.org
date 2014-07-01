@@ -35,15 +35,14 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.listenTo(this.hospitalsView, 'more-results:hospitals', this.moreResults);
     this.listenTo(this.hospitalsView, 'hospital:selected', this.selectHospital);
     this.listenTo(this.hospitalsView, 'hospital:deselected', this.deselectHospital);
-    this.listenTo(this.hospitalsView, 'render', this.verifyMaxSelected);
+    this.listenTo(this.hospitalsView, 'render', this.syncronizeViews);
 
     this.preloadList(options);
     this.listenTo(this.compareHospitalsView, 'compare:hospitals', this.compare);
     this.listenTo(this.compareHospitalsView, 'remove:hospital', this.removeHospital);
-    this.listenTo(this.searchController, 'after:search', this.verifyMaxSelected);
+    this.listenTo(this.searchController, 'after:search', this.syncronizeViews);
 
-    this.checkSelectedHospitals();
-    this.verifyMaxSelected();
+    this.syncronizeViews();
   },
 
   onClose: function() {
@@ -71,19 +70,18 @@ app.Controllers.SelectController = Marionette.Controller.extend({
 
   selectHospital: function(hospitalId) {
     this.hospitalsToCompare.add(app.hospitals.get(hospitalId));
-    this.mapView.checkHospitals(this.hospitalsToCompare);
-    this.verifyMaxSelected();
-    this.updateURL();
+    this.syncronizeViews();
   },
 
   deselectHospital: function(hospitalId) {
     this.hospitalsToCompare.remove(app.hospitals.get(hospitalId));
-    this.mapView.checkHospitals(this.hospitalsToCompare);
-    this.verifyMaxSelected();
-    this.updateURL();
+    this.syncronizeViews();
   },
 
-  verifyMaxSelected: function() {
+  syncronizeViews: function() {
+    this.checkSelectedHospitals();
+    this.mapView.checkHospitals(this.hospitalsToCompare);
+    this.updateURL();
     if (this.hospitalsToCompare.length >= this.maxHospitals) {
       this.hospitalsView.disableSelection();
     } else {
@@ -99,8 +97,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
   removeHospital: function(hospital) {
     this.hospitalsView.uncheck(hospital.id);
     this.mapView.checkHospitals(this.hospitalsToCompare);
-    this.verifyMaxSelected();
-    this.updateURL();
+    this.syncronizeViews();
   },
 
   updateURL: function() {
