@@ -98,6 +98,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
 
   removeHospital: function(hospital) {
     this.hospitalsView.uncheck(hospital.id);
+    this.mapView.checkHospitals(this.hospitalsToCompare);
     this.verifyMaxSelected();
     this.updateURL();
   },
