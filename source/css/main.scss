@@ -118,6 +118,9 @@ section#hospital-list{
 .hospital-information {
   .hospital-data {
     @include span-columns(4 of 8);
+    p {
+      margin: 0.5em;
+    }
   }
   .hospital-map {
     text-align: center;
