@@ -8,6 +8,11 @@ app.Controllers.CompareController = Marionette.Controller.extend({
     this.getHospitals(hospitalIds);
 
     app.mainRouter.navigate('compare/' + hospitalIds.join('/'));
+    this.hospitalIds = hospitalIds;
+  },
+
+  onClose: function() {
+    this.compareView.close();
   },
 
   loaded: function() {
@@ -16,6 +21,8 @@ app.Controllers.CompareController = Marionette.Controller.extend({
       collection: this.hospitals
     });
     app.compareRegion.show(this.compareView);
+
+    this.listenTo(this.compareView, 'select:hospitals', this.showSelect);
   },
 
   getHospitals: function(hospitalIds) {
@@ -27,6 +34,13 @@ app.Controllers.CompareController = Marionette.Controller.extend({
         self.hospitalsJSON.push(data);
         self.trigger('hospital:loading');
       });
+    });
+  },
+
+  showSelect: function() {
+    this.close();
+    app.currentController = new app.Controllers.SelectController({
+      hospitalIds: this.hospitalIds
     });
   }
 });

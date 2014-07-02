@@ -3,6 +3,10 @@
 app.Views.CompareView = Marionette.CollectionView.extend({
   template: JST['templates/compare'],
 
+  triggers: {
+    'click .select': 'select:hospitals'
+  },
+
   appendHtml: function(collectionView, itemView, index) {
   },
 
