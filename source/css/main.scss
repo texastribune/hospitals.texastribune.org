@@ -97,9 +97,15 @@
   #selected-hospitals{
     .selected{
       background-color: $dark-grey;
-      padding: .1em 1em 1em 1em;
+      padding: 0.1em 1em 1em 1em;
       h3{
         margin: 0.5em 0;
+      }
+      div{
+        margin-bottom: 0.3em;
+        .remove{
+          padding: 5px 10px;
+        }
       }
     }
     .controls{
