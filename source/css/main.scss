@@ -45,12 +45,16 @@
       margin: 0 .7em;
     }
     input[type='search']{
+      margin-top: .5em;
       padding: 5px;
       width: 70%;
     }
     @include media($mobile){
       span{
         display:block;
+      }
+      input[type='submit']{
+        margin-top: .5em;
       }
     }
   }
@@ -61,10 +65,31 @@
   span{
     margin: 0 .5em;
   }
-  input[type='search']{
-    padding: 6px;
-    margin-right: .25em;
-    width: 30%;
+  .search-tools{
+    display: inline-block;
+    input[type='search']{
+      padding: 6px;
+      margin-right: .25em;
+      width: 30%;
+    }
+  }
+  @include media($mobile){
+    text-align: center;
+    .search-tools{
+      display: block;
+      input[type='search'] {
+        width: 80%;
+      }
+    }
+    span{
+      display: block;
+    }
+    a, span, input {
+      margin: .3em 0;
+    }
+    p{
+      text-align: left;
+    }
   }
 }
 .map-and-selected{
