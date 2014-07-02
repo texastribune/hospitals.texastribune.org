@@ -7,7 +7,7 @@ app.Views = app.Views || {};
 app.Controllers = app.Controllers || {};
 app.Settings = {
   mapId: 'texastribune.ijjo9ock',
-  maxSelected: 3,
+  maxSelected: 30,
   markerColor: '#fc4353',
   markerSelectedColor: '#FFC81A'
 }
