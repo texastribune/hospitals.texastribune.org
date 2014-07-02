@@ -43,6 +43,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.listenTo(this.searchController, 'after:search', this.syncronizeViews);
 
     this.syncronizeViews();
+    $('#compare').html(''); // INPOT
   },
 
   onClose: function() {
