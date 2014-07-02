@@ -10,6 +10,7 @@ app.Views.Search = Marionette.ItemView.extend({
   },
   events: {
     'click button': 'nearestHospitals',
+    'click .button': 'nearestHospitals',
     'click input': 'hideError',
     'submit form': 'submit'
   },
