@@ -16,9 +16,9 @@ app.Controllers.SelectController = Marionette.Controller.extend({
       collection: this.searchController.collection
     });
 
-    this.mapView = new app.Views.Map({
-      collection: this.searchController.collection
-    });
+    // this.mapView = new app.Views.Map({
+    //   collection: this.searchController.collection
+    // });
 
     this.hospitalsToCompare = this.getHospitals(options.hospitalIds);
 
@@ -29,7 +29,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.layout = new app.Layouts.Results();
     app.narrowRegion.show(this.searchView);
     app.resultsRegion.show(this.layout);
-    this.layout.map.show(this.mapView);
+    // this.layout.map.show(this.mapView);
     this.layout.list.show(this.hospitalsView);
     this.layout.selected.show(this.compareHospitalsView)
     this.listenTo(this.hospitalsView, 'more-results:hospitals', this.moreResults);
@@ -81,7 +81,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
 
   syncronizeViews: function() {
     this.checkSelectedHospitals();
-    this.mapView.checkHospitals(this.hospitalsToCompare);
+    // this.mapView.checkHospitals(this.hospitalsToCompare);
     this.updateURL();
     if (this.hospitalsToCompare.length >= this.maxHospitals) {
       this.hospitalsView.disableSelection();
@@ -92,12 +92,12 @@ app.Controllers.SelectController = Marionette.Controller.extend({
 
   checkSelectedHospitals: function() {
     this.hospitalsView.checkHospitals(this.hospitalsToCompare);
-    this.mapView.checkHospitals(this.hospitalsToCompare);
+    // this.mapView.checkHospitals(this.hospitalsToCompare);
   },
 
   removeHospital: function(hospital) {
     this.hospitalsView.uncheck(hospital.id);
-    this.mapView.checkHospitals(this.hospitalsToCompare);
+    // this.mapView.checkHospitals(this.hospitalsToCompare);
     this.syncronizeViews();
   },
 
