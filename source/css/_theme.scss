@@ -91,7 +91,6 @@ input[type='submit'], button, a.button{
 .hospital-boxes {
   .hospital-box {
     border: 1px solid #EEE;
-    height: 147px;
     margin-bottom: 1em;
     &.active{
       background: #fef5ce;
@@ -117,11 +116,11 @@ input[type='submit'], button, a.button{
       }
     }
     .hospital-map {
+      margin: 1em 0 -2px;
       text-align: right;
-      float: right;
     }
     .controls {
-      margin-top: 0.3em;
+      margin: 1em 0 1em;
       text-align: center;
     }
   }
