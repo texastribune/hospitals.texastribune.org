@@ -23,6 +23,11 @@
     @include span-columns(8);
     @include shift(2); 
   }
+  .loading{
+    position: absolute;
+    top: 23px;
+    margin-left: 0.7em;
+  }
   .messages{
     height: 16px;
   }
@@ -37,6 +42,7 @@
   }
   .searcher{
     margin: 2em 0;
+    position: relative;
     text-align: center;
     button{
       margin: 1em 0;
@@ -64,6 +70,14 @@
   @include span-columns(12);
   span{
     margin: 0 .5em;
+  }
+  form {
+    position: relative;
+  }
+  .loading {
+    position: absolute;
+    top: 10px;
+    margin-left: 0.3em;
   }
   .search-tools{
     display: inline-block;

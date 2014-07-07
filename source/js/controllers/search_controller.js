@@ -32,6 +32,7 @@ app.Controllers.SearchController = Marionette.Controller.extend({
       this.collection.trigger('collection:updated');
     }
     this.trigger('after:search');
+    this.view.trigger('search:completed');
   },
 
   moreResults: function() {
