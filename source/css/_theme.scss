@@ -266,7 +266,37 @@ label {
 .ac-container input:checked ~ article.ac-large{
   max-height: 9999px;
 }
-
+//hosp-card color variables
+.card-1 {
+  background: $orange;
+}
+.card-2 {
+  background: $gun_metal;
+}
+.card-3 {
+  background: $blue;
+}
+.card-4 {
+  background: $blueberry;
+}
+.card-5 {
+  background: $lime;
+}
+.card-6 {
+  background: $dk_magenta;
+}
+.card-7 {
+  background: $orange_red;
+}
+.card-8 {
+  background: $lt_teal;
+}
+.card-9 {
+  background: $teal;
+}
+.card-10 {
+  background: $green_gray;
+}
 // APP-CONTAINER
 .footer-note{
   p{
