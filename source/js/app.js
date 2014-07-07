@@ -1,4 +1,4 @@
-'use strinct';
+'use strict';
 
 /* APPLICATION */
 window.app = new Marionette.Application();

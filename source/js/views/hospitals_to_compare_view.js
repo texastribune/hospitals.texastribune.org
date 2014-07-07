@@ -1,5 +1,3 @@
-'use strict';
-
 app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
   template: JST['templates/hospitals-to-compare'],
   itemView: app.Views.HospitalToCompare,

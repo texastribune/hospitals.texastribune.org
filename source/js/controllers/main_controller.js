@@ -1,5 +1,3 @@
-'use strinct';
-
 app.Controllers.MainController = Marionette.Controller.extend({
   initialize: function() {},
 

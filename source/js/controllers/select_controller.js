@@ -1,5 +1,3 @@
-'use strinct';
-
 app.Controllers.SelectController = Marionette.Controller.extend({
   initialize: function(options) {
     this.maxHospitals = app.Settings.maxSelected;

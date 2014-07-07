@@ -1,5 +1,3 @@
-'use strict';
-
 app.Controllers.SearchController = Marionette.Controller.extend({
   initialize: function(options) {
     this.page = 1;

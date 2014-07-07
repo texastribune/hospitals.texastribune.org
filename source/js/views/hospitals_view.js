@@ -1,5 +1,3 @@
-'use strict';
-
 app.Views.Hospitals = Marionette.CompositeView.extend({
   template: JST['templates/hospital-boxes'],
   itemView: app.Views.Hospital,

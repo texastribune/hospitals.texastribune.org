@@ -1,5 +1,3 @@
-'use strict';
-
 app.Views.Map = Marionette.ItemView.extend({
   template: JST['templates/map'],
 

@@ -1,5 +1,3 @@
-'use string';
-
 app.Layouts = app.Layouts || {};
 
 app.Layouts.Results = Marionette.Layout.extend({

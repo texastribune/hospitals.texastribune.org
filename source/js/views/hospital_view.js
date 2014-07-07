@@ -1,5 +1,3 @@
-"use strict";
-
 app.Views.Hospital = Marionette.ItemView.extend({
   template: JST['templates/hospital-box'],
   tagName: 'div',

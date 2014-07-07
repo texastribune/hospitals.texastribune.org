@@ -1,5 +1,3 @@
-'use strict';
-
 app.Views.CompareView = Marionette.CollectionView.extend({
   template: JST['templates/compare'],
 
