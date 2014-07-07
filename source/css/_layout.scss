@@ -1,0 +1,33 @@
+.app-container {
+  @include outer-container;
+  @include media($desktop) {
+    .content-container {
+      @include span-columns(8);
+
+      .row {
+        @include row();
+      }
+
+      .stat-column {
+        @include span-columns(2 of 8);
+      }
+
+      .chart-column {
+        @include span-columns(4 of 8);
+      }
+
+      .span-half {
+        @include span-columns(4 of 8);
+      }
+    }
+  }
+}
+
+.footer-container {
+  @include outer-container;
+  @include media($desktop) {
+    div {
+      @include span-columns(3 of 12);
+    }
+  }
+}
