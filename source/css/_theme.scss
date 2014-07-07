@@ -88,6 +88,45 @@ input[type='submit'], button, a.button{
   }
 }
 
+.hospital-boxes {
+  .hospital-box {
+    border: 1px solid #EEE;
+    height: 147px;
+    margin-bottom: 1em;
+    &.active{
+      background: #fef5ce;
+    }
+    .hosp-information {
+      header{
+        padding: 0.5em 0.5em 0 0.5em;
+        input{
+          float: left;
+          // 10px to make sure 2 row headers wrap
+          margin: .25em .5em 10px 0;
+        }
+        h4{
+          max-width: 93%;
+          line-height: 1.2em;
+          margin: 0;
+        }
+      }
+      .information {
+        padding: 0.2em 0 0 2.15em;
+        line-height: 1.3em;
+        font-size: 14px;
+      }
+    }
+    .hospital-map {
+      text-align: right;
+      float: right;
+    }
+    .controls {
+      margin-top: 0.3em;
+      text-align: center;
+    }
+  }
+}
+
 // APP-CONTAINER
 .footer-note{
   p{

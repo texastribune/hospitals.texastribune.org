@@ -9,7 +9,9 @@ app.Settings = {
   mapId: 'texastribune.ijjo9ock',
   maxSelected: 30,
   markerColor: '#fc4353',
-  markerSelectedColor: '#FFC81A'
+  markerSelectedColor: '#FFC81A',
+  markerSelectedColorOnlyCode: 'fc4353',
+  mapZoom: 15
 }
 
 app.addRegions({
