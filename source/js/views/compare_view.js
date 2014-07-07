@@ -5,6 +5,19 @@ app.Views.CompareView = Marionette.CollectionView.extend({
     'click a.compare': 'select:hospitals'
   },
 
+  templateHelpers: function() {
+    var minuteOrNA = function(value) {
+      if (value === null || value === undefined || value === '') {
+        return 'N/A';
+      } else {
+        return value + ' min.';
+      }
+    }
+    return {
+      'minuteOrNA': minuteOrNA
+    };
+  },
+
   appendHtml: function(collectionView, itemView, index) {
   },
 
@@ -17,7 +30,7 @@ app.Views.CompareView = Marionette.CollectionView.extend({
       return model.toJSON();
     });
 
-    html = template({ children: data});
+    html = template(_.extend({children: data}, this.templateHelpers()));
     this.$el.empty();
     this.$el.append(html);
 
