@@ -12,7 +12,7 @@
 
     <section class="ac-container">
       <div class="category-wrapper">
-        <input id="ac-1" name="accordion-1" type="checkbox" />
+        <input id="ac-1" name="accordion-1" type="checkbox" checked />
         <label for="ac-1"><i class="fa fa-chevron-right">
           </i><i class="fa fa-chevron-down"></i><h3>General Information</h3>
         </label>
@@ -201,6 +201,201 @@
                   <p>Worse than U.S. Rate</p>
                 </div>
               </div>  
+            </div>
+            <% }); %>
+          </div>
+        </article>
+      </div>
+      <div class="category-wrapper">
+        <input id="ac-4" name="accordion-1" type="checkbox" />
+        <label for="ac-4"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Outcomes</h3></label>
+        <article class="ac-large">
+          <div class="info">
+            <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
+          </div>
+          <div class="hosp-card-wrapper">
+            <% _(children).each(function(model) { %>
+            <div class="hosp-card">
+              <header>
+                <h4><%= model.name %></h4>
+              </header>
+              <div class="card-row sub-header">
+                <p><em>Rates of 30-day unplanned readmission</em></p>
+              </div>
+              <div class="card-row">
+                <div class="value-header">
+                  <p>For all patients discharged from the hospital</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.readmission_rates %>
+                  </p>
+                </div>
+              </div> 
+              <div class="card-row">
+                <div class="value-header">
+                  <p>For heart attack patients</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.readmission_rates %>
+                  </p>
+                </div>
+              </div>
+              <div class="card-row">
+                <div class="value-header">
+                  <p>For heart failure patients</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.readmission_rates %>
+                  </p>
+                </div>
+              </div>       
+              <div class="card-row">
+                <div class="value-header">
+                  <p>For pneumonia patients</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.readmission_rates %>
+                  </p>
+                </div>
+              </div> 
+              <div class="card-row">
+                <div class="value-header">
+                  <p>For patients after hip/knee surgery</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.readmission_rates %>
+                  </p>
+                </div>
+              </div> 
+              <div class="card-row sub-header">
+                <p><em>Rates of death within 30-days of discharge</em></p>
+              </div>
+              <div class="card-row">
+                <div class="value-header">
+                  <p>For heart attack patients</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.emergency_rates.ed1 %>
+                  </p>
+                </div>
+              </div>
+              <div class="card-row">
+                <div class="value-header">
+                  <p>For heart failure patients</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.emergency_rates.op_18 %>
+                  </p>
+                </div>
+              </div>       
+              <div class="card-row">
+                <div class="value-header">
+                  <p>For pneumonia patients</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.emergency_rates.op_18 %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% }); %>
+          </div>
+        </article>
+      </div>
+      <div class="category-wrapper">
+        <input id="ac-5" name="accordion-1" type="checkbox" />
+        <label for="ac-5"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Experience</h3></label>
+        <article class="ac-large">
+          <div class="info">
+            <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
+          </div>
+          <div class="hosp-card-wrapper">
+            <% _(children).each(function(model) { %>
+            <div class="hosp-card">
+              <header>
+                <h4><%= model.name %></h4>
+              </header>
+              <div class="card-row sub-header">
+                <p><em>Patient of patients surveyed that...</em></p>
+              </div>
+              <div class="card-row">
+                <div class="value-header">
+                  <p>Scored the Hospital "9" or "10" on a scale from 0 (low) to 10 (high)</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.quality.rating_9_or_10 %>
+                  </p>
+                </div>
+              </div> 
+              <div class="card-row">
+                <div class="value-header">
+                  <p>Would definitely recommend the hospital</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.quality %>
+                  </p>
+                </div>
+              </div>
+              <div class="card-row">
+                <div class="value-header">
+                  <p>Reported their doctors "Always" communicated well</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.quality %>
+                  </p>
+                </div>
+              </div>       
+              <div class="card-row">
+                <div class="value-header">
+                  <p>Reported their nurses "Always" communicated well</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.quality %>
+                  </p>
+                </div>
+              </div>
+              <div class="card-row">
+                <div class="value-header">
+                  <p>Reported they "Always" received help as soon as they wanted</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.quality %>
+                  </p>
+                </div>
+              </div>              
+              <div class="card-row">
+                <div class="value-header">
+                  <p>Reported their room and bathroom were "Always" clean</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.quality %>
+                  </p>
+                </div>
+              </div> 
+              <div class="card-row">
+                <div class="value-header">
+                  <p>Reported the area around their room was "Always" quiet at night</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.quality %>
+                  </p>
+                </div>
+              </div> 
             </div>
             <% }); %>
           </div>
