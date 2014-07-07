@@ -21,240 +21,55 @@
             <p>These indicators show how long you could expect to wait in the emergency room before seeing a healthcare professional, being admitted to the hospital or being sent home. The data is reported by hospitals from medical records, and is audited and verified by the Center for Medicare and Medicaid Services. Find <a href="http://www.medicare.gov/hospitalcompare/Data/Measures.html">more information</a> about the data and other measures of timely and effective care.</p>
           </div>
           <div class="hosp-card-wrapper">
+ 
+                <% _(children).each(function(model) { %>
             <div class="hosp-card">
-              <header>
-                <h4>Texas General Hospital</h4>
-              </header>
+                <header>
+                  <h4><%= model.name %></h4>
+                </header>
               <div class="card-row">
                 <div class="value">
                   <p>
-                    1700 Parker Lane 
+                    <%= model.address %> 
                   <br />
-                    Austin, TX 78702
+                    <%= model.city %>, TX <%= model.zipcode %>
                   </p>
                 </div>
                 <div class="value">
                   <p>
-                    Acute Care
+                    <%= model.type %>
                   </p>
                 </div>
               </div>
               <div class="card-row">
                 <div class="value">
                   <p>
-                  555-555-555
+                    <%= model.phone_number %>
                   </p>
                 </div>
                 <div class="value">
                   <p>
-                    Non-profit
+                    <%= model.hospital_ownership %>
                   </p>
                 </div>
               </div>
               <div class="card-row">
                 <div class="value-header">
-                  <p>Emergency services?</p>
+                  <p>
+                    Emergency services?
+                  </p>
                 </div>
                 <div class="value">
-                  <p>Yes</p>
+                  <p>
+                    <%= model.emergency_services %>
+                  </p>
                 </div>
               </div>        
-            </div>
-            <div class="hosp-card">
-              <header>
-                <h4>Texas General Hospital</h4>
-              </header>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                    1700 Parker Lane 
-                  <br />
-                    Austin, TX 78702
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    Acute Care
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                  555-555-555
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    Non-profit
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Emergency services?</p>
-                </div>
-                <div class="value">
-                  <p>Yes</p>
-                </div>
-              </div>        
-            </div>        
-            <div class="hosp-card">
-              <header>
-                <h4>Texas General Hospital</h4>
-              </header>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                    1700 Parker Lane 
-                  <br />
-                    Austin, TX 78702
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    Acute Care
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                  555-555-555
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    Non-profit
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Emergency services?</p>
-                </div>
-                <div class="value">
-                  <p>Yes</p>
-                </div>
-              </div>        
-            </div>
-            <div class="hosp-card">
-              <header>
-                <h4>Texas General Hospital</h4>
-              </header>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                    1700 Parker Lane 
-                  <br />
-                    Austin, TX 78702
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    Acute Care
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                  555-555-555
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    Non-profit
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Emergency services?</p>
-                </div>
-                <div class="value">
-                  <p>Yes</p>
-                </div>
-              </div>        
-            </div>
-            <div class="hosp-card">
-              <header>
-                <h4>Texas General Hospital</h4>
-              </header>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                    1700 Parker Lane 
-                  <br />
-                    Austin, TX 78702
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    Acute Care
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                  555-555-555
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    Non-profit
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Emergency services?</p>
-                </div>
-                <div class="value">
-                  <p>Yes</p>
-                </div>
-              </div>        
-            </div>
-            <div class="hosp-card">
-              <header>
-                <h4>Texas General Hospital</h4>
-              </header>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                    1700 Parker Lane 
-                  <br />
-                    Austin, TX 78702
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    Acute Care
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                  555-555-555
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    Non-profit
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Emergency services?</p>
-                </div>
-                <div class="value">
-                  <p>Yes</p>
-                </div>
-              </div>        
-            </div>
+            </div>                
+
+                <% }); %>
+
+
           </div>
         </article>
       </div>
