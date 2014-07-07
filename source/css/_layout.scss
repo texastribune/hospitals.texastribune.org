@@ -23,6 +23,30 @@
   }
 }
 
+//COMPARE PAGE
+.category-wrapper {
+  @include span-columns(12);
+}
+.hosp-card-wrapper {
+  .hosp-card {
+    @include span-columns(12);
+    @include media($desktop) {
+      @include span-columns(4);
+      @include omega(3n);
+    }    
+  }
+  .card-row {
+    @include span-columns(12);
+    .value-header {
+      @include span-columns(6 of 12);
+    }
+    .value {
+      @include span-columns(6 of 12);
+    }
+  }
+}
+
+//FOOTER
 .footer-container {
   @include outer-container;
   @include media($desktop) {
