@@ -11,7 +11,7 @@ app.Settings = {
   markerColor: '#fc4353',
   markerSelectedColor: '#FFC81A',
   markerSelectedColorOnlyCode: 'fc4353',
-  mapZoom: 15
+  mapZoom: 14
 }
 
 app.addRegions({
