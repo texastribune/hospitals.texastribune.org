@@ -1,7 +1,7 @@
 'use strict';
 
 app.Views.Hospitals = Marionette.CompositeView.extend({
-  template: JST['templates/hospitals'],
+  template: JST['templates/hospital-boxes'],
   itemView: app.Views.Hospital,
 
   templateHelpers: function(){
@@ -40,7 +40,7 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
   },
 
   appendHtml: function(collectionView, itemView){
-    collectionView.$("tbody").append(itemView.el);
+    collectionView.$(".hospital-boxes").append(itemView.el);
   },
 
   disableSelection: function() {
@@ -64,7 +64,10 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
   },
 
   check: function(id) {
-    this.$el.find('*[data-id="' + id +'"]').prop('checked', true);
+    var $checkbox = this.$el.find('*[data-id="' + id +'"]');
+
+    $checkbox.prop('checked', true);
+    $checkbox.parents('.hospital-box').addClass('active');
   },
 
   uncheck: function(id) {
