@@ -1,5 +1,3 @@
-"use strict";
-
 app.Views.Search = Marionette.ItemView.extend({
   template: JST['templates/search-template'],
 

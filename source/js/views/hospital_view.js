@@ -1,21 +1,21 @@
-"use strict";
-
 app.Views.Hospital = Marionette.ItemView.extend({
   template: JST['templates/hospital-box'],
   tagName: 'div',
   className: 'hospital-box',
 
   ui: {
-    'checkbox': '.hospital-selector'
+    'checkbox': '.hospital-selector',
+    'hospitalName': 'header h4'
   },
 
   events: {
+    'click @ui.hospitalName': 'hospitalClicked',
     'click @ui.checkbox' : 'hospitalSelected'
   },
 
   templateHelpers: function(){
     var showDistance = this.model.hasDistance(),
-        mapWidth = 180,//parseInt($(window).width() * .3, 10),
+        mapWidth = 297,//parseInt($(window).width() * .3, 10),
         hasEmergencyServices = this.model.get('emergency_services') === 'Yes';
     return {
       mapWidth: mapWidth,
@@ -33,5 +33,14 @@ app.Views.Hospital = Marionette.ItemView.extend({
       this.trigger('unchecked:hospital', this.model.get('id'));
       this.$el.removeClass('active');
     }
+  },
+
+  hospitalClicked: function() {
+    if (this.ui.checkbox.is(':checked')) {
+      this.ui.checkbox.prop('checked', false);
+    } else {
+      this.ui.checkbox.prop('checked', true);
+    }
+    this.hospitalSelected();
   }
 });

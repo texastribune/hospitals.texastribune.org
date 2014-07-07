@@ -1,5 +1,3 @@
-'use strinct';
-
 app.Controllers.CompareController = Marionette.Controller.extend({
   initialize: function(hospitalIds) {
     var loadingFn = _.after(hospitalIds.length, this.loaded);
