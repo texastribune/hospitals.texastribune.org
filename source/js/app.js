@@ -95,6 +95,14 @@ app.on('initialize:before', function() {
   });
 });
 
+app.on('initialize:after', function() {
+  var $loading = $('.loading');
+
+  if ($loading.length > 0) {
+    $loading.hide();
+  }
+});
+
 $(document).ready(function(){
   app.start();
 });
