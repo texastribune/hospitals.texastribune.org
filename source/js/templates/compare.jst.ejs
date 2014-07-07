@@ -21,8 +21,7 @@
             <p>These indicators show how long you could expect to wait in the emergency room before seeing a healthcare professional, being admitted to the hospital or being sent home. The data is reported by hospitals from medical records, and is audited and verified by the Center for Medicare and Medicaid Services. Find <a href="http://www.medicare.gov/hospitalcompare/Data/Measures.html">more information</a> about the data and other measures of timely and effective care.</p>
           </div>
           <div class="hosp-card-wrapper">
- 
-                <% _(children).each(function(model) { %>
+            <% _(children).each(function(model) { %>
             <div class="hosp-card">
                 <header>
                   <h4><%= model.name %></h4>
@@ -49,7 +48,7 @@
                 </div>
                 <div class="value">
                   <p>
-                    <%= model.hospital_ownership %>
+                    <%= model['hospital ownership'] %>
                   </p>
                 </div>
               </div>
@@ -66,8 +65,7 @@
                 </div>
               </div>        
             </div>                
-
-                <% }); %>
+            <% }); %>
 
 
           </div>
@@ -77,79 +75,50 @@
         <input id="ac-2" name="accordion-1" type="checkbox" />
         <label for="ac-2"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Emergency Care</h3></label>
         <article class="ac-large">
+          <div class="info">
+            <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
+          </div>
           <div class="hosp-card-wrapper">
+            <% _(children).each(function(model) { %>
             <div class="hosp-card">
               <header>
-                <h4>University of Texas Medical Branch in Galveston</h4>
+                <h4><%= model.name %></h4>
               </header>
               <div class="card-row sub-header">
-                <p><em>Average wait times...</em></p>
+                <p><em>Average time spent in the E.R. department...</em></p>
               </div>
               <div class="card-row">
                 <div class="value-header">
-                  <p>Before being seen by a healthcare professional</p>
+                  <p>Before receiving a diagnostic exam</p>
                 </div>
                 <div class="value">
                   <p>
-                    37 min.
+                    <%= model.data.emergency_rates.door_to_diagnostic_eval %>
+                  </p>
+                </div>
+              </div> 
+              <div class="card-row">
+                <div class="value-header">
+                  <p>By patients admitted to the hospital</p>
+                </div>
+                <div class="value">
+                  <p>
+                    <%= model.data.emergency_rates.ed1 %>
                   </p>
                 </div>
               </div>
               <div class="card-row">
                 <div class="value-header">
-                  <p>Before being admitted to the hospital</p>
+                  <p>By patients discharged and sent home</p>
                 </div>
                 <div class="value">
                   <p>
-                    48 min.
+                    <%= model.data.emergency_rates.op_18 %>
                   </p>
                 </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Before being sent home</p>
-                </div>
-                <div class="value">
-                  <p>52 min.</p>
-                </div>
-              </div>        
+              </div>       
             </div>
-            <div class="hosp-card">
-              <header>
-                <h4>University of Texas Medical Branch in Galveston</h4>
-              </header>
-              <div class="card-row sub-header">
-                <p><em>Average wait times...</em></p>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Before being seen by a healthcare professional</p>
-                </div>
-                <div class="value">
-                  <p>
-                    37 min.
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Before being admitted to the hospital</p>
-                </div>
-                <div class="value">
-                  <p>
-                    48 min.
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Before being sent home</p>
-                </div>
-                <div class="value">
-                  <p>52 min.</p>
-                </div>
-              </div>        
-            </div>
+            <% }); %>
           </div>
         </article>
       </div>
