@@ -5,7 +5,7 @@ app.Views.HospitalToCompare = Marionette.ItemView.extend({
   tagName: 'div',
 
   ui: {
-    'removeButton': 'button.remove'
+    'removeButton': 'a.remove'
   },
 
   events: {
