@@ -1,0 +1,7 @@
+.container {
+  @include outer-container;
+}
+
+.content-block {
+  margin: 0 1.25em; // 20px left - 20px right
+}

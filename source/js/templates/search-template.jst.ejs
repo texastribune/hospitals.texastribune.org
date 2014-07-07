@@ -1,18 +1,11 @@
-<header>
-  <h1>Texas Hospital Explorer</h1>
-  <p>
-    Use this application to learn more about the quality of care available at each of Texas TK hospitals, and see how your local hospitals compare to each other, state and national standards. Funded in part by a 12-month grant from the Kaiser Foundation, The Texas Tribune's hospital explorer uses data collected and analyzed by the federal Centers for Medicare and Medicare Services.
-  </p>
-</header>
-<section class="searcher">
-  <button>Show hospitals near you</button>
-  <form>
-    <span>Search for a hospital name or ZIP code:</span>
-    <input type="search" placeholder="78701"/>
-    <input type="submit" value="Search">
-    <div class="messages">
-      <div class="error hide"></div>
-      <div class='empty hide'>We couldn't find any hospital, please try again</div>
-    </div>
-  </form>
-</seciton>
+<button class="find-me">Find hospitals near you</button>
+<p class="or-separator">- or -</p>
+<form>
+  <p>Search by hospital name or ZIP code</p>
+  <input type="text" placeholder="78701">
+  <input type="submit" value="Search">
+  <div class="messages">
+    <div class="error hide"></div>
+    <div class='empty hide'>We couldn't find any hospital, please try again</div>
+  </div>
+</form>

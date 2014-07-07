@@ -1,8 +1,99 @@
-body {
-  color: $offblack;
-  line-height: 1;
-  font-family: $helvetica;
+.masthead {
+  background-color: $masthead-black;
+  width: 100%;
+
+  .branding {
+    padding: .75em 0 .375em;
+    text-align: center;
+    width: 100%;
+
+    .trib-logo {
+      height: 1.625em;
+    }
+  }
 }
+
+.banner {
+  background-color: rgb(128, 128, 128);
+  display: table;
+  height: 225px;
+  margin: 0 0 1.5em;
+  width: 100%;
+
+  .grand-header {
+    display: table-cell;
+    padding: 0 1.25em;
+    text-align: center;
+    vertical-align: middle;
+
+    a {
+      color: rgb(255, 255, 255);
+    }
+
+    h1 {
+      color: rgb(255, 255, 255);
+      font-family: $base-serif;
+      font-size: 2.5em;
+      font-weight: 800;
+      line-height: 1.15;
+      text-shadow: rgb(0, 0, 0) 3px 3px 0;
+
+      @include media($desktop) {
+        font-size: 3em;
+      }
+    }
+  }
+}
+
+.call-to-action {
+  margin-bottom: 2em;
+
+  p {
+    font-family: $base-sans-serif;
+    font-size: 1.125em;
+    line-height: 1.2;
+  }
+}
+
+.disclaimer {
+  margin-top: 1em;
+
+  p {
+    font-family: $base-sans-serif;
+    font-size: .875em;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+}
+
+.search {
+  text-align: center;
+
+  p {
+    font-size: .875em;
+    font-style: italic;
+  }
+
+  input {
+    margin: .5em 0 0;
+    width: 100%;
+  }
+}
+
+.find-me {
+  @include media($desktop) {
+    width: 50%;
+  }
+}
+
+.or-separator {
+  font-weight: 800;
+  margin: 1em 0;
+}
+
+/// old stuff below
+
 
 ul {
   list-style: none;
@@ -23,12 +114,6 @@ hr {
   height: 1px;
   background-color: $dark-grey;
   margin-bottom: 1em;
-}
-
-input[type='submit'], button, a.button{
-  color: #000;
-  letter-spacing: 0.03em;
-  @include button(flat, #ffc200);
 }
 
 // LAYOUT SPECIFICS
@@ -181,7 +266,7 @@ input[type='submit'], button, a.button{
       }
       li {
         margin-bottom: 0.5em;
-      } 
+      }
     }
     .icon {
       color: $white;
@@ -290,10 +375,6 @@ table tr:nth-child(odd) td {
 }
 
 @include media($mobile) {
-  body {
-    font-size: 14px;
-  }
-
   table, thead, tbody, th, td, tr {
     display: block;
   }

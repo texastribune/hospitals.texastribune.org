@@ -2,35 +2,48 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="favicon.ico" />
   <!-- Use title if it's in the page YAML frontmatter -->
-  <title><%= current_page.data.title || "Hospital Explorer | The Texas Tribune" %></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+  <title><%= current_page.data.title || "Texas Hospital Explorer | The Texas Tribune" %></title>
+  <link href="//api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="/css/main.css" rel="stylesheet">
 </head>
 <body>
-  <header class='header'>
-    <div class="app-container">
-      <div class="menu-container">
-        <span class="menu icon-bars"></span>
-      </div>
-      <div class="logo">
-        <a href="http://www.texastribune.org/"><img src="//s3.amazonaws.com/static.texastribune.org/common/tt_disposal_wells/images/txtrib-logo-white.svg"></a>
-      </div>
+  <header class="masthead">
+  <div class="container">
+    <div class="branding">
+      <a href="http://www.texastribune.org/">
+        <img class="trib-logo" alt="The Texas Tribune" src="img/tt-logo-white.png">
+      </a>
     </div>
+  </div>
   </header>
-  <section class="app-container">
+  <div class="banner">
+    <header class="grand-header content-block">
+      <h1><a href="/">Texas Hospital Explorer</a></h1>
+    </header>
+  </div>
+  <section class="container">
     <%= yield %>
   </section>
+  <section class="container">
+    <div class="content-block disclaimer">
+      <p>
+        This application was produces in partnership with Kaiser Health News, an
+        editorially independent program of the Henry J. Kaiser Family Foundation,
+        a nonprofit, nonpartisan health policy research adn communication organization
+        not affiliated with Kaiser Permanente.
+      </p>
+    </div>
+  </section>
   <%= partial "footer" %>
+  <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
   <script src="/js/main.js"></script>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
