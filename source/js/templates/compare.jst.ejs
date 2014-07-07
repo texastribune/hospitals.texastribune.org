@@ -24,7 +24,7 @@
             <% _(children).each(function(model) { %>
             <div class="hosp-card">
                 <header>
-                  <h4><%= model.name %></h4>
+                  <h4 data-provider-id="<%= model._id %>"><%= model.name %></h4>
                 </header>
               <div class="card-row">
                 <div class="value">
@@ -63,8 +63,8 @@
                     <%= model.emergency_services %>
                   </p>
                 </div>
-              </div>        
-            </div>                
+              </div>
+            </div>
             <% }); %>
 
 
@@ -82,7 +82,7 @@
             <% _(children).each(function(model) { %>
             <div class="hosp-card">
               <header>
-                <h4><%= model.name %></h4>
+                <h4 data-provider-id="<%= model._id %>"><%= model.name %></h4>
               </header>
               <div class="card-row sub-header">
                 <p><em>Average time spent in the E.R. department...</em></p>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="value">
                   <p>
-                    <%= model.data.emergency_rates.door_to_diagnostic_eval %>
+                    <%= minuteOrNA(model.data.emergency_rates.door_to_diagnostic_eval) %>
                   </p>
                 </div>
               </div> 
@@ -103,7 +103,7 @@
                 </div>
                 <div class="value">
                   <p>
-                    <%= model.data.emergency_rates.ed1 %>
+                    <%= minuteOrNA(model.data.emergency_rates.ed1) %>
                   </p>
                 </div>
               </div>
@@ -113,10 +113,10 @@
                 </div>
                 <div class="value">
                   <p>
-                    <%= model.data.emergency_rates.op_18 %>
+                    <%= minuteOrNA(model.data.emergency_rates.op_18) %>
                   </p>
                 </div>
-              </div>       
+              </div>
             </div>
             <% }); %>
           </div>
