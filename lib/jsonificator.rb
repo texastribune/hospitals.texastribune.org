@@ -22,6 +22,7 @@ class Jsonificator < Middleman::Extension
             id: json_data["_id"],
             url: json_data["url"],
             name: json_data["name"],
+            phone_number: json_data["phone_number"],
             address: json_data["address"],
             city: json_data["city"],
             zipcode: json_data["zipcode"],
