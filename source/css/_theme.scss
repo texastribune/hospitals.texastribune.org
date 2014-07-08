@@ -70,15 +70,27 @@
 .search {
   text-align: center;
 
-  p {
+  .input-prompt {
     font-size: .875em;
     font-style: italic;
+    margin: 0 0 .5em;
   }
 
   input {
-    margin: .5em 0 0;
-    width: 100%;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 3px;
+    font-size: .875em;
+    height: 30px;
+    margin: 0;
+    padding: 7px 18px;
+    width: 500px;
   }
+}
+
+.form-group {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
 }
 
 .find-me {
