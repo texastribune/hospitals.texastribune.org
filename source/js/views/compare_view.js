@@ -21,7 +21,7 @@ app.Views.CompareView = Marionette.CollectionView.extend({
       if (value === null || value === undefined || value === '') {
         return 'N/A';
       } else {
-        return value + '%';
+        return value.toFixed(2) + '%';
       }
     };
 
