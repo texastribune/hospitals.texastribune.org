@@ -1,12 +1,9 @@
 <header class="select">
   <div class='title'>
     <h2>Compare Hospitals</h2>
-  </div>
-  <div class="controls">
-    <a href="#" class="button compare">Select Different Hospitals to Compare</a>
-  </div>
-  <div class="instructions">
-    <p>Compare the hospitals you've selected before.</p>
+    <div class="controls">
+      <a href="#" class="button compare">Select Different Hospitals to Compare</a>
+    </div>
   </div>
 </header>
 <section class="ac-container">
@@ -16,9 +13,9 @@
       </i><i class="fa fa-chevron-down"></i><h3>General Information</h3>
     </label>
     <article class="ac-large">
-      <div class="info">
-        <p>These indicators show how long you could expect to wait in the emergency room before seeing a healthcare professional, being admitted to the hospital or being sent home. The data is reported by hospitals from medical records, and is audited and verified by the Center for Medicare and Medicaid Services. Find <a href="http://www.medicare.gov/hospitalcompare/Data/Measures.html">more information</a> about the data and other measures of timely and effective care.</p>
-      </div>
+<!--       <div class="info">
+        <p></p>
+      </div> -->
       <div class="hosp-card-wrapper">
         <% _(children).each(function(model, index) { %>
         <div class="hosp-card">
@@ -73,7 +70,7 @@
     <label for="ac-2"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Emergency Care</h3></label>
     <article class="ac-large">
       <div class="info">
-        <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
+        <p>These indicators show how long you could expect to wait in a selected hospital's emergency room before seeing a health care professional, being admitted to the hospital or being sent home. Hospitals report the data from medical records, and the data is audited and verified by the Centers for Medicare and Medicaid Services. Learn more about the data and other measures of timely and effective hospital care at <a href="http://www.medicare.gov/hospitalcompare/Data/Measures.html">Medicare.gov</a>.</p>
       </div>
       <div class="hosp-card-wrapper">
         <% _(children).each(function(model, index) { %>
@@ -82,11 +79,11 @@
             <h4 data-provider-id="<%= model._id %>"><%= model.name %></h4>
           </header>
           <div class="card-row sub-header">
-            <p><em>Average time spent in the E.R. department...</em></p>
+            <p><em>Average time spent in the emergency room</em></p>
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Before receiving a diagnostic exam</p>
+              <p>Before patients receive a diagnostic exam</p>
             </div>
             <div class="value">
               <p>
@@ -124,7 +121,7 @@
     <label for="ac-3"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Clinical Care</h3></label>
     <article class="ac-large">
       <div class="info">
-        <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
+        <p>The quality of a hospital's clinical care practices can impact how often patients experience surgical complications or acquire infections. These indicators show how the hospitals' rates of surgical complications and health care-associated infections compare with national standards. The scores are risk-adjusted and account for characteristics of each hospital's patient population. The serious surgical complications score is a composite of observed-to-expected ratios for a <a href="http://www.qualityindicators.ahrq.gov/Downloads/Modules/PSI/V45/TechSpecs/PSI%2090%20Patient%20Safety%20for%20Selected%20Indicators.pdf">list</a> of common surgical complications determined by the Agency for Healthcare Research and Quality. The number of health care-associated infections is measured by a standardized infection ratio, which shows the number of infections relative to a national benchmark based on data reported to the National Healthcare Safety Network. Find more information on how CMS measures rates of <a href="http://www.medicare.gov/hospitalcompare/Data/Serious-Complications.html">surgical complications</a>, and <a href="http://www.medicare.gov/hospitalcompare/Data/Healthcare-Associated-Infections.html">health care-associated infections</a>.</p>
       </div>
       <div class="hosp-card-wrapper">
         <% _(children).each(function(model, index) { %>
@@ -156,7 +153,7 @@
             </div>
           </div>
           <div class="card-row sub-header">
-            <p><em>Healthcare-associated infections</em></p>
+            <p><em>Health care-associated infections</em></p>
           </div>
           <div class="card-row">
             <div class="value-header">
@@ -200,7 +197,7 @@
     <label for="ac-4"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Outcomes</h3></label>
     <article class="ac-large">
       <div class="info">
-        <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
+        <p>These indicators show how often patients who are treated for serious, common conditions return to the hospital within 30 days or died. The Centers for Medicare and Medicaid Services calculates the rates using Medicare claims submitted by hospitals and patient-eligibility information. The rates are risk-adjusted and take into account characteristics of each patient — like age, medical history, and other diseases or conditions the patient had before entering the hospital — that could make readmission or death more likely regardless of the quality of care delivered by the hospital. Learn more information on the data at <a href="http://www.medicare.gov/hospitalcompare/Data/30-day-measures.html">Medicare.gov</a>.</p>
       </div>
       <div class="hosp-card-wrapper">
         <% _(children).each(function(model, index) { %>
@@ -304,7 +301,7 @@
     <label for="ac-5"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Experience</h3></label>
     <article class="ac-large">
       <div class="info">
-        <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
+        <p>These indicators show how patients felt about their hospital experience, including how well hospital workers communicated with them and whether they would recommend the hospital. This data comes from a standardized survey created by the Centers for Medicare and Medicaid Services and the Agency for Healthcare Research and Quality. The survey has been used since 2006 to help consumers compare the quality of care between hospitals. The surveys are taken by trained administrators at participating hospitals, analyzed and adjusted by CMS to account for differences in hospitals' patient mix and other factors. Learn more information on the data at <a href="http://www.medicare.gov/hospitalcompare/Data/Overview.html">Medicare.gov</a>.</p>
       </div>
       <div class="hosp-card-wrapper">
         <% _(children).each(function(model, index) { %>
@@ -313,11 +310,11 @@
             <h4><%= model.name %></h4>
           </header>
           <div class="card-row sub-header">
-            <p><em>Patient of patients surveyed who...</em></p>
+            <p><em>Percent of patients surveyed who...</em></p>
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Scored the Hospital "9" or "10" on a scale from 0 (low) to 10 (high)</p>
+              <p>Gave the hospital a score of "9" or "10" on a scale from 0 (low) to 10 (high)</p>
             </div>
             <div class="value">
               <p>
@@ -337,7 +334,7 @@
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Reported their doctors "Always" communicated well</p>
+              <p>Reported their doctors "always" communicated well</p>
             </div>
             <div class="value">
               <p>
@@ -347,7 +344,7 @@
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Reported their nurses "Always" communicated well</p>
+              <p>Reported their nurses "always" communicated well</p>
             </div>
             <div class="value">
               <p>
@@ -357,7 +354,7 @@
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Reported they "Always" received help as soon as they wanted</p>
+              <p>Reported they "always" received help as soon as they wanted</p>
             </div>
             <div class="value">
               <p>
@@ -367,7 +364,7 @@
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Reported their room and bathroom were "Always" clean</p>
+              <p>Reported their room and bathroom were "always" clean</p>
             </div>
             <div class="value">
               <p>
@@ -377,7 +374,7 @@
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Reported the area around their room was "Always" quiet at night</p>
+              <p>Reported the area around their room was "always" quiet at night</p>
             </div>
             <div class="value">
               <p>

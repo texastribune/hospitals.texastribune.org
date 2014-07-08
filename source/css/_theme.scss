@@ -272,7 +272,7 @@ label {
   color: rgb(34, 34, 34);
   font: 500 1em helvetica;
   line-height: 1.2em;
-  margin: 1em 0;
+  margin-bottom: 1em;
 }
 .hosp-card {
   border-bottom: 1px solid $bbb;
@@ -339,6 +339,7 @@ label {
   display: block;
   cursor: pointer;
   overflow: hidden;
+  margin-bottom: 1em;
   text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
   background: #ffffff;
   background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
