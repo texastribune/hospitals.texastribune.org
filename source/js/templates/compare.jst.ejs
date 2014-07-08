@@ -9,573 +9,393 @@
     <p>Compare the hospitals you've selected before.</p>
   </div>
 </header>
-
-    <section class="ac-container">
-      <div class="category-wrapper">
-        <input id="ac-1" name="accordion-1" type="checkbox" checked />
-        <label for="ac-1"><i class="fa fa-chevron-right">
-          </i><i class="fa fa-chevron-down"></i><h3>General Information</h3>
-        </label>
-        <article class="ac-large">
-          <div class="info">
-            <p>These indicators show how long you could expect to wait in the emergency room before seeing a healthcare professional, being admitted to the hospital or being sent home. The data is reported by hospitals from medical records, and is audited and verified by the Center for Medicare and Medicaid Services. Find <a href="http://www.medicare.gov/hospitalcompare/Data/Measures.html">more information</a> about the data and other measures of timely and effective care.</p>
-          </div>
-          <div class="hosp-card-wrapper">
-            <% _(children).each(function(model) { %>
-            <div class="hosp-card">
-                <header>
-                  <h4 data-provider-id="<%= model._id %>"><%= model.name %></h4>
-                </header>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                    <%= model.address %> 
-                  <br />
-                    <%= model.city %>, TX <%= model.zipcode %>
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.type %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value">
-                  <p>
-                    <%= model.phone_number %>
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model['hospital ownership'] %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>
-                    Emergency services?
-                  </p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.emergency_services %>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <% }); %>
-
-
-          </div>
-        </article>
+<section class="ac-container">
+  <div class="category-wrapper">
+    <input id="ac-1" name="accordion-1" type="checkbox" checked />
+    <label for="ac-1"><i class="fa fa-chevron-right">
+      </i><i class="fa fa-chevron-down"></i><h3>General Information</h3>
+    </label>
+    <article class="ac-large">
+      <div class="info">
+        <p>These indicators show how long you could expect to wait in the emergency room before seeing a healthcare professional, being admitted to the hospital or being sent home. The data is reported by hospitals from medical records, and is audited and verified by the Center for Medicare and Medicaid Services. Find <a href="http://www.medicare.gov/hospitalcompare/Data/Measures.html">more information</a> about the data and other measures of timely and effective care.</p>
       </div>
-      <div class="category-wrapper">
-        <input id="ac-2" name="accordion-1" type="checkbox" />
-        <label for="ac-2"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Emergency Care</h3></label>
-        <article class="ac-large">
-          <div class="info">
-            <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
-          </div>
-          <div class="hosp-card-wrapper">
-            <% _(children).each(function(model) { %>
-            <div class="hosp-card">
-              <header>
-                <h4 data-provider-id="<%= model._id %>"><%= model.name %></h4>
-              </header>
-              <div class="card-row sub-header">
-                <p><em>Average time spent in the E.R. department...</em></p>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Before receiving a diagnostic exam</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= minuteOrNA(model.data.emergency_rates.op_20) %>
-                  </p>
-                </div>
-              </div> 
-              <div class="card-row">
-                <div class="value-header">
-                  <p>By patients admitted to the hospital</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= minuteOrNA(model.data.emergency_rates.ed_1b) %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>By patients discharged and sent home</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= minuteOrNA(model.data.emergency_rates.op_18b) %>
-                  </p>
-                </div>
-              </div>
+      <div class="hosp-card-wrapper">
+        <% _(children).each(function(model) { %>
+        <div class="hosp-card">
+            <header>
+              <h4 data-provider-id="<%= model._id %>"><%= model.name %></h4>
+            </header>
+          <div class="card-row">
+            <div class="value">
+              <p>
+                <%= model.address %>
+              <br />
+                <%= model.city %>, TX <%= model.zipcode %>
+              </p>
             </div>
-            <% }); %>
-          </div>
-        </article>
-      </div>
-      <div class="category-wrapper">
-        <input id="ac-3" name="accordion-1" type="checkbox" />
-        <label for="ac-3"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Clinical Care</h3></label>
-        <article class="ac-large">
-          <div class="info">
-            <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
-          </div>
-          <div class="hosp-card-wrapper">
-            <% _(children).each(function(model) { %>
-            <div class="hosp-card">
-              <header>
-                <h4><%= model.name %></h4>
-              </header>
-              <div class="card-row sub-header">
-                <p><em>Surgical Complications</em></p>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Rate of serious surgical complications</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.complications_rates.serious_complications %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Rate of deaths among patients with serious, treatable conditions</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.complications_rates.death_from_serious_complications %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Rate of complications for knee/hip replacement patients</p>
-                </div>
-                <div class="value">
-                  <%= model.data.readmission_rates.comp_hip_knee %>
-                </div>
-              </div>
-              <div class="card-row sub-header">
-                <p><em>Hospital-associated infections</em></p>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Rate of central-line associated bloodstream infection</p>
-                </div>
-                <div class="value">
-                  <p>No Different than U.S. Rate</p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Rate of catheter-associated urinary tract infection</p>
-                </div>
-                <div class="value">
-                  <p>Worse than U.S. Rate</p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Rate of surgical site infection from colon surgery</p>
-                </div>
-                <div class="value">
-                  <p>Better than U.S. Rate</p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Rate of surgical site infection from abdominal hysterectomy</p>
-                </div>
-                <div class="value">
-                  <p>Worse than U.S. Rate</p>
-                </div>
-              </div>  
+            <div class="value">
+              <p>
+                <%= model.type %>
+              </p>
             </div>
-            <% }); %>
           </div>
-        </article>
-      </div>
-      <div class="category-wrapper">
-        <input id="ac-4" name="accordion-1" type="checkbox" />
-        <label for="ac-4"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Outcomes</h3></label>
-        <article class="ac-large">
-          <div class="info">
-            <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
-          </div>
-          <div class="hosp-card-wrapper">
-            <% _(children).each(function(model) { %>
-            <div class="hosp-card">
-              <header>
-                <h4><%= model.name %></h4>
-              </header>
-              <div class="card-row sub-header">
-                <p><em>Rates of 30-day unplanned readmission</em></p>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>For all patients discharged from the hospital</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.readmission_rates.readm_30_hosp_wide %>
-                  </p>
-                </div>
-              </div> 
-              <div class="card-row">
-                <div class="value-header">
-                  <p>For heart attack patients</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.readmission_rates.readm_30_ha %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>For heart failure patients</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.readmission_rates.readm_30_hf %>
-                  </p>
-                </div>
-              </div>       
-              <div class="card-row">
-                <div class="value-header">
-                  <p>For pneumonia patients</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.readmission_rates.readm_30_pn %>
-                  </p>
-                </div>
-              </div> 
-              <div class="card-row">
-                <div class="value-header">
-                  <p>For patients after hip/knee surgery</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.readmission_rates.readm_30_hip_knee %>
-                  </p>
-                </div>
-              </div> 
-              <div class="card-row sub-header">
-                <p><em>Rates of death within 30-days of discharge</em></p>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>For heart attack patients</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.death_rates.mort_30_ami_performance_rate %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>For heart failure patients</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.death_rates.mort_30_hf_performance_rate %>
-                  </p>
-                </div>
-              </div>       
-              <div class="card-row">
-                <div class="value-header">
-                  <p>For pneumonia patients</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.death_rates.mort_30_pn_performance_rate %>
-                  </p>
-                </div>
-              </div>
+          <div class="card-row">
+            <div class="value">
+              <p>
+                <%= model.phone_number %>
+              </p>
             </div>
-            <% }); %>
-          </div>
-        </article>
-      </div>
-      <div class="category-wrapper">
-        <input id="ac-5" name="accordion-1" type="checkbox" />
-        <label for="ac-5"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Experience</h3></label>
-        <article class="ac-large">
-          <div class="info">
-            <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
-          </div>
-          <div class="hosp-card-wrapper">
-            <% _(children).each(function(model) { %>
-            <div class="hosp-card">
-              <header>
-                <h4><%= model.name %></h4>
-              </header>
-              <div class="card-row sub-header">
-                <p><em>Patient of patients surveyed who...</em></p>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Scored the Hospital "9" or "10" on a scale from 0 (low) to 10 (high)</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.quality.h_hsp_rating_9_10 %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Would definitely recommend the hospital</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.quality.h_recmnd_dy %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Reported their doctors "Always" communicated well</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.quality.h_comp_2_a_p %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Reported their nurses "Always" communicated well</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.quality.h_comp_1_a_p %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Reported they "Always" received help as soon as they wanted</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.quality.h_comp_3_a_p %>
-                  </p>
-                </div>
-              </div>
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Reported their room and bathroom were "Always" clean</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.quality.h_clean_hsp_a_p %>
-                  </p>
-                </div>
-              </div> 
-              <div class="card-row">
-                <div class="value-header">
-                  <p>Reported the area around their room was "Always" quiet at night</p>
-                </div>
-                <div class="value">
-                  <p>
-                    <%= model.data.quality.h_quiet_hsp_a_p %>
-                  </p>
-                </div>
-              </div> 
+            <div class="value">
+              <p>
+                <%= model['hospital ownership'] %>
+              </p>
             </div>
-            <% }); %>
           </div>
-        </article>
+          <div class="card-row">
+            <div class="value-header">
+              <p>
+                Emergency services?
+              </p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.emergency_services %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <% }); %>
       </div>
-    </section>
-
-<!-- <section>
-
-  <article>
-    <h2>Clinical Care</h2>
-    <table>
-      <thead>
-        <tr class="subtitle">
-          <th>Surgical complications</th>
-          <% _(children).each(function(model) { %><th></th><% }); %>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Serious surgical complications</td>
-          <% _(children).each(function(model) { %>
-          <td data-title="<%= model.name %>"><%= '' %></td>
-          <% }); %>
-        </tr>
-        <tr>
-          <td>Deaths among patients with serious treatable complications</td>
-          <% _(children).each(function(model) { %>
-          <td data-title="<%= model.name %>"><%= '' %></td>
-          <% }); %>
-        </tr>
-        <tr>
-          <td>Complicatios for knee/hip replacement patientss</td>
-          <% _(children).each(function(model) { %>
-          <td data-title="<%= model.name %>"><%= '' %></td>
-          <% }); %>
-        </tr>
-      </tbody>
-    </table>
-    <table>
-      <thead>
-        <tr class="subtitle">
-          <th>Hospital-associated infections</th>
-          <% _(children).each(function(model) { %><th></th><% }); %>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Central-line associated bloodstream infection</td>
-          <% _(children).each(function(model) { %>
-          <td data-title="<%= model.name %>"><%= '' %></td>
-          <% }); %>
-        </tr>
-        <tr>
-          <td>Catheter-associated urinary tract infection</td>
-          <% _(children).each(function(model) { %>
-          <td data-title="<%= model.name %>"><%= '' %></td>
-          <% }); %>
-        </tr>
-        <tr>
-          <td>Surgical site infection from colon surgery</td>
-          <% _(children).each(function(model) { %>
-          <td data-title="<%= model.name %>"><%= '' %></td>
-          <% }); %>
-        </tr>
-        <tr>
-          <td>Surgical site infection from abdominal hysterectomy</td>
-          <% _(children).each(function(model) { %>
-          <td data-title="<%= model.name %>"><%= '' %></td>
-          <% }); %>
-        </tr>
-      </tbody>
-    </table>
-    <table>
-      <thead>
-        <tr class="subtitle">
-          <th>Complications</th>
-          <% _(children).each(function(model) { %><th></th><% }); %>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Serious surgical complications</td>
-          <% _(children).each(function(model) { %>
-          <td data-title="<%= model.name %>"><%= '' %></td>
-          <% }); %>
-        </tr>
-        <tr>
-          <td>Deaths among patients with serious treatable complications</td>
-          <% _(children).each(function(model) { %>
-          <td data-title="<%= model.name %>"><%= '' %></td>
-          <% }); %>
-        </tr>
-        <tr>
-          <td>Complications for knee/hip replacement patients</td>
-          <% _(children).each(function(model) { %>
-          <td data-title="<%= model.name %>"><%= '' %></td>
-          <% }); %>
-        </tr>
-      </tbody>
-    </table>
-  </article>
-  <article>
-    
-  </article>
-<hr>
-  <article>
-    <h2>Hospital-associated infections</h2>
-    <table>
-      <thead>
-        <tr class="subtitle">
-          <th>Hospital-associated infections</th>
-          <% _(children).each(function(model) { %><th></th><% }); %>
-        </tr>
-
-      </thead>
-    </table>
-  </article>
-  <hr>
-    <thead>
-      <tr>
-        <th>Hospital-associated infections</th>
-        <% _(children).each(function(model) { %><th></th><% }); %>
-      </tr>
-    </thead>
-    <thead>
-      <tr>
-        <th>Patient outcomes</th>
-        <% _(children).each(function(model) { %><th></th><% }); %>
-      </tr>
-      <tr class="subtitle">
-        <th>30-day unplanned readmission rates</th>
-        <% _(children).each(function(model) { %><th></th><% }); %>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Serious surgical complications</td>
+    </article>
+  </div>
+  <div class="category-wrapper">
+    <input id="ac-2" name="accordion-1" type="checkbox" />
+    <label for="ac-2"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Emergency Care</h3></label>
+    <article class="ac-large">
+      <div class="info">
+        <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
+      </div>
+      <div class="hosp-card-wrapper">
         <% _(children).each(function(model) { %>
-        <td data-title="<%= model.name %>"><%= '' %></td>
+        <div class="hosp-card">
+          <header>
+            <h4 data-provider-id="<%= model._id %>"><%= model.name %></h4>
+          </header>
+          <div class="card-row sub-header">
+            <p><em>Average time spent in the E.R. department...</em></p>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Before receiving a diagnostic exam</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= minuteOrNA(model.data.emergency_rates.op_20) %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>By patients admitted to the hospital</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= minuteOrNA(model.data.emergency_rates.ed_1b) %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>By patients discharged and sent home</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= minuteOrNA(model.data.emergency_rates.op_18b) %>
+              </p>
+            </div>
+          </div>
+        </div>
         <% }); %>
-      </tr>
-      <tr>
-        <td>Deaths among patients with serious treatable complications</td>
+      </div>
+    </article>
+  </div>
+  <div class="category-wrapper">
+    <input id="ac-3" name="accordion-1" type="checkbox" />
+    <label for="ac-3"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Clinical Care</h3></label>
+    <article class="ac-large">
+      <div class="info">
+        <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
+      </div>
+      <div class="hosp-card-wrapper">
         <% _(children).each(function(model) { %>
-        <td data-title="<%= model.name %>"><%= '' %></td>
+        <div class="hosp-card">
+          <header>
+            <h4><%= model.name %></h4>
+          </header>
+          <div class="card-row sub-header">
+            <p><em>Surgical Complications</em></p>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Rate of serious surgical complications</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.complications_rates.serious_complications %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Rate of deaths among patients with serious, treatable conditions</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.complications_rates.death_from_serious_complications %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Rate of complications for knee/hip replacement patients</p>
+            </div>
+            <div class="value">
+              <%= model.data.readmission_rates.comp_hip_knee %>
+            </div>
+          </div>
+          <div class="card-row sub-header">
+            <p><em>Hospital-associated infections</em></p>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Rate of central-line associated bloodstream infection</p>
+            </div>
+            <div class="value">
+              <p>No Different than U.S. Rate</p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Rate of catheter-associated urinary tract infection</p>
+            </div>
+            <div class="value">
+              <p>Worse than U.S. Rate</p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Rate of surgical site infection from colon surgery</p>
+            </div>
+            <div class="value">
+              <p>Better than U.S. Rate</p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Rate of surgical site infection from abdominal hysterectomy</p>
+            </div>
+            <div class="value">
+              <p>Worse than U.S. Rate</p>
+            </div>
+          </div>
+        </div>
         <% }); %>
-      </tr>
-      <tr>
-        <td>Complications for knee/hip replacement patients</td>
+      </div>
+    </article>
+  </div>
+  <div class="category-wrapper">
+    <input id="ac-4" name="accordion-1" type="checkbox" />
+    <label for="ac-4"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Outcomes</h3></label>
+    <article class="ac-large">
+      <div class="info">
+        <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
+      </div>
+      <div class="hosp-card-wrapper">
         <% _(children).each(function(model) { %>
-        <td data-title="<%= model.name %>"><%= '' %></td>
+        <div class="hosp-card">
+          <header>
+            <h4><%= model.name %></h4>
+          </header>
+          <div class="card-row sub-header">
+            <p><em>Rates of 30-day unplanned readmission</em></p>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>For all patients discharged from the hospital</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.readmission_rates.readm_30_hosp_wide %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>For heart attack patients</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.readmission_rates.readm_30_ha %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>For heart failure patients</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.readmission_rates.readm_30_hf %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>For pneumonia patients</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.readmission_rates.readm_30_pn %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>For patients after hip/knee surgery</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.readmission_rates.readm_30_hip_knee %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row sub-header">
+            <p><em>Rates of death within 30-days of discharge</em></p>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>For heart attack patients</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.death_rates.mort_30_ami_performance_rate %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>For heart failure patients</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.death_rates.mort_30_hf_performance_rate %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>For pneumonia patients</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.death_rates.mort_30_pn_performance_rate %>
+              </p>
+            </div>
+          </div>
+        </div>
         <% }); %>
-      </tr>
-    </tbody>
-    <thead>
-      <tr class="subtitle">
-        <th>30-day unplanned readmission rates</th>
-        <% _(children).each(function(model) { %><th></th><% }); %>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Serious surgical complications</td>
+      </div>
+    </article>
+  </div>
+  <div class="category-wrapper">
+    <input id="ac-5" name="accordion-1" type="checkbox" />
+    <label for="ac-5"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Experience</h3></label>
+    <article class="ac-large">
+      <div class="info">
+        <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
+      </div>
+      <div class="hosp-card-wrapper">
         <% _(children).each(function(model) { %>
-        <td data-title="<%= model.name %>"><%= '' %></td>
+        <div class="hosp-card">
+          <header>
+            <h4><%= model.name %></h4>
+          </header>
+          <div class="card-row sub-header">
+            <p><em>Patient of patients surveyed who...</em></p>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Scored the Hospital "9" or "10" on a scale from 0 (low) to 10 (high)</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.quality.h_hsp_rating_9_10 %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Would definitely recommend the hospital</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.quality.h_recmnd_dy %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Reported their doctors "Always" communicated well</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.quality.h_comp_2_a_p %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Reported their nurses "Always" communicated well</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.quality.h_comp_1_a_p %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Reported they "Always" received help as soon as they wanted</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.quality.h_comp_3_a_p %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Reported their room and bathroom were "Always" clean</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.quality.h_clean_hsp_a_p %>
+              </p>
+            </div>
+          </div>
+          <div class="card-row">
+            <div class="value-header">
+              <p>Reported the area around their room was "Always" quiet at night</p>
+            </div>
+            <div class="value">
+              <p>
+                <%= model.data.quality.h_quiet_hsp_a_p %>
+              </p>
+            </div>
+          </div>
+        </div>
         <% }); %>
-      </tr>
-      <tr>
-        <td>Deaths among patients with serious treatable complications</td>
-        <% _(children).each(function(model) { %>
-        <td data-title="<%= model.name %>"><%= '' %></td>
-        <% }); %>
-      </tr>
-      <tr>
-        <td>Complications for knee/hip replacement patients</td>
-        <% _(children).each(function(model) { %>
-        <td data-title="<%= model.name %>"><%= '' %></td>
-        <% }); %>
-      </tr>
-    </tbody>
-  </table>
-</section> -->
+      </div>
+    </article>
+  </div>
+</section>
