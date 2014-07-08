@@ -15,7 +15,6 @@ app.Views.Hospital = Marionette.ItemView.extend({
 
   templateHelpers: function(){
     var showDistance = this.model.hasDistance(),
-        mapWidth = 320,//parseInt($(window).width() * .3, 10),
         hasEmergencyServices = this.model.get('emergency_services') === 'Yes',
         linkToMap;
 
@@ -26,7 +25,6 @@ app.Views.Hospital = Marionette.ItemView.extend({
 
     return {
       linkToMap: linkToMap,
-      mapWidth: mapWidth,
       showDistance: showDistance,
       hasEmergencyServices: hasEmergencyServices
     };
