@@ -1,72 +1,92 @@
 table {
-  border-collapse: collapse;
-  font-size: 0.75em;
-  margin: 0 0 1em 0;
-  padding: 0;
+  display: block;
+  font-family: $base-sans-serif;
+  font-size: .875em;
+  margin-bottom: 1em;
   width: 100%;
-}
 
-table th {
-  // border-bottom: 1px solid #aaa;
-  padding: 0 1.5em 0.5em 0.5em;
-  text-align: left;
-  vertical-align: middle;
-}
-
-// table tbody:before {
-//   line-height:1em; content:"\200C"; display:block;
-// }
-
-table td {
-  // border-bottom: 1px solid rgb(230, 230, 230);
-  padding: .5em;
-  text-align: left;
-}
-
-table th:nth-child(1), td:nth-child(1) {
-  padding-left: .25em;
-}
-
-table tr:nth-child(odd) td {
-  background-color: #f0f0f0;
-}
-
-@include media($mobile) {
-  table, thead, tbody, th, td, tr {
-    display: block;
+  @include media($desktop) {
+    display: table;
+    font-size: 1em;
   }
+}
 
-  table thead tr {
-    @include visually-hidden;
+thead {
+  display: none;
+
+  @include media($desktop) {
+    display: table-header-group;
   }
+}
 
-  table tr {
-    border-bottom: 2px solid rgb(230, 230, 230);
+tbody {
+  display: block;
+
+  @include media($desktop) {
+    display: table-row-group;
+  }
+}
+
+th {
+  display: block;
+
+  @include media($desktop) {
+    border-bottom: 1px solid rgb(187, 187, 187);
+    display: table-cell;
+    font-size: 1em;
+    font-weight: 800;
+    padding: 0 12px 8px;
+    text-align: right;
+    vertical-align: middle;
 
     &:first-child {
-      border-top: 2px solid rgb(230, 230, 230);
+      text-align: left;
     }
   }
+}
 
-  table td {
-    position: relative;
-    padding-left: 50%;
-    white-space: normal;
-    text-align: right;
+td {
+  display: block;
 
-    &:last-child {
-      border: none;
+  &:first-child {
+    font-weight: 800;
+  }
+
+  &[data-title] {
+    &:first-child:before {
+      content: none;
     }
 
     &:before {
-      content: attr(data-title);
-      position: absolute;
-      left: 0.5em;
-      width: 45%;
-      padding-right: 10px;
-      white-space: nowrap;
-      text-align:left;
-      font-weight: bold;
+      content: attr(data-title) ': ';
+      font-weight: 800;
+
+      @include media($desktop) {
+        content: none;
+      }
     }
+  }
+
+  @include media($desktop) {
+    display: table-cell;
+    font-size: .875em;
+    padding: 8px 12px;
+    text-align: right;
+
+    &:first-child {
+      text-align: left;
+    }
+  }
+}
+
+tr {
+  display: block;
+
+  &:nth-child(odd) td {
+    background-color: rgb(240, 240, 240);
+  }
+
+  @include media($desktop) {
+    display: table-row;
   }
 }
