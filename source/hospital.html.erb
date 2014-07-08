@@ -1,207 +1,235 @@
-<header>
-  <h2>Hospital Explorer</h2>
+<header class="main-header content-block">
+  <h2><%= locals[:name] %></h2>
   <hr>
 </header>
-<section class="content-container">
-  <div class="hospital-information">
-    <div class="hospital-data">
-      <h3><%= locals[:name] %></h3>
-      <div class="address">
-        <p><%= locals[:phone_number] %></p>
-        <p><%= locals[:address] %></p>
-        <p><%= "#{locals[:city]}, TX #{locals[:zipcode]}"%></p>
-      </div>
-      <div class="hospita-info">
-        <p>Hospital Type: <%= locals[:type] %></p>
-        <p>Emergency services: <%= bool_to_str locals[:emergency_services] %></p>
-        <p>Ownership: <%= locals[:hospital_ownership] %></p>
-      </div>
-    </div>
-    <div class="hospital-map">
-      <div id="mapbox" style="height: 200px;"></div>
-      <a href="/#select/<%= locals[:id] %>" class="button">Compare Hospital</a>
-    </div>
-  </div>
-  <div class="hospital-information">
-    <h3>Emergency Care</h3>
-    <p class="description">In an emergency, timely and effective care is essential. These indicators show how long you could expect to wait in the emergency room before seeing a healthcare professional, being admitted to the hospital or being sent home. The data is taken from hospitals' medical records, and is audited and verified by CMS.</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Average wait time</th>
-          <th></th>
-          <th>TX</th>
-          <th>National</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-title="Average wait time">Before being seen by a healthcare professional</td>
-          <td data-title=""><%= format_time locals[:op_20] %></td>
-          <td data-title="TX"><%= format_time data.state['door_to_diagnostic'] %></td>
-          <td data-title="National"><%= format_time data.national['door_to_diagnostic'] %></td>
-        </tr>
-        <tr>
-          <td data-title="Average wait time">Before being admited to the hospital</td>
-          <td data-title=""><%= format_time locals[:ed_1b] %></td>
-          <td data-title="TX"><%= format_time data.state['ed1'] %></td>
-          <td data-title="National"><%= format_time data.national['ed1'] %></td>
-        </tr>
-        <tr>
-          <td data-title="Average wait time">Before being sent home</td>
-          <td data-title=""><%= format_time locals[:op_18b] %></td>
-          <td data-title="TX"><%= format_time data.state['op18'] %></td>
-          <td data-title="National"><%= format_time data.national['op18'] %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="hospital-information">
-    <h3>Clinical Care</h3>
-    <p class="description">
-      The quality of a hospital's clinical care practices can impact the rate at which patients experience surgical complications or acquire infections. These indicators show how the hospital's rates of surgical complications and hospital-associated infections compares to national standards. Lower rates are better. 
-    </p>
-    <h4>Surgical complications</h4>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th></th>
-          <th>National Benchmark</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Serious complications</td>
-          <td><%= locals[:serious_complications] %></td>
-          <td><%= format_str data.national['serious_complications'] %></td>
-        </tr>
-        <tr>
-          <td>Deaths among patients with serious treatable...</td>
-          <td><%= locals[:death_from_serious_complications] %></td>
-          <td><%= format_str data.national['death_from_serious_complications'] %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="hospital-information">
-    <h3>Patient Outcomes</h3>
-    <p class="description">
-      These indicators show what happened to patients after receiving treatments for serious, common conditions such as heart attack, heart failure and pneumonia. These rates are risk-adjusted, meaning that they take into account how sick a patient was before coming to the hospital.
-    </p>
-    <h4>30-day rate of unplanned readmissions</h4>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Texas General Hospital</th>
-          <th>U.S. National Ratio</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Rate of readmission for heart attack patients</td>
-          <td><%= format_percentage locals[:readm_30_ha]%></td>
-          <td><%= format_percentage data.national["readmission_heart_attack"] %></td>
-        </tr>
-        <tr>
-          <td>Rate of readmission for heart failure patients</td>
-          <td><%= format_percentage locals[:readm_30_hf]%></td>
-          <td><%= format_percentage data.national["readmission_heart_failure"] %></td>
-        </tr>
-        <tr>
-          <td>Rate of readmission for pneumonia patients</td>
-          <td><%= format_percentage locals[:readm_30_pn]%></td>
-          <td><%= format_percentage data.national["readmission_pneumonia"] %></td>
-        </tr>
-        <tr>
-          <td>Rate of readmission after hip/knee surgery</td>
-          <td><%= format_percentage locals[:readm_30_hip_knee]%></td>
-          <td><%= format_percentage data.national["readmission_hip_or_knee"] %></td>
-        </tr>
-      </tbody>
-    </table>
-    <h4>Death rates</h4>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Texas General Hospital</th>
-          <th>U.S. National Rate</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>For heart attack patients</td>
-          <td><%= format_percentage locals[:mort_30_ami_performance_rate] %></td>
-          <td>PENDING</td>
-        </tr>
-        <tr>
-          <td>For heart failure patients</td>
-          <td><%= format_percentage locals[:mort_30_hf_performance_rate] %></td>
-          <td>PENDING</td>
-        </tr>
-        <tr>
-          <td>For pneumonia patients</td>
-          <td><%= format_percentage locals[:mort_30_pn_performance_rate] %></td>
-          <td>PENDING</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="hospital-information">
-    <h3>Patient Experience</h3>
-    <p class="description">
-      This data comes from a standardized survey used to evaluated patients' experiences at hospitals. The Centers for Medicare and Medicaid Services and the Agency for Healthcare Research and Quality created the survey, which has been used since 2006 to help consumers compare the quality of care between hospitals.
-    </p>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Hospital</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Quiet at night</td>
-          <td><%= locals[:h_quiet_hsp_a_p] %></td>
-        </tr>
-        <tr>
-          <td>Rating 9 or 10</td>
-          <td><%= locals[:h_hsp_rating_9_10] %></td>
-        </tr>
-        <tr>
-          <td>Doctors communicate well</td>
-          <td><%= locals[:h_comp_2_a_p] %></td>
-        </tr>
-        <tr>
-          <td>Nurses communicate well</td>
-          <td><%= locals[:h_comp_1_a_p] %></td>
-        </tr>
-        <tr>
-          <td>Always received help</td>
-          <td><%= locals[:h_comp_3_a_p] %></td>
-        </tr>
-        <tr>
-          <td>Clean hospital</td>
-          <td><%= locals[:h_clean_hsp_a_p] %></td>
-        </tr>
-        <tr>
-          <td>Recommend hospital to others</td>
-          <td><%= locals[:h_recmnd_dy] %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-<section class="ad-container">
-  <img src="http://placehold.it/300x250&text=Ad Block 1">
-  <img src="http://placehold.it/300x250&text=Ad Block 2">
-  <img src="http://placehold.it/300x250&text=Ad Block 3">
-</section>
-<script type="text/javascript">
-  var map = L.mapbox.map('mapbox', 'texastribune.map-vjiayly8')
-              .setView([37.9, -77], 6);
+
+<div id="hospital-map" class="hospital-map"></div>
+
+<address class="content-block">
+  <%= locals[:address] %></br>
+  <%= "#{locals[:city]}, TX #{locals[:zipcode]}"%><br>
+  <%= locals[:phone_number] %>
+</address>
+
+<dl class="content-block">
+  <dt>Hospital type</dt>
+  <dd><%= locals[:type] %></dd>
+  <dt>Emergency services</dt>
+  <dd><%= bool_to_str locals[:emergency_services] %></dd>
+  <dt>Ownership</dt>
+  <dd><%= locals[:hospital_ownership] %></dd>
+</dl>
+
+<header class="section-header content-block">
+  <h3>Emergency Care</h3>
+</header>
+
+<div class="prose content-block">
+  <p>In an emergency, timely and effective care is essential. These indicators show how long you could expect to wait in the emergency room before seeing a healthcare professional, being admitted to the hospital or being sent home. The data is taken from hospitals' medical records, and is audited and verified by CMS.</p>
+</div>
+
+<header class="sub-section-header content-block">
+  <h4>Average wait time</h4>
+</header>
+
+<table class="content-block">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th><%= locals[:name] %></th>
+      <th>Texas</th>
+      <th>National</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-title="Average wait time">Before being seen by a healthcare professional</td>
+      <td data-title="<%= locals[:name] %>"><%= format_time locals[:op_20] %></td>
+      <td data-title="Texas"><%= format_time data.state['door_to_diagnostic'] %></td>
+      <td data-title="National"><%= format_time data.national['door_to_diagnostic'] %></td>
+    </tr>
+    <tr>
+      <td data-title="Average wait time">Before being admited to the hospital</td>
+      <td data-title="<%= locals[:name] %>"><%= format_time locals[:ed_1b] %></td>
+      <td data-title="Texas"><%= format_time data.state['ed1'] %></td>
+      <td data-title="National"><%= format_time data.national['ed1'] %></td>
+    </tr>
+    <tr>
+      <td data-title="Average wait time">Before being sent home</td>
+      <td data-title="<%= locals[:name] %>"><%= format_time locals[:op_18b] %></td>
+      <td data-title="Texas"><%= format_time data.state['op18'] %></td>
+      <td data-title="National"><%= format_time data.national['op18'] %></td>
+    </tr>
+  </tbody>
+</table>
+
+<header class="section-header content-block">
+  <h3>Clinical Care</h3>
+</header>
+
+<div class="prose content-block">
+  <p>The quality of a hospital's clinical care practices can impact the rate at which patients experience surgical complications or acquire infections. These indicators show how the hospital's rates of surgical complications and hospital-associated infections compares to national standards. Lower rates are better.</p>
+</div>
+
+<header class="sub-section-header content-block">
+  <h4>Surgical complications</h4>
+</header>
+
+<table class="content-block">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>National Benchmark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Serious complications</td>
+      <td><%= locals[:serious_complications] %></td>
+      <td><%= format_str data.national['serious_complications'] %></td>
+    </tr>
+    <tr>
+      <td>Deaths among patients with serious treatable...</td>
+      <td><%= locals[:death_from_serious_complications] %></td>
+      <td><%= format_str data.national['death_from_serious_complications'] %></td>
+    </tr>
+  </tbody>
+</table>
+
+<header class="section-header content-block">
+  <h3>Patient Outcomes</h3>
+</header>
+
+<div class="prose content-block">
+  <p>These indicators show what happened to patients after receiving treatments for serious, common conditions such as heart attack, heart failure and pneumonia. These rates are risk-adjusted, meaning that they take into account how sick a patient was before coming to the hospital.</p>
+</div>
+
+<header class="sub-section-header content-block">
+  <h4>30-day rate of unplanned readmissions</h4>
+</header>
+
+<table class="content-block">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Texas General Hospital</th>
+      <th>U.S. National Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Rate of readmission for heart attack patients</td>
+      <td><%= format_percentage locals[:readm_30_ha]%></td>
+      <td><%= format_percentage data.national["readmission_heart_attack"] %></td>
+    </tr>
+    <tr>
+      <td>Rate of readmission for heart failure patients</td>
+      <td><%= format_percentage locals[:readm_30_hf]%></td>
+      <td><%= format_percentage data.national["readmission_heart_failure"] %></td>
+    </tr>
+    <tr>
+      <td>Rate of readmission for pneumonia patients</td>
+      <td><%= format_percentage locals[:readm_30_pn]%></td>
+      <td><%= format_percentage data.national["readmission_pneumonia"] %></td>
+    </tr>
+    <tr>
+      <td>Rate of readmission after hip/knee surgery</td>
+      <td><%= format_percentage locals[:readm_30_hip_knee]%></td>
+      <td><%= format_percentage data.national["readmission_hip_or_knee"] %></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<header class="sub-section-header content-block">
+  <h4>Death rates</h4>
+</header>
+
+<table class="content-block">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Texas General Hospital</th>
+      <th>U.S. National Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>For heart attack patients</td>
+      <td><%= format_percentage locals[:mort_30_ami_performance_rate] %></td>
+      <td>PENDING</td>
+    </tr>
+    <tr>
+      <td>For heart failure patients</td>
+      <td><%= format_percentage locals[:mort_30_hf_performance_rate] %></td>
+      <td>PENDING</td>
+    </tr>
+    <tr>
+      <td>For pneumonia patients</td>
+      <td><%= format_percentage locals[:mort_30_pn_performance_rate] %></td>
+      <td>PENDING</td>
+    </tr>
+  </tbody>
+</table>
+
+<header class="section-header content-block">
+  <h3>Patient Experience</h3>
+</header>
+
+<div class="prose content-block">
+  <p>This data comes from a standardized survey used to evaluated patients' experiences at hospitals. The Centers for Medicare and Medicaid Services and the Agency for Healthcare Research and Quality created the survey, which has been used since 2006 to help consumers compare the quality of care between hospitals.</p>
+</div>
+
+<table class="content-block">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Hospital</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Quiet at night</td>
+      <td><%= locals[:h_quiet_hsp_a_p] %></td>
+    </tr>
+    <tr>
+      <td>Rating 9 or 10</td>
+      <td><%= locals[:h_hsp_rating_9_10] %></td>
+    </tr>
+    <tr>
+      <td>Doctors communicate well</td>
+      <td><%= locals[:h_comp_2_a_p] %></td>
+    </tr>
+    <tr>
+      <td>Nurses communicate well</td>
+      <td><%= locals[:h_comp_1_a_p] %></td>
+    </tr>
+    <tr>
+      <td>Always received help</td>
+      <td><%= locals[:h_comp_3_a_p] %></td>
+    </tr>
+    <tr>
+      <td>Clean hospital</td>
+      <td><%= locals[:h_clean_hsp_a_p] %></td>
+    </tr>
+    <tr>
+      <td>Recommend hospital to others</td>
+      <td><%= locals[:h_recmnd_dy] %></td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+
+  var map_id = 'texastribune.ili2i87h';
+
+  var map = L.mapbox.map('hospital-map', map_id, {
+    tileLayer: {
+      detectRetina: true
+    }
+  });
+
   var geoJson = [{
     type: 'Feature',
       geometry: {
@@ -220,5 +248,7 @@
 
   var featureLayer = L.mapbox.featureLayer().addTo(map);
   featureLayer.setGeoJSON(geoJson);
-  map.fitBounds(featureLayer.getBounds());
+  map.fitBounds(featureLayer.getBounds(), {
+    maxZoom: 12
+  });
 </script>

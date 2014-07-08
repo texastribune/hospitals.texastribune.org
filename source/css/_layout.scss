@@ -3,32 +3,8 @@
 }
 
 .content-block {
-  margin: 0 1.25em; // 20px left - 20px right
-}
-
-.app-container {
-  @include outer-container;
-  @include media($desktop) {
-    .content-container {
-      @include span-columns(8);
-
-      .row {
-        @include row();
-      }
-
-      .stat-column {
-        @include span-columns(2 of 8);
-      }
-
-      .chart-column {
-        @include span-columns(4 of 8);
-      }
-
-      .span-half {
-        @include span-columns(4 of 8);
-      }
-    }
-  }
+  margin-left: 1.25em; // 20px left
+  margin-right: 1.25em; // 20px right
 }
 
 //COMPARE PAGE

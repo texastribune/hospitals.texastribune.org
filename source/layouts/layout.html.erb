@@ -10,9 +10,10 @@
   <link rel="icon" href="favicon.ico" />
   <!-- Use title if it's in the page YAML frontmatter -->
   <title><%= current_page.data.title || "Texas Hospital Explorer | The Texas Tribune" %></title>
-  <link href="//api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet">
+  <link href="//api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="/css/main.css" rel="stylesheet">
+  <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
 </head>
 <body>
   <header class="masthead">
@@ -43,7 +44,6 @@
     </div>
   </section>
   <%= partial "footer" %>
-  <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
   <script src="/js/main.js"></script>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
