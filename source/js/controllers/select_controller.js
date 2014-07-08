@@ -70,17 +70,18 @@ app.Controllers.SelectController = Marionette.Controller.extend({
   selectHospital: function(hospitalId) {
     this.hospitalsToCompare.add(app.hospitals.get(hospitalId));
     this.syncronizeViews();
+    this.updateURL();
   },
 
   deselectHospital: function(hospitalId) {
     this.hospitalsToCompare.remove(app.hospitals.get(hospitalId));
     this.syncronizeViews();
+    this.updateURL();
   },
 
   syncronizeViews: function() {
     this.checkSelectedHospitals();
     // this.mapView.checkHospitals(this.hospitalsToCompare);
-    this.updateURL();
     if (this.hospitalsToCompare.length >= this.maxHospitals) {
       this.hospitalsView.disableSelection();
     } else {
@@ -97,6 +98,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.hospitalsView.uncheck(hospital.id);
     // this.mapView.checkHospitals(this.hospitalsToCompare);
     this.syncronizeViews();
+    this.updateURL();
   },
 
   updateURL: function() {
