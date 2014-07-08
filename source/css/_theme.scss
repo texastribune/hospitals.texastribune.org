@@ -66,7 +66,33 @@
     line-height: 1.2;
   }
 }
-
+.narrow-search {
+  margin: 1em;
+  form{
+    margin-top: 1em;
+    position: relative;
+  }
+  input, button {
+    margin-top: .5em;
+  }
+  .loading {
+    position: absolute;
+    bottom: 7px;
+    margin-left: 5px;
+  }
+  @include media($desktop) {
+    button {
+      margin-top: 0;
+    }
+    .search-tools, .search-controls{
+      display: inline;
+      margin-right: .5em;
+    }
+    .loading {
+      bottom: 24px;
+    }
+  }
+}
 .search {
   .form-prompt {
     font-size: .875em;
@@ -83,6 +109,14 @@
       display: inline;
       margin: 0 1em;
     }
+  }
+
+  .messages {
+    margin-top: 5px;
+    height: 16px;
+    font-style: italic;
+    font-size: 0.8em;
+    color: $red;
   }
 }
 

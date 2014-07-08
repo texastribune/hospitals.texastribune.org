@@ -9,11 +9,17 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </p>
 <form>
-  <a href="/#search/nearest" class="button">Show hospitals near you</a>
-  <img src="/img/round-ajax-loader.gif" class="loading hide"/>
   <div class="search-tools">
     <span>Search for a hospital name or ZIP code:</span>
-    <input type="search" placeholder="78701"/>
+    <input type="text" id="search-content" placeholder="78701"/>
   </div>
-  <input type="submit" value="Search">
+  <div class="search-controls">
+    <button id="search-submit" class="search-submit" type="submit">Search</button>
+    <span class="or-separator">- or -</span>
+    <button id="find-me" class="find-me">Find hospitals near you</button>
+    <img src="/img/round-ajax-loader.gif" class="loading hide"/>
+    <div class="messages">
+      <div class='empty hide'>We couldn't find any hospital, please try again</div>
+    </div>
+  </div>
 </form>
