@@ -20,9 +20,9 @@
         <p>These indicators show how long you could expect to wait in the emergency room before seeing a healthcare professional, being admitted to the hospital or being sent home. The data is reported by hospitals from medical records, and is audited and verified by the Center for Medicare and Medicaid Services. Find <a href="http://www.medicare.gov/hospitalcompare/Data/Measures.html">more information</a> about the data and other measures of timely and effective care.</p>
       </div>
       <div class="hosp-card-wrapper">
-        <% _(children).each(function(model) { %>
+        <% _(children).each(function(model, index) { %>
         <div class="hosp-card">
-            <header>
+            <header class="<%= cycleClass(index) %>">
               <h4 data-provider-id="<%= model._id %>"><%= model.name %></h4>
             </header>
           <div class="card-row">
@@ -76,9 +76,9 @@
         <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
       </div>
       <div class="hosp-card-wrapper">
-        <% _(children).each(function(model) { %>
+        <% _(children).each(function(model, index) { %>
         <div class="hosp-card">
-          <header>
+          <header class="<%= cycleClass(index) %>">
             <h4 data-provider-id="<%= model._id %>"><%= model.name %></h4>
           </header>
           <div class="card-row sub-header">
@@ -127,9 +127,9 @@
         <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
       </div>
       <div class="hosp-card-wrapper">
-        <% _(children).each(function(model) { %>
+        <% _(children).each(function(model, index) { %>
         <div class="hosp-card">
-          <header>
+          <header class="<%= cycleClass(index) %>">
             <h4><%= model.name %></h4>
           </header>
           <div class="card-row sub-header">
@@ -211,9 +211,9 @@
         <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
       </div>
       <div class="hosp-card-wrapper">
-        <% _(children).each(function(model) { %>
+        <% _(children).each(function(model, index) { %>
         <div class="hosp-card">
-          <header>
+          <header class="<%= cycleClass(index) %>">
             <h4><%= model.name %></h4>
           </header>
           <div class="card-row sub-header">
@@ -315,9 +315,9 @@
         <p>Cliche exercitation aesthetic duis chia. You probably haven't heard of them single-origin coffee leggings American Apparel, McSweeney's Echo Park est aliqua mixtape Pitchfork paleo iPhone Austin selfies. 90's exercitation selfies, farm-to-table XOXO Carles messenger bag selvage in authentic skateboard. Fingerstache fanny pack forage, Brooklyn Godard Blue Bottle post-ironic Truffaut commodo Shoreditch Tumblr cornhole eu. +1 vinyl Portland put a bird on it proident, distillery kogi commodo yr lo-fi you probably haven't heard of them twee chillwave nihil. Put a bird on it velit minim before they sold out. Normcore trust fund Williamsburg cillum tofu wolf, Godard ea.</p>
       </div>
       <div class="hosp-card-wrapper">
-        <% _(children).each(function(model) { %>
+        <% _(children).each(function(model, index) { %>
         <div class="hosp-card">
-          <header>
+          <header class="<%= cycleClass(index) %>">
             <h4><%= model.name %></h4>
           </header>
           <div class="card-row sub-header">

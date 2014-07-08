@@ -7,7 +7,8 @@ app.Views.CompareView = Marionette.CollectionView.extend({
 
   templateHelpers: function() {
     var minuteOrNA,
-        percentOrNA;
+        percentOrNA,
+        cycleClass;
 
     minuteOrNA = function(value) {
       if (value === null || value === undefined || value === '') {
@@ -25,9 +26,23 @@ app.Views.CompareView = Marionette.CollectionView.extend({
       }
     };
 
+    cycleClass = function(index) {
+      var classesLength = 10,
+          indexClass;
+
+      if (index < classesLength) {
+        return 'card-' + (index + 1);
+      } else {
+        index = index + 1;
+        indexClass = classesLength - Math.ceil(index / 10.0) * classesLength + index;
+        return 'card-' + indexClass;
+      }
+    };
+
     return {
       'minuteOrNA': minuteOrNA,
-      'percentOrNA': percentOrNA
+      'percentOrNA': percentOrNA,
+      'cycleClass': cycleClass
     };
   },
 
