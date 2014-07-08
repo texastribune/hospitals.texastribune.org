@@ -2,17 +2,17 @@ app.Views.Search = Marionette.ItemView.extend({
   template: JST['templates/search-template'],
 
   ui: {
-    input: "input[type='search']",
+    input: '#search-content',
     error: '.error',
     empty: '.empty',
     loading: '.loading'
   },
 
   events: {
-    'click button': 'nearestHospitals',
-    'click .button': 'nearestHospitals',
+    'click #find-me': 'nearestHospitals',
     'click input': 'hideError',
-    'submit form': 'submit'
+    'submit form': 'submit',
+    'click #search-submit': 'submit'
   },
 
   initialize: function(options) {
