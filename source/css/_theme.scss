@@ -67,8 +67,30 @@
   }
 }
 .narrow-search {
+  margin: 1em;
   form{
     margin-top: 1em;
+    position: relative;
+  }
+  input, button {
+    margin-top: .5em;
+  }
+  .loading {
+    position: absolute;
+    bottom: 7px;
+    margin-left: 5px;
+  }
+  @include media($desktop) {
+    button {
+      margin-top: 0;
+    }
+    .search-tools, .search-controls{
+      display: inline;
+      margin-right: .5em;
+    }
+    .loading {
+      bottom: 24px;
+    }
   }
 }
 .search {
