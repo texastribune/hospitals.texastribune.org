@@ -66,7 +66,11 @@
     line-height: 1.2;
   }
 }
-
+.narrow-search {
+  form{
+    margin-top: 1em;
+  }
+}
 .search {
   .form-prompt {
     font-size: .875em;
