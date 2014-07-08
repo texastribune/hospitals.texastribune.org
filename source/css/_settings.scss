@@ -44,10 +44,6 @@ $link-color: #008990;
   width: 1px;
 }
 
-.sr-only {
-  @include visually-hidden;
-}
-
 @mixin expand-on-mobile {
   @include media($mobile) {
     @include span-columns(12);
