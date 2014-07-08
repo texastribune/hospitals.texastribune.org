@@ -1,3 +1,11 @@
+.container {
+  @include outer-container;
+}
+
+.content-block {
+  margin: 0 1.25em; // 20px left - 20px right
+}
+
 .app-container {
   @include outer-container;
   @include media($desktop) {
@@ -33,7 +41,7 @@
     @include media($desktop) {
       @include span-columns(4);
       @include omega(3n);
-    }    
+    }
   }
   .card-row {
     @include span-columns(12);
