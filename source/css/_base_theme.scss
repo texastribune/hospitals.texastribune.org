@@ -1,0 +1,44 @@
+body {
+  color: $bodytext-black;
+  font-family: $base-sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+  text-rendering: optimizelegibility;
+}
+
+a {
+  color: $href-teal;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+hr {
+  background-color: rgb(187, 187, 187);
+  border: 0 none;
+  height: 3px;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  color: $bodytext-black;
+  display: inline-block;
+  font-family: $base-sans-serif;
+  letter-spacing: .03rem;
+  vertical-align: middle;
+  @include button(flat, $tribune-yellow);
+}

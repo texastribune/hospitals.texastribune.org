@@ -1,10 +1,121 @@
-body {
-  color: $offblack;
-  line-height: 1;
-  font-family: $helvetica;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+.masthead {
+  background-color: $masthead-black;
+  width: 100%;
+
+  .branding {
+    padding: .75em 0 .375em;
+    text-align: center;
+    width: 100%;
+
+    .trib-logo {
+      height: 1.625em;
+    }
+  }
 }
+
+.banner {
+  background-color: rgb(128, 128, 128);
+  display: table;
+  height: 225px;
+  margin: 0 0 1.5em;
+  width: 100%;
+
+  .grand-header {
+    display: table-cell;
+    padding: 0 1.25em;
+    text-align: center;
+    vertical-align: middle;
+
+    a {
+      color: rgb(255, 255, 255);
+    }
+
+    h1 {
+      color: rgb(255, 255, 255);
+      font-family: $base-serif;
+      font-size: 2.5em;
+      font-weight: 800;
+      line-height: 1.15;
+      text-shadow: rgb(0, 0, 0) 3px 3px 0;
+
+      @include media($desktop) {
+        font-size: 3em;
+      }
+    }
+  }
+}
+
+.call-to-action {
+  margin-bottom: 2em;
+
+  p {
+    font-family: $base-serif;
+    font-size: 1.125em;
+    line-height: 1.4;
+  }
+}
+
+.disclaimer {
+  margin-top: 4em;
+
+  p {
+    font-family: $base-sans-serif;
+    font-size: .875em;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+}
+
+.search {
+  .form-prompt {
+    font-size: .875em;
+    font-style: italic;
+    margin: 0 0 .5em;
+  }
+
+  .or-separator {
+    display: block;
+    font-weight: 800;
+    margin: 1em 0;
+
+    @include media($desktop) {
+      display: inline;
+      margin: 0 1em;
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 1em;
+
+  @include media($desktop) {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  input {
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 3px;
+    font-size: .875em;
+    height: 30px;
+    margin: 0;
+    padding: 7px 18px;
+    width: 100%;
+
+    @include media($desktop) {
+      width: 300px;
+    }
+  }
+
+  .sr-only {
+    @include visually-hidden;
+  }
+}
+
+/// old stuff below
+
 
 ul {
   list-style: none;
@@ -25,12 +136,6 @@ hr {
   height: 1px;
   background-color: $dark-grey;
   margin-bottom: 1em;
-}
-
-input[type='submit'], button, a.button{
-  color: #000;
-  letter-spacing: 0.03em;
-  @include button(flat, #ffc200);
 }
 
 // LAYOUT SPECIFICS
@@ -151,7 +256,7 @@ label {
       text-align: center;
       white-space: nowrap;
       text-overflow: ellipsis;
-      overflow: hidden;    
+      overflow: hidden;
     }
   }
   .card-row {
@@ -160,7 +265,7 @@ label {
     width: 100%;
     &:nth-child(odd) {
       background-color: rgb(240, 240, 240);
-    }     
+    }
     p {
       margin: 0.25em;
     }
@@ -234,9 +339,9 @@ label {
   background: -ms-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
   background: linear-gradient(top, #ffffff 1%,#eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
-  box-shadow: 
-    0px 0px 0px 1px rgba(155,155,155,0.3), 
-    1px 0px 0px 0px rgba(255,255,255,0.9) inset, 
+  box-shadow:
+    0px 0px 0px 1px rgba(155,155,155,0.3),
+    1px 0px 0px 0px rgba(255,255,255,0.9) inset,
     0px 2px 2px rgba(0,0,0,0.1);
 }
 .ac-container input{
@@ -308,7 +413,7 @@ label {
       text-align: center;
       white-space: nowrap;
       text-overflow: ellipsis;
-      overflow: hidden;    
+      overflow: hidden;
     }
   }
   .card-row {
@@ -317,7 +422,7 @@ label {
     width: 100%;
     &:nth-child(odd) {
       background-color: rgb(240, 240, 240);
-    }     
+    }
     p {
       margin: 0.25em;
     }
@@ -391,9 +496,9 @@ label {
   background: -ms-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
   background: linear-gradient(top, #ffffff 1%,#eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
-  box-shadow: 
-    0px 0px 0px 1px rgba(155,155,155,0.3), 
-    1px 0px 0px 0px rgba(255,255,255,0.9) inset, 
+  box-shadow:
+    0px 0px 0px 1px rgba(155,155,155,0.3),
+    1px 0px 0px 0px rgba(255,255,255,0.9) inset,
     0px 2px 2px rgba(0,0,0,0.1);
 }
 .ac-container input{
@@ -502,7 +607,7 @@ label {
       }
       li {
         margin-bottom: 0.5em;
-      } 
+      }
     }
     .icon {
       color: $white;
@@ -611,10 +716,6 @@ table tr:nth-child(odd) td {
 }
 
 @include media($mobile) {
-  body {
-    font-size: 14px;
-  }
-
   table, thead, tbody, th, td, tr {
     display: block;
   }

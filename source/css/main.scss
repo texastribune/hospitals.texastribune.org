@@ -1,13 +1,14 @@
-@import "bourbon";
-@import "neat";
+@import 'bourbon';
+@import 'neat';
 
-@import "normalize";
-@import "fonts";
-@import "settings";
-@import "theme";
-@import "layout";
+@import 'normalize';
+@import 'fonts';
+@import 'settings';
+@import 'layout';
+@import 'base_theme';
+@import 'theme';
 
-#search{
+#searchx {
   header{
     h1{
       text-align: center;
@@ -17,12 +18,11 @@
       font-size: 1em;
     }
   }
-  margin-top:3em;
   @include span-columns(10);
   @include shift(1);
   @include media($desktop) {
     @include span-columns(8);
-    @include shift(2); 
+    @include shift(2);
   }
   .loading{
     position: absolute;
@@ -41,31 +41,8 @@
   .empty{
     font-style: italic;
   }
-  .searcher{
-    margin: 2em 0;
-    position: relative;
-    text-align: center;
-    button{
-      margin: 1em 0;
-    }
-    span{
-      margin: 0 .7em;
-    }
-    input[type='search']{
-      margin-top: .5em;
-      padding: 5px;
-      width: 70%;
-    }
-    @include media($mobile){
-      span{
-        display:block;
-      }
-      input[type='submit']{
-        margin-top: .5em;
-      }
-    }
-  }
 }
+
 #narrow-search{
   margin-bottom: 1em;
   @include span-columns(12);
@@ -171,7 +148,7 @@ section#hospital-list{
   }
   &:after {
     clear: both;
-    content: "";
+    content: '';
     display: block;
   }
   @include media($mobile){
