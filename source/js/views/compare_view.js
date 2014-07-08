@@ -6,15 +6,28 @@ app.Views.CompareView = Marionette.CollectionView.extend({
   },
 
   templateHelpers: function() {
-    var minuteOrNA = function(value) {
+    var minuteOrNA,
+        percentOrNA;
+
+    minuteOrNA = function(value) {
       if (value === null || value === undefined || value === '') {
         return 'N/A';
       } else {
         return value + ' min.';
       }
-    }
+    };
+
+    percentOrNA = function(value) {
+      if (value === null || value === undefined || value === '') {
+        return 'N/A';
+      } else {
+        return value + '%';
+      }
+    };
+
     return {
-      'minuteOrNA': minuteOrNA
+      'minuteOrNA': minuteOrNA,
+      'percentOrNA': percentOrNA
     };
   },
 
