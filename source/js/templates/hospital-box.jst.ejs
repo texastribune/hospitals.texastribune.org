@@ -16,8 +16,12 @@
     <div class="value">
       <a href="tel:+1<%= phone_number %>"><%= phone_number %></a>
     </div>
-    <div class="value"><%= address %></div>
-    <div class="value"><%= city %>, TX <%= zipcode %></div>
+    <address>
+      <a href="<%= linkToMap(address, city, zipcode) %>" target="_blank">
+        <div class="value"><%= address %></div>
+        <div class="value"><%= city %>, TX <%= zipcode %></div>
+      </a>
+    </address>
   </section>
   <section class="controls">
   <a class="button" href="<%= url %>.html">View more details</a>

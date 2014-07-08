@@ -16,8 +16,16 @@ app.Views.Hospital = Marionette.ItemView.extend({
   templateHelpers: function(){
     var showDistance = this.model.hasDistance(),
         mapWidth = 320,//parseInt($(window).width() * .3, 10),
-        hasEmergencyServices = this.model.get('emergency_services') === 'Yes';
+        hasEmergencyServices = this.model.get('emergency_services') === 'Yes',
+        linkToMap;
+
+    linkToMap = function(address, city, zipcode) {
+      var fullAddress = address + ', ' + city + ', TX ' + zipcode;
+      return "http://maps.google.com/maps?q=" + encodeURIComponent(fullAddress);
+    };
+
     return {
+      linkToMap: linkToMap,
       mapWidth: mapWidth,
       showDistance: showDistance,
       hasEmergencyServices: hasEmergencyServices

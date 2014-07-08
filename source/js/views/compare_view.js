@@ -8,7 +8,13 @@ app.Views.CompareView = Marionette.CollectionView.extend({
   templateHelpers: function() {
     var minuteOrNA,
         percentOrNA,
-        cycleClass;
+        cycleClass,
+        linkToMap;
+
+    linkToMap = function(model) {
+      var address = model.address + ', ' + model.city + ', TX ' + model.zipcode;
+      return "http://maps.google.com/maps?q=" + encodeURIComponent(address);
+    };
 
     minuteOrNA = function(value) {
       if (value === null || value === undefined || value === '') {
@@ -40,6 +46,7 @@ app.Views.CompareView = Marionette.CollectionView.extend({
     };
 
     return {
+      'linkToMap': linkToMap,
       'minuteOrNA': minuteOrNA,
       'percentOrNA': percentOrNA,
       'cycleClass': cycleClass

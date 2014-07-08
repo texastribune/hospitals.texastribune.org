@@ -24,11 +24,15 @@
             </header>
           <div class="card-row">
             <div class="value">
-              <p>
-                <%= model.address %>
-              <br />
-                <%= model.city %>, TX <%= model.zipcode %>
-              </p>
+              <address>
+                <p>
+                  <a href="<%= linkToMap(model) %>" target="_blank">
+                    <%= model.address %>
+                  </a>
+                <br />
+                  <%= model.city %>, TX <%= model.zipcode %>
+                </p>
+              </address>
             </div>
             <div class="value">
               <p>
