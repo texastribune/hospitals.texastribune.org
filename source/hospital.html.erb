@@ -8,9 +8,11 @@
 <div class="row">
 <address class="content-block">
   <div class="hospital-span">
-  <%= locals[:address] %></br>
-  <%= "#{locals[:city]}, TX #{locals[:zipcode]}"%><br>
-  <%= locals[:phone_number] %>
+    <address>
+      <%= locals[:address] %></br>
+      <%= "#{locals[:city]}, TX #{locals[:zipcode]}"%><br>
+    </address>
+    <a href="tel:+1<%= locals[:phone_number] %>"><%= locals[:phone_number] %></a>
   </div>
 </address>
 
