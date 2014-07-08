@@ -1,0 +1,72 @@
+table {
+  border-collapse: collapse;
+  font-size: 0.75em;
+  margin: 0 0 1em 0;
+  padding: 0;
+  width: 100%;
+}
+
+table th {
+  // border-bottom: 1px solid #aaa;
+  padding: 0 1.5em 0.5em 0.5em;
+  text-align: left;
+  vertical-align: middle;
+}
+
+// table tbody:before {
+//   line-height:1em; content:"\200C"; display:block;
+// }
+
+table td {
+  // border-bottom: 1px solid rgb(230, 230, 230);
+  padding: .5em;
+  text-align: left;
+}
+
+table th:nth-child(1), td:nth-child(1) {
+  padding-left: .25em;
+}
+
+table tr:nth-child(odd) td {
+  background-color: #f0f0f0;
+}
+
+@include media($mobile) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  table thead tr {
+    @include visually-hidden;
+  }
+
+  table tr {
+    border-bottom: 2px solid rgb(230, 230, 230);
+
+    &:first-child {
+      border-top: 2px solid rgb(230, 230, 230);
+    }
+  }
+
+  table td {
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    text-align: right;
+
+    &:last-child {
+      border: none;
+    }
+
+    &:before {
+      content: attr(data-title);
+      position: absolute;
+      left: 0.5em;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      text-align:left;
+      font-weight: bold;
+    }
+  }
+}
