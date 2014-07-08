@@ -69,6 +69,9 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
   },
 
   uncheck: function(id) {
-    this.$el.find('*[data-id="' + id +'"]').prop('checked', false);
+    var $checkbox = this.$el.find('*[data-id="' + id +'"]');
+
+    $checkbox.prop('checked', false);
+    $checkbox.parents('.hospital-box').removeClass('active');
   }
 });
