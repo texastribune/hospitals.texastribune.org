@@ -137,7 +137,7 @@
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Rate of serious surgical complications</p>
+              <p>Serious surgical complications</p>
             </div>
             <div class="value">
               <p>
@@ -147,7 +147,7 @@
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Rate of deaths among patients with serious, treatable conditions</p>
+              <p>Deaths among patients with serious, treatable conditions</p>
             </div>
             <div class="value">
               <p>
@@ -157,18 +157,18 @@
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Rate of complications for knee/hip replacement patients</p>
+              <p>Complications for knee/hip replacement patients</p>
             </div>
             <div class="value">
               <%= percentOrNA(model.data.readmission_rates.comp_hip_knee) %>
             </div>
           </div>
           <div class="card-row sub-header">
-            <p><em>Hospital-associated infections</em></p>
+            <p><em>Healthcare-associated infections</em></p>
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Rate of central-line associated bloodstream infection</p>
+              <p>Central-line associated bloodstream infection</p>
             </div>
             <div class="value">
               <p><%= percentOrNA(model.data.associated_infections.hai_1) %></p>
@@ -176,7 +176,7 @@
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Rate of catheter-associated urinary tract infection</p>
+              <p>Catheter-associated urinary tract infection</p>
             </div>
             <div class="value">
               <p><%= percentOrNA(model.data.associated_infections.hai_2) %></p>
@@ -184,7 +184,7 @@
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Rate of surgical site infection from colon surgery</p>
+              <p>Surgical site infection from colon surgery</p>
             </div>
             <div class="value">
               <p><%= percentOrNA(model.data.associated_infections.hai_3) %></p>
@@ -192,7 +192,7 @@
           </div>
           <div class="card-row">
             <div class="value-header">
-              <p>Rate of surgical site infection from abdominal hysterectomy</p>
+              <p>Surgical site infection from abdominal hysterectomy</p>
             </div>
             <div class="value">
               <p><%= percentOrNA(model.data.associated_infections.hai_4) %></p>
