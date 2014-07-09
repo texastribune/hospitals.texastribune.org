@@ -8,30 +8,33 @@
 </div>
 
 <div class="row">
-<address class="content-block">
-  <div class="hospital-span">
-    <address>
-      <%= locals[:address] %></br>
-      <%= "#{locals[:city]}, TX #{locals[:zipcode]}"%><br>
-    </address>
-    <a href="tel:+1<%= locals[:phone_number] %>"><%= locals[:phone_number] %></a>
-  </div>
-</address>
-
-<dl class="content-block">
-  <div class="hospital-span">
-    <dt>Hospital type</dt>
-    <dd><%= locals[:type] %></dd>
-  </div>
-  <div class="hospital-span">
-    <dt>Emergency services</dt>
-    <dd><%= bool_to_str locals[:emergency_services] %></dd>
-  </div>
-  <div class="hospital-span">
-    <dt>Ownership</dt>
-    <dd><%= locals[:hospital_ownership] %></dd>
-  </div>
-</dl>
+  <dl class="content-block">
+    <div class="hospital-span">
+      <dt>Address</dt>
+      <dd>
+        <address>
+          <%= locals[:address] %></br>
+          <%= "#{locals[:city]}, TX #{locals[:zipcode]}"%>
+        </address>
+      </dd>
+    </div>
+    <div class="hospital-span">
+      <dt>Phone</dt>
+      <dd><a href="tel:+1<%= locals[:phone_number] %>"><%= locals[:phone_number] %></a></dd>
+    </div>
+    <div class="hospital-span">
+      <dt>Hospital type</dt>
+      <dd><%= locals[:type] %></dd>
+    </div>
+    <div class="hospital-span">
+      <dt>Emergency services</dt>
+      <dd><%= bool_to_str locals[:emergency_services] %></dd>
+    </div>
+    <div class="hospital-span">
+      <dt>Ownership</dt>
+      <dd><%= locals[:hospital_ownership] %></dd>
+    </div>
+  </dl>
 </div>
 
 <header class="section-header content-block">

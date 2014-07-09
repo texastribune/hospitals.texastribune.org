@@ -12,8 +12,11 @@
 }
 
 .hospital-span {
+  margin-bottom: .25em;
+
   @include media($desktop) {
-    @include span-columns(3 of 12);
+    margin-bottom: 0;
+    @include span-columns(3 of 15);
   }
 }
 
