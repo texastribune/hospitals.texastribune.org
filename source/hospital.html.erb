@@ -3,7 +3,9 @@
   <hr>
 </header>
 
-<div id="hospital-map" class="hospital-map"></div>
+<div class="content-block">
+  <div id="hospital-map" class="hospital-map"></div>
+</div>
 
 <div class="row">
 <address class="content-block">
@@ -251,6 +253,11 @@
       detectRetina: true
     }
   });
+
+map.dragging.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
 
   var geoJson = [{
     type: 'Feature',

@@ -27,14 +27,15 @@ h6 {
 hr {
   background-color: rgb(187, 187, 187);
   border: 0 none;
-  height: 3px;
+  height: 2px;
 }
 
 p {
   margin: 0;
 }
 
-button, .button {
+button,
+.button {
   color: $bodytext-black;
   display: inline-block;
   font-family: $base-sans-serif;
