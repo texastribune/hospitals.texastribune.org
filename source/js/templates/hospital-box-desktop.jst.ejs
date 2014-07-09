@@ -1,10 +1,8 @@
 <section class="hosp-information">
   <header>
+    fadsfasfas
     <input type='checkbox' class='hospital-selector' data-id="<%= _id %>">
-    <h4 class="mobile">
-      <%= name %>
-    </h4>
-    <h4 class="desktop">
+    <h4 class="desktop hide">
       <a href="<%= url %>.html" class="hospital-title"><%= name %></a>
     </h4>
   </header>
@@ -17,16 +15,11 @@
       Has Emergency Services
     </div><% } %>
     <div class="value">
-      <a href="tel:+1<%= phone_number %>"><%= phone_number %></a>
+      <%= phone_number %>
     </div>
     <address>
-      <a href="<%= linkToMap(address, city, zipcode) %>" target="_blank">
-        <div class="value"><%= address %></div>
-        <div class="value"><%= city %>, TX <%= zipcode %></div>
-      </a>
+      <div class="value"><%= address %></div>
+      <div class="value"><%= city %>, TX <%= zipcode %></div>
     </address>
-  </section>
-  <section class="controls mobile">
-    <a class="button" href="<%= url %>.html">View more details</a>
   </section>
 </section>

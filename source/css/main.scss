@@ -44,28 +44,7 @@
 
 .map-and-selected{
   @include span-columns(12);
-  #selected-hospitals{
-    .selected{
-      background-color: $dark-grey;
-      padding: 0.1em 1em 1em 1em;
-      h3{
-        margin: 0.5em 0;
-      }
-      div{
-        margin-bottom: 0.3em;
-        .remove-wrapper{
-          float: left;
-          .remove{
-            color: $offblack;
-            padding: 5px;
-          }
-        }
-      }
-    }
-    .controls{
-      text-align: center;
-    }
-  }
+
   #map-location{
     height: 400px;
     margin-bottom: 0.7em;
@@ -74,19 +53,58 @@
     @include span-columns(6);
   }
 }
+#selected-hospitals{
+  @include media($desktop){
+    margin: 1em 0;
+  }
+  .selected{
+    background-color: $dark-grey;
+    padding: 0.1em 1em 1em 1em;
+    h3{
+      margin: 0.5em 0;
+    }
+    div{
+      margin-bottom: 0.3em;
+      .remove-wrapper{
+        float: left;
+        .remove{
+          color: $offblack;
+          padding: 5px;
+        }
+      }
+    }
+  }
+  .controls{
+    text-align: center;
+  }
+}
 section#hospital-list{
   margin-top: 1em;
-  @include span-columns(12);
-  @include media($desktop){
-    margin-top: 3em;
-    @include span-columns(6);
-    margin-bottom: 4em;
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
   }
   .more-results {
     clear: both;
     text-align: center;
     font-size: .9em;
   }
+  @include media($desktop){
+    .mobile {
+      display: none;
+    }
+    .desktop {
+      display: block;
+    }
+    .hospital-box {
+      height: 165px;
+    }
+  }
+}
+section.map-and-selected{
+  margin-top: 2em;
 }
 
 .hospital-information {
