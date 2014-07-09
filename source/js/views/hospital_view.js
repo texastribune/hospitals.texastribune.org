@@ -5,7 +5,7 @@ app.Views.Hospital = Marionette.ItemView.extend({
 
   ui: {
     'checkbox': '.hospital-selector',
-    'hospitalName': 'header h4'
+    'hospitalName': 'header h4.mobile'
   },
 
   events: {
