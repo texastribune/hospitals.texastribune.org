@@ -20,10 +20,9 @@
       <a href="tel:+1<%= phone_number %>"><%= phone_number %></a>
     </div>
     <address>
-      <a href="<%= linkToMap(address, city, zipcode) %>" target="_blank">
-        <div class="value"><%= address %></div>
-        <div class="value"><%= city %>, TX <%= zipcode %></div>
-      </a>
+      <div class="value"><%= address %></div>
+      <div class="value"><%= city %>, TX <%= zipcode %></div>
+      (<a href="<%= linkToMap(address, city, zipcode) %>" target="_blank">Map</a>).
     </address>
   </section>
   <section class="controls mobile">

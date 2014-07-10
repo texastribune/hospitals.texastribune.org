@@ -15,11 +15,11 @@ js: /js/hospital.js
     <div class="hospital-span">
       <dt>Address</dt>
       <dd>
-        <a href="" id="address">
-          <address>
-            <%= locals[:address] %></br>
-            <%= "#{locals[:city]}, TX #{locals[:zipcode]}"%>
-          </address>
+        <address>
+          <%= locals[:address] %></br>
+          <%= "#{locals[:city]}, TX #{locals[:zipcode]}"%>
+        </address>
+          (<a href="" id="address" target="_blank">Map</a>).
         </a>
       </dd>
     </div>
