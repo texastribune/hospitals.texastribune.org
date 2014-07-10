@@ -22,6 +22,8 @@ app.Views.Map = Marionette.ItemView.extend({
   },
 
   update: function() {
+    if (typeof this.featureLayer === 'undefined') return;
+
     var ids = this.collection.map(function(hospital) {
       return hospital.id.toString();
     });
@@ -33,6 +35,8 @@ app.Views.Map = Marionette.ItemView.extend({
   },
 
   checkHospitals: function(hospitals) {
+    if (typeof this.featureLayer === 'undefined') return;
+
     this.resetMarkers();
     _.each(app.geoData.features, function(feature) {
       if (hospitals.get(feature.properties.id)) {
