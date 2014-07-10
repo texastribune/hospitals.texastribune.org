@@ -1,7 +1,7 @@
 app.Controllers.SearchController = Marionette.Controller.extend({
   initialize: function(options) {
     this.page = 1;
-    this.perPage = 10;
+    this.perPage = 9;
     this.center = [31.35, -99.64];
     this.view = options.view;
 
