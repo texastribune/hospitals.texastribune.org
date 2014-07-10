@@ -15,10 +15,12 @@ js: /js/hospital.js
     <div class="hospital-span">
       <dt>Address</dt>
       <dd>
-        <address>
-          <%= locals[:address] %></br>
-          <%= "#{locals[:city]}, TX #{locals[:zipcode]}"%>
-        </address>
+        <a href="" id="address">
+          <address>
+            <%= locals[:address] %></br>
+            <%= "#{locals[:city]}, TX #{locals[:zipcode]}"%>
+          </address>
+        </a>
       </dd>
     </div>
     <div class="hospital-span">
@@ -250,8 +252,8 @@ js: /js/hospital.js
   </table>
 </div>
 
+<% content_for :script do %>
 <script>
-
   var map_id = 'texastribune.ili2i87h';
 
   var map = L.mapbox.map('hospital-map', map_id, {
@@ -260,10 +262,10 @@ js: /js/hospital.js
     }
   });
 
-map.dragging.disable();
-map.touchZoom.disable();
-map.doubleClickZoom.disable();
-map.scrollWheelZoom.disable();
+  map.dragging.disable();
+  map.touchZoom.disable();
+  map.doubleClickZoom.disable();
+  map.scrollWheelZoom.disable();
 
   var geoJson = [{
     type: 'Feature',
@@ -286,4 +288,9 @@ map.scrollWheelZoom.disable();
   map.fitBounds(featureLayer.getBounds(), {
     maxZoom: 12
   });
+
+  var fullAddress = "<%= locals[:address] %>" + "<%= "#{locals[:city]}, TX #{locals[:zipcode]}"%>";
+
+  $('#address').prop('href', 'http://maps.google.com/maps?q=' + encodeURIComponent(fullAddress));
 </script>
+<% end -%>
