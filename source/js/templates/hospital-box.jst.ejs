@@ -1,12 +1,9 @@
 <section class="hosp-information">
   <header>
-    <input type='checkbox' class='hospital-selector' data-id="<%= _id %>">
-    <h4 class="mobile">
+    <label for="hospital-selector-<%= _id %>" class="hospital-name">
+      <input type='checkbox' class='hospital-selector' data-id="<%= _id %>" id="hospital-selector-<%= _id %>">
       <%= name %>
-    </h4>
-    <h4 class="desktop">
-      <a href="<%= url %>.html" class="hospital-title"><%= name %></a>
-    </h4>
+    </label>
   </header>
   <section class="information">
     <% if(showDistance){%><div class="value">
@@ -19,15 +16,16 @@
     <div class="value">
       <a href="tel:+1<%= phone_number %>"><%= phone_number %></a>
     </div>
-    <address>
-      <div class="value"><%= address %></div>
-      <div class="value">
+    <div class="value">
+      <address>
+        <%= address %>
+        <br>
         <%= city %>, TX <%= zipcode %>
         (<a href="<%= linkToMap(address, city, zipcode) %>" target="_blank">Map</a>).
-      </div>
-    </address>
+      </address>
+    </div >
   </section>
-  <section class="controls mobile">
+  <section class="controls">
     <a class="button" href="<%= url %>.html">View more details</a>
   </section>
 </section>
