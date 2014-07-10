@@ -41,6 +41,10 @@
     text-align: center;
   }
 
+  .hospital-box {
+    height: 210px;
+  }
+
   @include media($desktop) {
     .hospital-box {
       height: 205px;

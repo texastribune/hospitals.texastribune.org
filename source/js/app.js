@@ -21,7 +21,6 @@ app.Helpers = {
 
 app.addRegions({
   searchRegion:  '#search',
-  narrowRegion:  '#narrow-search',
   resultsRegion: '#results',
   compareRegion: '#compare',
   selectedRegion: '#selected-hospitals'

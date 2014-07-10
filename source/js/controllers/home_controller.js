@@ -5,14 +5,11 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
       view: this.searchView
     });
 
+    $('#explorer-introduction').show();
     this.listenTo(this.searchView, 'show', this.verticalAlign);
     this.listenTo(this.searchController, 'after:search', this.showSelect);
-    $(window).on('resize', this.verticalAlign);
     app.searchRegion.show(this.searchView);
-  },
-
-  onClose: function() {
-    $(window).off('resize', this.verticalAlign);
+    $('#results').html('');
   },
 
   showSelect: function() {
@@ -31,14 +28,22 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
   },
 
   verticalAlign: function() {
-    var documentHeight = $(document).height(),
-        $footer = $('footer.footer'),
-        footerNoteMarginTop;
+    var $disclaimer = $('#disclaimer-box'),
+        documentHeight = $(document).height(),
+        mastheadHeight = $('.masthead').outerHeight(true),
+        containerHeight = $('#main-container').outerHeight(true),
+        disclaimerHeight = $disclaimer.outerHeight(true),
+        footerHeight = $('footer.footer').outerHeight(true),
+        bannerHeight = $('.banner').outerHeight(true),
+        disclaimerMarginTop;
 
-    footerNoteMarginTop = documentHeight -
-                          $footer.position().top -
-                          $footer.height();
+    disclaimerMarginTop = documentHeight -
+                          bannerHeight -
+                          mastheadHeight -
+                          containerHeight -
+                          disclaimerHeight -
+                          footerHeight;
 
-    $('.footer-note').css('margin-top', footerNoteMarginTop);
+    $('#disclaimer-box').css('margin-top', disclaimerMarginTop);
   }
 });

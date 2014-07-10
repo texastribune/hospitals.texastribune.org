@@ -1,9 +1,7 @@
 app.Controllers.SelectController = Marionette.Controller.extend({
   initialize: function(options) {
     this.maxHospitals = app.Settings.maxSelected;
-    this.searchView  = new app.Views.Search({
-      narrowSearch: true,
-    });
+    this.searchView  = new app.Views.Search();
 
     this.searchController = new app.Controllers.SearchController({
       view: this.searchView,
@@ -25,8 +23,8 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     });
 
     this.layout = new app.Layouts.Results();
-    app.narrowRegion.show(this.searchView);
     app.resultsRegion.show(this.layout);
+    this.layout.search.show(this.searchView);
 
     if (!app.Helpers.isMobile()){
       this.layout.map.show(this.mapView);
@@ -45,11 +43,11 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.listenTo(this.searchController, 'after:search', this.syncronizeViews);
 
     this.syncronizeViews();
+    $('#explorer-introduction').hide();
     $('#compare').html(''); // INPOT
   },
 
   onClose: function() {
-    this.searchView.close();
     this.layout.close();
   },
 
