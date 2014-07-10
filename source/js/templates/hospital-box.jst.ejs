@@ -21,8 +21,10 @@
     </div>
     <address>
       <div class="value"><%= address %></div>
-      <div class="value"><%= city %>, TX <%= zipcode %></div>
-      (<a href="<%= linkToMap(address, city, zipcode) %>" target="_blank">Map</a>).
+      <div class="value">
+        <%= city %>, TX <%= zipcode %>
+        (<a href="<%= linkToMap(address, city, zipcode) %>" target="_blank">Map</a>).
+      </div>
     </address>
   </section>
   <section class="controls mobile">
