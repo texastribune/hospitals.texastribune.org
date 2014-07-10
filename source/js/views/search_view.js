@@ -1,5 +1,6 @@
 app.Views.Search = Marionette.ItemView.extend({
   template: JST['templates/search-template'],
+  className: 'search-box',
 
   ui: {
     input: '#search-content',
@@ -69,13 +70,5 @@ app.Views.Search = Marionette.ItemView.extend({
     this.hideError();
     this.hideEmpty();
     this.trigger("call:search", 'nearest');
-  },
-
-  getTemplate: function() {
-    if (this.narrowSearch) {
-      return JST['templates/narrow-search'];
-    } else {
-      return JST['templates/search-template'];
-    }
   }
 });

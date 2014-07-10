@@ -4,6 +4,7 @@ app.Layouts.Results = Marionette.Layout.extend({
   template: JST['templates/results-region'],
 
   regions: {
+    search: '#search-bar',
     map: '#map',
     list: '#hospital-list',
     selected: '#selected-hospitals'
