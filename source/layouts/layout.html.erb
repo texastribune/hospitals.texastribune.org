@@ -45,7 +45,7 @@
     </div>
   </section>
   <%= partial "footer" %>
-  <script src="/js/main.js"></script>
+  <script src="<%= current_page.data.js || '/js/main.js' %>"></script>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
   // var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
