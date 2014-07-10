@@ -41,13 +41,13 @@
       text-shadow: rgb(0, 0, 0) 3px 3px 0;
 
       @include media($desktop) {
-        font-size: 3em;
+        font-size: 3.5em;
       }
     }
   }
 
   .grand-header-image {
-    background-image: url('http://placebear.com/1400/550'); // TODO make this relative and within the project
+    background-image: url('/img/healthcare-explorer-header.jpg');
     background-position: center center;
     background-size: cover;
     bottom: 0;
