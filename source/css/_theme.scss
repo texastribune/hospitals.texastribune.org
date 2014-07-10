@@ -103,33 +103,6 @@
   }
 }
 
-.narrow-search {
-  margin: 1em;
-  form{
-    margin-top: 1em;
-    position: relative;
-  }
-  input, button {
-    margin-top: .5em;
-  }
-  .loading {
-    position: absolute;
-    bottom: 7px;
-    margin-left: 5px;
-  }
-  @include media($desktop) {
-    button {
-      margin-top: 0;
-    }
-    .search-tools, .search-controls{
-      display: inline;
-      margin-right: .5em;
-    }
-    .loading {
-      bottom: 24px;
-    }
-  }
-}
 .search {
   .form-prompt {
     font-size: .875em;
@@ -149,11 +122,11 @@
   }
 
   .messages {
-    margin-top: 5px;
-    height: 16px;
-    font-style: italic;
-    font-size: 0.8em;
     color: $red;
+    font-size: .8em;
+    font-style: italic;
+    height: 16px;
+    margin-top: 5px;
   }
 }
 
@@ -191,56 +164,81 @@
   width: 100%;
 }
 
-/// old stuff below
+.location-map {
+  height: 290px;
+  margin-bottom: 1em;
+  width: 100%;
 
-
-ul {
-  list-style: none;
-  padding: 0;
+  @include media(desktop) {
+    height: 580px;
+  }
 }
 
-a {
-  color: $link-color;
-  text-decoration: none;
+.glossary {
+  background-color: $glossary-gray;
+  margin-bottom: 2em;
+  padding: .625em;
+}
 
-  &:hover {
-    text-decoration: underline;
+.active-hospitals {
+  margin-bottom: .3125em;
+  @include row();
+}
+
+.hospital-in-compare-list {
+  font-size: .875em;
+
+  @include media($desktop) {
+    @include span-columns(4 of 12);
+    @include omega(3n);
+  }
+
+  .remove {
+    float: left;
+    margin-right: .5em;
+  }
+
+  .hospital-name {
+    overflow: hidden;
+    padding-bottom: .375em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/// old stuff below
+
+.narrow-search {
+  margin: 1em;
+  form{
+    margin-top: 1em;
+    position: relative;
+  }
+  input, button {
+    margin-top: .5em;
+  }
+  .loading {
+    position: absolute;
+    bottom: 7px;
+    margin-left: 5px;
+  }
+  @include media($desktop) {
+    button {
+      margin-top: 0;
+    }
+    .search-tools, .search-controls{
+      display: inline;
+      margin-right: .5em;
+    }
+    .loading {
+      bottom: 24px;
+    }
   }
 }
 
 // LAYOUT SPECIFICS
 .app-container {
   padding: 0 0.75em;
-}
-
-// HEADER
-.header {
-  height: 3.125em + em(4, 16);
-  line-height: 3.125em + em(4, 16);
-  margin-bottom: 1em;
-  background-color: #111;
-  text-align: center;
-
-  img {
-    height: 1.75em;
-    vertical-align: middle;
-  }
-
-  .menu-container {
-    float: left;
-
-    .menu {
-      color: $offwhite;
-      font-size: 2em;
-      vertical-align: middle;
-      cursor: pointer;
-      @include transition(color 0.3s ease-in-out);
-
-      &:hover {
-        color: $yellow;
-      }
-    }
-  }
 }
 
 .hospital-boxes {

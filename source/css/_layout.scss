@@ -20,6 +20,13 @@
   }
 }
 
+.hospital-box {
+  @include media($desktop) {
+    @include span-columns(4 of 12);
+    @include omega(3n);
+  }
+}
+
 //COMPARE PAGE
 .category-wrapper {
   @include span-columns(12);
@@ -40,26 +47,6 @@
     .value {
       @include span-columns(6 of 12);
     }
-  }
-}
-
-//RESULTS
-#selected-hospitals {
-  @include span-columns(12);
-}
-#hospital-list {
-  @include outer-container;
-  .hospital-box {
-    @include media($desktop) {
-      @include span-columns(4);
-      @include omega(3n);
-    }
-  }
-}
-#map {
-  @include span-columns(12);
-  #map-location{
-    height: 400px;
   }
 }
 

@@ -2,7 +2,7 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
   template: JST['templates/hospitals-to-compare'],
   itemView: app.Views.HospitalToCompare,
   emptyView: app.Views.HospitalEmpty,
-  className: 'selected',
+  className: 'glossary content-block',
 
   itemEvents: {
     "remove:hospital": 'removeHospitalClicked'
@@ -25,10 +25,10 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
   },
 
   appendHtml: function(collectionView, itemView){
-    if (collectionView.$('.selected-hospitals').length === 0) {
+    if (collectionView.$('.active-hospitals').length === 0) {
       collectionView.$el.append(this.template());
     }
-    collectionView.$('.selected-hospitals').append(itemView.el);
+    collectionView.$('.active-hospitals').append(itemView.el);
   },
 
   compare: function(event) {

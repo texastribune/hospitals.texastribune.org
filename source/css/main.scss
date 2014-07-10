@@ -19,33 +19,8 @@
     @include span-columns(6);
   }
 }
-#selected-hospitals{
-  @include media($desktop){
-    margin: 1em 0;
-  }
-  .selected{
-    background-color: $dark-grey;
-    padding: 0.1em 1em 1em 1em;
-    h3{
-      margin: 0.5em 0;
-    }
-    div{
-      margin-bottom: 0.3em;
-      .remove-wrapper{
-        float: left;
-        .remove{
-          color: $offblack;
-          padding: 5px;
-        }
-      }
-    }
-  }
-  .controls{
-    text-align: center;
-  }
-}
-section#hospital-list{
-  margin-top: 1em;
+
+#hospital-list{
   .mobile {
     display: block;
   }

@@ -6,7 +6,7 @@ window.app = new Marionette.Application();
 app.Views = app.Views || {};
 app.Controllers = app.Controllers || {};
 app.Settings = {
-  mapId: 'texastribune.ijjo9ock',
+  mapId: 'texastribune.ili2i87h',
   maxSelected: 30,
   markerColor: '#fc4353',
   markerSelectedColor: '#FFC81A',
