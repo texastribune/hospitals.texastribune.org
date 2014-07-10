@@ -22,14 +22,19 @@
 }
 
 #hospital-list {
-  .mobile {
-    display: block;
+  .hospital-box {
+    position: relative;
   }
 
-  .desktop {
-    display: none;
+  .hospital-name {
+    font-weight: bold;
   }
 
+  .controls {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+  }
   .more-results {
     clear: both;
     font-size: 1em;
@@ -37,16 +42,8 @@
   }
 
   @include media($desktop) {
-    .mobile {
-      display: none;
-    }
-
-    .desktop {
-      display: block;
-    }
-
     .hospital-box {
-      height: 165px;
+      height: 205px;
     }
   }
 }
