@@ -16,6 +16,10 @@ app.Views.Map = Marionette.ItemView.extend({
       minZoom: 5,
       maxZoom: 17
     });
+    this.map.touchZoom.disable();
+    this.map.doubleClickZoom.disable();
+    this.map.scrollWheelZoom.disable();
+
     this.featureLayer = L.mapbox.featureLayer()
       .addTo(this.map)
       .setGeoJSON(app.geoData);
