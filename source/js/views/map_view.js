@@ -1,20 +1,24 @@
 app.Views.Map = Marionette.ItemView.extend({
   template: JST['templates/map'],
+  className: 'content-block',
 
-  initialize: function(options){
+  initialize: function(options) {
     this.collection = options.collection;
     this.listenTo(this.collection, 'reset', this.update);
     this.listenTo(this.collection, 'collection:updated', this.update);
   },
 
-  serializeData: function(){
+  serializeData: function() {
     return {};
   },
 
-  onShow: function(){
-    this.map = L.mapbox.map('map-location', app.Settings.mapId,{
+  onShow: function() {
+    this.map = L.mapbox.map('location-map', app.Settings.mapId,{
       minZoom: 5,
-      maxZoom: 17
+      maxZoom: 17,
+      tileLayer: {
+        detectRetina: true
+      }
     });
     this.map.touchZoom.disable();
     this.map.doubleClickZoom.disable();
@@ -35,7 +39,9 @@ app.Views.Map = Marionette.ItemView.extend({
     this.featureLayer.setFilter(function(featureObject) {
       return _.contains(ids, featureObject.properties.id);
     });
-    this.map.fitBounds(this.featureLayer.getBounds());
+    this.map.fitBounds(this.featureLayer.getBounds(), {
+      padding: [50, 50]
+    });
   },
 
   checkHospitals: function(hospitals) {

@@ -8,79 +8,50 @@
 @import 'theme';
 
 
-.map-and-selected{
+.map-and-selected {
   @include span-columns(12);
 
-  #map-location{
+  #map-location {
     height: 400px;
-    margin-bottom: 0.7em;
+    margin-bottom: .7em;
   }
-  @include media($desktop){
+
+  @include media($desktop) {
     @include span-columns(6);
   }
 }
-#selected-hospitals{
-  margin: 1em 0;
-  .selected{
-    background-color: $dark-grey;
-    padding: 0.1em 1em 1em 1em;
-    h3{
-      margin: 0.5em 0;
-    }
-    div{
-      margin-bottom: 0.3em;
-      .remove-wrapper{
-        float: left;
-        .remove{
-          color: $offblack;
-          padding: 5px;
-        }
-      }
-    }
-  }
-  .controls {
-    clear: left;
-    text-align: center;
-  }
-  @include media($desktop) {
-    .hospital {
-      width: 33%;
-      height: 30px;
-      float: left;
-      .hospital-name{
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-    }
-  }
-}
-section#hospital-list{
-  clear: left;
-  margin-top: 1em;
+
+#hospital-list {
   .mobile {
     display: block;
   }
+
   .desktop {
     display: none;
   }
+
   .more-results {
     clear: both;
-    text-align: center;
     font-size: .9em;
+    text-align: center;
   }
-  @include media($desktop){
+
+  @include media($desktop) {
     .mobile {
       display: none;
     }
+
     .desktop {
       display: block;
     }
+
     .hospital-box {
       height: 165px;
     }
   }
 }
-section.map-and-selected{
+
+section.map-and-selected {
   margin-top: 2em;
 }
 
@@ -88,36 +59,41 @@ section.map-and-selected{
   .hospital-data {
     @include span-columns(4 of 8);
     p {
-      margin: 0.5em;
+      margin: .5em;
     }
   }
+
   .hospital-map {
     text-align: center;
     @include span-columns(4 of 8);
     @include omega();
-    .button{
+    .button {
       margin-top: 1em;
     }
   }
+
   &:after {
     clear: both;
     content: '';
     display: block;
   }
-  @include media($mobile){
-    .hospital-data, .hospital-map {
+
+  @include media($mobile) {
+    .hospital-data,
+    .hospital-map {
       @include span-columns(12);
     }
   }
 }
 
-.hide{
+.hide {
   display: none;
 }
-.sticky{
+
+.sticky {
+  background: none repeat scroll 0 0 rgb(255, 255, 255);
+  border: 1px solid rgb(0, 0, 0);
   position: fixed;
-  background: none repeat scroll 0 0 white;
-  border: 1px solid black;
   width: 50%;
   z-index: 2;
   @include border-top-radius(5px);
