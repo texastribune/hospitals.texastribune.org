@@ -5,10 +5,12 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
       view: this.searchView
     });
 
+    $('#explorer-introduction').show();
     this.listenTo(this.searchView, 'show', this.verticalAlign);
     this.listenTo(this.searchController, 'after:search', this.showSelect);
     $(window).on('resize', this.verticalAlign);
     app.searchRegion.show(this.searchView);
+    $('#results').html('');
   },
 
   onClose: function() {
