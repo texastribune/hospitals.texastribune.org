@@ -14,15 +14,17 @@
 }
 
 .banner {
-  background-color: rgb(128, 128, 128);
+  background-color: lighten($masthead-black, 15%);
   display: table;
   height: 225px;
   margin: 0 0 1.5em;
+  position: relative;
   width: 100%;
 
   .grand-header {
     display: table-cell;
     padding: 0 1.25em;
+    position: relative;
     text-align: center;
     vertical-align: middle;
 
@@ -42,6 +44,17 @@
         font-size: 3em;
       }
     }
+  }
+
+  .grand-header-image {
+    background-image: url('http://placebear.com/1400/550'); // TODO make this relative and within the project
+    background-position: center center;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }
 
