@@ -50,7 +50,12 @@ class Jsonificator < Middleman::Extension
             h_comp_1_a_p: data["quality"]["h_comp_1_a_p"],
             h_comp_3_a_p: data["quality"]["h_comp_3_a_p"],
             h_clean_hsp_a_p: data["quality"]["h_clean_hsp_a_p"],
-            h_recmnd_dy: data["quality"]["h_recmnd_dy"]
+            h_recmnd_dy: data["quality"]["h_recmnd_dy"],
+            # header-title
+            title: json_data["name"] + " | Texas Hospital Explorer | The Texas Tribune",
+            # OG
+            og_site_name: json_data["name"] + " | Texas Hospital Explorer | The Texas Tribune",
+            og_url: "http://hospital.texastribune.org/" + json_data["url"]
           })
       end
     end
