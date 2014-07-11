@@ -191,18 +191,41 @@ js: /js/hospital.js
     <tbody>
       <tr>
         <td>For heart attack patients</td>
-        <td><%= format_percentage locals[:mort_30_ami_performance_rate] %></td>
-        <td>PENDING</td>
+        <td><%= format_percentage locals[:mort_30_ha] %></td>
+        <td><%= format_percentage data.national["mort_30_ha"] %></td>
       </tr>
       <tr>
         <td>For heart failure patients</td>
-        <td><%= format_percentage locals[:mort_30_hf_performance_rate] %></td>
-        <td>PENDING</td>
+        <td><%= format_percentage locals[:mort_30_hf] %></td>
+        <td><%= format_percentage data.national["mort_30_hf"] %></td>
       </tr>
       <tr>
         <td>For pneumonia patients</td>
-        <td><%= format_percentage locals[:mort_30_pn_performance_rate] %></td>
-        <td>PENDING</td>
+        <td><%= format_percentage locals[:mort_30_pn] %></td>
+        <td><%= format_percentage data.national["mort_30_pn"] %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<header class="sub-section-header content-block">
+  <h4>Complications</h4>
+</header>
+
+<div class="content-block">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Texas General Hospital</th>
+        <th>U.S. National Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>After hip/knee surgery</td>
+        <td><%= format_percentage locals[:comp_hip_knee] %></td>
+        <td><%= format_percentage data.national["comp_hip_knee"] %></td>
       </tr>
     </tbody>
   </table>
