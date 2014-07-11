@@ -16,6 +16,7 @@ activate :deploy do |deploy|
   deploy.user   = "malev"
   deploy.build_before = true
 end
+activate :directory_indexes
 
 set :css_dir, 'css'
 set :js_dir, 'js'
