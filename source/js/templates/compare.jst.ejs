@@ -6,71 +6,38 @@
     </div>
   </div>
 </header>
-
-<!-- new section -->
-<!--   <div class="category-wrapper">
-    <input id="ac-1" name="accordion-1" type="checkbox" checked />
-    <label for="ac-1"><i class="fa fa-chevron-right">
-      </i><i class="fa fa-chevron-down"></i><h3>General Information</h3>
-    </label>
-    <article class="ac-large"> -->
-<!--       <div class="info">
-        <p></p>
-      </div> -->
-<!--       <div class="hosp-card-wrapper">
-        <% _(children).each(function(model, index) { %>
-        <div class="hosp-card">
-            <header class="<%= cycleClass(index) %>">
-              <h4 data-provider-id="<%= model._id %>"><%= model.name %></h4>
-            </header>
-          <div class="card-row">
-            <div class="value">
-              <address>
-                <p>
-                  <a href="<%= linkToMap(model) %>" target="_blank">
-                    <%= model.address %>
-                  </a>
-                <br />
-                  <%= model.city %>, TX <%= model.zipcode %>
-                </p>
-              </address>
-            </div>
-            <div class="value">
-              <p>
-                <%= model.type %>
-              </p>
-            </div>
+<div>
+  <h3>General Information</h3>
+  <section class="hospital-cards hospital-boxes content-block ">
+    <% _(children).each(function(model, index) { %>
+    <div class="hospital-box">
+      <section class="hosp-information">
+        <header>
+          <label for="hospital-selector-<%= model._id %>" class="hospital-name">
+            <%= model.name %>
+          </label>
+        </header>
+        <section class="information">
+          <div class="value">
+            <a href="tel:+1<%= model.phone_number %>"><%= model.phone_number %></a>
           </div>
-          <div class="card-row">
-            <div class="value">
-              <p>
-                <a href="tel:+1<%= model.phone_number %>"><%= model.phone_number %></a>
-              </p>
-            </div>
-            <div class="value">
-              <p>
-                <%= model['hospital ownership'] %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>
-                Emergency services?
-              </p>
-            </div>
-            <div class="value">
-              <p>
-                <%= model.emergency_services %>
-              </p>
-            </div>
-          </div>
-        </div>
-        <% }); %>
-      </div>
-    </article>
-  </div> -->
-
+          <div class="value">
+            <address>
+              <%= model.address %>
+              <br>
+              <%= model.city %>, TX <%= model.zipcode %>
+              (<a href="<%= linkToMap(model.address, model.city, model.zipcode) %>" target="_blank">Map</a>)
+            </address>
+          </div >
+        </section>
+        <section class="controls">
+          <a class="button" href="<%= model.url %>">View more details</a>
+        </section>
+      </section>
+    </div>
+    <% }); %>
+  </section> 
+</div>
 <section class="ac-container">
   <div class="category-wrapper">
     <input id="ac-1" name="accordion-1" type="checkbox" />
