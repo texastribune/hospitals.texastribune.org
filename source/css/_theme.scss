@@ -270,7 +270,7 @@
 
 label {
   h3 {
-    float: left;
+    display: inline;
   }
 }
 
@@ -281,7 +281,7 @@ label {
   color: rgb(34, 34, 34);
   font: 500 1em helvetica;
   line-height: 1.2em;
-  margin-bottom: 1em;
+  margin: 1em 0;
 }
 .hosp-card {
   border-bottom: 1px solid $bbb;
@@ -331,7 +331,8 @@ label {
   }
 }
 .fa {
-  float: left;
+  display: inline;
+  padding-right: 1em;
 }
 .fa-chevron-down {
   display: none;
@@ -346,17 +347,9 @@ label {
   position: relative;
   z-index: 20;
   display: block;
-  cursor: pointer;
   overflow: hidden;
-  margin-bottom: 1em;
   text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
   background: #ffffff;
-  // background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-  // background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#eaeaea));
-  // background: -webkit-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-  // background: -o-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-  // background: -ms-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-  // background: linear-gradient(top, #ffffff 1%,#eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
   border-bottom: 1px solid $bbb;
 }
@@ -365,28 +358,25 @@ label {
   background: #fff;
 }
 .ac-container input:checked + label,
-.ac-container input:checked + label:hover{
-  background: $lt_blue;
+.ac-container input:checked + label:hover {
   .fa-chevron-right {
     display: none;
   }
   .fa-chevron-down {
-    display: block;
+    display: inline;
   }
 }
-
-.ac-container input:checked + label:hover:before{
-  // background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-  // background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#eaeaea));
-  // background: -webkit-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-  // background: -o-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-  // background: -ms-linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-  // background: linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
-  // box-shadow:
-  //   0px 0px 0px 1px rgba(155,155,155,0.3),
-  //   1px 0px 0px 0px rgba(255,255,255,0.9) inset,
-  //   0px 2px 2px rgba(0,0,0,0.1);
+.ac-container label.ac-1 {
+  background-color: $ac1-open;
+}
+.ac-container label.ac-2 {
+  background-color: $ac2-open; 
+}
+.ac-container label.ac-3 {
+  background-color: $ac3-open;  
+}
+.ac-container label.ac-4 {
+  background-color: $ac4-open;  
 }
 .ac-container input{
   display: none;
@@ -415,37 +405,6 @@ label {
 .ac-container input:checked ~ article.ac-large{
   max-height: 9999px;
 }
-//hosp-card color variables
-// .card-1 {
-//   background: $orange;
-// }
-// .card-2 {
-//   background: $gun_metal;
-// }
-// .card-3 {
-//   background: $blue;
-// }
-// .card-4 {
-//   background: $blueberry;
-// }
-// .card-5 {
-//   background: $lime;
-// }
-// .card-6 {
-//   background: $dk_magenta;
-// }
-// .card-7 {
-//   background: $orange_red;
-// }
-// .card-8 {
-//   background: $lt_teal;
-// }
-// .card-9 {
-//   background: $teal;
-// }
-// .card-10 {
-//   background: $green_gray;
-// }
 
 @import 'theme/footer';
 @import 'theme/table';

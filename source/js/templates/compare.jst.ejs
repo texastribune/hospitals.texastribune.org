@@ -6,18 +6,20 @@
     </div>
   </div>
 </header>
-<div>
+<div class="section-header">
   <h3>General Information</h3>
   <section class="hospital-cards hospital-boxes content-block ">
     <% _(children).each(function(model, index) { %>
     <div class="hospital-box">
       <section class="hosp-information">
         <header>
-          <label for="hospital-selector-<%= model._id %>" class="hospital-name">
+          <label for="hospital-selector-<%= model._id %>" class="hospital-name compare">
             <%= model.name %>
           </label>
         </header>
         <section class="information">
+          <div class="value"><%= model.type %></div>
+          <div class="value">Emergency Services? <%= model.emergency_services %></div>
           <div class="value">
             <a href="tel:+1<%= model.phone_number %>"><%= model.phone_number %></a>
           </div>
@@ -41,7 +43,7 @@
 <section class="ac-container">
   <div class="category-wrapper">
     <input id="ac-1" name="accordion-1" type="checkbox" />
-    <label for="ac-1"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Emergency Care</h3></label>
+    <label for="ac-1" class="ac-1"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Emergency Care</h3></label>
     <article class="ac-large">
       <div class="info">
         <p>These indicators show how long you could expect to wait in a selected hospital's emergency room before seeing a health care professional, being admitted to the hospital or being sent home. Hospitals report the data from medical records, and the data is audited and verified by the Centers for Medicare and Medicaid Services. Learn more about the data and other measures of timely and effective hospital care at <a href="http://www.medicare.gov/hospitalcompare/Data/Measures.html">Medicare.gov</a>.</p>
@@ -92,7 +94,7 @@
   </div>
   <div class="category-wrapper">
     <input id="ac-2" name="accordion-1" type="checkbox" />
-    <label for="ac-2"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Clinical Care</h3></label>
+    <label for="ac-2" class="ac-2"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Clinical Care</h3></label>
     <article class="ac-large">
       <div class="info">
         <p>The quality of a hospital's clinical care practices can impact how often patients experience surgical complications or acquire infections. These indicators show how the hospitals' rates of surgical complications and health care-associated infections compare with national standards. The scores are risk-adjusted and account for characteristics of each hospital's patient population. The serious surgical complications score is a composite of observed-to-expected ratios for a <a href="http://www.qualityindicators.ahrq.gov/Downloads/Modules/PSI/V45/TechSpecs/PSI%2090%20Patient%20Safety%20for%20Selected%20Indicators.pdf">list</a> of common surgical complications determined by the Agency for Healthcare Research and Quality. The number of health care-associated infections is measured by a standardized infection ratio, which shows the number of infections relative to a national benchmark based on data reported to the National Healthcare Safety Network. Find more information on how CMS measures rates of <a href="http://www.medicare.gov/hospitalcompare/Data/Serious-Complications.html">surgical complications</a>, and <a href="http://www.medicare.gov/hospitalcompare/Data/Healthcare-Associated-Infections.html">health care-associated infections</a>.</p>
@@ -168,7 +170,7 @@
   </div>
   <div class="category-wrapper">
     <input id="ac-3" name="accordion-1" type="checkbox" />
-    <label for="ac-3"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Outcomes</h3></label>
+    <label for="ac-3" class="ac-3"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Outcomes</h3></label>
     <article class="ac-large">
       <div class="info">
         <p>These indicators show how often patients who are treated for serious, common conditions return to the hospital within 30 days or died. The Centers for Medicare and Medicaid Services calculates the rates using Medicare claims submitted by hospitals and patient-eligibility information. The rates are risk-adjusted and take into account characteristics of each patient — like age, medical history, and other diseases or conditions the patient had before entering the hospital — that could make readmission or death more likely regardless of the quality of care delivered by the hospital. Learn more information on the data at <a href="http://www.medicare.gov/hospitalcompare/Data/30-day-measures.html">Medicare.gov</a>.</p>
@@ -272,7 +274,7 @@
   </div>
   <div class="category-wrapper">
     <input id="ac-4" name="accordion-1" type="checkbox" />
-    <label for="ac-4"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Experience</h3></label>
+    <label for="ac-4" class="ac-4"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i><h3>Patient Experience</h3></label>
     <article class="ac-large">
       <div class="info">
         <p>These indicators show how patients felt about their hospital experience, including how well hospital workers communicated with them and whether they would recommend the hospital. This data comes from a standardized survey created by the Centers for Medicare and Medicaid Services and the Agency for Healthcare Research and Quality. The survey has been used since 2006 to help consumers compare the quality of care between hospitals. The surveys are taken by trained administrators at participating hospitals, analyzed and adjusted by CMS to account for differences in hospitals' patient mix and other factors. Learn more information on the data at <a href="http://www.medicare.gov/hospitalcompare/Data/Overview.html">Medicare.gov</a>.</p>

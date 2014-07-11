@@ -47,6 +47,16 @@ $orange_red: rgb(244, 85, 65);
 $lt_teal: rgb(155, 206, 200);
 $green_gray: rgb(184, 191, 180);
 
+//accordion labels
+$ac1-open: rgb(247, 177, 166);
+$ac1-hover: rgb(245, 189, 180);
+$ac2-open: rgb(255, 203, 154);
+$ac2-hover: rgb(251, 222, 196);
+$ac3-open: rgb(180, 221, 242);
+$ac3-hover: rgb(198, 228, 243);
+$ac4-open: rgb(170, 186, 252);
+$ac4-hover: rgb(207, 215, 250);
+
 @mixin visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
