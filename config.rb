@@ -1,3 +1,5 @@
+require 'builder'
+
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 
 require 'jsonificator'
@@ -21,6 +23,10 @@ activate :directory_indexes
 set :css_dir, 'css'
 set :js_dir, 'js'
 set :images_dir, 'img'
+
+page "/sitemap.xml", :layout => false
+page "/sitemap.html", :layout => false, directory_index: false
+page "/404.html", directory_index: false
 
 helpers do
   def format_time(var)

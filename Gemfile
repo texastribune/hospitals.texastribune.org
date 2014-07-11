@@ -9,6 +9,7 @@ gem "neat"
 gem "jshintrb"
 gem "activesupport"
 gem "ejs"
+gem "builder"
 
 gem "middleman-deploy"
 # Live-reloading plugin
