@@ -68,20 +68,20 @@ js: /js/hospital.js
       <tr>
         <td data-title="Average wait time">Before being seen by a healthcare professional</td>
         <td data-title="<%= locals[:name] %>"><%= format_time locals[:op_20] %></td>
-        <td data-title="Texas"><%= format_time data.state['door_to_diagnostic'] %></td>
-        <td data-title="National"><%= format_time data.national['door_to_diagnostic'] %></td>
+        <td data-title="Texas"><%= format_time data.state['op_20'] %></td>
+        <td data-title="National"><%= format_time data.national['op_20'] %></td>
       </tr>
       <tr>
         <td data-title="Average wait time">Before being admited to the hospital</td>
         <td data-title="<%= locals[:name] %>"><%= format_time locals[:ed_1b] %></td>
-        <td data-title="Texas"><%= format_time data.state['ed1'] %></td>
-        <td data-title="National"><%= format_time data.national['ed1'] %></td>
+        <td data-title="Texas"><%= format_time data.state['ed_1b'] %></td>
+        <td data-title="National"><%= format_time data.national['ed_1b'] %></td>
       </tr>
       <tr>
         <td data-title="Average wait time">Before being sent home</td>
         <td data-title="<%= locals[:name] %>"><%= format_time locals[:op_18b] %></td>
-        <td data-title="Texas"><%= format_time data.state['op18'] %></td>
-        <td data-title="National"><%= format_time data.national['op18'] %></td>
+        <td data-title="Texas"><%= format_time data.state['op_18b'] %></td>
+        <td data-title="National"><%= format_time data.national['op_18b'] %></td>
       </tr>
     </tbody>
   </table>
