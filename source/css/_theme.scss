@@ -378,6 +378,18 @@ label {
 .ac-container label.ac-4 {
   background-color: $ac4-open;  
 }
+.ac-container label.ac-1:hover {
+  background-color: $ac1-hover;
+}
+.ac-container label.ac-2:hover {
+  background-color: $ac2-hover; 
+}
+.ac-container label.ac-3:hover {
+  background-color: $ac3-hover;  
+}
+.ac-container label.ac-4:hover {
+  background-color: $ac4-hover;  
+}
 .ac-container input{
   display: none;
 }
