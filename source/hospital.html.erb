@@ -148,22 +148,27 @@ js: /js/hospital.js
       <tr>
         <td>Rate of readmission for heart attack patients</td>
         <td><%= format_percentage locals[:readm_30_ha]%></td>
-        <td><%= format_percentage data.national["readmission_heart_attack"] %></td>
+        <td><%= format_percentage data.national["readm_30_ha"] %></td>
       </tr>
       <tr>
         <td>Rate of readmission for heart failure patients</td>
         <td><%= format_percentage locals[:readm_30_hf]%></td>
-        <td><%= format_percentage data.national["readmission_heart_failure"] %></td>
+        <td><%= format_percentage data.national["readm_30_hf"] %></td>
       </tr>
       <tr>
         <td>Rate of readmission for pneumonia patients</td>
         <td><%= format_percentage locals[:readm_30_pn]%></td>
-        <td><%= format_percentage data.national["readmission_pneumonia"] %></td>
+        <td><%= format_percentage data.national["readm_30_pn"] %></td>
       </tr>
       <tr>
         <td>Rate of readmission after hip/knee surgery</td>
         <td><%= format_percentage locals[:readm_30_hip_knee]%></td>
-        <td><%= format_percentage data.national["readmission_hip_or_knee"] %></td>
+        <td><%= format_percentage data.national["readm_30_pn"] %></td>
+      </tr>
+      <tr>
+        <td>Rate of readmission hosp wide</td>
+        <td><%= format_percentage locals[:readm_30_hosp_wide]%></td>
+        <td><%= format_percentage data.national["readm_30_hosp_wide"] %></td>
       </tr>
     </tbody>
   </table>
