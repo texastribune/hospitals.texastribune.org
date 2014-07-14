@@ -13,7 +13,7 @@
     <div class="hospital-box">
       <section class="hosp-information">
         <header>
-          <label for="hospital-selector-<%= model._id %>" class="hospital-name compare">
+          <label for="hospital-selector-<%= model._id %>" class="hospital-name">
             <%= model.name %>
           </label>
         </header>
@@ -136,7 +136,7 @@
               <p>Central-line associated bloodstream infection</p>
             </div>
             <div class="value">
-              <p><%= percentOrNA(model.data.associated_infections.hai_1) %></p>
+              <p><%= model.data.associated_infections.hai_1_desc %></p>
             </div>
           </div>
           <div class="card-row">
@@ -144,7 +144,7 @@
               <p>Catheter-associated urinary tract infection</p>
             </div>
             <div class="value">
-              <p><%= percentOrNA(model.data.associated_infections.hai_2) %></p>
+              <p><%= model.data.associated_infections.hai_2_desc %></p>
             </div>
           </div>
           <div class="card-row">
@@ -152,7 +152,7 @@
               <p>Surgical site infection from colon surgery</p>
             </div>
             <div class="value">
-              <p><%= percentOrNA(model.data.associated_infections.hai_3) %></p>
+              <p><%= model.data.associated_infections.hai_3_desc %></p>
             </div>
           </div>
           <div class="card-row">
@@ -160,7 +160,7 @@
               <p>Surgical site infection from abdominal hysterectomy</p>
             </div>
             <div class="value">
-              <p><%= percentOrNA(model.data.associated_infections.hai_4) %></p>
+              <p><%= model.data.associated_infections.hai_4_desc %></p>
             </div>
           </div>
         </div>
@@ -221,16 +221,6 @@
             <div class="value">
               <p>
                 <%= percentOrNA(model.data.outcomes.readm_30_pn) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>For patients after hip/knee surgery</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.outcomes.readm_30_hip_knee) %>
               </p>
             </div>
           </div>
