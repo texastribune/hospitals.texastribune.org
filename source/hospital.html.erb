@@ -51,14 +51,14 @@ js: /js/hospital.js
 </div>
 
 <header class="sub-section-header content-block">
-  <h4>Average wait time</h4>
+  <h4>Average time spent in the emergency room</h4>
 </header>
 
 <div class="content-block">
   <table>
     <thead>
       <tr>
-        <th>Category</th>
+        <th></th>
         <th><%= locals[:name] %></th>
         <th>Texas</th>
         <th>National</th>
@@ -66,19 +66,19 @@ js: /js/hospital.js
     </thead>
     <tbody>
       <tr>
-        <td data-title="Average wait time">Before being seen by a healthcare professional</td>
+        <td data-title="Average wait time">Before patients receive a diagnostic exam</td>
         <td data-title="<%= locals[:name] %>"><%= format_time locals[:op_20] %></td>
         <td data-title="Texas"><%= format_time data.state['op_20'] %></td>
         <td data-title="National"><%= format_time data.national['op_20'] %></td>
       </tr>
       <tr>
-        <td data-title="Average wait time">Before being admited to the hospital</td>
+        <td data-title="Average wait time">By patients admitted to the hospital</td>
         <td data-title="<%= locals[:name] %>"><%= format_time locals[:ed_1b] %></td>
         <td data-title="Texas"><%= format_time data.state['ed_1b'] %></td>
         <td data-title="National"><%= format_time data.national['ed_1b'] %></td>
       </tr>
       <tr>
-        <td data-title="Average wait time">Before being sent home</td>
+        <td data-title="Average wait time">By patients discharged and sent home</td>
         <td data-title="<%= locals[:name] %>"><%= format_time locals[:op_18b] %></td>
         <td data-title="Texas"><%= format_time data.state['op_18b'] %></td>
         <td data-title="National"><%= format_time data.national['op_18b'] %></td>
@@ -101,28 +101,64 @@ js: /js/hospital.js
 
 <div class="content-block">
   <table>
-    <thead>
+<!--     <thead>
       <tr>
         <th></th>
         <th><%= locals[:name] %></th>
         <th>National Benchmark</th>
       </tr>
-    </thead>
+    </thead> -->
     <tbody>
       <tr>
-        <td>Serious complications</td>
+        <td>Serious surgical complications</td>
         <td><%= locals[:serious_complications] %></td>
-        <td><%= format_str data.national['serious_complications'] %></td>
-      </tr>
+<!--         <td><%= format_str data.national['serious_complications'] %></td>
+ -->      </tr>
       <tr>
-        <td>Deaths among patients with serious treatable...</td>
+        <td>Deaths among patients with serious, treatable conditions</td>
         <td><%= locals[:death_from_serious_complications] %></td>
-        <td><%= format_str data.national['death_from_serious_complications'] %></td>
-      </tr>
+<!--         <td><%= format_str data.national['death_from_serious_complications'] %></td>
+ -->      </tr>
     </tbody>
   </table>
 </div>
+<header class="sub-section-header content-block">
+  <h4>Health care-associated infections</h4>
+</header>
 
+<div class="content-block">
+  <table>
+<!--     <thead>
+      <tr>
+        <th></th>
+        <th><%= locals[:name] %></th>
+        <th>National Benchmark</th>
+      </tr>
+    </thead> -->
+    <tbody>
+      <tr>
+        <td>Central-line associated bloodstream infection</td>
+        <td><%= locals[:hai_1_desc] %></td>
+<!--         <td><%= format_str data.national['hai_1_desc'] %></td>
+ -->      </tr>
+      <tr>
+        <td>Catheter-associated urinary tract infection</td>
+        <td><%= locals[:hai_2_desc] %></td>
+<!--         <td><%= format_str data.national['hai_2_desc'] %></td>
+ -->      </tr>
+      <tr>
+        <td>Surgical site infection from colon surgery</td>
+        <td><%= locals[:hai_3_desc] %></td>
+<!--         <td><%= format_str data.national['hai_3_desc'] %></td>
+ -->      </tr>
+      <tr>
+        <td>Surgical site infection from abdominal hysterectomy</td>
+        <td><%= locals[:hai_4_desc] %></td>
+<!--         <td><%= format_str data.national['hai_4_desc'] %></td>
+ -->      </tr>
+    </tbody>
+  </table>
+</div>
 <header class="section-header content-block">
   <h3>Patient Outcomes</h3>
 </header>
@@ -132,7 +168,7 @@ js: /js/hospital.js
 </div>
 
 <header class="sub-section-header content-block">
-  <h4>30-day rate of unplanned readmissions</h4>
+  <h4>Rates of 30-day unplanned readmission</h4>
 </header>
 
 <div class="content-block">
@@ -146,29 +182,24 @@ js: /js/hospital.js
     </thead>
     <tbody>
       <tr>
-        <td>Rate of readmission for heart attack patients</td>
+        <td>For all patients discharged from the hospital</td>
+        <td><%= format_percentage locals[:readm_30_hosp_wide]%></td>
+        <td><%= format_percentage data.national["readm_30_hosp_wide"] %></td>
+      </tr>
+      <tr>
+        <td>For heart attack patients</td>
         <td><%= format_percentage locals[:readm_30_ha]%></td>
         <td><%= format_percentage data.national["readm_30_ha"] %></td>
       </tr>
       <tr>
-        <td>Rate of readmission for heart failure patients</td>
+        <td>For heart failure patients</td>
         <td><%= format_percentage locals[:readm_30_hf]%></td>
         <td><%= format_percentage data.national["readm_30_hf"] %></td>
       </tr>
       <tr>
-        <td>Rate of readmission for pneumonia patients</td>
+        <td>For pneumonia patients</td>
         <td><%= format_percentage locals[:readm_30_pn]%></td>
         <td><%= format_percentage data.national["readm_30_pn"] %></td>
-      </tr>
-      <tr>
-        <td>Rate of readmission after hip/knee surgery</td>
-        <td><%= format_percentage locals[:readm_30_hip_knee]%></td>
-        <td><%= format_percentage data.national["readm_30_pn"] %></td>
-      </tr>
-      <tr>
-        <td>Rate of readmission hosp wide</td>
-        <td><%= format_percentage locals[:readm_30_hosp_wide]%></td>
-        <td><%= format_percentage data.national["readm_30_hosp_wide"] %></td>
       </tr>
     </tbody>
   </table>
@@ -176,7 +207,7 @@ js: /js/hospital.js
 
 
 <header class="sub-section-header content-block">
-  <h4>Death rates</h4>
+  <h4>Rates of death within 30-days of discharge</h4>
 </header>
 
 <div class="content-block">
@@ -208,29 +239,6 @@ js: /js/hospital.js
   </table>
 </div>
 
-<header class="sub-section-header content-block">
-  <h4>Complications</h4>
-</header>
-
-<div class="content-block">
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th><%= locals[:name] %></th>
-        <th>U.S. National Rate</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>After hip/knee surgery</td>
-        <td><%= format_percentage locals[:comp_hip_knee] %></td>
-        <td><%= format_percentage data.national["comp_hip_knee"] %></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
 <header class="section-header content-block">
   <h3>Patient Experience</h3>
 </header>
@@ -250,31 +258,31 @@ js: /js/hospital.js
     <tbody>
       <tr>
         <td>Gave the hospital a score of "9" or "10" on a scale from 0 (low) to 10 (high)</td>
-        <td><%= locals[:h_hsp_rating_9_10] %></td>
+        <td><%= format_percentage locals[:h_hsp_rating_9_10] %></td>
       </tr>
       <tr>
         <td>Would definitely recommend the hospital</td>
-        <td><%= locals[:h_recmnd_dy] %></td>
+        <td><%= format_percentage locals[:h_recmnd_dy] %></td>
       </tr>
       <tr>
         <td>Reported that their doctors "always" communicated well</td>
-        <td><%= locals[:h_comp_2_a_p] %></td>
+        <td><%= format_percentage locals[:h_comp_2_a_p] %></td>
       </tr>
       <tr>
         <td>Reported that their nurses "always" communicated well</td>
-        <td><%= locals[:h_comp_1_a_p] %></td>
+        <td><%= format_percentage locals[:h_comp_1_a_p] %></td>
       </tr>
       <tr>
         <td>Reported that they "always" received help as soon as they wanted</td>
-        <td><%= locals[:h_comp_3_a_p] %></td>
+        <td><%= format_percentage locals[:h_comp_3_a_p] %></td>
       </tr>
       <tr>
         <td>Reported that their room and bathroom were "always" clean</td>
-        <td><%= locals[:h_clean_hsp_a_p] %></td>
+        <td><%= format_percentage locals[:h_clean_hsp_a_p] %></td>
       </tr>
       <tr>
         <td>Reported that the area around their room was "always" quiet at night</td>
-        <td><%= locals[:h_quiet_hsp_a_p] %></td>
+        <td><%= format_percentage locals[:h_quiet_hsp_a_p] %></td>
       </tr>
     </tbody>
   </table>
