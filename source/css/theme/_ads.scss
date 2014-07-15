@@ -1,27 +1,43 @@
 .ad-container {
   background-color: rgb(187, 187, 187);
-  border-bottom: 1px solid rgb(187, 187, 187);
-  border-top: 1px solid rgb(187, 187, 187);
-  margin: 1em 0;
-  padding: 1em 0;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.ad-hr {
+  height: 1px;
+}
+
+@mixin mobile-base {
+  height: 100px;
+  line-height: 100px;
+  width: 300px;
 }
 
 .banner-ad {
-  height: 90px;
-  width: 728px;
+  @include mobile-base;
+
+  @include media($desktop) {
+    height: 90px;
+    line-height: 90px;
+    width: 728px;
+  }
 }
 
 .small-banner-ad {
-  height: 60px;
-  width: 468px;
+  @include mobile-base;
+
+  @include media($desktop) {
+    height: 60px;
+    width: 468px;
+  }
 }
 
 .block-ad {
-  height: 250px;
-  width: 300px;
-}
+  @include mobile-base;
 
-.mobile-ad {
-  height: 100px;
-  width: 300px;
+  @include media($desktop) {
+    height: 250px;
+    width: 300px;
+  }
 }

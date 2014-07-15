@@ -10,7 +10,18 @@ js: /js/hospital.js
   <div id="hospital-map" class="hospital-map"></div>
 </div>
 
-<div class="row">
+<div class="content-block">
+  <div class="row share-row">
+    <div class="share-cell">
+      <a target="_blank" title="share on Twitter" href="https://twitter.com/TODO"><i class="fa fa-twitter"></i> Twitter</a>
+    </div>
+    <div class="share-cell">
+      <a target="_blank" title="share on Facebook" href="http://www.facebook.com/sharer.php?u=TODO"><i class="fa fa-facebook"></i> Facebook</a>
+    </div>
+  </div>
+</div>
+
+<div class="general-info-row row">
   <dl class="content-block">
     <div class="hospital-span">
       <dt>Address</dt>
@@ -20,7 +31,7 @@ js: /js/hospital.js
           <br>
           <%= "#{locals[:city]}, TX #{locals[:zipcode]}"%>
         </address>
-          (<a href="" id="address" target="_blank">Map</a>)
+          (<a href="" id="address" target="_blank">map</a>)
       </dd>
     </div>
     <div class="hospital-span">
@@ -42,6 +53,10 @@ js: /js/hospital.js
   </dl>
 </div>
 
+<div class="content-block">
+  <a href="/"><button id="return-to-landing" class="return-to-landing">Return to search</button></a>
+</div>
+
 <header class="section-header content-block">
   <h3>Emergency Care</h3>
 </header>
@@ -50,7 +65,7 @@ js: /js/hospital.js
   <p>These indicators show how long you could expect to wait in a selected hospital's emergency room before seeing a health care professional, being admitted to the hospital or being sent home. Hospitals report the data from medical records, and the data is audited and verified by the Centers for Medicare and Medicaid Services. Learn more about the data and other measures of timely and effective hospital care at <a href="http://www.medicare.gov/hospitalcompare/Data/Measures.html">Medicare.gov</a>.</p>
 </div>
 
-<header class="sub-section-header content-block">
+<header class="sub-section-header only-on-mobile content-block">
   <h4>Average time spent in the emergency room</h4>
 </header>
 
@@ -58,7 +73,7 @@ js: /js/hospital.js
   <table>
     <thead>
       <tr>
-        <th></th>
+        <th>Average time spent in the emergency room</th>
         <th><%= locals[:name] %></th>
         <th>Texas</th>
         <th>National</th>
@@ -87,6 +102,12 @@ js: /js/hospital.js
   </table>
 </div>
 
+<div class="content-block introduction-section">
+    <hr class="ad-hr">
+    <div class="ad-container banner-ad">Ad space</div>
+    <hr class="ad-hr">
+</div>
+
 <header class="section-header content-block">
   <h3>Clinical Care</h3>
 </header>
@@ -95,67 +116,60 @@ js: /js/hospital.js
   <p>The quality of a hospital's clinical care practices can impact how often patients experience surgical complications or acquire infections. These indicators show how the hospitals' rates of surgical complications and health care-associated infections compare with national standards. The scores are risk-adjusted and account for characteristics of each hospital's patient population. The serious surgical complications score is a composite of observed-to-expected ratios for a <a href="http://www.qualityindicators.ahrq.gov/Downloads/Modules/PSI/V45/TechSpecs/PSI%2090%20Patient%20Safety%20for%20Selected%20Indicators.pdf">list</a> of common surgical complications determined by the Agency for Healthcare Research and Quality. The number of health care-associated infections is measured by a standardized infection ratio, which shows the number of infections relative to a national benchmark based on data reported to the National Healthcare Safety Network. Find more information on how CMS measures rates of <a href="http://www.medicare.gov/hospitalcompare/Data/Serious-Complications.html">surgical complications</a>, and <a href="http://www.medicare.gov/hospitalcompare/Data/Healthcare-Associated-Infections.html">health care-associated infections</a>.</p>
 </div>
 
-<header class="sub-section-header content-block">
+<header class="sub-section-header only-on-mobile content-block">
   <h4>Surgical complications</h4>
 </header>
 
 <div class="content-block">
   <table>
-<!--     <thead>
+     <thead>
       <tr>
-        <th></th>
+        <th>Surgical complications</th>
         <th><%= locals[:name] %></th>
-        <th>National Benchmark</th>
       </tr>
-    </thead> -->
+    </thead>
     <tbody>
       <tr>
-        <td>Serious surgical complications</td>
-        <td><%= locals[:serious_complications] %></td>
-<!--         <td><%= format_str data.national['serious_complications'] %></td>
- -->      </tr>
+        <td data-title="">Serious surgical complications</td>
+        <td data-title="<%= locals[:name] %>"><%= locals[:serious_complications] %></td>
+      </tr>
       <tr>
-        <td>Deaths among patients with serious, treatable conditions</td>
-        <td><%= locals[:death_from_serious_complications] %></td>
-<!--         <td><%= format_str data.national['death_from_serious_complications'] %></td>
- -->      </tr>
+        <td data-title="">Deaths among patients with serious, treatable conditions</td>
+        <td data-title="<%= locals[:name] %>"><%= locals[:death_from_serious_complications] %></td>
+      </tr>
     </tbody>
   </table>
 </div>
-<header class="sub-section-header content-block">
+
+<header class="sub-section-header only-on-mobile content-block">
   <h4>Health care-associated infections</h4>
 </header>
 
 <div class="content-block">
   <table>
-<!--     <thead>
+     <thead>
       <tr>
-        <th></th>
+        <th>Health care-associated infections</th>
         <th><%= locals[:name] %></th>
-        <th>National Benchmark</th>
       </tr>
-    </thead> -->
+    </thead>
     <tbody>
       <tr>
-        <td>Central-line associated bloodstream infection</td>
-        <td><%= locals[:hai_1_desc] %></td>
-<!--         <td><%= format_str data.national['hai_1_desc'] %></td>
- -->      </tr>
+        <td data-title="">Central-line associated bloodstream infection</td>
+        <td data-title="<%= locals[:name] %>"><%= locals[:hai_1_desc] %></td>
+    </tr>
       <tr>
-        <td>Catheter-associated urinary tract infection</td>
-        <td><%= locals[:hai_2_desc] %></td>
-<!--         <td><%= format_str data.national['hai_2_desc'] %></td>
- -->      </tr>
+        <td data-title="">Catheter-associated urinary tract infection</td>
+        <td data-title="<%= locals[:name] %>"><%= locals[:hai_2_desc] %></td>
+      </tr>
       <tr>
-        <td>Surgical site infection from colon surgery</td>
-        <td><%= locals[:hai_3_desc] %></td>
-<!--         <td><%= format_str data.national['hai_3_desc'] %></td>
- -->      </tr>
+        <td data-title="">Surgical site infection from colon surgery</td>
+        <td data-title="<%= locals[:name] %>"><%= locals[:hai_3_desc] %></td>
+      </tr>
       <tr>
-        <td>Surgical site infection from abdominal hysterectomy</td>
-        <td><%= locals[:hai_4_desc] %></td>
-<!--         <td><%= format_str data.national['hai_4_desc'] %></td>
- -->      </tr>
+        <td data-title="">Surgical site infection from abdominal hysterectomy</td>
+        <td data-title="<%= locals[:name] %>"><%= locals[:hai_4_desc] %></td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -167,7 +181,7 @@ js: /js/hospital.js
   <p>These indicators show how often patients who are treated for serious, common conditions return to the hospital within 30 days or died. The Centers for Medicare and Medicaid Services calculates the rates using Medicare claims submitted by hospitals and patient-eligibility information. The rates are risk-adjusted and take into account characteristics of each patient — like age, medical history, and other diseases or conditions the patient had before entering the hospital — that could make readmission or death more likely regardless of the quality of care delivered by the hospital. Learn more information on the data at <a href="http://www.medicare.gov/hospitalcompare/Data/30-day-measures.html">Medicare.gov</a>.</p>
 </div>
 
-<header class="sub-section-header content-block">
+<header class="sub-section-header only-on-mobile content-block">
   <h4>Rates of 30-day unplanned readmission</h4>
 </header>
 
@@ -175,38 +189,38 @@ js: /js/hospital.js
   <table>
     <thead>
       <tr>
-        <th></th>
+        <th>Rates of 30-day unplanned readmission</th>
         <th><%= locals[:name] %></th>
-        <th>U.S. National Ratio</th>
+        <th>U.S. national ratio</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>For all patients discharged from the hospital</td>
-        <td><%= format_percentage locals[:readm_30_hosp_wide]%></td>
-        <td><%= format_percentage data.national["readm_30_hosp_wide"] %></td>
+        <td data-title="">For all patients discharged from the hospital</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:readm_30_hosp_wide]%></td>
+        <td data-title="U.S. national ratio"><%= format_percentage data.national["readm_30_hosp_wide"] %></td>
       </tr>
       <tr>
-        <td>For heart attack patients</td>
-        <td><%= format_percentage locals[:readm_30_ha]%></td>
-        <td><%= format_percentage data.national["readm_30_ha"] %></td>
+        <td data-title="">For heart attack patients</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:readm_30_ha]%></td>
+        <td data-title="U.S. national ratio"><%= format_percentage data.national["readm_30_ha"] %></td>
       </tr>
       <tr>
-        <td>For heart failure patients</td>
-        <td><%= format_percentage locals[:readm_30_hf]%></td>
-        <td><%= format_percentage data.national["readm_30_hf"] %></td>
+        <td data-title="">For heart failure patients</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:readm_30_hf]%></td>
+        <td data-title="U.S. national ratio"><%= format_percentage data.national["readm_30_hf"] %></td>
       </tr>
       <tr>
-        <td>For pneumonia patients</td>
-        <td><%= format_percentage locals[:readm_30_pn]%></td>
-        <td><%= format_percentage data.national["readm_30_pn"] %></td>
+        <td data-title="">For pneumonia patients</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:readm_30_pn]%></td>
+        <td data-title="U.S. national ratio"><%= format_percentage data.national["readm_30_pn"] %></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 
-<header class="sub-section-header content-block">
+<header class="sub-section-header only-on-mobile content-block">
   <h4>Rates of death within 30-days of discharge</h4>
 </header>
 
@@ -214,26 +228,26 @@ js: /js/hospital.js
   <table>
     <thead>
       <tr>
-        <th></th>
+        <th>Rates of death within 30-days of discharge</th>
         <th><%= locals[:name] %></th>
-        <th>U.S. National Rate</th>
+        <th>U.S. national rate</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>For heart attack patients</td>
-        <td><%= format_percentage locals[:mort_30_ha] %></td>
-        <td><%= format_percentage data.national["mort_30_ha"] %></td>
+        <td data-title="">For heart attack patients</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:mort_30_ha] %></td>
+        <td data-title="U.S. national rate"><%= format_percentage data.national["mort_30_ha"] %></td>
       </tr>
       <tr>
-        <td>For heart failure patients</td>
-        <td><%= format_percentage locals[:mort_30_hf] %></td>
-        <td><%= format_percentage data.national["mort_30_hf"] %></td>
+        <td data-title="">For heart failure patients</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:mort_30_hf] %></td>
+        <td data-title="U.S. national rate"><%= format_percentage data.national["mort_30_hf"] %></td>
       </tr>
       <tr>
-        <td>For pneumonia patients</td>
-        <td><%= format_percentage locals[:mort_30_pn] %></td>
-        <td><%= format_percentage data.national["mort_30_pn"] %></td>
+        <td data-title="">For pneumonia patients</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:mort_30_pn] %></td>
+        <td data-title="U.S. national rate"><%= format_percentage data.national["mort_30_pn"] %></td>
       </tr>
     </tbody>
   </table>
@@ -247,42 +261,46 @@ js: /js/hospital.js
   <p>These indicators show how patients felt about their hospital experience, including how well hospital workers communicated with them and whether they would recommend the hospital. This data comes from a standardized survey created by the Centers for Medicare and Medicaid Services and the Agency for Healthcare Research and Quality. The survey has been used since 2006 to help consumers compare the quality of care between hospitals. The surveys are taken by trained administrators at participating hospitals, analyzed and adjusted by CMS to account for differences in hospitals' patient mix and other factors. Learn more information on the data at <a href="http://www.medicare.gov/hospitalcompare/Data/Overview.html">Medicare.gov</a>.</p>
 </div>
 
+<header class="sub-section-header only-on-mobile content-block">
+  <h4>Rates of death within 30-days of discharge</h4>
+</header>
+
 <div class="content-block">
   <table>
     <thead>
       <tr>
-        <th></th>
-        <th>Percent of patients surveyed who...</th>
+        <th>Percent of patients surveyed that...</th>
+        <th><%= locals[:name] %></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Gave the hospital a score of "9" or "10" on a scale from 0 (low) to 10 (high)</td>
-        <td><%= format_percentage locals[:h_hsp_rating_9_10] %></td>
+        <td data-title="">Gave the hospital a score of "9" or "10" on a scale from 0 (low) to 10 (high)</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:h_hsp_rating_9_10] %></td>
       </tr>
       <tr>
-        <td>Would definitely recommend the hospital</td>
-        <td><%= format_percentage locals[:h_recmnd_dy] %></td>
+        <td data-title="">Would definitely recommend the hospital</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:h_recmnd_dy] %></td>
       </tr>
       <tr>
-        <td>Reported that their doctors "always" communicated well</td>
-        <td><%= format_percentage locals[:h_comp_2_a_p] %></td>
+        <td data-title="">Reported that their doctors "always" communicated well</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:h_comp_2_a_p] %></td>
       </tr>
       <tr>
-        <td>Reported that their nurses "always" communicated well</td>
-        <td><%= format_percentage locals[:h_comp_1_a_p] %></td>
+        <td data-title="">Reported that their nurses "always" communicated well</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:h_comp_1_a_p] %></td>
       </tr>
       <tr>
-        <td>Reported that they "always" received help as soon as they wanted</td>
-        <td><%= format_percentage locals[:h_comp_3_a_p] %></td>
+        <td data-title="">Reported that they "always" received help as soon as they wanted</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:h_comp_3_a_p] %></td>
       </tr>
       <tr>
-        <td>Reported that their room and bathroom were "always" clean</td>
-        <td><%= format_percentage locals[:h_clean_hsp_a_p] %></td>
+        <td data-title="">Reported that their room and bathroom were "always" clean</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:h_clean_hsp_a_p] %></td>
       </tr>
       <tr>
-        <td>Reported that the area around their room was "always" quiet at night</td>
-        <td><%= format_percentage locals[:h_quiet_hsp_a_p] %></td>
+        <td data-title="">Reported that the area around their room was "always" quiet at night</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:h_quiet_hsp_a_p] %></td>
       </tr>
     </tbody>
   </table>
