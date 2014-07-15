@@ -157,9 +157,10 @@
   }
 
   input {
+    -webkit-appearance: none;
     border: 1px solid rgb(204, 204, 204);
     border-radius: 3px;
-    font-size: .875em;
+    font-size: 1em;
     height: 30px;
     margin: 0;
     padding: 7px 18px;
@@ -370,25 +371,25 @@ label {
   background-color: $ac1-open;
 }
 .ac-container label.ac-2 {
-  background-color: $ac2-open; 
+  background-color: $ac2-open;
 }
 .ac-container label.ac-3 {
-  background-color: $ac3-open;  
+  background-color: $ac3-open;
 }
 .ac-container label.ac-4 {
-  background-color: $ac4-open;  
+  background-color: $ac4-open;
 }
 .ac-container label.ac-1:hover {
   background-color: $ac1-hover;
 }
 .ac-container label.ac-2:hover {
-  background-color: $ac2-hover; 
+  background-color: $ac2-hover;
 }
 .ac-container label.ac-3:hover {
-  background-color: $ac3-hover;  
+  background-color: $ac3-hover;
 }
 .ac-container label.ac-4:hover {
-  background-color: $ac4-hover;  
+  background-color: $ac4-hover;
 }
 .ac-container input{
   display: none;
@@ -420,3 +421,4 @@ label {
 
 @import 'theme/footer';
 @import 'theme/table';
+@import 'theme/ads';
