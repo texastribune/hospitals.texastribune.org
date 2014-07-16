@@ -32,6 +32,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
         documentHeight = $(document).height(),
         mastheadHeight = $('.masthead').outerHeight(true),
         containerHeight = $('#main-container').outerHeight(true),
+        addBannerHeight = $('.introduction-section').outerHeight(true),
         disclaimerHeight = $disclaimer.outerHeight(true),
         footerHeight = $('footer.footer').outerHeight(true),
         bannerHeight = $('.banner').outerHeight(true),
@@ -41,6 +42,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
                           bannerHeight -
                           mastheadHeight -
                           containerHeight -
+                          addBannerHeight -
                           disclaimerHeight -
                           footerHeight;
 
