@@ -1,5 +1,5 @@
 <section class="hosp-information">
-  <header>
+  <header class="hospital-box-header">
     <label for="hospital-selector-<%= _id %>" class="hospital-name">
       <input type='checkbox' class='hospital-selector' data-id="<%= _id %>" id="hospital-selector-<%= _id %>">
       <%= name %>
@@ -21,7 +21,7 @@
         <%= address %>
         <br>
         <%= city %>, TX <%= zipcode %>
-        (<a href="<%= linkToMap(address, city, zipcode) %>" target="_blank">Map</a>)
+        (<a href="<%= linkToMap(address, city, zipcode) %>" target="_blank">map</a>)
       </address>
     </div >
   </section>

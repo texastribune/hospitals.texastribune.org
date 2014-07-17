@@ -9,16 +9,16 @@
 
 <section class="hospital-cards hospital-boxes row content-block">
   <% _(children).each(function(model, index) { %>
-  <div class="hospital-box">
+  <div class="hospital-box hospital-box-small">
     <section class="hosp-information">
-      <header>
-        <div class="hospital-name">
-          <a href="<%= model.url %>"><%= model.name %></a>
-        </div>
+      <header class="hospital-box-header hospital-box-header-small">
+          <h4><a href="<%= model.url %>"><%= model.name %></a></h4>
       </header>
-      <section class="information">
+      <section class="information information-small">
         <div class="value"><%= model.type %></div>
-        <div class="value">Emergency Services? <%= model.emergency_services %></div>
+        <% if (model.emergency_services === 'Yes') { %>
+          <div class="value">Has Emergency Services</div>
+        <% } %>
         <div class="value">
           <a href="tel:+1<%= model.phone_number %>"><%= model.phone_number %></a>
         </div>
@@ -27,7 +27,7 @@
             <%= model.address %>
             <br>
             <%= model.city %>, TX <%= model.zipcode %>
-            (<a href="<%= linkToMap(model.address, model.city, model.zipcode) %>" target="_blank">Map</a>)
+            (<a href="<%= linkToMap(model.address, model.city, model.zipcode) %>" target="_blank">map</a>)
           </address>
         </div >
       </section>

@@ -298,48 +298,58 @@
   padding: 0 .75em;
 }
 
-.hospital-boxes {
-  .hospital-box {
-    border: 1px solid #eee;
-    margin-bottom: 1em;
+.hospital-box {
+  border: 1px solid #eee;
+  margin-bottom: 1em;
 
-    &.active {
-      background: #fef5ce;
+  &.hospital-box-small {
+    min-height: 165px;
+    padding: 1em;
+  }
+
+  &.active {
+    background: #fef5ce;
+  }
+
+  .hospital-box-header {
+    padding: .5em .5em 0;
+
+    &.hospital-box-header-small {
+      padding: 0;
     }
 
-    .hosp-information {
-      header {
-        padding: .5em .5em 0;
+    input {
+      float: left;
+      margin: .25em .5em 10px 0;
+    }
 
-        input {
-          float: left;
-          // 10px to make sure 2 row headers wrap
-          margin: .25em .5em 10px 0;
-        }
+    h4 {
+      line-height: 1.2;
+      margin: 0;
+      max-width: 93%;
+    }
+  }
 
-        h4 {
-          line-height: 1.2em;
-          margin: 0;
-          max-width: 93%;
-        }
+  .hosp-information {
+    .information {
+      font-size: 14px;
+      line-height: 1.3em;
+      padding: .2em 0 0 2.15em;
+
+      &.information-small {
+        padding: 0;
       }
-
-      .information {
-        font-size: 14px;
-        line-height: 1.3em;
-        padding: .2em 0 0 2.15em;
-      }
     }
+  }
 
-    .hospital-map {
-      margin: 1em 0 -2px;
-      text-align: right;
-    }
+  .hospital-map {
+    margin: 1em 0 -2px;
+    text-align: right;
+  }
 
-    .controls {
-      margin: 1em 0;
-      text-align: center;
-    }
+  .controls {
+    margin: 1em 0;
+    text-align: center;
   }
 }
 
@@ -533,8 +543,10 @@ label {
 
 .explainer-table-header {
   margin-bottom: 8px;
+  text-align: center;
 
   h6 {
+    color: rgb(102, 102, 102);
     font-size: .875em;
     font-style: italic;
     font-weight: 400;
@@ -545,12 +557,12 @@ label {
   font-size: .875em;
 
   th {
+    color: rgb(102, 102, 102);
     font-style: italic;
     font-weight: 400;
   }
 
   td {
-
     @include media($mobile) {
       &:before {
         content: attr(data-title);

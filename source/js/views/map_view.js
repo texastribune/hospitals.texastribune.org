@@ -1,6 +1,6 @@
 app.Views.Map = Marionette.ItemView.extend({
   template: JST['templates/map'],
-  className: 'content-block',
+  className: 'content-block content-block-full',
 
   initialize: function(options) {
     this.collection = options.collection;

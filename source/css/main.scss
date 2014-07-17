@@ -23,6 +23,7 @@
 
 #hospital-list {
   .hospital-box {
+    height: 210px;
     position: relative;
   }
 
@@ -35,15 +36,12 @@
     width: 100%;
     bottom: 0px;
   }
+
   .more-results {
     clear: both;
     font-size: 1em;
     margin: .5em;
     text-align: center;
-  }
-
-  .hospital-box {
-    height: 210px;
   }
 
   @include media($desktop) {
