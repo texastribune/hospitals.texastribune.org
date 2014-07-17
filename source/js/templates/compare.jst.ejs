@@ -101,71 +101,65 @@
       <div class="prose explainer-prose">
         <p>The quality of a hospital's clinical care practices can impact how often patients experience surgical complications or acquire infections. These indicators show how the hospitals' rates of surgical complications and health care-associated infections compare with national standards. The scores are risk-adjusted and account for characteristics of each hospital's patient population. The serious surgical complications score is a composite of observed-to-expected ratios for a <a href="http://www.qualityindicators.ahrq.gov/Downloads/Modules/PSI/V45/TechSpecs/PSI%2090%20Patient%20Safety%20for%20Selected%20Indicators.pdf">list</a> of common surgical complications determined by the Agency for Healthcare Research and Quality. The number of health care-associated infections is measured by a standardized infection ratio, which shows the number of infections relative to a national benchmark based on data reported to the National Healthcare Safety Network. Find more information on how CMS measures rates of <a href="http://www.medicare.gov/hospitalcompare/Data/Serious-Complications.html">surgical complications</a>, and <a href="http://www.medicare.gov/hospitalcompare/Data/Healthcare-Associated-Infections.html">health care-associated infections</a>.</p>
       </div>
-      <div class="hosp-card-wrapper">
+      <div class="explainer-cards">
         <% _(children).each(function(model, index) { %>
-        <div class="hosp-card">
-          <header class="<%= cycleClass(index) %>">
-            <h4><%= model.name %></h4>
-          </header>
-          <div class="card-row sub-header">
-            <p><em>Surgical Complications</em></p>
+          <div class="explainer-card">
+            <header class="explainer-card-header">
+              <h5 title="<%= model.name %>"><%= model.name %></h5>
+            </header>
+
+            <header class="explainer-table-header only-on-mobile">
+              <h6>Surgical Complications</h6>
+            </header>
+
+            <table class="explainer-table">
+              <thead>
+                <tr>
+                  <th colspan="2">Surgical Complications</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Serious surgical complications</td>
+                  <td><%= model.data.complications_rates.serious_complications %></td>
+                </tr>
+                <tr>
+                  <td>Deaths among patients with serious, treatable conditions</td>
+                  <td><%= model.data.complications_rates.death_from_serious_complications %></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <header class="explainer-table-header only-on-mobile">
+              <h6>Health care-associated infections</h6>
+            </header>
+    
+            <table class="explainer-table">
+              <thead>
+                <tr>
+                  <th colspan="2">Health care-associated infections</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Central-line associated bloodstream infection</td>
+                  <td><%= model.data.associated_infections.hai_1_desc %></td>
+                </tr>
+                <tr>
+                  <td>Catheter-associated urinary tract infection</td>
+                  <td><%= model.data.associated_infections.hai_2_desc %></td>
+                </tr>
+                <tr>
+                  <td>Surgical site infection from colon surgery</td>
+                  <td><%= model.data.associated_infections.hai_3_desc %></td>
+                </tr>
+                <tr>
+                  <td>Surgical site infection from abdominal hysterectomy</td>
+                  <td><%= model.data.associated_infections.hai_4_desc %></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Serious surgical complications</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= model.data.complications_rates.serious_complications %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Deaths among patients with serious, treatable conditions</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= model.data.complications_rates.death_from_serious_complications %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row sub-header">
-            <p><em>Health care-associated infections</em></p>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Central-line associated bloodstream infection</p>
-            </div>
-            <div class="value">
-              <p><%= model.data.associated_infections.hai_1_desc %></p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Catheter-associated urinary tract infection</p>
-            </div>
-            <div class="value">
-              <p><%= model.data.associated_infections.hai_2_desc %></p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Surgical site infection from colon surgery</p>
-            </div>
-            <div class="value">
-              <p><%= model.data.associated_infections.hai_3_desc %></p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Surgical site infection from abdominal hysterectomy</p>
-            </div>
-            <div class="value">
-              <p><%= model.data.associated_infections.hai_4_desc %></p>
-            </div>
-          </div>
-        </div>
         <% }); %>
       </div>
     </article>
@@ -181,88 +175,69 @@
       <div class="prose explainer-prose">
         <p>These indicators show how often patients who are treated for serious, common conditions return to the hospital within 30 days or died. The Centers for Medicare and Medicaid Services calculates the rates using Medicare claims submitted by hospitals and patient-eligibility information. The rates are risk-adjusted and take into account characteristics of each patient — like age, medical history, and other diseases or conditions the patient had before entering the hospital — that could make readmission or death more likely regardless of the quality of care delivered by the hospital. Learn more information on the data at <a href="http://www.medicare.gov/hospitalcompare/Data/30-day-measures.html">Medicare.gov</a>.</p>
       </div>
-      <div class="hosp-card-wrapper">
+      <div class="explainer-cards">
         <% _(children).each(function(model, index) { %>
-        <div class="hosp-card">
-          <header class="<%= cycleClass(index) %>">
-            <h4><%= model.name %></h4>
+        <div class="explainer-card">
+
+          <header class="explainer-card-header">
+            <h5 title="<%= model.name %>"><%= model.name %></h5>
           </header>
-          <div class="card-row sub-header">
-            <p><em>Rates of 30-day unplanned readmission</em></p>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>For all patients discharged from the hospital</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.outcomes.readm_30_hosp_wide) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>For heart attack patients</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.outcomes.readm_30_ha) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>For heart failure patients</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.outcomes.readm_30_hf) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>For pneumonia patients</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.outcomes.readm_30_pn) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row sub-header">
-            <p><em>Rates of death within 30-days of discharge</em></p>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>For heart attack patients</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.outcomes.mort_30_ami) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>For heart failure patients</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.outcomes.mort_30_hf) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>For pneumonia patients</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.outcomes.mort_30_pn) %>
-              </p>
-            </div>
-          </div>
+
+          <header class="explainer-table-header only-on-mobile">
+            <h6>Rates of 30-day unplanned readmission</h6>
+          </header>
+
+          <table class="explainer-table">
+            <thead>
+              <tr>
+                <th colspan="2">Rates of 30-day unplanned readmission</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>For all patients discharged from the hospital</td>
+                <td><%= percentOrNA(model.data.outcomes.readm_30_hosp_wide) %></td>
+              </tr>
+              <tr>
+                <td>For heart attack patients</td>
+                <td><%= percentOrNA(model.data.outcomes.readm_30_ha) %></td>
+              </tr>
+              <tr>
+                <td>For heart failure patients</td>
+                <td><%= percentOrNA(model.data.outcomes.readm_30_hf) %></td>
+              </tr>
+              <tr>
+                <td>For pneumonia patients</td>
+                <td><%= percentOrNA(model.data.outcomes.readm_30_pn) %></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <header class="explainer-table-header only-on-mobile">
+            <h6>Rates of death within 30-days of discharge</h6>
+          </header>
+
+          <table class="explainer-table">
+            <thead>
+              <tr>
+                <th colspan="2">Rates of death within 30-days of discharge</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>For heart attack patients</td>
+                <td><%= percentOrNA(model.data.outcomes.mort_30_ami) %></td>
+              </tr>
+              <tr>
+                <td>For heart failure patients</td>
+                <td><%= percentOrNA(model.data.outcomes.mort_30_hf) %></td>
+              </tr>
+              <tr>
+                <td>For pneumonia patients</td>
+                <td><%= percentOrNA(model.data.outcomes.mort_30_pn) %></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <% }); %>
       </div>
@@ -279,85 +254,54 @@
       <div class="prose explainer-prose">
         <p>These indicators show how patients felt about their hospital experience, including how well hospital workers communicated with them and whether they would recommend the hospital. This data comes from a standardized survey created by the Centers for Medicare and Medicaid Services and the Agency for Healthcare Research and Quality. The survey has been used since 2006 to help consumers compare the quality of care between hospitals. The surveys are taken by trained administrators at participating hospitals, analyzed and adjusted by CMS to account for differences in hospitals' patient mix and other factors. Learn more information on the data at <a href="http://www.medicare.gov/hospitalcompare/Data/Overview.html">Medicare.gov</a>.</p>
       </div>
-      <div class="hosp-card-wrapper">
+      <div class="explainer-cards">
         <% _(children).each(function(model, index) { %>
-        <div class="hosp-card">
-          <header class="<%= cycleClass(index) %>">
-            <h4><%= model.name %></h4>
+        <div class="explainer-card">
+          <header class="explainer-card-header">
+            <h5 title="<%= model.name %>"><%= model.name %></h5>
           </header>
-          <div class="card-row sub-header">
-            <p><em>Percent of patients surveyed who...</em></p>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Gave the hospital a score of "9" or "10" on a scale from 0 (low) to 10 (high)</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.quality.h_hsp_rating_9_10) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Would definitely recommend the hospital</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.quality.h_recmnd_dy) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Reported their doctors "always" communicated well</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.quality.h_comp_2_a_p) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Reported their nurses "always" communicated well</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.quality.h_comp_1_a_p) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Reported they "always" received help as soon as they wanted</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.quality.h_comp_3_a_p) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Reported their room and bathroom were "always" clean</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.quality.h_clean_hsp_a_p) %>
-              </p>
-            </div>
-          </div>
-          <div class="card-row">
-            <div class="value-header">
-              <p>Reported the area around their room was "always" quiet at night</p>
-            </div>
-            <div class="value">
-              <p>
-                <%= percentOrNA(model.data.quality.h_quiet_hsp_a_p) %>
-              </p>
-            </div>
-          </div>
+
+          <header class="explainer-table-header only-on-mobile">
+            <h6>Percent of patients surveyed who...</h6>
+          </header>
+
+          <table class="explainer-table">
+            <thead>
+              <tr>
+                <th colspan="2">Percent of patients surveyed who...</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gave the hospital a score of "9" or "10" on a scale from 0 (low) to 10 (high)</td>
+                <td><%= percentOrNA(model.data.quality.h_hsp_rating_9_10) %></td>
+              </tr>
+              <tr>
+                <td>Would definitely recommend the hospital</td>
+                <td><%= percentOrNA(model.data.quality.h_recmnd_dy) %></td>
+              </tr>
+              <tr>
+                <td>Reported their doctors "always" communicated well</td>
+                <td><%= percentOrNA(model.data.quality.h_comp_2_a_p) %></td>
+              </tr>
+              <tr>
+                <td>Reported their nurses "always" communicated well</td>
+                <td><%= percentOrNA(model.data.quality.h_comp_1_a_p) %></td>
+              </tr>
+              <tr>
+                <td>Reported they "always" received help as soon as they wanted</td>
+                <td><%= percentOrNA(model.data.quality.h_comp_3_a_p) %></td>
+              </tr>
+              <tr>
+                <td>Reported their room and bathroom were "always" clean</td>
+                <td><%= percentOrNA(model.data.quality.h_clean_hsp_a_p) %></td>
+              </tr>
+              <tr>
+                <td>Reported the area around their room was "always" quiet at night</td>
+                <td><%= percentOrNA(model.data.quality.h_quiet_hsp_a_p) %></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <% }); %>
       </div>
