@@ -1,6 +1,7 @@
 // breakpoints
 $desktop: new-breakpoint(min-width 768px 12);
 $mobile: new-breakpoint(max-width 480px);
+$mobile-min: new-breakpoint(min-width 481px);
 
 // fonts
 $boldHeaderFont: $helvetica;

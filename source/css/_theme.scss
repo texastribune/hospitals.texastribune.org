@@ -98,6 +98,10 @@
   }
 }
 
+.explainer-prose {
+  margin-top: 1em;
+}
+
 .call-to-action {
   margin-bottom: 1em;
 
@@ -280,9 +284,13 @@
 }
 
 .only-on-mobile {
-  @include media($desktop) {
+  @include media($mobile-min) {
     @include visually-hidden;
   }
+}
+
+.button-shove {
+  margin-bottom: 2em;
 }
 
 // LAYOUT SPECIFICS
@@ -292,37 +300,44 @@
 
 .hospital-boxes {
   .hospital-box {
-    border: 1px solid #EEE;
+    border: 1px solid #eee;
     margin-bottom: 1em;
-    &.active{
+
+    &.active {
       background: #fef5ce;
     }
+
     .hosp-information {
-      header{
-        padding: 0.5em 0.5em 0 0.5em;
-        input{
+      header {
+        padding: .5em .5em 0;
+
+        input {
           float: left;
           // 10px to make sure 2 row headers wrap
           margin: .25em .5em 10px 0;
         }
-        h4{
-          max-width: 93%;
+
+        h4 {
           line-height: 1.2em;
           margin: 0;
+          max-width: 93%;
         }
       }
+
       .information {
-        padding: 0.2em 0 0 2.15em;
-        line-height: 1.3em;
         font-size: 14px;
+        line-height: 1.3em;
+        padding: .2em 0 0 2.15em;
       }
     }
+
     .hospital-map {
       margin: 1em 0 -2px;
       text-align: right;
     }
+
     .controls {
-      margin: 1em 0 1em;
+      margin: 1em 0;
       text-align: center;
     }
   }
@@ -331,153 +346,217 @@
 //COMPARE PAGE
 
 label {
-  h3 {
+  h4 {
     display: inline;
   }
+}
+
+.category-wrapper {
+  margin-bottom: 1em;
 }
 
 .hosp-card-wrapper {
   width: 100%;
 }
+
 .info p {
   color: rgb(34, 34, 34);
-  font: 500 1em helvetica;
+  font-family: $base-sans-serif;
+  font-size: 1em;
+  font-weight: 500;
   line-height: 1.2em;
   margin: 1em 0;
 }
+
 .hosp-card {
   border-bottom: 1px solid $bbb;
-  // margin: 0.25em;
-  font-family: $helvetica;
-  position: relative;
-  width: 100%;
+  font-family: $base-sans-serif;
   margin-bottom: 1em;
   overflow: hidden;
+  position: relative;
+  width: 100%;
+
   header {
     h4 {
       font-size: 1em;
       margin: 0;
-      padding: 0.5em;
-      text-align: center;
-      white-space: nowrap;
-      text-overflow: ellipsis;
       overflow: hidden;
+      padding: .5em;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
+
   .card-row {
-    font-size: 0.9em;
-    padding: 0.25em;
+    font-size: .9em;
+    padding: .25em;
     width: 100%;
+
     &:nth-child(odd) {
       background-color: rgb(240, 240, 240);
     }
+
     p {
-      margin: 0.25em;
+      margin: .25em;
     }
   }
+
   .sub-header {
     font-weight: bold;
   }
+
   .value-header {
-    font-style: italic;
     display: inline-block;
+    font-style: italic;
     vertical-align: middle;
   }
+
   .value {
     display: inline-block;
-    vertical-align: middle;
     text-align: left;
+    vertical-align: middle;
+
     &:nth-child(even) {
       text-align: right;
     }
   }
 }
+
 .fa {
   display: inline;
   padding-right: 1em;
 }
+
 .fa-chevron-down {
   display: none;
 }
-.ac-container{
-  width: 100%;
-  margin: 10px auto 30px auto;
-  text-align: left;
-}
+
 .ac-container label {
+  display: block;
+  overflow: hidden;
   padding: 1em;
   position: relative;
   z-index: 20;
-  display: block;
-  overflow: hidden;
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-  background: #ffffff;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 );
-  border-bottom: 1px solid $bbb;
 }
 
-.ac-container label:hover{
-  background: #fff;
-}
 .ac-container input:checked + label,
 .ac-container input:checked + label:hover {
   .fa-chevron-right {
     display: none;
   }
+
   .fa-chevron-down {
     display: inline;
   }
 }
-.ac-container label.ac-1 {
+
+.ac {
+  cursor: pointer;
+}
+
+.ac-1 {
   background-color: $ac1-open;
+
+  &:hover {
+    background-color: $ac1-hover;
+  }
 }
-.ac-container label.ac-2 {
+
+.ac-2 {
   background-color: $ac2-open;
+
+  &:hover {
+    background-color: $ac2-hover;
+  }
 }
-.ac-container label.ac-3 {
+
+.ac-3 {
   background-color: $ac3-open;
+
+  &:hover {
+    background-color: $ac3-hover;
+  }
 }
-.ac-container label.ac-4 {
+
+.ac-4 {
   background-color: $ac4-open;
+
+  &:hover {
+    background-color: $ac4-hover;
+  }
 }
-.ac-container label.ac-1:hover {
-  background-color: $ac1-hover;
-}
-.ac-container label.ac-2:hover {
-  background-color: $ac2-hover;
-}
-.ac-container label.ac-3:hover {
-  background-color: $ac3-hover;
-}
-.ac-container label.ac-4:hover {
-  background-color: $ac4-hover;
-}
-.ac-container input{
+
+.ac-container input {
   display: none;
 }
-.ac-container article{
-  padding: 0 1em;
+
+.ac-container article {
+  max-height: 0;
   overflow: hidden;
-  max-height: 0px;
   position: relative;
+  -moz-transition: max-height 1s;
+  -ms-transition: max-height 1s;
+  -o-transition: max-height 1s;
+  -webkit-transition: max-height 1s;
+  transition: max-height 1s;
   z-index: 10;
-  -webkit-transition: max-height 1s;
-  -moz-transition: max-height 1s;
-  -o-transition: max-height 1s;
-  -ms-transition: max-height 1s;
-  transition: max-height 1s;
 }
 
-.ac-container input:checked ~ article{
-  -webkit-transition: max-height 1s;
+.ac-container input:checked ~ article {
   -moz-transition: max-height 1s;
-  -o-transition: max-height 1s;
   -ms-transition: max-height 1s;
+  -o-transition: max-height 1s;
+  -webkit-transition: max-height 1s;
   transition: max-height 1s;
+
+  &.ac-large {
+    max-height: 9999px;
+  }
 }
 
-.ac-container input:checked ~ article.ac-large{
-  max-height: 9999px;
+.explainer-card {
+  margin-bottom: 1em;
+}
+
+.explainer-card-header {
+  text-align: center;
+
+  h5 {
+    font-size: 1em;
+    overflow: hidden;
+    padding-bottom: .75em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.explainer-table-header {
+  margin-bottom: 8px;
+
+  h6 {
+    font-size: .875em;
+    font-style: italic;
+    font-weight: 400;
+  }
+}
+
+.explainer-table {
+  font-size: .875em;
+
+  th {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  td {
+
+    @include media($mobile) {
+      &:before {
+        content: attr(data-title);
+      }
+    }
+  }
 }
 
 @import 'theme/footer';

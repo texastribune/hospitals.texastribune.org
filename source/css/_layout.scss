@@ -28,9 +28,7 @@
 }
 
 //COMPARE PAGE
-.category-wrapper {
-  @include span-columns(12);
-}
+
 .hosp-card-wrapper {
   .hosp-card {
     @include span-columns(12);
@@ -47,6 +45,13 @@
     .value {
       @include span-columns(6 of 12);
     }
+  }
+}
+
+.explainer-card {
+  @include media($desktop) {
+    @include span-columns(4 of 12);
+    @include omega(3n);
   }
 }
 

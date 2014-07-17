@@ -51,11 +51,13 @@ td {
 
   @include media($mobile) {
     display: block;
+    padding: 0 12px 8px;
     text-align: left;
 
     &:first-child {
       font-size: 1em;
       font-weight: 800;
+      padding-top: 8px;
     }
 
     &[data-title] {
