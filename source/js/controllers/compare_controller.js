@@ -19,9 +19,10 @@ app.Controllers.CompareController = Marionette.Controller.extend({
     this.compareView = new app.Views.CompareView({
       collection: this.hospitals
     });
-    app.compareRegion.show(this.compareView);
-
+    this.listenTo(this.compareView, 'show', this.adjustHeight);
     this.listenTo(this.compareView, 'select:hospitals', this.showSelect);
+
+    app.compareRegion.show(this.compareView);
   },
 
   getHospitals: function(hospitalIds) {
@@ -41,5 +42,9 @@ app.Controllers.CompareController = Marionette.Controller.extend({
     app.currentController = new app.Controllers.SelectController({
       hospitalIds: this.hospitalIds
     });
+  },
+
+  adjustHeight: function() {
+    // Here will be the code
   }
 });
