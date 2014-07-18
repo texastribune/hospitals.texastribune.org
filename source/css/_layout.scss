@@ -1,7 +1,13 @@
 .container {
   @include outer-container;
 }
-
+.index-about {
+  margin: 1em 1.25em;
+  @include media($desktop) {
+    @include span-columns(8);
+    @include shift(2);
+  }
+}
 .content-block {
   margin-left: 1.25em; // 20px left
   margin-right: 1.25em; // 20px right

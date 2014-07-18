@@ -111,6 +111,21 @@
     line-height: 1.4;
   }
 }
+.glossary-header {
+    color: rgb(34, 34, 34);
+    font: 600 1em helvetica;
+    line-height: 1.3em;
+    text-align: left;
+}
+
+p.glossary-text {
+    color: rgb(34, 34, 34);
+    font: 300 0.9375em helvetica;
+    line-height: 1.2em;
+    text-align: left;
+    padding: 1em;
+    background: $glossary-gray;
+}
 
 .disclaimer {
   margin-top: 4em;
@@ -145,7 +160,6 @@
       margin: 0 1em;
     }
   }
-
   .messages {
     color: $red;
     font-size: .8em;
@@ -349,6 +363,11 @@ label {
   h4 {
     display: inline;
   }
+  display: block;
+  overflow: hidden;
+  padding: 1em;
+  position: relative;
+  z-index: 20;
 }
 
 .category-wrapper {
