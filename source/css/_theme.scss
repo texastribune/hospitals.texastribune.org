@@ -70,11 +70,10 @@
 }
 
 .section-header {
+  margin: 1.25em;
   h3 {
     font-size: 1.625em;
     font-weight: 800;
-    margin-bottom: .5em;
-    margin-top: 1em;
   }
 }
 
@@ -363,11 +362,6 @@ label {
   h4 {
     display: inline;
   }
-  display: block;
-  overflow: hidden;
-  padding: 1em;
-  position: relative;
-  z-index: 20;
 }
 
 .category-wrapper {
@@ -472,40 +466,51 @@ label {
 
 .ac {
   cursor: pointer;
+  display: block;
+  overflow: hidden;
+  padding: 1em;
+  position: relative;
+  z-index: 20;
 }
 
 .ac-1 {
   background-color: $ac1-open;
+}
 
+.ac-2 {
+  background-color: $ac2-open;
+}
+
+.ac-3 {
+  background-color: $ac3-open;
+}
+
+.ac-4 {
+  background-color: $ac4-open;
+}
+.ac-hover1 {
   &:hover {
     background-color: $ac1-hover;
   }
 }
 
-.ac-2 {
-  background-color: $ac2-open;
-
+.ac-hover2 {
   &:hover {
     background-color: $ac2-hover;
   }
 }
 
-.ac-3 {
-  background-color: $ac3-open;
-
+.ac-hover3 {
   &:hover {
     background-color: $ac3-hover;
   }
 }
 
-.ac-4 {
-  background-color: $ac4-open;
-
+.ac-hover4 {
   &:hover {
     background-color: $ac4-hover;
   }
 }
-
 .ac-container input {
   display: none;
 }
