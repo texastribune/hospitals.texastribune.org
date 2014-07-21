@@ -28,6 +28,11 @@ page "/sitemap.xml", :layout => false
 page "/sitemap.html", :layout => false, directory_index: false
 page "/404.html", directory_index: false
 
+configure :build do
+  activate :minify_css
+  activate :minify_javascript
+end
+
 helpers do
   def format_time(var)
     if var
