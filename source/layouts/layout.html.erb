@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="//s3.amazonaws.com/static.texastribune.org/common/images/favicon.ico">
   <!-- Use title if it's in the page YAML frontmatter -->
-  <title><%= current_page.data.title || locals[:title] || "Texas Hospital Explorer | The Texas Tribune" %></title>
+  <title><%= current_page.data.title || locals[:title] || "Texas Hospitals Explorer | The Texas Tribune" %></title>
   <!-- Open Graph -->
   <meta property="og:site_name" content="<%= current_page.data.og_site_name || locals[:og_site_name] || "The Texas Tribune"%>">
   <meta property="og:description" content="<%= current_page.data.og_description || locals[:og_description] || "The Texas Tribunes Hospital Explorer allows you to compare hospitals using data collected and analyzed by the federal Centers for Medicare and Medicare Services." %>">
@@ -38,7 +38,8 @@
   <div class="banner">
     <div class="grand-header-image"></div>
     <header class="grand-header content-block">
-      <h1><a href="/">Texas Hospital Explorer</a></h1>
+      <h1><a href="/">Texas Hospitals Explorer</a></h1>
+      <h2>Find and compare quality of care</h2>
     </header>
   </div>
   <section class="container" id="main-container">
