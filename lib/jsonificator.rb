@@ -71,7 +71,7 @@ class Jsonificator < Middleman::Extension
             title: json_data["name"] + " | Texas Hospital Explorer | The Texas Tribune",
             # OG
             og_site_name: json_data["name"] + " | Texas Hospital Explorer | The Texas Tribune",
-            og_url: "http://hospital.texastribune.org/" + json_data["url"]
+            og_url: "http://hospitals.texastribune.org/" + json_data["url"]
           })
       end
     end
