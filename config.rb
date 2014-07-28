@@ -5,6 +5,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 require 'jsonificator'
 require 'active_support/all'
 
+activate :gzip
 activate :bower
 activate :bourbon
 activate :livereload
