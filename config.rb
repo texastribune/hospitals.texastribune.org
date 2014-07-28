@@ -6,6 +6,7 @@ require 'jsonificator'
 require 'active_support/all'
 
 activate :gzip
+activate :minify_html
 activate :bower
 activate :bourbon
 activate :livereload
