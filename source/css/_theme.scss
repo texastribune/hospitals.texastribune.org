@@ -121,27 +121,31 @@
 }
 
 .call-to-action {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+
   p {
     font-family: $base-serif;
     font-size: 1.125em;
     line-height: 1.4;
   }
 }
+
 .glossary-header {
-    color: rgb(34, 34, 34);
-    font: 600 1em helvetica;
-    line-height: 1.3em;
-    text-align: left;
+  color: rgb(34, 34, 34);
+  font-family: $base-sans-serif;
+  font-weight: 800;
+  line-height: 1.2em;
+  text-align: left;
 }
 
 p.glossary-text {
-    color: rgb(34, 34, 34);
-    font: 300 0.9375em helvetica;
-    line-height: 1.2em;
-    text-align: left;
-    padding: 1em;
-    background: $glossary-gray;
+  background: $glossary-gray;
+  color: rgb(34, 34, 34);
+  font-family: $base-sans-serif;
+  font-weight: 300;
+  line-height: 1.2em;
+  padding: 1em;
+  text-align: left;
 }
 
 .about {
@@ -297,9 +301,10 @@ p.glossary-text {
 }
 
 .share-row {
-  padding: 0.5em 0px;
+  padding: .5em 0;
+
   @include media($desktop) {
-    padding: 0.1em 0px;
+    padding: .1em 0;
     border-bottom: 1px solid rgb(204, 204, 204);
     border-top: 1px solid rgb(204, 204, 204);
   }
@@ -550,6 +555,7 @@ label {
 .ac-4 {
   background-color: $ac4-open;
 }
+
 .ac-hover1 {
   &:hover {
     background-color: $ac1-hover;
