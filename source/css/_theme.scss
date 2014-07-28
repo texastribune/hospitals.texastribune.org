@@ -121,12 +121,11 @@
 }
 
 .call-to-action {
-  margin-bottom: 1.5em;
-
   p {
     font-family: $base-serif;
     font-size: 1.125em;
     line-height: 1.4;
+    margin-bottom: 1.5em;
   }
 }
 
@@ -187,7 +186,7 @@ p.glossary-text {
 
 .search {
   .search-box {
-    min-height: 90px;
+    margin-bottom: 1em;
   }
 
   .form-prompt {
