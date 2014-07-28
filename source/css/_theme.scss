@@ -144,12 +144,14 @@ p.glossary-text {
   position: relative;
   .handle {
     font: 300 0.95em Helvetica;
-    margin-top: 0.1em;
   }
   li {
     margin-bottom: 1em;
     p {
       margin: 0;
+      &:first-child{
+        margin-bottom: 0.1em;
+      }
     }
   }
   .about-desc {
