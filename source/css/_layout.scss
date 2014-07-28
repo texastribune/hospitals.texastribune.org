@@ -8,6 +8,20 @@
     @include shift(2);
   }
 }
+
+.about {
+  @include span-columns(12);
+  ul {
+    @include pad(0);
+    li {
+      @include span-columns(12 of 12);
+      @include media($desktop) {
+        @include span-columns(4 of 12);
+        @include omega(3n);
+      }
+    }
+  }
+}
 .content-block {
   margin-left: 1.25em; // 20px left
   margin-right: 1.25em; // 20px right

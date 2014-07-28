@@ -139,6 +139,23 @@ p.glossary-text {
     padding: 1em;
     background: $glossary-gray;
 }
+.about {
+  border-top: 1px solid $yellow;
+  padding: 0.94em 0;
+  position: relative;
+  .handle {
+    font: 300 0.95em Helvetica;
+  }
+  li {
+    margin-bottom: 1em;
+    p {
+      margin: 0;
+    }
+  }
+  .about-desc {
+    color: $lt_gray;
+  }
+}
 
 .disclaimer {
   margin-top: 2em;
