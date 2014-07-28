@@ -189,6 +189,14 @@ p.glossary-text {
     height: 16px;
     margin-top: 5px;
   }
+  form{
+    position: relative;
+    .loading{
+      margin-left: 1.5em;
+      position: absolute;
+      bottom: 9px;
+    }
+  }
 }
 
 .form-group {
