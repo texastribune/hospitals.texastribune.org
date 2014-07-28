@@ -138,20 +138,23 @@ p.glossary-text {
     padding: 1em;
     background: $glossary-gray;
 }
+
 .about {
-  border-top: 1px solid $yellow;
-  padding: 0.94em 0;
-  position: relative;
+  margin-bottom: 1em;
+
   .handle {
-    font: 300 0.95em Helvetica;
-    margin-top: 0.1em;
+    font-family: $base-sans-serif;
+    font-weight: 300;
   }
+
   li {
     margin-bottom: 1em;
+
     p {
       margin: 0;
     }
   }
+
   .about-desc {
     color: $lt_gray;
   }
@@ -166,6 +169,7 @@ p.glossary-text {
     font-style: italic;
     font-weight: 300;
     line-height: 1.2;
+    margin-bottom: 1em;
   }
 }
 
