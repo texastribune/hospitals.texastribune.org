@@ -152,6 +152,9 @@ p.glossary-text {
 
     p {
       margin: 0;
+      &:first-child{
+        margin-bottom: 0.1em;
+      }
     }
   }
 
