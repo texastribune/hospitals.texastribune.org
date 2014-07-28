@@ -14,6 +14,7 @@ gem "builder"
 gem "middleman-deploy"
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"
+gem "middleman-minify-html"
 
 # Windows does not come with time zone data
 gem "tzinfo-data", platforms: [:mswin, :mingw]
