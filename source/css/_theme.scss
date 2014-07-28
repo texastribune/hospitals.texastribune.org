@@ -277,7 +277,9 @@ p.glossary-text {
 }
 
 .share-row {
+  padding: 0.5em 0px;
   @include media($desktop) {
+    padding: 0.1em 0px;
     border-bottom: 1px solid rgb(204, 204, 204);
     border-top: 1px solid rgb(204, 204, 204);
   }
