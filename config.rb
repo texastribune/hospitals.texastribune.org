@@ -7,6 +7,7 @@ require 'active_support/all'
 
 activate :gzip
 activate :minify_html
+activate :asset_hash
 activate :bower
 activate :bourbon
 activate :livereload
