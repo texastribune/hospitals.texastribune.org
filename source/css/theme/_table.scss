@@ -67,8 +67,11 @@ td {
     }
 
     &:before {
-      content: attr(data-title) ': ';
+      content: attr(data-title) '\A';
+      display: block;
       font-weight: 800;
+      margin-bottom: .25em;
+      white-space: pre-wrap;
     }
   }
 }
