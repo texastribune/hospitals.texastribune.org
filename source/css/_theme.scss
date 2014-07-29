@@ -204,6 +204,7 @@ p.glossary-text {
       margin: 0 1em;
     }
   }
+
   .messages {
     color: $red;
     font-size: .8em;
@@ -211,12 +212,14 @@ p.glossary-text {
     height: 16px;
     margin-top: 5px;
   }
-  form{
+
+  form {
     position: relative;
-    .loading{
+
+    .loading {
+      bottom: 9px;
       margin-left: 1.5em;
       position: absolute;
-      bottom: 9px;
     }
   }
 }
