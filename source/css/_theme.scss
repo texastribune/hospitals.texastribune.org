@@ -302,7 +302,7 @@ p.glossary-text {
   padding: .5em 0;
 
   @include media($desktop) {
-    padding: .1em 0;
+    padding: .4em 0;
     border-bottom: 1px solid rgb(204, 204, 204);
     border-top: 1px solid rgb(204, 204, 204);
   }
