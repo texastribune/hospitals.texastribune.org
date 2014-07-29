@@ -133,7 +133,7 @@
   color: rgb(34, 34, 34);
   font-family: $base-sans-serif;
   font-weight: 800;
-  line-height: 1.2em;
+  line-height: 1.2;
   text-align: left;
 }
 
@@ -142,9 +142,8 @@ p.glossary-text {
   color: rgb(34, 34, 34);
   font-family: $base-sans-serif;
   font-weight: 300;
-  line-height: 1.2em;
+  line-height: 1.3;
   padding: 1em;
-  text-align: left;
 }
 
 .about {
@@ -205,6 +204,7 @@ p.glossary-text {
       margin: 0 1em;
     }
   }
+
   .messages {
     color: $red;
     font-size: .8em;
@@ -212,12 +212,14 @@ p.glossary-text {
     height: 16px;
     margin-top: 5px;
   }
-  form{
+
+  form {
     position: relative;
-    .loading{
+
+    .loading {
+      bottom: 9px;
       margin-left: 1.5em;
       position: absolute;
-      bottom: 9px;
     }
   }
 }
