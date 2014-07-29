@@ -302,34 +302,9 @@ p.glossary-text {
 }
 
 .share-row {
-  padding: .5em 0;
-
   @include media($desktop) {
-    padding: .4em 0;
     border-bottom: 1px solid rgb(204, 204, 204);
     border-top: 1px solid rgb(204, 204, 204);
-  }
-}
-
-.share-cell {
-  border-bottom: 1px solid rgb(204, 204, 204);
-  font-size: .8em;
-  padding: .5em 0;
-  text-align: center;
-
-  @include media($desktop) {
-    border-bottom: 0;
-    border-left: 1px solid rgb(204, 204, 204);
-    padding: .25em 0;
-  }
-
-  &:first-child {
-    border-top: 1px solid rgb(204, 204, 204);
-
-    @include media($desktop) {
-      border-top: 0;
-      border-left: 0;
-    }
   }
 
   & a {
@@ -338,6 +313,27 @@ p.glossary-text {
     &:hover {
       color: rgb(17, 17, 17);
       text-decoration: none;
+    }
+  }
+}
+
+.share-cell {
+  border-bottom: 1px solid rgb(204, 204, 204);
+  font-size: .8em;
+  padding: .75em 0;
+  text-align: center;
+
+  @include media($desktop) {
+    border-bottom: 0;
+    border-left: 1px solid rgb(204, 204, 204);
+  }
+
+  &.first-share {
+    border-top: 1px solid rgb(204, 204, 204);
+
+    @include media($desktop) {
+      border-top: 0;
+      border-left: 0;
     }
   }
 
