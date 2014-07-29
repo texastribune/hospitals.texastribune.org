@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 require 'jsonificator'
 require 'active_support/all'
 
-activate :gzip
+activate :gzip, exts: %w(.js .css .html .htm .json .geojson)
 activate :minify_html
 activate :asset_hash
 activate :bower
