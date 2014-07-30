@@ -7,6 +7,7 @@ app.Layouts.Results = Marionette.Layout.extend({
     search: '#search-bar',
     map: '#map',
     list: '#hospital-list',
-    selected: '#selected-hospitals'
+    selectedTop: '#selected-top',
+    selectedBottom: '#selected-bottom'
   }
 });

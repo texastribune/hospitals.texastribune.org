@@ -18,7 +18,11 @@ app.Controllers.SelectController = Marionette.Controller.extend({
 
     this.hospitalsToCompare = this.getHospitals(options.hospitalIds);
 
-    this.compareHospitalsView = new app.Views.HospitalsToCompare({
+    this.compareTopView = new app.Views.HospitalsToCompare({
+      collection: this.hospitalsToCompare
+    });
+
+    this.compareBottomView = new app.Views.HospitalsToCompare({
       collection: this.hospitalsToCompare
     });
 
@@ -31,15 +35,18 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     }
 
     this.layout.list.show(this.hospitalsView);
-    this.layout.selected.show(this.compareHospitalsView)
+    this.layout.selectedTop.show(this.compareTopView)
+    this.layout.selectedBottom.show(this.compareBottomView);
     this.listenTo(this.hospitalsView, 'more-results:hospitals', this.moreResults);
     this.listenTo(this.hospitalsView, 'hospital:selected', this.selectHospital);
     this.listenTo(this.hospitalsView, 'hospital:deselected', this.deselectHospital);
     this.listenTo(this.hospitalsView, 'render', this.syncronizeViews);
 
     this.preloadList(options);
-    this.listenTo(this.compareHospitalsView, 'compare:hospitals', this.compare);
-    this.listenTo(this.compareHospitalsView, 'remove:hospital', this.removeHospital);
+    this.listenTo(this.compareTopView, 'compare:hospitals', this.compare);
+    this.listenTo(this.compareTopView, 'remove:hospital', this.removeHospital);
+    this.listenTo(this.compareBottomView, 'compare:hospitals', this.compare);
+    this.listenTo(this.compareBottomView, 'remove:hospital', this.removeHospital);
     this.listenTo(this.searchController, 'after:search', this.syncronizeViews);
 
     this.syncronizeViews();
