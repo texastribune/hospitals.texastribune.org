@@ -535,6 +535,9 @@ label {
   padding: 1em;
   position: relative;
   z-index: 20;
+  &.clickable {
+    cursor: pointer;
+  }
 }
 
 .ac-1 {
