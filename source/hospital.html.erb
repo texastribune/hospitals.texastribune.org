@@ -61,7 +61,10 @@ js: /js/hospital.js
   <div class="prose">
     <p>Below, you'll find essential information to help you evaluate the hospital's quality of care, such as average wait times for emergency services; clinical care measures, including rates of surgical complications and infections acquired during hospital visits; patient outcomes, including 30-day readmission and death rates; patient ratings. To find additional Texas hospitals or compare this hospital with others, return to the search page.</p>
   </div>
-  <a href="/"><button id="return-to-landing" class="return-to-landing">Return to search</button></a>
+  <div class="controls">
+    <a href="/"><button>Start a new search</button></a>
+    <a href="/#select/<%= locals[:id] %>"><button>Compare this hospital with another</button></a>
+  </div>
 </div>
 
 <header class="section-header content-block ac ac-1">

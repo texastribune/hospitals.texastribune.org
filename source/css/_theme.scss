@@ -116,6 +116,15 @@
   }
 }
 
+.controls {
+  @include media($mobile) {
+    a:first-child{
+      display: block;
+      margin-bottom: .5em;
+    }
+  }
+}
+
 .explainer-prose {
   margin-top: 1em;
 }
