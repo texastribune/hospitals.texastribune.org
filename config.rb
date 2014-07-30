@@ -6,7 +6,6 @@ require 'jsonificator'
 require 'active_support/all'
 
 activate :gzip, exts: %w(.js .css .html .htm .json .geojson)
-activate :minify_html
 activate :asset_hash
 activate :bower
 activate :bourbon
@@ -32,6 +31,7 @@ page "/sitemap.html", :layout => false, directory_index: false
 page "/404.html", directory_index: false
 
 configure :build do
+  activate :minify_html
   activate :minify_css
   activate :minify_javascript
 end
