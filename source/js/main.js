@@ -1,4 +1,4 @@
-//=require jquery/dist/jquery
+//=require jquery/dist/jquery.min
 //=require underscore/underscore
 //=require backbone/backbone
 //=require marionette/lib/backbone.marionette

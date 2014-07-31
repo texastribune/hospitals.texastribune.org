@@ -113,7 +113,7 @@ js: /js/hospital.js
 </div>
 
 <div class="content-block content-block-full introduction-section">
-    <div class="ad-container banner-ad">Ad space</div>
+    <div class="ad-container banner-ad" id="div-gpt-ad-1406823411074-0">Ad space</div>
 </div>
 
 <header class="section-header content-block ac ac-2">
@@ -315,10 +315,33 @@ js: /js/hospital.js
 </div>
 
 <% content_for :script do %>
-<script>
-  var map_id = 'texastribune.ili2i87h';
 
-  var map = L.mapbox.map('hospital-map', map_id, {
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+  var gads = document.createElement('script');
+  gads.async = true;
+  gads.type = 'text/javascript';
+  var useSSL = 'https:' == document.location.protocol;
+  gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+  var node = document.getElementsByTagName('script')[0];
+  node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script>
+googletag.cmd.push(function() {
+googletag.defineSlot('/5805113/TexasTribune_Data_DataPage_BTF_Footer_Leaderboard_728x90', [728, 90], 'div-gpt-ad-1406823411074-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+
+<script>
+  var mapId = 'texastribune.ili2i87h';
+
+  var map = L.mapbox.map('hospital-map', mapId, {
     tileLayer: {
       detectRetina: true
     }
@@ -351,7 +374,7 @@ js: /js/hospital.js
     maxZoom: 12
   });
 
-  var fullAddress = "<%= locals[:address] %>" + "<%= "#{locals[:city]}, TX #{locals[:zipcode]}"%>";
+  var fullAddress = "<%= locals[:address] %> " + "<%= "#{locals[:city]}, TX #{locals[:zipcode]}"%>";
 
   $('#address').prop('href', 'http://maps.google.com/maps?q=' + encodeURIComponent(fullAddress));
 </script>
