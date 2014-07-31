@@ -91,6 +91,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
   syncronizeViews: function() {
     this.checkSelectedHospitals();
     this.mapView.checkHospitals(this.hospitalsToCompare);
+    this.hospitalsView.updateSearchString(this.searchController.searching);
     if (this.hospitalsToCompare.length >= this.maxHospitals) {
       this.hospitalsView.disableSelection();
     } else {
