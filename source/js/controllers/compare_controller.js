@@ -8,6 +8,7 @@ app.Controllers.CompareController = Marionette.Controller.extend({
     app.mainRouter.navigate('compare/' + hospitalIds.join('/'));
     this.hospitalIds = hospitalIds;
     $('#explorer-introduction').hide();
+    $(window).scrollTop(0);
   },
 
   onClose: function() {

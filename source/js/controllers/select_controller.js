@@ -52,6 +52,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.syncronizeViews();
     $('#explorer-introduction').hide();
     $('#compare').html(''); // INPOT
+    $(window).scrollTop(0);
   },
 
   onClose: function() {
