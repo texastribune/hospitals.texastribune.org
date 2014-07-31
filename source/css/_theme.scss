@@ -138,6 +138,10 @@
   }
 }
 
+.index-about {
+  margin-bottom: 2em;
+}
+
 .glossary-header {
   color: rgb(34, 34, 34);
   font-family: $base-sans-serif;
@@ -156,7 +160,7 @@ p.glossary-text {
 }
 
 .about {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 
   .handle {
     font-family: $base-sans-serif;
@@ -658,6 +662,42 @@ label {
     }
   }
 }
+
+//About & Contributors
+  .about {
+    position: relative;
+    font: $base-serif;
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 0em;
+    color: $bodytext-black;
+    h3 {
+      font: 700 .875em $base-sans-serif;
+      letter-spacing: 1px;
+      line-height: 1.4em;
+      text-align: left;
+      text-transform: uppercase;
+      margin-bottom: 1em;
+    }
+    p.contributor {
+      font-weight: 600;
+    }
+    p.handle {
+      font: $base-sans-serif;
+      font-weight: 300;
+      font-size: 0.95em;
+    }
+    ul {
+      margin-top: 0;
+    }
+    li {
+      margin-bottom: 1em;
+      line-height: 1.2em;
+    }
+    .about-desc {
+      color: $dk_gray;
+    }
+  }
 
 @import 'theme/footer';
 @import 'theme/table';
