@@ -118,7 +118,7 @@
 
 .controls {
   @include media($mobile) {
-    a:first-child{
+    a:first-child {
       display: block;
       margin-bottom: .5em;
     }
@@ -157,30 +157,6 @@ p.glossary-text {
   font-weight: 300;
   line-height: 1.3;
   padding: 1em;
-}
-
-.about {
-  margin-bottom: 2em;
-
-  .handle {
-    font-family: $base-sans-serif;
-    font-weight: 300;
-  }
-
-  li {
-    margin-bottom: 1em;
-
-    p {
-      margin: 0;
-      &:first-child{
-        margin-bottom: 0.1em;
-      }
-    }
-  }
-
-  .about-desc {
-    color: $lt-gray;
-  }
 }
 
 .disclaimer {
@@ -320,7 +296,7 @@ p.glossary-text {
     border-top: 1px solid rgb(204, 204, 204);
   }
 
-  & a {
+  a {
     color: rgb(119, 119, 119);
 
     &:hover {
@@ -350,7 +326,7 @@ p.glossary-text {
     }
   }
 
-  & i {
+  i {
     padding: 0;
   }
 
@@ -548,6 +524,7 @@ label {
   padding: 1em;
   position: relative;
   z-index: 20;
+
   &.clickable {
     cursor: pointer;
   }
@@ -664,40 +641,54 @@ label {
 }
 
 //About & Contributors
-  .about {
-    position: relative;
-    font: $base-serif;
-    font-size: 1em;
-    font-weight: 400;
-    margin-bottom: 0em;
-    color: $bodytext-black;
-    h3 {
-      font: 700 .875em $base-sans-serif;
-      letter-spacing: 1px;
-      line-height: 1.4em;
-      text-align: left;
-      text-transform: uppercase;
-      margin-bottom: 1em;
-    }
-    p.contributor {
-      font-weight: 600;
-    }
-    p.handle {
-      font: $base-sans-serif;
-      font-weight: 300;
-      font-size: 0.95em;
-    }
-    ul {
-      margin-top: 0;
-    }
-    li {
-      margin-bottom: 1em;
-      line-height: 1.2em;
-    }
-    .about-desc {
-      color: $dk-gray;
-    }
+.about {
+  color: $bodytext-black;
+  font-family: $base-serif;
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: 0;
+  position: relative;
+
+  h3 {
+    font: 700 .875em $base-sans-serif;
+    letter-spacing: 1px;
+    line-height: 1.4em;
+    margin-bottom: 1em;
+    text-align: left;
+    text-transform: uppercase;
   }
+
+  p.contributor {
+    font-weight: 600;
+  }
+
+  p.handle {
+    font-family: $base-sans-serif;
+    font-size: .95em;
+    font-weight: 300;
+  }
+
+  ul {
+    margin-top: 0;
+  }
+
+  li {
+    line-height: 1.2em;
+    margin-bottom: 1em;
+
+    p {
+      margin: 0;
+
+      &:first-child {
+        margin-bottom: .1em;
+        }
+      }
+  }
+
+  .about-desc {
+    color: $dk-gray;
+  }
+}
 
 @import 'theme/footer';
 @import 'theme/table';

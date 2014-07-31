@@ -69,11 +69,14 @@
       @include omega(3n);
     }
   }
+
   .card-row {
     @include span-columns(12);
+
     .value-header {
       @include span-columns(6 of 12);
     }
+
     .value {
       @include span-columns(6 of 12);
     }
