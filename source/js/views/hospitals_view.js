@@ -25,6 +25,10 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
     'click a.more-results': 'more-results:hospitals'
   },
 
+  ui: {
+    'searchString': '.search-string'
+  },
+
   initialize: function() {
     this.listenTo(this.collection, 'reset', this.render);
   },
@@ -73,5 +77,16 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
 
     $checkbox.prop('checked', false);
     $checkbox.parents('.hospital-box').removeClass('active');
+  },
+
+  updateSearchString: function(searchString) {
+    if (searchString == 'nearest') {
+      this.ui.searchString.text('Hospitals near you');
+    } else if (searchString == '') {
+      this.ui.searchString.text('Hospitals');
+    } else {
+      this.ui.searchString.text('Search Results for "' + searchString + '"');
+    }
+    return this;
   }
 });
