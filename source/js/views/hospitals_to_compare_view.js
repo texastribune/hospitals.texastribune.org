@@ -1,7 +1,6 @@
 app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
   template: JST['templates/hospitals-to-compare'],
   itemView: app.Views.HospitalToCompare,
-  emptyView: app.Views.HospitalEmpty,
   className: 'glossary content-block',
 
   itemEvents: {
@@ -48,19 +47,19 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
 
   isReadyToCompare: function() {
     if (this.collection.length > 1) {
-      this.showCompareButton();
+      this.enableCompareButton();
       this.trigger('readyToCompare:hospitals');
     } else {
-      this.hideCompareButton();
+      this.disableCompareButton();
       this.trigger('notReadyToCompare:hospitals');
     }
   },
 
-  showCompareButton: function() {
-    this.$el.find('button.compare').show();
+  enableCompareButton: function() {
+    this.ui.compare.prop('disabled', false);
   },
 
-  hideCompareButton: function() {
-    this.$el.find('button.compare').hide();
+  disableCompareButton: function() {
+    this.ui.compare.prop('disabled', true);
   }
 });
