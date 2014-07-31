@@ -12,10 +12,9 @@ $chartFont: $helvetica;
 $white: rgb(255, 255, 255);
 $offblack: rgb(34, 34, 34);
 $offwhite: rgb(238, 238, 238);
-$lt_gray: rgb(207, 204, 199);
-$dk_gray: rgb(102, 102, 102);
+$lt-gray: rgb(207, 204, 199);
+$dk-gray: rgb(102, 102, 102);
 $bbb: rgb(187, 187, 187);
-$lt_blue: rgb(180, 221, 242);
 
 // fonts
 $base-sans-serif: $helvetica;
@@ -29,24 +28,13 @@ $href-teal: rgb(0, 137, 144);
 $glossary-gray: rgb(245, 245, 245);
 
 // trib colors
-$dk_teal: rgba(0, 137, 144, 0.9);
+$dk-teal: rgba(0, 137, 144, 0.9);
 $dark-grey: #eee;
 $yellow: rgb(252, 193, 15);
 $teal: rgb(55, 157, 146);
 $lavender: rgb(231, 222, 238);
 $red: #D8000C;
 $link-color: #008990;
-
-//extra color variables
-$orange: rgb(252, 229, 152);
-$gun_metal: rgb(76, 90, 105);
-$blue: rgb(68, 171, 223);
-$blueberry: rgb(92, 109, 181);
-$lime: rgb(141, 201, 103);
-$dk_magenta: rgb(139, 56, 118);
-$orange_red: rgb(244, 85, 65);
-$lt_teal: rgb(155, 206, 200);
-$green_gray: rgb(184, 191, 180);
 
 //accordion labels
 $ac1-open: rgb(247, 177, 166);
