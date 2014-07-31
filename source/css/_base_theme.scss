@@ -7,7 +7,7 @@ body {
 }
 
 a {
-  color: $href-teal;
+  color: $teal;
   text-decoration: none;
 
   &:hover {
@@ -34,7 +34,7 @@ hr {
   }
 
   &.yellow {
-    background-color: $yellow;
+    background-color: $tribune-yellow;
     margin-bottom: 2em;
   }
 }

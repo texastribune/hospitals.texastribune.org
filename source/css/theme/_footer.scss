@@ -65,13 +65,13 @@
       li {
         &:last-child {
           a {
-            color: $dk-teal;
+            color: $teal;
           }
         }
       }
     }
     .donate {
-      background: $dk-teal;
+      background: $teal;
       color: $white;
       font-family: Helvetica;
       padding: 0.25em 0;
@@ -83,7 +83,7 @@
         letter-spacing: 0.03em;
         li {
           &:last-child {
-            background-color: $yellow;
+            background-color: $tribune-yellow;
             color: rgb(34, 34, 34);
             font: 700 0.5em Helvetica;
             letter-spacing: 1px;

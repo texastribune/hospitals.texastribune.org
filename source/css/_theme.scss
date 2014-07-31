@@ -143,7 +143,7 @@
 }
 
 .glossary-header {
-  color: rgb(34, 34, 34);
+  color: $bodytext-black;
   font-family: $base-sans-serif;
   font-weight: 800;
   line-height: 1.2;
@@ -152,7 +152,7 @@
 
 p.glossary-text {
   background: $glossary-gray;
-  color: rgb(34, 34, 34);
+  color: $bodytext-black;
   font-family: $base-sans-serif;
   font-weight: 300;
   line-height: 1.3;
@@ -380,7 +380,7 @@ p.glossary-text {
 }
 
 .hospital-box {
-  border: 1px solid #eee;
+  border: 1px solid $eee;
   margin-bottom: 1em;
 
   &.hospital-box-small {
@@ -389,7 +389,7 @@ p.glossary-text {
   }
 
   &.active {
-    background: #fef5ce;
+    background: $lt-yellow;
   }
 
   .hospital-box-header {
