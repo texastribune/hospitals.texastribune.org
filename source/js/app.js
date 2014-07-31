@@ -12,12 +12,13 @@ app.Settings = {
   markerSelectedColor: '#FFC81A',
   markerSelectedColorOnlyCode: 'fc4353',
   mapZoom: 14
-}
+};
+
 app.Helpers = {
   isMobile: function() {
     return $(window).width() < 480;
   }
-}
+};
 
 app.addRegions({
   searchRegion:  '#search',
