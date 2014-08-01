@@ -113,7 +113,13 @@ js: /js/hospital.js
 </div>
 
 <div class="content-block content-block-full introduction-section">
-    <div class="ad-container banner-ad" id="div-gpt-ad-1406823411074-0">Ad space</div>
+    <div class="ad-container banner-ad" id="div-gpt-ad-1406823411074-1">
+      <script>
+        googletag.cmd.push(function() {
+          googletag.display('div-gpt-ad-1406823411074-1');
+        });
+      </script>
+    </div>
 </div>
 
 <header class="section-header content-block ac ac-2">
@@ -315,28 +321,6 @@ js: /js/hospital.js
 </div>
 
 <% content_for :script do %>
-
-<script type='text/javascript'>
-var googletag = googletag || {};
-googletag.cmd = googletag.cmd || [];
-(function() {
-  var gads = document.createElement('script');
-  gads.async = true;
-  gads.type = 'text/javascript';
-  var useSSL = 'https:' == document.location.protocol;
-  gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
-  var node = document.getElementsByTagName('script')[0];
-  node.parentNode.insertBefore(gads, node);
-})();
-</script>
-
-<script>
-googletag.cmd.push(function() {
-googletag.defineSlot('/5805113/TexasTribune_Data_DataPage_BTF_Footer_Leaderboard_728x90', [728, 90], 'div-gpt-ad-1406823411074-0').addService(googletag.pubads());
-googletag.pubads().enableSingleRequest();
-googletag.enableServices();
-});
-</script>
 
 <script>
   var mapId = 'texastribune.ili2i87h';
