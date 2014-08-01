@@ -1,47 +1,23 @@
 # Hospital Explorer (webapp)
 
-Such a cool app!
+## Requirements
 
-## TODO
+To run this app you will need on your computer:
 
-* general
-  * better error messages
-  * explain the sources of the data
-* home
-  * spinner
-  * add examples of usage
-* results
-  * re format phone number
-* show hospital page
-  * fix addresses
-  * fix national benchmarks
-  * improve tables
-  * talk about the map
-  * think about N/A fields
-  * work on explanations
-* map
-  * show what's on the table
-  * selected hospitals should have a different color
-  * once you click in a hospital it should be selected/deselected
-* select page
-  * it's not fully responsive
-  * some bugs on hospitals list
+* Ruby 2.1.2
+* Node.js
+* Bower
 
-## FOR LATER
+I recommend: [rbenv](https://github.com/sstephenson/rbenv) and [nvm](https://github.com/creationix/nvm).
 
-* fix robots.txt
-* Add Google Analytics
-* ~~hide distance when searching by name~~
-* finish with compare page
-* advance search
+## Building
 
+  bundle install
+  bower install
+  middleman server
 
-## Build
+##  Deploying
 
-0.- Use Ruby `2.1.2`
-1.- `gem install`
-2.- `bower install`
-3.- `middleman server`
-4.- Go and visit `localhost:4567`
+  middleman build
 
-# How to move on from here?
+**Note:** There is a branch called `s3-sync` with S3 oriented deploy.
