@@ -3,10 +3,10 @@ app.Views.Search = Marionette.ItemView.extend({
   className: 'search-box',
 
   ui: {
-    input: '#search-content',
-    error: '.error',
-    empty: '.empty',
-    loading: '.loading'
+    'input'        : '#search-content',
+    'errorMessage' : '.error',
+    'emptyMessage' : '.empty',
+    'loading'      : '.loading'
   },
 
   events: {
@@ -36,8 +36,10 @@ app.Views.Search = Marionette.ItemView.extend({
   },
 
   cleanView: function() {
-    this.hideEmpty();
-    this.hideLoading();
+    if (typeof this.el.length !== 'undefined') {
+      this.hideLoading();
+      this.hideEmpty();
+    }
   },
 
   showLoading: function() {
@@ -49,19 +51,19 @@ app.Views.Search = Marionette.ItemView.extend({
   },
 
   showError: function(text){
-    this.ui.error.html(text).show();
+    this.ui.errorMessage.html(text).show();
   },
 
   hideError: function(){
-    this.ui.error.hide();
+    this.ui.errorMessage.hide();
   },
 
   showEmpty: function(){
-    this.ui.empty.show();
+    this.ui.emptyMessage.show();
   },
 
   hideEmpty: function(){
-    this.ui.empty.hide();
+    this.ui.emptyMessage.hide();
   },
 
   nearestHospitals: function(event){

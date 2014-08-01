@@ -31,13 +31,9 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
   },
 
   compare: function(event) {
-    var hospitalIds = [];
-
     event.preventDefault();
-    $('.hospital-selector:checked').each(function(index) {
-      hospitalIds.push($(this).data('id'));
-    });
-    this.trigger('compare:hospitals', hospitalIds);
+
+    this.trigger('compare:hospitals', this.collection.pluck('_id'));
   },
 
   removeHospitalClicked: function(eventName, itemView, hospitalId) {
