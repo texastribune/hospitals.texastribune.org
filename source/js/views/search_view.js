@@ -36,8 +36,10 @@ app.Views.Search = Marionette.ItemView.extend({
   },
 
   cleanView: function() {
-    this.hideEmpty();
-    this.hideLoading();
+    if (typeof this.el.length !== 'undefined') {
+      this.hideLoading();
+      this.hideEmpty();
+    }
   },
 
   showLoading: function() {
