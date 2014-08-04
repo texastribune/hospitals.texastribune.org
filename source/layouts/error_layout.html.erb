@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title><%= current_page.data.title || locals[:title] || "Texas Hospitals Explorer | The Texas Tribune" %></title>
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="<%= current_page.data.og_site_name || locals[:og_site_name] || "The Texas Tribune"%>">
+  <meta property="og:description" content="<%= current_page.data.og_description || locals[:og_description] || "The Texas Tribunes Hospitals Explorer allows you to compare hospitals using data collected and analyzed by the federal Centers for Medicare & Medicare Services." %>">
+  <meta property="og:url" content="<%= current_page.data.og_url || locals[:og_url] || "http://hospitals.texastribune.org"%>">
+  <meta property="og:image" content="<%= current_page.data.og_image || locals[:og_image] ||"http://s3.amazonaws.com/static.texastribune.org/media/images/2014/07/31/HospitalExplorer-1.jpg" %>">
+  <meta property="og:type" content="website">
+  <link href="//api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
+  <!-- Apple stuff -->
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="http://s3.amazonaws.com/static.texastribune.org/media/icons/iPhone_Icon_60x60.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://s3.amazonaws.com/static.texastribune.org/media/icons/iPad_Icon_76x76.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://s3.amazonaws.com/static.texastribune.org/media/icons/iPhone_Icon_120x120.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://s3.amazonaws.com/static.texastribune.org/media/icons/iPad_Icon_152x152.png"/>
+</head>
+<body>
+  <header class="masthead">
+  <div class="container">
+    <div class="branding">
+      <a href="http://www.texastribune.org/">
+        <img class="trib-logo" alt="The Texas Tribune" src="/img/tt-logo-white.png">
+      </a>
+    </div>
+  </div>
+  </header>
+  <div class="banner">
+    <div class="grand-header-image"></div>
+    <header class="grand-header content-block">
+      <h1><a href="/">Texas Hospitals Explorer</a></h1>
+      <p>Find and compare quality of care</p>
+    </header>
+  </div>
+  <section class="container" id="main-container">
+    <%= yield %>
+  </section>
+  <%= partial "footer" %>
+  <script src="<%= current_page.data.js || '/js/main.js' %>"></script>
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+  // var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+  // (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  // g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  // s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+  <%= yield_content :script %>
+</body>
+</html>
