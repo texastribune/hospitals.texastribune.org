@@ -1,43 +1,16 @@
 .ad-container {
-  background-color: rgb(187, 187, 187);
   margin: 2em auto;
   text-align: center;
 }
 
-.ad-hr {
-  height: 1px;
-}
-
 @mixin mobile-base {
-  height: 100px;
-  line-height: 100px;
-  width: 300px;
+  min-height: 100px;
 }
 
 .banner-ad {
   @include mobile-base;
 
   @include media($desktop) {
-    height: 90px;
-    line-height: 90px;
-    width: 728px;
-  }
-}
-
-.small-banner-ad {
-  @include mobile-base;
-
-  @include media($desktop) {
-    height: 60px;
-    width: 468px;
-  }
-}
-
-.block-ad {
-  @include mobile-base;
-
-  @include media($desktop) {
-    height: 250px;
-    width: 300px;
+    min-height: 90px;
   }
 }
