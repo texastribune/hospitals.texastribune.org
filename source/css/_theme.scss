@@ -571,28 +571,25 @@ label {
 }
 
 .ac-container article {
-  max-height: 0;
+  max-height: 5000px;
   overflow: hidden;
   position: relative;
-  -moz-transition: max-height 1s;
-  -ms-transition: max-height 1s;
-  -o-transition: max-height 1s;
-  -webkit-transition: max-height 1s;
-  transition: max-height 1s;
-  z-index: 10;
+  // -moz-transition: max-height 1s;
+  // -ms-transition: max-height 1s;
+  // -o-transition: max-height 1s;
+  // -webkit-transition: max-height 1s;
+  // transition: max-height 1s;
+  // z-index: 10;
 }
 
-.ac-container input:checked ~ article {
-  -moz-transition: max-height 1s;
-  -ms-transition: max-height 1s;
-  -o-transition: max-height 1s;
-  -webkit-transition: max-height 1s;
-  transition: max-height 1s;
-
-  &.ac-large {
-    max-height: 9999px;
-  }
-}
+// .ac-container input:checked ~ article {
+//   max-height: 9999px;
+//   -moz-transition: max-height 1s;
+//   -ms-transition: max-height 1s;
+//   -o-transition: max-height 1s;
+//   -webkit-transition: max-height 1s;
+//   transition: max-height 1s;
+// }
 
 .explainer-card-header {
   text-align: center;
