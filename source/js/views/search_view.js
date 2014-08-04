@@ -25,7 +25,7 @@ app.Views.Search = Marionette.ItemView.extend({
 
   submit: function(event){
     event.preventDefault();
-    var cad = this.ui.input.val().trim().toLowerCase();
+    var cad = $.trim(this.ui.input.val()).toLowerCase();
     this.cleanView();
     if (cad === ''){
       // TODO: find a better message
