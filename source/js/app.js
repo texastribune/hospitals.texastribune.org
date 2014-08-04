@@ -87,7 +87,7 @@ app.on('initialize:before', function() {
       'marker-size':   'large',
       'marker-symbol': 'hospital'
     };
-    geoData.features.forEach(function(feature) {
+    _.each(geoData.features, function(feature) {
       _.extend(feature.properties, markerOptions);
     });
     return geoData;
