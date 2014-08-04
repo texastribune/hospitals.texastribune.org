@@ -6,6 +6,7 @@ require 'jsonificator'
 require 's3_gzip'
 require 'active_support/all'
 
+ignore 'hospital.html'
 activate :gzip, exts: %w(.js .css .html .htm .json .geojson)
 activate :asset_hash
 activate :bower
