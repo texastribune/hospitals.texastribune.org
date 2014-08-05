@@ -80,9 +80,9 @@ app.Views.Hospitals = Marionette.CompositeView.extend({
   },
 
   updateSearchString: function(searchString) {
-    if (searchString == 'nearest') {
+    if (searchString === 'nearest') {
       this.ui.searchString.text('Hospitals near you');
-    } else if (searchString == '') {
+    } else if (searchString === '') {
       this.ui.searchString.text('Hospitals');
     } else {
       this.ui.searchString.text('Search Results for "' + searchString + '"');

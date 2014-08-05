@@ -35,7 +35,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     }
 
     this.layout.list.show(this.hospitalsView);
-    this.layout.selectedTop.show(this.compareTopView)
+    this.layout.selectedTop.show(this.compareTopView);
     this.layout.selectedBottom.show(this.compareBottomView);
     this.listenTo(this.hospitalsView, 'more-results:hospitals', this.moreResults);
     this.listenTo(this.hospitalsView, 'hospital:selected', this.selectHospital);
