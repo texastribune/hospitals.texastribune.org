@@ -82,11 +82,11 @@ app.Controllers.SearchController = Marionette.Controller.extend({
       ).slice((page - 1) * self.perPage, page * self.perPage);
       app.position = position;
       self.trigger('around:search', results);
-    }
+    };
 
     noGeolocation = function() {
       self.trigger('error:search', 'Geolocation is not working.');
-    }
+    };
 
     if ('geolocation' in navigator) {
       if (typeof app.position === 'undefined') {

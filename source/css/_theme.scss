@@ -571,25 +571,20 @@ label {
 }
 
 .ac-container article {
-  max-height: 5000px;
+  @include transition-duration(1s);
+  max-height: 0;
   overflow: hidden;
   position: relative;
-  // -moz-transition: max-height 1s;
-  // -ms-transition: max-height 1s;
-  // -o-transition: max-height 1s;
-  // -webkit-transition: max-height 1s;
-  // transition: max-height 1s;
-  // z-index: 10;
+  z-index: 10;
 }
 
-// .ac-container input:checked ~ article {
-//   max-height: 9999px;
-//   -moz-transition: max-height 1s;
-//   -ms-transition: max-height 1s;
-//   -o-transition: max-height 1s;
-//   -webkit-transition: max-height 1s;
-//   transition: max-height 1s;
-// }
+.ac-container input:checked ~ article {
+  @include transition-duration(1s);
+
+  &.ac-large {
+    max-height: 9999px;
+  }
+}
 
 .explainer-card-header {
   text-align: center;

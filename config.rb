@@ -16,13 +16,6 @@ activate :jsonificator do |j|
   j.jsonificator_template = 'hospital.html'
 end
 activate :s3gzip, exts: %w(.js .css .html .htm .json .geojson)
-activate :deploy do |deploy|
-  deploy.method = :rsync
-  deploy.host   = "codingnews.info"
-  deploy.path   = "/home/malev/apps/hospital.codingnews.info"
-  deploy.user   = "malev"
-  deploy.build_before = true
-end
 activate :directory_indexes
 
 set :css_dir, 'css'
