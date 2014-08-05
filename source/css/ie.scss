@@ -1,0 +1,36 @@
+@import 'bourbon';
+@import 'settings';
+
+.ac {
+  &.clickable {
+    cursor: default;
+  }
+}
+.ac-hover1 {
+  &:hover {
+    background-color: $ac1-open;
+  }
+}
+
+.ac-hover2 {
+  &:hover {
+    background-color: $ac2-open;
+  }
+}
+
+.ac-hover3 {
+  &:hover {
+    background-color: $ac3-open;
+  }
+}
+
+.ac-hover4 {
+  &:hover {
+    background-color: $ac4-open;
+  }
+}
+.ac-container input ~ article {
+  &.ac-large {
+    max-height: 9999px;
+  }
+}
