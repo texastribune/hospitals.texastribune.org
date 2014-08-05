@@ -19,7 +19,7 @@ id,title,description,latitude,longitude
 18,Jps Health Network,"1500 S. Main St., Fort Worth - 76104",32.72647222600045,-97.32645284799969
 19,Covenant Medical Center,"3615 19th St., Lubbock - 79410",33.57787319400046,-101.89255068299968
 20,Providence Health Center,"6901 Medical Parkway, Waco - 76712",31.513228214000435,-97.1985460899997
-21,Ut Southwestern University Hospital,"5909 Harry Hines Blvd., Dallas - 75390",32.81775433100046,-96.84473258599968
+21,UT Southwestern University Hospital,"5909 Harry Hines Blvd., Dallas - 75390",32.81775433100046,-96.84473258599968
 22,Christus Spohn Hospital Corpus Christi,"600 Elizabeth St., Corpus Christi - 78404",27.777535767000472,-97.39521913999965
 23,Methodist Dallas Medical Center,"1441 N. Beckley Ave., Dallas - 75203",32.76155917500046,-96.82305272699966
 24,Goodall Witcher Hospital,"101 Posey Ave., Clifton - 76634",31.802211300000465,-97.55040619899967
@@ -83,7 +83,7 @@ id,title,description,latitude,longitude
 82,Memorial Medical Center Of East Texas,"1201 W. Frank St., Lufkin - 75901",31.325333912000474,-94.68526612199969
 83,University Health System,"4502 Medical Drive, San Antonio - 78229",29.510074227000473,-98.57945748799966
 84,Gulf Coast Medical Center,"10141 U.S. Highway 59 North, Wharton - 77488",29.325922837000462,-96.12076792499965
-85,Scott & White Hospital Llano,"200 W. Ollie, Llano - 78643",30.743282645000477,-98.67767109699969
+85,Scott & White Hospital-Llano,"200 W. Ollie, Llano - 78643",30.743282645000477,-98.67767109699969
 86,Moore County Hospital District,"224 E. Second St., Dumas - 79029",35.86427041300044,-101.97030118399965
 87,Conroe Regional Medical Center,"504 Medical Center Blvd., Conroe - 77304",30.28451513200048,-95.46626886099966
 88,Hendrick Medical Center,"1900 Pine, Abilene - 79601",32.47147132900045,-99.73114769599965
@@ -135,7 +135,7 @@ id,title,description,latitude,longitude
 134,Tyler County Hospital,"1100 W. Bluff, Woodville - 75979",30.77530155800048,-94.4278455759997
 135,Texas Health Presbyterian Hospital  Dallas,"8200 Walnut Hill Lane, Dallas - 75231",32.88317316400048,-96.76334545699967
 136,Matagorda Regional Medical Center,"104 7th St., Bay City - 77414",28.982807127000456,-95.99135590199967
-137,Texas Health Presbyterian Hospital Wnj,"500 N. Highland Ave., Sherman - 75091",33.63807317900046,-96.62358275999969
+137,Texas Health Presbyterian Hospital-WNJ,"500 N. Highland Ave., Sherman - 75091",33.63807317900046,-96.62358275999969
 138,Etmc Henderson,"300 Wilson St., Henderson - 75652",32.16161490200045,-94.7963275249997
 139,Woodland Heights Medical Center,"505 S. John Redditt Drive, Lufkin - 75904",31.327920699000458,-94.75614351799965
 140,Allegiance Specialty Hospital Of Kilgore,"1612 S. Henderson Blvd., Kilgore - 75662",32.37452966300049,-94.86916780799964
@@ -156,7 +156,7 @@ id,title,description,latitude,longitude
 155,Wilbarger General Hospital,"920 Hillcrest Drive, Vernon - 76384",34.16101687900044,-99.31391189899966
 156,Seymour Hospital,"200 Stadium Drive, Seymour - 76380",33.58938580200049,-99.24752348999965
 157,Brownwood Regional Medical Center,"1501 Burnet Drive, Brownwood - 76801",31.677058114000488,-98.9923817459997
-158,Angleton Danbury Medical Center,"132 Hospital Drive, Angleton - 77515",29.185163443000476,-95.40372026899968
+158,Angleton-Danbury Medical Center,"132 Hospital Drive, Angleton - 77515",29.185163443000476,-95.40372026899968
 159,Lake Granbury Medical Center,"1310 Paluxy Road, Granbury - 76048",32.431553060000454,-97.80308886499967
 160,Cuero Community Hospital,"2550 N. Esplanade, Cuero - 77954",29.113191286000472,-97.28150941999968
 161,Hill Country Memorial Hospital Inc,"1020 S. State Highway 16, Fredericksburg - 78624",30.26237446300047,-98.88031646699966
@@ -167,7 +167,7 @@ id,title,description,latitude,longitude
 166,Dimmit Regional Hospital,"704 Hospital Drive, Carrizo Springs - 78834",28.519649485000457,-99.86260120299966
 167,Denton Regional Medical Center,"3535 S. Interstate 35 East, Denton - 76210",33.15170048800047,-97.0955362629997
 168,Houston Northwest Medical Center,"710 Fm 1960 West, Houston - 77090",30.018112533000476,-95.43963368899966
-169,Texas Health Harris Methodist Hurst Euless Bedford,"1600 Hospital Parkway, Bedford - 76022",32.83286399500048,-97.12518524299969
+169,Texas Health Harris Methodist Hurst-Euless-Bedford,"1600 Hospital Parkway, Bedford - 76022",32.83286399500048,-97.12518524299969
 170,Va West Texas Healthcare System,"300 Veterans Blvd., Big Spring - 79720",32.23184502400045,-101.47114698999968
 171,Nocona General Hospital,"100 Park Road, Nocona - 76255",33.77666907900044,-97.73160329699965
 172,Doctors Hospital Of Laredo,"10700 Mc Pherson Road, Laredo - 78041",27.608707212000468,-99.47676853899969
@@ -177,13 +177,13 @@ id,title,description,latitude,longitude
 176,Scenic Mountain Medical Center,"1601 W. 11th Place, Big Spring - 79720",32.23982321000045,-101.49303512499966
 177,Starr County Memorial Hospital,"128  N. Fm 3167, Rio Grande City - 78582",26.376012012000444,-98.79654943099968
 178,Nacogdoches Medical Center,"4920 N.E. Stallings Drive, Nacogdoches - 75961",31.583861306000472,-94.62222909499968
-179,East Texas Medical Center   Fairfield,"125 Newman St., Fairfield - 75840",31.725601140000435,-96.1696530589997
+179,East Texas Medical Center - Fairfield,"125 Newman St., Fairfield - 75840",31.725601140000435,-96.1696530589997
 180,Park Plaza Hospital,"1313 Hermann Drive, Houston - 77004",29.72244478300047,-95.38809553799967
 181,Odessa Regional Hospital,"520 E. 6th St., Odessa - 79761",31.85123502200048,-102.36636533099966
 182,Valley Regional Medical Center,"100 E. Alton Gloor Blvd., Brownsville - 78526",25.969992973000444,-97.47837904299968
 183,Sierra Medical Center,"1625 Medical Center Drive, El Paso - 79902",31.778121413000463,-106.47969310699966
 184,Medical Center Of Lewisville,"500 W. Main St., Lewisville - 75057",33.04625333100046,-97.00475062899966
-185,Dallas Va Medical Center   Va North Texas,"4500 S. Lancaster Road, Dallas - 75216",32.69410704800049,-96.79289965699968
+185,Dallas Va Medical Center - Va North Texas,"4500 S. Lancaster Road, Dallas - 75216",32.69410704800049,-96.79289965699968
 186,Tomball Regional Medical Center,"605 Holderrieth, Tomball - 77375",30.089252889000477,-95.62389203199967
 187,Plaza Medical Center Of Fort Worth,"900 Eighth Ave., Fort Worth - 76104",32.734543422000456,-97.34374819899966
 188,"Womans Hospital Of Texas,The","7600 Fannin, Houston - 77054",29.692731500000434,-95.40136210899965
@@ -213,7 +213,7 @@ id,title,description,latitude,longitude
 212,Houston Va Medical Center,"2002 Holcombe Blvd., Houston - 77030",29.706022489000475,-95.38992508699965
 213,Hamilton General Hospital,"400 N. Brown, Hamilton - 76531",31.703941124000437,-98.11337378999968
 214,Covenant Hospital Levelland,"1900 College Ave., Levelland - 79336",33.572750622000456,-102.36779383399966
-215,Ut Southwestern University Hospital Zale Lipshy,"5151 Harry Hines Blvd., Dallas - 75390",32.81095249100048,-96.83628504399968
+215,UT Southwestern University Hospital-Zale Lipshy,"5151 Harry Hines Blvd., Dallas - 75390",32.81095249100048,-96.83628504399968
 216,Central Texas Hospital,"806 N. Crockett, Cameron - 76520",30.85675889500044,-96.9769022969997
 217,Texas Health Presbyterian Hospital Plano,"6200 W. Parker Road, Plano - 75093",33.04512340500048,-96.83633943499967
 218,Tops Surgical Specialty Hospital,"17080 Red Oak Drive, Houston - 77090",30.018312139000443,-95.44462547999967
@@ -253,7 +253,7 @@ id,title,description,latitude,longitude
 252,Seton Southwest Hospital,"7900 Fm 1826, Austin - 78737",30.226756898000474,-97.88967630999969
 253,Seton  Northwest Hospital,"11113 Research Blvd., Austin - 78759",30.406256536000456,-97.74484907799967
 254,Doctors Hospital At Renaissance,"5501 S. Mc Coll, Edinburg - 78539",26.253825290000464,-98.2038909259997
-255,Temple Va Medical Center   Va Central Texas,"1901 Veterans Memorial Drive, Temple - 76504",31.07791054200044,-97.34924809999967
+255,Temple Va Medical Center - Va Central Texas,"1901 Veterans Memorial Drive, Temple - 76504",31.07791054200044,-97.34924809999967
 256,Arise Austin Medical Center,"3003 Bee Caves Road, Austin - 78746",30.271592722000435,-97.79583790899966
 257,Usmd Hospital At Arlington L P,"801 W. Interstate 20, Arlington - 76017",32.67904779000048,-97.11681723199968
 258,Baylor Surgical Hospital At Las Colinas,"400 W. Interstate 635, Suite 101, Irving - 75063",32.91219331800045,-96.94562727399966
@@ -262,7 +262,7 @@ id,title,description,latitude,longitude
 261,Foundation Surgical Hospital Of El Paso,"1416 George Dieter, El Paso - 79936",31.73446052300045,-106.30155790899971
 262,Baylor Surgical Hospital At Fort Worth,"750 12th Ave., Fort Worth - 76104",32.73681623000044,-97.34741874699967
 263,Baylor Medical Center At Trophy Club,"2850 E. State Highway 114, Trophy Club - 76262",32.987939182000446,-97.17480994399966
-264,East Texas Medical Center   Gilmer,"712 N. Wood, Gilmer - 75644",32.735286070000484,-94.9425944949997
+264,East Texas Medical Center - Gilmer,"712 N. Wood, Gilmer - 75644",32.735286070000484,-94.9425944949997
 265,Centennial Medical Center,"12505 Lebanon Road, Frisco - 75035",33.115852791000464,-96.77095055099966
 266,Texas Health Harris Methodist Hospital Southlake,"1545 E. Southlake Blvd., Southlake - 76092",32.94094274000048,-97.12898097899966
 267,Texas Institute For Surgery At Presbyterian Hospit,"7115 Greenville Ave., Suite 100, Dallas - 75231",32.877354160000436,-96.76128932299969
@@ -270,9 +270,9 @@ id,title,description,latitude,longitude
 269,Texas Health Center For Diagnostics & Surgery Plan,"6020 W. Parker Road, Plano - 75093",33.04508313400049,-96.8316112709997
 270,The Heart Hospital Baylor Denton,"2801 S. Mayhill Road, Denton - 76208",33.17643770900048,-97.0881875449997
 271,Pine Creek Medical Center Llp,"9032 Harry Hines Blvd., Dallas - 75235",32.84036268000045,-96.86900071199966
-272,San Antonio Va Medical Center   Va South Texas,"7400 Merton Minter Blvd., San Antonio - 78229",29.508417301000463,-98.5808280979997
+272,San Antonio Va Medical Center - Va South Texas,"7400 Merton Minter Blvd., San Antonio - 78229",29.508417301000463,-98.5808280979997
 273,Reagan Memorial Hospital,"805 N. Main, Big Lake - 76932",31.197585137000488,-101.46171618399967
-274,Good Shephard Medical Center Linden,"404 N. Kaufman St., Linden - 75563",33.01370299600046,-94.36456402999966
+274,Good Shephard Medical Center-Linden,"404 N. Kaufman St., Linden - 75563",33.01370299600046,-94.36456402999966
 275,Limestone Medical Center,"701 Mc Clintic Drive, Groesbeck - 76642",31.53165894300048,-96.52981087999967
 276,Burleson St Joseph Health Center,"1101 Woodson Drive, Caldwell - 77836",30.521254807000446,-96.71628700799965
 277,Yoakum County Hospital,"412 Mustang Ave., Denver City - 79323",32.96808180800048,-102.83636580599966
@@ -317,7 +317,7 @@ id,title,description,latitude,longitude
 316,Seton Edgar B Davis Hospital,"130 Hays St., Luling - 78648",29.672628517000476,-97.65348253999969
 317,Muleshoe Area Medical Center,"708 S 1st St., Muleshoe - 79347",34.22110625100049,-102.72842759199966
 318,Ward Memorial Hospital,"406 S. Gary St., Monahans - 79756",31.593884051000487,-102.88455632999967
-319,Scott & White Hospital Taylor,"305 Mallard, Taylor - 76574",30.591904772000476,-97.41530133899965
+319,Scott & White Hospital-Taylor,"305 Mallard, Taylor - 76574",30.591904772000476,-97.41530133899965
 320,Lavaca Medical Center,"1400 N. Texana St., Hallettsville - 77964",29.457930596000438,-96.93980945299967
 321,Reeves County Hospital District,"2323 Texas St., Pecos - 79772",31.401773196000477,-103.51282219499967
 322,Big Bend Regional Medical Center,"2600 Highway 118 North, Alpine - 79830",30.35429035800047,-103.6599662269997
@@ -341,7 +341,7 @@ id,title,description,latitude,longitude
 340,The Heart Hospital Baylor Plano,"1100 Allied Drive, Plano - 75093",33.014446835000456,-96.79073860899967
 341,First Surgical Hospital,"4801 Bissonet Blvd., Bellaire - 77401",29.71037564900047,-95.46249777799966
 342,St Luke's Patients Medical Center,"4600 E. Sam Houston Parkway South, Pasadena - 77505",29.641109010000434,-95.16000312999967
-343,Scott & White Hospital Round Rock,"300 University Blvd., Round Rock - 78664",30.560317426000438,-97.6849191389997
+343,Scott & White Hospital-Round Rock,"300 University Blvd., Round Rock - 78664",30.560317426000438,-97.6849191389997
 344,Seton Medical Center Williamson,"201 Seton Parkway, Round Rock - 78664",30.571051729000487,-97.65298034999967
 345,Cedar Park Regional Medical Center,"1401 Medical Parkway, Cedar Park - 78613",30.530595852000488,-97.81187836799967
 346,Texas Health Presbyterian Hospital Rockwall,"3150 Horizon Road, Rockwall - 75032",32.886069045000454,-96.46477002099965
@@ -350,7 +350,7 @@ id,title,description,latitude,longitude
 349,Sierra Providence East Medical Center,"3280 Joe Battle Blvd., El Paso - 79938",31.790220156000487,-106.26762812799967
 350,North Central Surgical Center Llp,"9301 N. Central Expressway, Suite 100, Dallas - 75231",32.87500902800048,-96.77064378899968
 351,Trustpoint Hospital,"4302 Princeton, Lubbock - 79415",33.616860450000445,-101.86834885199966
-352,St Luke's Sugar Land Hospital,"1317 Lake Pointe Parkway, Sugar Land - 77478",29.604892134000465,-95.62127853899966
+352,St Luke'S Sugar Land Hospital,"1317 Lake Pointe Parkway, Sugar Land - 77478",29.604892134000465,-95.62127853899966
 353,Foundation Surgical Hospital Of San Antonio,"9522 Huebner Road, San Antonio - 78240",29.531390046000467,-98.59216975599969
 354,Methodist Stone Oak Hospital,"1139 E. Sonterra Blvd., San Antonio - 78258",29.614517831000455,-98.47655835299969
 355,Seton Medical Center Hays,"6001 Kyle Parkway, Kyle - 78640",30.007586133000473,-97.85517981299967
