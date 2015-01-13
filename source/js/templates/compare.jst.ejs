@@ -72,15 +72,15 @@
             <tbody>
               <tr>
                 <td>Before patients receive a diagnostic exam</td>
-                <td><%= minuteOrNA(model.data.emergency_rates.op_20) %></td>
+                <td><%= minuteOrNA(model.indicators.op_20) %></td>
               </tr>
               <tr>
                 <td>By patients admitted to the hospital</td>
-                <td><%= minuteOrNA(model.data.emergency_rates.ed_1b) %></td>
+                <td><%= minuteOrNA(model.indicators.ed_1b) %></td>
               </tr>
               <tr>
                 <td>By patients discharged and sent home</td>
-                <td><%= minuteOrNA(model.data.emergency_rates.op_18b) %></td>
+                <td><%= minuteOrNA(model.indicators.op_18b) %></td>
               </tr>
             </tbody>
           </table>
@@ -120,11 +120,11 @@
               <tbody>
                 <tr>
                   <td>Serious surgical complications</td>
-                  <td><%= model.data.complications_rates.serious_complications %></td>
+                  <td><%= model.indicators.serious_complications %></td>
                 </tr>
                 <tr>
                   <td>Deaths among patients with serious, treatable conditions</td>
-                  <td><%= model.data.complications_rates.death_from_serious_complications %></td>
+                  <td><%= model.indicators.death_from_serious_complications %></td>
                 </tr>
               </tbody>
             </table>
@@ -142,19 +142,19 @@
               <tbody>
                 <tr>
                   <td>Central-line associated bloodstream infection</td>
-                  <td><%= model.data.associated_infections.hai_1_desc %></td>
+                  <td><%= model.indicators.hai_1_desc %></td>
                 </tr>
                 <tr>
                   <td>Catheter-associated urinary tract infection</td>
-                  <td><%= model.data.associated_infections.hai_2_desc %></td>
+                  <td><%= model.indicators.hai_2_desc %></td>
                 </tr>
                 <tr>
                   <td>Surgical site infection from colon surgery</td>
-                  <td><%= model.data.associated_infections.hai_3_desc %></td>
+                  <td><%= model.indicators.hai_3_desc %></td>
                 </tr>
                 <tr>
                   <td>Surgical site infection from abdominal hysterectomy</td>
-                  <td><%= model.data.associated_infections.hai_4_desc %></td>
+                  <td><%= model.indicators.hai_4_desc %></td>
                 </tr>
               </tbody>
             </table>
@@ -195,19 +195,19 @@
             <tbody>
               <tr>
                 <td>For all patients discharged from the hospital</td>
-                <td><%= percentOrNA(model.data.outcomes.readm_30_hosp_wide) %></td>
+                <td><%= percentOrNA(model.indicators.readm_30_hosp_wide) %></td>
               </tr>
               <tr>
                 <td>For heart attack patients</td>
-                <td><%= percentOrNA(model.data.outcomes.readm_30_ha) %></td>
+                <td><%= percentOrNA(model.indicators.readm_30_ha) %></td>
               </tr>
               <tr>
                 <td>For heart failure patients</td>
-                <td><%= percentOrNA(model.data.outcomes.readm_30_hf) %></td>
+                <td><%= percentOrNA(model.indicators.readm_30_hf) %></td>
               </tr>
               <tr>
                 <td>For pneumonia patients</td>
-                <td><%= percentOrNA(model.data.outcomes.readm_30_pn) %></td>
+                <td><%= percentOrNA(model.indicators.readm_30_pn) %></td>
               </tr>
             </tbody>
           </table>
@@ -225,15 +225,15 @@
             <tbody>
               <tr>
                 <td>For heart attack patients</td>
-                <td><%= percentOrNA(model.data.outcomes.mort_30_ami) %></td>
+                <td><%= percentOrNA(model.indicators.mort_30_ami) %></td>
               </tr>
               <tr>
                 <td>For heart failure patients</td>
-                <td><%= percentOrNA(model.data.outcomes.mort_30_hf) %></td>
+                <td><%= percentOrNA(model.indicators.mort_30_hf) %></td>
               </tr>
               <tr>
                 <td>For pneumonia patients</td>
-                <td><%= percentOrNA(model.data.outcomes.mort_30_pn) %></td>
+                <td><%= percentOrNA(model.indicators.mort_30_pn) %></td>
               </tr>
             </tbody>
           </table>
@@ -273,31 +273,31 @@
             <tbody>
               <tr>
                 <td>Gave the hospital a score of "9" or "10" on a scale from 0 (low) to 10 (high)</td>
-                <td><%= percentOrNA(model.data.quality.h_hsp_rating_9_10) %></td>
+                <td><%= percentOrNA(model.indicators.h_hsp_rating_9_10) %></td>
               </tr>
               <tr>
                 <td>Would definitely recommend the hospital</td>
-                <td><%= percentOrNA(model.data.quality.h_recmnd_dy) %></td>
+                <td><%= percentOrNA(model.indicators.h_recmnd_dy) %></td>
               </tr>
               <tr>
                 <td>Reported their doctors "always" communicated well</td>
-                <td><%= percentOrNA(model.data.quality.h_comp_2_a_p) %></td>
+                <td><%= percentOrNA(model.indicators.h_comp_2_a_p) %></td>
               </tr>
               <tr>
                 <td>Reported their nurses "always" communicated well</td>
-                <td><%= percentOrNA(model.data.quality.h_comp_1_a_p) %></td>
+                <td><%= percentOrNA(model.indicators.h_comp_1_a_p) %></td>
               </tr>
               <tr>
                 <td>Reported they "always" received help as soon as they wanted</td>
-                <td><%= percentOrNA(model.data.quality.h_comp_3_a_p) %></td>
+                <td><%= percentOrNA(model.indicators.h_comp_3_a_p) %></td>
               </tr>
               <tr>
                 <td>Reported their room and bathroom were "always" clean</td>
-                <td><%= percentOrNA(model.data.quality.h_clean_hsp_a_p) %></td>
+                <td><%= percentOrNA(model.indicators.h_clean_hsp_a_p) %></td>
               </tr>
               <tr>
                 <td>Reported the area around their room was "always" quiet at night</td>
-                <td><%= percentOrNA(model.data.quality.h_quiet_hsp_a_p) %></td>
+                <td><%= percentOrNA(model.indicators.h_quiet_hsp_a_p) %></td>
               </tr>
             </tbody>
           </table>
