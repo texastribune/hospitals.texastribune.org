@@ -223,11 +223,19 @@ js: /js/hospital.js
         <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:readm_30_hosp_wide]%></td>
         <td data-title="U.S. national ratio"><%= format_percentage data.national["readm_30_hosp_wide"] %></td>
       </tr>
+      <% if locals[:readm_30_ha] %>
       <tr>
         <td data-title="">For heart attack patients</td>
         <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:readm_30_ha]%></td>
         <td data-title="U.S. national ratio"><%= format_percentage data.national["readm_30_ha"] %></td>
       </tr>
+      <% else %>
+      <tr>
+        <td data-title="">For acute myocardial infarction</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:readm_30_ami]%></td>
+        <td data-title="U.S. national ratio"><%= format_percentage data.national["readm_30_ami"] %></td>
+      </tr>
+      <% end -%>
       <tr>
         <td data-title="">For heart failure patients</td>
         <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:readm_30_hf]%></td>
@@ -257,11 +265,19 @@ js: /js/hospital.js
       </tr>
     </thead>
     <tbody>
+      <% if locals[:mort_30_ha] %>
       <tr>
         <td data-title="">For heart attack patients</td>
         <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:mort_30_ha] %></td>
         <td data-title="U.S. national rate"><%= format_percentage data.national["mort_30_ha"] %></td>
       </tr>
+      <% else %>
+      <tr>
+        <td data-title="">For acute myocardial infarction</td>
+        <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:mort_30_ami] %></td>
+        <td data-title="U.S. national rate"><%= format_percentage data.national["mort_30_ami"] %></td>
+      </tr>
+      <% end -%>
       <tr>
         <td data-title="">For heart failure patients</td>
         <td data-title="<%= locals[:name] %>"><%= format_percentage locals[:mort_30_hf] %></td>
