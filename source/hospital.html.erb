@@ -56,6 +56,15 @@ js: /js/hospital.js
     </div>
   </dl>
 </div>
+    <% unless locals[:old_url].nil? %>
+      <div class="old-link">
+        <a href="<%= locals[:old_url] %>">2014 Data</a>
+      </div>
+      <% else %>
+      <div class="disclaimer">
+        OLD DATA!!!!
+      </div>
+    <% end -%>
 
 <div class="content-block">
   <div class="prose">
