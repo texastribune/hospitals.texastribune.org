@@ -31,7 +31,7 @@ class Jsonificator < Middleman::Extension
         page_name = hospital_data["name"].parameterize
 
         app.proxy(
-          "2014/#{page_name}.html",
+          "2012/#{page_name}.html",
           "#{options.jsonificator_template}",
           locals: build_locals(hospital_data, indicators)
         )
@@ -102,7 +102,7 @@ class Jsonificator < Middleman::Extension
 
   def old_link(hospital_data)
     if hospital_data["old_url"]
-      "/2014/" + hospital_data["old_url"]
+      "/2012/" + hospital_data["old_url"]
     else
       nil
     end
