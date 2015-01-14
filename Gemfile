@@ -5,6 +5,7 @@ source 'http://rubygems.org'
 gem "middleman", "~>3.3.7"
 gem "middleman-bourbon"
 gem "middleman-bower"
+gem "middleman-s3_sync"
 gem "neat"
 gem "jshintrb"
 gem "scss-lint"
