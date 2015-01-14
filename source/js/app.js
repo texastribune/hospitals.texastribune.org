@@ -24,7 +24,8 @@ app.addRegions({
   searchRegion:  '#search',
   resultsRegion: '#results',
   compareRegion: '#compare',
-  selectedRegion: '#selected-hospitals'
+  selectedRegion: '#selected-hospitals',
+  listRegion: '#results'
 });
 
 app.Routers = app.Routers || {};
@@ -32,6 +33,7 @@ app.Routers = app.Routers || {};
 app.Routers.Main = Backbone.Marionette.AppRouter.extend({
   appRoutes: {
     '': 'index',
+    'list': 'listHospitals',
     'search/:query': 'search',
     'select/*hospitalIds': 'select',
     'compare/*hospitalIds': 'compare',
