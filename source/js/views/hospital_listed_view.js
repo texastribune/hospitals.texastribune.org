@@ -4,7 +4,7 @@ app.Views.HospitalListed = Marionette.ItemView.extend({
   tagName: 'tr',
   templateHelpers: function() {
     return {
-      has_old_url: !!(this.model.get('old_url'))
+      hasOldUrl: !!(this.model.get('old_url'))
     };
   }
 });
