@@ -1,6 +1,6 @@
 // MarionetteJS (Backbone.Marionette)
 // ----------------------------------
-// v1.8.5
+// v1.8.8
 //
 // Copyright (c)2014 Derick Bailey, Muted Solutions, LLC.
 // Distributed under MIT license
@@ -954,7 +954,12 @@ _.extend(Marionette.Region.prototype, Backbone.Events, {
 
     view.render();
     Marionette.triggerMethod.call(this, "before:show", view);
-    Marionette.triggerMethod.call(view, "before:show");
+
+    if (_.isFunction(view.triggerMethod)) {
+      view.triggerMethod("before:show");
+    } else {
+      Marionette.triggerMethod.call(view, "before:show");
+    }
 
     if (isDifferentView || isViewClosed) {
       this.open(view);
@@ -963,7 +968,14 @@ _.extend(Marionette.Region.prototype, Backbone.Events, {
     this.currentView = view;
 
     Marionette.triggerMethod.call(this, "show", view);
-    Marionette.triggerMethod.call(view, "show");
+
+    if (_.isFunction(view.triggerMethod)) {
+      view.triggerMethod("show");
+    } else {
+      Marionette.triggerMethod.call(view, "show");
+    }
+
+    return this;
   },
 
   ensureEl: function(){
@@ -1594,7 +1606,11 @@ Marionette.CollectionView = Marionette.View.extend({
   _triggerShowBufferedChildren: function () {
     if (this._isShown) {
       _.each(this._bufferedChildren, function (child) {
-        Marionette.triggerMethod.call(child, "show");
+        if (_.isFunction(child.triggerMethod)) {
+          child.triggerMethod('show');
+        } else {
+          Marionette.triggerMethod.call(child, 'show');
+        }
       });
       this._bufferedChildren = [];
     }
@@ -1622,7 +1638,11 @@ Marionette.CollectionView = Marionette.View.extend({
   // of child views is called.
   onShowCalled: function(){
     this.children.each(function(child){
-      Marionette.triggerMethod.call(child, "show");
+      if (_.isFunction(child.triggerMethod)) {
+        child.triggerMethod('show');
+      } else {
+        Marionette.triggerMethod.call(child, 'show');
+      }
     });
   },
 
@@ -1748,7 +1768,11 @@ Marionette.CollectionView = Marionette.View.extend({
     // call the "show" method if the collection view
     // has already been shown
     if (this._isShown && !this.isBuffering){
-      Marionette.triggerMethod.call(view, "show");
+      if (_.isFunction(view.triggerMethod)) {
+        view.triggerMethod('show');
+      } else {
+        Marionette.triggerMethod.call(view, 'show');
+      }
     }
 
     // this view was added
@@ -2262,7 +2286,6 @@ Marionette.Behaviors = (function(Marionette, _) {
     Behaviors.wrap(view, this.behaviors, [
       'bindUIElements', 'unbindUIElements',
       'delegateEvents', 'undelegateEvents',
-      'onShow', 'onClose',
       'behaviorEvents', 'triggerMethod',
       'setElement', 'close'
     ]);
@@ -2289,30 +2312,6 @@ Marionette.Behaviors = (function(Marionette, _) {
       // This unbinds event listeners
       // that behaviors have registerd for.
       _.invoke(behaviors, 'close', args);
-    },
-
-    onShow: function(onShow, behaviors) {
-      var args = _.tail(arguments, 2);
-
-      _.each(behaviors, function(b) {
-        Marionette.triggerMethod.apply(b, ["show"].concat(args));
-      });
-
-      if (_.isFunction(onShow)) {
-        onShow.apply(this, args);
-      }
-    },
-
-    onClose: function(onClose, behaviors){
-      var args = _.tail(arguments, 2);
-
-      _.each(behaviors, function(b) {
-        Marionette.triggerMethod.apply(b, ["close"].concat(args));
-      });
-
-      if (_.isFunction(onClose)) {
-        onClose.apply(this, args);
-      }
     },
 
     bindUIElements: function(bindUIElements, behaviors) {
@@ -2360,7 +2359,7 @@ Marionette.Behaviors = (function(Marionette, _) {
 
       _.each(behaviors, function(b, i) {
         var _events = {};
-        var behaviorEvents = _.result(b, 'events') || {};
+        var behaviorEvents = _.clone(_.result(b, 'events')) || {};
         var behaviorUI = _.result(b, 'ui');
 
         // Construct an internal UI hash first using
