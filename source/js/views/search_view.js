@@ -13,7 +13,8 @@ app.Views.Search = Marionette.ItemView.extend({
     'click #find-me': 'nearestHospitals',
     'click input': 'hideError',
     'submit form': 'submit',
-    'click #search-submit': 'submit'
+    'click #search-submit': 'submit',
+    'click #view-all': 'listHospitals'
   },
 
   initialize: function(options) {
@@ -72,5 +73,10 @@ app.Views.Search = Marionette.ItemView.extend({
     this.hideError();
     this.hideEmpty();
     this.trigger("call:search", 'nearest');
+  },
+
+  listHospitals: function(event){
+    event.preventDefault();
+    this.trigger('list:hospitals', 'list');
   }
 });
