@@ -11,7 +11,7 @@ activate :gzip, exts: %w(.js .css .html .htm .json .geojson)
 activate :asset_hash
 activate :bower
 activate :bourbon
-activate :livereload
+# activate :livereload
 activate :jsonificator do |j|
   j.jsonificator_template = 'hospital.html'
 end
