@@ -37,7 +37,7 @@ app.Routers.Main = Backbone.Marionette.AppRouter.extend({
     'search/:query': 'search',
     'select/*hospitalIds': 'select',
     'compare/*hospitalIds': 'compare',
-    '*default': 'index'
+    '*default': 'showHospital'
   }
 });
 

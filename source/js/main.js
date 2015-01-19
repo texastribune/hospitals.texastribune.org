@@ -23,5 +23,6 @@
 //=require views/hospitals_to_compare_view
 //=require views/hospitals_view
 //=require views/compare_view
+//=require views/hospital_show_view
 //=require views/hospital_listed_view
 //=require views/hospitals_list_view

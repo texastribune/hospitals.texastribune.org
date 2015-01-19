@@ -45,5 +45,10 @@ app.Controllers.MainController = Marionette.Controller.extend({
   showSelect: function(hospitalIds) {
     app.mainRouter.navigate('select/' + hospitalIds.join('/'));
     this.selectController = new app.Controllers.SelectController(hospitalIds);
+  },
+
+  showHospital: function(slug) {
+    app.mainRouter.navigate(slug);
+    this.hospitalsController = new app.Controllers.HospitalsController(slug);
   }
 });
