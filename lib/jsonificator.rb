@@ -42,7 +42,7 @@ class Jsonificator < Middleman::Extension
   def build_locals(hospital_data, indicators, current=true)
     {
       id: hospital_data["_id"],
-      url: hospital_data["url"],
+      url: "/" + hospital_data["url"],
       name: hospital_data["name"],
       phone_number: hospital_data["phone_number"],
       address: hospital_data["address"],
