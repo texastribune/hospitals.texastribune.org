@@ -2,7 +2,6 @@ require 'builder'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 
-require 'jsonificator'
 require 's3_gzip'
 require 'active_support/all'
 
@@ -12,9 +11,6 @@ activate :asset_hash
 activate :bower
 activate :bourbon
 activate :livereload
-activate :jsonificator do |j|
-  j.jsonificator_template = 'hospital.html'
-end
 activate :s3gzip, exts: %w(.js .css .html .htm .json .geojson)
 activate :directory_indexes
 activate :s3_sync do |s3_sync|
