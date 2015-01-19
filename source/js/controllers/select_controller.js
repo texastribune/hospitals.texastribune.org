@@ -41,6 +41,7 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     this.listenTo(this.hospitalsView, 'hospital:selected', this.selectHospital);
     this.listenTo(this.hospitalsView, 'hospital:deselected', this.deselectHospital);
     this.listenTo(this.hospitalsView, 'render', this.syncronizeViews);
+    this.listenTo(this.searchView, 'list:hospitals', this.listHospitals);
 
     this.preloadList(options);
     this.listenTo(this.compareTopView, 'compare:hospitals', this.compare);
@@ -66,6 +67,12 @@ app.Controllers.SelectController = Marionette.Controller.extend({
     } else {
       this.searchController.search(this.getFirstZipcode());
     }
+  },
+
+  listHospitals: function(){
+    app.mainRouter.navigate('list');
+    this.hospitalsController = new app.Controllers.HospitalsController();
+    this.close();
   },
 
   moreResults: function() {
