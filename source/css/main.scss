@@ -7,6 +7,13 @@
 @import 'base_theme';
 @import 'theme';
 
+.view-all{
+  cursor: pointer;
+}
+
+.form-group{
+  margin-bottom: 1em;
+}
 
 .map-and-selected {
   @include span-columns(12);
