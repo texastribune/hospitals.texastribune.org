@@ -4,16 +4,13 @@ app.Views.HospitalsList = Marionette.CompositeView.extend({
   itemViewContainer: 'tbody',
 
   onShow: function() {
-    $('#hospital-list-all').tablesorter({
+    var $hospitalList = $("#hospital-list-all");
+    var $filter = $('#filter');
+
+    $hospitalList.tablesorter({
       sortList: [[1, 0]],
-
+      widthFixed : false,
       widgets: ["filter"],
-
-      widgetOptions : {
-        filter_hideFilters: false,
-
-      }
-
     });
   }
 });
