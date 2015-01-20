@@ -86,6 +86,16 @@ section.map-and-selected {
   }
 }
 
+.year-toggle{
+  border-bottom: 1px solid $lt-gray;
+  .other-year{
+    background-color: $tribune-yellow;
+  }
+  .this-year{
+    background-color: $lt-gray;
+  }
+}
+
 .hide {
   display: none;
 }
