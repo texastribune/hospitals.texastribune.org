@@ -4,5 +4,6 @@ app.Views.HospitalsList = Marionette.CompositeView.extend({
   itemViewContainer: 'tbody',
 
   onShow: function() {
+    $('#hospital-list-all').tablesorter();
   }
 });
