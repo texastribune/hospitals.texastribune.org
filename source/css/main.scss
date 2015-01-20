@@ -88,11 +88,15 @@ section.map-and-selected {
 
 .year-toggle{
   border-bottom: 1px solid $lt-gray;
+  margin: 0 0 1em 0;
   .other-year{
     background-color: $tribune-yellow;
   }
   .this-year{
     background-color: $lt-gray;
+    &:hover{
+      background-color: $lt-gray;
+    }
   }
 }
 
