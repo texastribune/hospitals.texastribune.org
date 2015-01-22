@@ -5,12 +5,29 @@ app.Views.HospitalsList = Marionette.CompositeView.extend({
 
   onShow: function() {
     var $hospitalList = $("#hospital-list-all");
-    var $filter = $('#filter');
+    var $toggle = $('.toggle');
+    var $alpha = $('.alpha');
 
     $hospitalList.tablesorter({
       sortList: [[1, 0]],
       widthFixed : false,
       widgets: ["filter"],
+
+      widgetOptions : {
+        filter_external : '.table-search',
+        filter_columnFilters: false,
+        filter_saveFilters : true,
+        filter_reset: '.reset',
+      }
     });
+
+    // whyyyyyy won't you work
+    // $toggle.on('click', function(){
+    //   if ($toggle.hasClass('alpha-hide')){
+    //     $toggle.removeClass('alpha-hide').addClass('alpha-show');
+    //   } else {
+    //     $toggle.addClass('alpha-hide').removeClass('alpha-show');
+    //   }
+    // });
   }
 });

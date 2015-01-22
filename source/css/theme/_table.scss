@@ -30,6 +30,7 @@ th {
   padding: 0 12px 8px;
   text-align: left;
   vertical-align: middle;
+  cursor: pointer;
 
   &:first-child {
     text-align: left;
@@ -37,6 +38,14 @@ th {
 
   @include media($mobile) {
     display: block;
+  }
+
+  .alpha{
+    display: none;
+  }
+
+  .alpha-hide{
+    display: none;
   }
 }
 
