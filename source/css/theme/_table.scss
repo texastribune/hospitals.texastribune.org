@@ -6,6 +6,9 @@
     margin: 0 0 .5em 0;
     @include span-columns(4);
     clear: both;
+    @include media($mobile) {
+      @include span-columns(12);
+    }
   }
   .reset-btn{
     border-radius: 3px;
