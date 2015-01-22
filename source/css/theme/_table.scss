@@ -1,3 +1,31 @@
+.search-container{
+  h4{
+    margin: 1em 0;
+  }
+  .table-search{
+    margin: 0 0 .5em 0;
+    @include span-columns(4);
+    clear: both;
+  }
+  .reset-btn{
+    border-radius: 3px;
+    border: 1px solid $tribune-yellow;
+    background-color: $tribune-yellow;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    margin: .7em .5em .7em 0;
+    clear: both;
+    font-weight: 700;
+    p{
+      margin: .2em 0;
+    }
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+}
+
 table {
   font-family: $base-sans-serif;
   font-size: 1em;
