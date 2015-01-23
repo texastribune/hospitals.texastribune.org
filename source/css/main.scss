@@ -94,15 +94,36 @@ section.map-and-selected {
 }
 
 .year-toggle{
-  border-bottom: 1px solid $lt-gray;
+  @include span-columns(12);
+  border-bottom: 1px solid $tribune-yellow;
   margin: 0 0 1em 0;
-  .other-year{
-    background-color: $tribune-yellow;
+  text-align: center;
+  font-weight: 700;
+  a{
+    text-decoration: none;
+    color: #282828;
   }
-  .this-year{
+  .other-year{
+    @include span-columns(2);
+    cursor: pointer;
+    padding: .5em;
+    border: 1px solid $lt-gray;
     background-color: $lt-gray;
+    @include media($mobile){
+      @include span-columns(6);
+    }
     &:hover{
       background-color: $lt-gray;
+    }
+  }
+  .this-year{
+    @include span-columns(2);
+    cursor: pointer;
+    padding: .5em;
+    border: 1px solid $tribune-yellow ;
+    background-color: $tribune-yellow;
+    @include media($mobile){
+      @include span-columns(6);
     }
   }
 }

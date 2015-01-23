@@ -61,11 +61,11 @@ js: /js/hospital.js
   <% if locals[:old_url] != '' %>
   <div class="year-toggle">
     <% if locals[:current] %>
-      <a href="<%= locals[:old_url] %>"><button class="other-year">2012 Data</button></a>
-      <button class="this-year">2013 Data</button>
+      <a href="<%= locals[:old_url] %>"><div class="other-year"><p>2012 Data</p></div></a>
+      <div class="this-year"><p>2013 Data</p></div>
     <% else %>
-      <button class="this-year">2012 Data</button>
-      <a href="<%= locals[:url] %>"><button class="other-year">2013 Data</button></a>
+      <div class="this-year"><p>2012 Data</p></div>
+      <a href="<%= locals[:url] %>"><div class="other-year"><p>2013 Data</p></div></a>
     <% end -%>
   </div>
   <% end -%>
@@ -83,7 +83,7 @@ js: /js/hospital.js
   <h4>Emergency Care</h4>
 </header>
 
-<div class="prose content-block">
+<div id="truncate" class="prose content-block">
   <p>These indicators show how long you could expect to wait in a selected hospital's emergency room before seeing a health care professional, being admitted to the hospital or being sent home. Hospitals report the data from medical records, and the data is audited and verified by the Centers for Medicare &amp; Medicaid Services. Learn more about the data and other measures of timely and effective hospital care at <a href="http://www.medicare.gov/hospitalcompare/Data/Measures.html">Medicare.gov</a>.</p>
 </div>
 
@@ -138,7 +138,7 @@ js: /js/hospital.js
   <h4>Clinical Care</h4>
 </header>
 
-<div class="prose content-block">
+<div id="truncate" class="prose content-block">
   <p>The quality of a hospital's clinical care practices can affect how often patients experience surgical complications or acquire infections. These indicators show how the hospitals' rates of surgical complications and health care-associated infections compare with national standards. The scores are risk-adjusted and account for characteristics of each hospital's patient population. The serious surgical complications score is a composite of observed-to-expected ratios for a <a href="http://www.qualityindicators.ahrq.gov/Downloads/Modules/PSI/V45/TechSpecs/PSI%2090%20Patient%20Safety%20for%20Selected%20Indicators.pdf">list</a> of common surgical complications determined by the Agency for Healthcare Research and Quality. The number of health care-associated infections is measured by a standardized infection ratio, which shows the number of infections relative to a national benchmark based on data reported to the National Healthcare Safety Network. Find more information on how CMS measures rates of <a href="http://www.medicare.gov/hospitalcompare/Data/Serious-Complications.html">surgical complications</a> and <a href="http://www.medicare.gov/hospitalcompare/Data/Healthcare-Associated-Infections.html">health care-associated infections</a>.</p>
 </div>
 
@@ -203,7 +203,7 @@ js: /js/hospital.js
   <h4>Patient Outcomes</h4>
 </header>
 
-<div class="prose content-block">
+<div id="truncate" class="prose content-block">
   <p>These indicators show how often patients who are treated for serious, common conditions return to the hospital within 30 days or died. The Centers for Medicare &amp; Medicaid Services calculates the rates using Medicare claims submitted by hospitals and patient-eligibility information. The rates are risk-adjusted and take into account characteristics of each patient — like age, medical history, and other diseases or conditions the patient had before entering the hospital — that could make readmission or death more likely regardless of the quality of care delivered by the hospital. Learn more information on the data at <a href="http://www.medicare.gov/hospitalcompare/Data/30-day-measures.html">Medicare.gov</a>.</p>
 </div>
 
@@ -299,7 +299,7 @@ js: /js/hospital.js
   <h4>Patient Experience</h4>
 </header>
 
-<div class="prose content-block">
+<div id="truncate" class="prose content-block">
   <p>These indicators show how patients felt about their hospital experience, including how well hospital workers communicated with them and whether they would recommend the hospital. This data comes from a standardized survey created by the Centers for Medicare &amp; Medicaid Services and the Agency for Healthcare Research and Quality. The survey has been used since 2006 to help consumers compare the quality of care between hospitals. The surveys are taken by trained administrators at participating hospitals, analyzed and adjusted by CMS to account for differences in hospitals' patient mix and other factors. Learn more information on the data at <a href="http://www.medicare.gov/hospitalcompare/Data/Overview.html">Medicare.gov</a>.</p>
 </div>
 
