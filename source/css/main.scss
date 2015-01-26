@@ -122,6 +122,7 @@ section.map-and-selected {
     padding: .5em;
     border: 1px solid $tribune-yellow ;
     background-color: $tribune-yellow;
+    @include omega();
     @include media($mobile){
       @include span-columns(6);
     }
