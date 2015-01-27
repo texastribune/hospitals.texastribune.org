@@ -5,6 +5,9 @@
   .hospital-name-search{
     margin: 0 0 .5em 0;
     @include span-columns(5);
+    input{
+      width: 100%;
+    }
     @include media($mobile) {
       @include span-columns(12);
     }
@@ -12,6 +15,9 @@
   .city-search{
     margin: 0 0 .5em 0;
     @include span-columns(5);
+    input{
+      width: 100%;
+    }
     @include media($mobile) {
       @include span-columns(12);
     }
