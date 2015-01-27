@@ -1,4 +1,5 @@
 .search-container{
+  @include outer-container;
   h4{
     margin: 1em 0;
   }
@@ -23,15 +24,17 @@
     }
   }
   .reset-btn{
-    @include span-columns(2);
+    @include span-columns(3);
     border-radius: 3px;
     border: 1px solid $tribune-yellow;
     background-color: $tribune-yellow;
-    width: 100px;
     text-align: center;
     cursor: pointer;
     margin: .7em .5em .7em 0;
     font-weight: 700;
+    @include media($mobile){
+      @include span-columns(6);
+    }
     p{
       margin: .2em 0;
     }
