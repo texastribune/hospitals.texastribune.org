@@ -71,11 +71,11 @@ js: /js/hospital.js
   <% if locals[:old_url] != '' %>
   <div class="year-toggle">
     <% if locals[:current] %>
-      <a href="<%= locals[:old_url] %>"><div class="other-year"><p>2012 Data</p></div></a>
-      <div class="this-year"><p>2013 Data</p></div>
+      <a href="<%= locals[:old_url] %>"><div class="year-button other-year"><p>2012 Data</p></div></a>
+      <div class="year-button this-year"><p>2013 Data</p></div>
     <% else %>
-      <div class="this-year"><p>2012 Data</p></div>
-      <a href="<%= locals[:url] %>"><div class="other-year"><p>2013 Data</p></div></a>
+      <div class="year-button this-year"><p>2012 Data</p></div>
+      <a href="<%= locals[:url] %>"><div class="year-button other-year"><p>2013 Data</p></div></a>
     <% end -%>
   </div>
   <% end -%>

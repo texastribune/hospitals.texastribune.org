@@ -95,7 +95,6 @@ section.map-and-selected {
 
 .year-toggle{
   @include span-columns(12);
-  border-bottom: 1px solid $tribune-yellow;
   margin: 0 0 1em 0;
   text-align: center;
   font-weight: 700;
@@ -103,29 +102,29 @@ section.map-and-selected {
     text-decoration: none;
     color: #282828;
   }
-  .other-year{
+  .year-button{
     @include span-columns(2);
     cursor: pointer;
     padding: .5em;
-    border: 1px solid $lt-gray;
-    background-color: $lt-gray;
+    border-radius: 3px;
+    &:first-child{
+      margin-right: .2em;
+    }
     @include media($mobile){
       @include span-columns(6);
-    }
-    &:hover{
-      background-color: $lt-gray;
+      &:first-child{
+        margin-left: .2em;
+      }
     }
   }
+  .other-year{
+    border: 1px solid $lt-gray;
+    background-color: $lt-gray;
+  }
   .this-year{
-    @include span-columns(2);
-    cursor: pointer;
-    padding: .5em;
-    border: 1px solid $tribune-yellow ;
+    border: 1px solid $tribune-yellow;
     background-color: $tribune-yellow;
     @include omega();
-    @include media($mobile){
-      @include span-columns(6);
-    }
   }
 }
 
