@@ -303,6 +303,7 @@ p.glossary-text {
 }
 
 .share-cell {
+  @include span-columns(12);
   border-bottom: 1px solid rgb(204, 204, 204);
   font-size: .8em;
   padding: .75em 0;
@@ -327,8 +328,7 @@ p.glossary-text {
   }
 
   @include media($desktop) {
-    float: left;
-    width: 50%;
+    @include span-columns(3)
   }
 }
 
