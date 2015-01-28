@@ -107,7 +107,6 @@ td {
   @include media($mobile) {
     display: block;
     font-weight: 300;
-    padding: 0 12px 8px;
     text-align: left;
 
     &:first-child {
