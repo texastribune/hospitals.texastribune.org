@@ -12,7 +12,8 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
   },
 
   events: {
-    'click @ui.compare': 'compare'
+    'click @ui.compare': 'compare',
+    'click #view-all': 'listHospitals'
   },
 
   onAfterItemAdded: function(itemView) {
@@ -51,11 +52,16 @@ app.Views.HospitalsToCompare = Marionette.CompositeView.extend({
     }
   },
 
+  listHospitals: function(event){
++   event.preventDefault();
++   this.trigger('list:hospitals', 'list');
+  },
+
   enableCompareButton: function() {
     this.ui.compare.prop('disabled', false);
   },
 
   disableCompareButton: function() {
     this.ui.compare.prop('disabled', true);
-  }
+  },
 });

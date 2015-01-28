@@ -1,9 +1,8 @@
-<td><%= provider_number %></td>
-<td><%= name %></td>
-<td><%= city %></td>
-<td><a href="/<%= url %>">Data (2015)</a></td>
+<td data-title="Name"><a href="/<%= url %>"><%= name %></a></td>
+<td data-title="City"><%= city %></td>
+<td data-title="2013 Data"><a href="/<%= url %>">View data</a></td>
 <% if (hasOldUrl) { %>
-  <td><a href="/2014/<%= old_url %>">Data (2014)</a></td>
+  <td data-title="2012 Data"><a href="/2012/<%= old_url %>">View data</a></td>
 <% } else { %>
   <td></td>
 <% } %>

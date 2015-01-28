@@ -7,6 +7,13 @@
 @import 'base_theme';
 @import 'theme';
 
+.view-all{
+  cursor: pointer;
+}
+
+form{
+  margin-bottom: 1em;
+}
 
 .map-and-selected {
   @include span-columns(12);
@@ -83,6 +90,41 @@ section.map-and-selected {
     .hospital-map {
       @include span-columns(12);
     }
+  }
+}
+
+.year-toggle{
+  @include span-columns(12);
+  margin: 0 0 1em 0;
+  text-align: center;
+  font-weight: 700;
+  a{
+    text-decoration: none;
+    color: #282828;
+  }
+  .year-button{
+    @include span-columns(2);
+    cursor: pointer;
+    padding: .5em;
+    border-radius: 3px;
+    &:first-child{
+      margin-right: .2em;
+    }
+    @include media($mobile){
+      @include span-columns(6);
+      &:first-child{
+        margin-left: .2em;
+      }
+    }
+  }
+  .other-year{
+    border: 1px solid $lt-gray;
+    background-color: $lt-gray;
+  }
+  .this-year{
+    border: 1px solid $tribune-yellow;
+    background-color: $tribune-yellow;
+    @include omega();
   }
 }
 

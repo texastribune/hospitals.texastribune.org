@@ -303,6 +303,7 @@ p.glossary-text {
 }
 
 .share-cell {
+  width: 100%;
   border-bottom: 1px solid rgb(204, 204, 204);
   font-size: .8em;
   padding: .75em 0;
@@ -327,8 +328,9 @@ p.glossary-text {
   }
 
   @include media($desktop) {
+    width: 25%;
     float: left;
-    width: 50%;
+    display: inline-block;
   }
 }
 
@@ -571,7 +573,7 @@ label {
 }
 
 .ac-container article {
-  @include transition-duration(1s);
+  @include transition(all .2s ease);
   max-height: 0;
   overflow: hidden;
   position: relative;
@@ -579,10 +581,8 @@ label {
 }
 
 .ac-container input:checked ~ article {
-  @include transition-duration(1s);
-
   &.ac-large {
-    max-height: 9999px;
+    max-height: 2000px;
   }
 }
 

@@ -1,3 +1,49 @@
+.search-container{
+  @include outer-container;
+  h4{
+    margin: 1em 0;
+  }
+  .hospital-name-search{
+    margin: 0 0 .5em 0;
+    @include span-columns(5);
+    input{
+      width: 100%;
+    }
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+  }
+  .city-search{
+    margin: 0 0 .5em 0;
+    @include span-columns(5);
+    input{
+      width: 100%;
+    }
+    @include media($mobile) {
+      @include span-columns(12);
+    }
+  }
+  .reset-btn{
+    @include span-columns(3);
+    border-radius: 3px;
+    border: 1px solid $tribune-yellow;
+    background-color: $tribune-yellow;
+    text-align: center;
+    cursor: pointer;
+    margin: .7em .5em .7em 0;
+    font-weight: 700;
+    @include media($mobile){
+      @include span-columns(6);
+    }
+    p{
+      margin: .2em 0;
+    }
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+}
+
 table {
   font-family: $base-sans-serif;
   font-size: 1em;
@@ -28,8 +74,9 @@ th {
   font-size: 1em;
   font-weight: 800;
   padding: 0 12px 8px;
-  text-align: right;
+  text-align: left;
   vertical-align: middle;
+  cursor: pointer;
 
   &:first-child {
     text-align: left;
@@ -38,12 +85,20 @@ th {
   @include media($mobile) {
     display: block;
   }
+
+  .alpha{
+    display: none;
+  }
+
+  .alpha-hide{
+    display: none;
+  }
 }
 
 td {
   font-size: .875em;
   padding: 8px 12px;
-  text-align: right;
+  text-align: left;
 
   &:first-child {
     text-align: left;

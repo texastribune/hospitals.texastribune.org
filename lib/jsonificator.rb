@@ -33,16 +33,16 @@ class Jsonificator < Middleman::Extension
         app.proxy(
           "2012/#{page_name}.html",
           "#{options.jsonificator_template}",
-          locals: build_locals(hospital_data, indicators)
+          locals: build_locals(hospital_data, indicators, false)
         )
       end
     end
   end
 
-  def build_locals(hospital_data, indicators)
+  def build_locals(hospital_data, indicators, current=true)
     {
       id: hospital_data["_id"],
-      url: hospital_data["url"],
+      url: "/" + hospital_data["url"],
       name: hospital_data["name"],
       phone_number: hospital_data["phone_number"],
       address: hospital_data["address"],
@@ -96,7 +96,8 @@ class Jsonificator < Middleman::Extension
       title: hospital_data["name"] + " | Texas Hospital Explorer | The Texas Tribune",
       # OG
       og_site_name: hospital_data["name"] + " | Texas Hospital Explorer | The Texas Tribune",
-      og_url: "http://hospitals.texastribune.org/" + hospital_data["url"]
+      og_url: "http://hospitals.texastribune.org/" + hospital_data["url"],
+      current: current
     }
   end
 

@@ -2,6 +2,8 @@
 //=require underscore/underscore
 //=require backbone/backbone
 //=require marionette/lib/backbone.marionette
+//=require jquery.tablesorter/js/jquery.tablesorter.min.js
+//=require jquery.tablesorter/js/jquery.tablesorter.widgets.min.js
 
 //=require config
 //=require_tree ./templates
