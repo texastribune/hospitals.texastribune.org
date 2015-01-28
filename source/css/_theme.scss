@@ -308,6 +308,7 @@ p.glossary-text {
   font-size: .8em;
   padding: .75em 0;
   text-align: center;
+  color: $teal;
 
   @include media($desktop) {
     border-bottom: 0;
@@ -325,6 +326,10 @@ p.glossary-text {
 
   i {
     padding: 0;
+  }
+
+  .ul{
+    text-decoration: underline;
   }
 
   @include media($desktop) {

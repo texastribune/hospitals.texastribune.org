@@ -14,22 +14,22 @@ js: /js/hospital.js
   <div class="row share-row">
     <a target="_blank" title="share on Twitter" href="<%= "http://twitter.com/share?text=Learn more about #{locals[:name]} in #{locals[:city]}, TX&url=#{locals[:og_url]}&hashtags=txhospitals" %>">
         <div class="share-cell first-share">
-          <i class="fa fa-twitter"></i> Tweet
+          <i class="fa fa-twitter"></i> <span class="ul">Tweet</span>
         </div>
       </a>
       <a target="_blank" title="share on Facebook" href="http://www.facebook.com/sharer.php?u=<%= locals[:og_url] %>">
         <div class="share-cell">
-          <i class="fa fa-facebook"></i> Recommend
+          <i class="fa fa-facebook"></i> <span class="ul">Recommend</span>
         </div>
       </a>
       <a title="email" href="mailto:?subject=Texas Tribune Hospital Explorer&body=[sub] Check out the Texas Hospitals Explorer and learn more about quality of care at Texas' 377 hospitals" onclick="this.href = this.href.replace('[sub]', window.location)">
         <div class="share-cell">
-          <i class="fa fa-envelope"></i> Email
+          <i class="fa fa-envelope"></i> <span class="ul">Email</span>
         </div>
       </a>
       <a href="" target="_blank" title="print this page" onclick="window.print()">
         <div class="share-cell">
-          <i class="fa fa-print"></i> Print
+          <i class="fa fa-print"></i> <span class="ul">Print</span>
         </div>
       </a>
   </div>
