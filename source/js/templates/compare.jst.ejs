@@ -3,9 +3,35 @@
   <hr>
 </header>
 
+<div class="content-block">
+  <div class="row share-row">
+    <a target="_blank" title="share on Twitter" href="http://twitter.com/share?text=Learn more about Texas Hospitals <% _(children).each(function(model, index) { %> <%= model.name %> <% }); %> &hashtags=txhospitals">
+        <div class="share-cell first-share">
+          <i class="fa fa-twitter"></i> <span class="ul">Tweet</span>
+        </div>
+      </a>
+      <a target="_blank" title="share on Facebook" href="">
+        <div class="share-cell">
+          <i class="fa fa-facebook"></i> <span class="ul">Recommend</span>
+        </div>
+      </a>
+      <a title="email" href="mailto:?subject=Texas Tribune Hospital Explorer&body=[sub] Check out <% _(children).each(function(model, index) { %> <%= model.name %> <% }); %> compared on The Texas Tribune's hospital explorer" onclick="this.href = this.href.replace('[sub]', window.location)">
+        <div class="share-cell">
+          <i class="fa fa-envelope"></i> <span class="ul">Email</span>
+        </div>
+      </a>
+      <a href="" target="_blank" title="print this page" onclick="window.print()">
+        <div class="share-cell">
+          <i class="fa fa-print"></i> <span class="ul">Print</span>
+        </div>
+      </a>
+  </div>
+</div>
+
 <div class="prose content-block">
   <p>Compare the quality of care at the selected hospitals below. Under each tab, you'll find details about the hospitals, such as average wait times for emergency services; clinical care measures, including rates of surgical complications and infections acquired during hospital visits; patient outcomes, including 30-day readmission and death rates; and patient ratings. Some information may not be available because the hospital's sample size was too small, the hospital did not have data to report, or the results were excluded by the <a href="http://www.medicare.gov/hospitalcompare/Data/About.html">Centers for Medicare &amp; Medicaid Services</a> for various reasons, including data inaccuracies or discrepancies in data collection.</p>
 </div>
+
 <section class="hospital-cards hospital-boxes row content-block">
   <% _(children).each(function(model, index) { %>
   <div class="hospital-box hospital-box-small">
