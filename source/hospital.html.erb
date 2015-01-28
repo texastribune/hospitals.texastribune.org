@@ -2,7 +2,8 @@
 js: /js/hospital.js
 ---
 <header class="main-header content-block">
-  <h2><%= locals[:name] %></h2>
+  <h2><%= locals[:name] %>
+  </h2>
   <hr>
 </header>
 
@@ -68,6 +69,12 @@ js: /js/hospital.js
 </div>
 
 <div class="content-block">
+  <div class="controls">
+    <a href="/#select/<%= locals[:id] %>"><button>Compare this hospitals with others</button></a>
+  </div>
+</div>
+
+<div class="content-block">
   <% if locals[:old_url] != '' %>
   <div class="year-toggle">
     <% if locals[:current] %>
@@ -79,14 +86,6 @@ js: /js/hospital.js
     <% end -%>
   </div>
   <% end -%>
-  <div class="prose">
-    <!-- <h3>Data from: <% if locals[:current] %> 2013 <% else %> 2012 <% end -%></h3> -->
-    <p>Below, you'll find essential information to help you evaluate the hospital's quality of care, such as average wait times for emergency services; clinical care measures, including rates of surgical complications and infections acquired during hospital visits; patient outcomes, including 30-day readmission and death rates; and patient ratings. To find additional Texas hospitals or compare this hospital with others, return to the search page. Some information may not be available because the hospital's sample size was too small, the hospital did not have data to report, or the results were excluded by the <a href="http://www.medicare.gov/hospitalcompare/Data/About.html">Centers for Medicare &amp; Medicaid Services</a> for various reasons, including data inaccuracies or discrepancies in data collection.</p>
-  </div>
-  <div class="controls">
-    <a href="/"><button>Start a new search</button></a>
-    <a href="/#select/<%= locals[:id] %>"><button>Compare this hospital with others</button></a>
-  </div>
 </div>
 
 <header class="section-header content-block ac ac-1">

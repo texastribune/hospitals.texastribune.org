@@ -7,11 +7,11 @@
 @import 'base_theme';
 @import 'theme';
 
-.view-all{
+.view-all {
   cursor: pointer;
 }
 
-form{
+form {
   margin-bottom: 1em;
 }
 
@@ -93,35 +93,32 @@ section.map-and-selected {
   }
 }
 
-.year-toggle{
+.year-toggle {
   @include span-columns(12);
   margin: 0 0 1em 0;
   text-align: center;
   font-weight: 700;
-  a{
+  a {
     text-decoration: none;
     color: #282828;
   }
-  .year-button{
+  .year-button {
     @include span-columns(2);
     cursor: pointer;
     padding: .5em;
     border-radius: 3px;
-    &:first-child{
+    &:first-child {
       margin-right: .2em;
     }
-    @include media($mobile){
+    @include media($mobile) {
       @include span-columns(6);
-      &:first-child{
-        margin-left: .2em;
-      }
     }
   }
-  .other-year{
+  .other-year {
     border: 1px solid $lt-gray;
     background-color: $lt-gray;
   }
-  .this-year{
+  .this-year {
     border: 1px solid $tribune-yellow;
     background-color: $tribune-yellow;
     @include omega();
