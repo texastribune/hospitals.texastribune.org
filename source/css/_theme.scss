@@ -112,7 +112,7 @@
   p {
     font-family: $base-serif;
     line-height: 1.4;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   }
 }
 
@@ -502,6 +502,7 @@ label {
   overflow: hidden;
   padding: 1em;
   position: relative;
+  margin-bottom: 1em;
   z-index: 20;
 }
 
@@ -584,6 +585,17 @@ label {
   &.ac-large {
     max-height: 2000px;
   }
+}
+
+.explainer-cards {
+  &:after {
+   visibility: hidden;
+   display: block;
+   font-size: 0;
+   content: " ";
+   clear: both;
+   height: 0;
+ }
 }
 
 .explainer-card-header {
