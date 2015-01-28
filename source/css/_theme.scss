@@ -646,6 +646,10 @@ label {
     text-transform: uppercase;
   }
 
+  p {
+    margin-bottom: 1em;
+  }
+
   p.byline {
     color: $dk-gray;
     font-size: .8em;
