@@ -304,32 +304,31 @@ p.glossary-text {
 }
 
 .share-cell {
-  width: 100%;
+  width: 25%;
+  float: left;
+  display: inline-block;
   border-bottom: 1px solid rgb(204, 204, 204);
   font-size: .8em;
   padding: .75em 0;
   text-align: center;
   color: $teal;
-
-  @include media($desktop) {
-    border-bottom: 0;
-    border-left: 1px solid rgb(204, 204, 204);
-  }
+  border-bottom: 0;
+  border-left: 1px solid rgb(204, 204, 204);
 
   &.first-share {
     border-top: 1px solid rgb(204, 204, 204);
-
-    @include media($desktop) {
-      border-top: 0;
-      border-left: 0;
-    }
+    border-top: 0;
+    border-left: 0;
   }
 
   i {
     padding: 0;
   }
 
-  .ul{
+  .ul {
+    @include media($mobile){
+      display: none;
+    }
     &:hover{
       text-decoration: underline;
     }
@@ -337,8 +336,6 @@ p.glossary-text {
 
   @include media($desktop) {
     width: 25%;
-    float: left;
-    display: inline-block;
   }
 }
 
