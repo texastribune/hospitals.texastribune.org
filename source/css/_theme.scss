@@ -329,7 +329,9 @@ p.glossary-text {
   }
 
   .ul{
-    text-decoration: underline;
+    &:hover{
+      text-decoration: underline;
+    }
   }
 
   @include media($desktop) {
