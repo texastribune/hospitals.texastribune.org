@@ -46,11 +46,22 @@ app.Controllers.SearchController = Marionette.Controller.extend({
 
     if(cad === 'nearest') {
       this.searchByLocation(this.page);
-    } else if(/^\d{5}(-\d{4})?$/.test(cad)) {
-      this.searchByZipcode(cad, this.page);
     } else {
-      this.searchByName(cad, this.page);
+      this.searchbyAddress(cad, this.page);
     }
+  },
+
+  searchbyAddress: function(cad, page) {
+    var self = this;
+    var query = 'http://api.tiles.mapbox.com/v4/geocode/mapbox.places/' + encodeURIComponent(cad) + '.json?access_token=pk.eyJ1IjoidGV4YXN0cmlidW5lIiwiYSI6Ilo2eDhZWmcifQ.19qcXfOTN6ulkGW5oouiPQ';
+
+    $.get(query).done(function(data) {
+      var coords = data.features[0].geometry.coordinates;
+      self.centerLocation = [coords[1], coords[0]];
+      var results = self.searchByProximityTo(coords[1], coords[0]).slice((page-1) * self.perPage, page * self.perPage);
+
+      self.trigger('around:search', results);
+    });
   },
 
   searchByName: function(name, page) {
@@ -85,7 +96,7 @@ app.Controllers.SearchController = Marionette.Controller.extend({
     };
 
     noGeolocation = function() {
-      self.trigger('error:search', 'Geolocation is not working.');
+      self.trigger('error:search', 'No luck finding you! How about trying with an address?');
     };
 
     if ('geolocation' in navigator) {
@@ -95,21 +106,6 @@ app.Controllers.SearchController = Marionette.Controller.extend({
         locationFound(app.position);
       }
       noGeolocation();
-    }
-  },
-
-  searchByZipcode: function(cad, page) { // 76244
-    var coords = app.zipcodes[cad],
-        results; // {zipcode: [lat, lng]}
-
-    if(coords){
-      this.centerLocation = [coords[0], coords[1]];
-      results = this.searchByProximityTo(coords[0], coords[1]).
-                        slice((page-1) * this.perPage, page * this.perPage);
-      this.trigger('around:search', results);
-    } else {
-      // TODO: Find a better error message
-      this.trigger('error:search', 'That\'s not a Texas\' zipcde');
     }
   },
 
