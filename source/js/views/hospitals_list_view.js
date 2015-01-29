@@ -22,11 +22,6 @@ app.Views.HospitalsList = Marionette.CompositeView.extend({
       }
     });
 
-    // $emailHospital.on('load', function(){
-    //   $emailHospital
-    //     .html('<a title="email" href="mailto:?subject=Texas Tribune Hospital Explorer&body=[sub] Check out the Texas Hospitals Explorer and learn more about quality of care at Texas' 377 hospitals" onclick="this.href = this.href.replace('[sub]', window.location)">')
-    // });
-
 
 
     // $toggle.on('click', function(){
