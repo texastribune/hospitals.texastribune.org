@@ -1,16 +1,15 @@
 <form>
-  <p class="form-prompt">Search by hospital name or ZIP code</p>
   <div class="form-group">
-    <label class="sr-only" for="search-content">Search by hospital name or ZIP code</label>
-    <input type="text" id="search-content" placeholder="78701">
-  </div>
+    <label class="form-prompt" for="search-content">Search by address</label>
+    <input type="text" id="search-content" placeholder="E.g. 823 Congress Ave, Austin, TX 78701">
   <button id="search-submit" class="search-submit" type="submit">Search</button>
   <span class="or-separator">- or -</span>
   <button id="find-me" class="find-me">Find hospitals near you</button>
   <img src="/img/round-ajax-loader.gif" class="loading hide"/>
+  </div>
 </form>
 <a id="view-all" class="view-all">View all hospitals</a>
 <div class="messages">
   <div class="error hide"></div>
-  <div class='empty hide'>We couldn't find any hospitals, please try again</div>
+  <div class='empty hide'>No hospitals were found - please try again</div>
 </div>
