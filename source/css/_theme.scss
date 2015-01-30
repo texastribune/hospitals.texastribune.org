@@ -116,17 +116,15 @@
 .prose {
   p {
     font-family: $base-serif;
+    font-size: 1em;
     line-height: 1.4;
     margin-bottom: 1em;
-    font-size: 1em;
-  }
-  @include media($mobile) {
-    font-size: .875em;
   }
 }
 
 .controls {
   margin-bottom: .5em;
+
   @include media($mobile) {
     a:first-child {
       display: block;
