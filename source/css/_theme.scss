@@ -81,9 +81,9 @@
     line-height: 1.2;
     margin-bottom: .5em;
 
-    span.controls {
-      text-align: right;
+    .controls {
       font-size: .7em;
+      text-align: right;
     }
   }
 }
@@ -123,6 +123,7 @@
 
 .controls {
   margin-bottom: .5em;
+
   @include media($mobile) {
     a:first-child {
       display: block;
@@ -152,7 +153,7 @@
   text-align: left;
 }
 
-p.glossary-text {
+.glossary-text {
   background: $glossary-gray;
   color: $bodytext-black;
   font-family: $base-sans-serif;
@@ -267,8 +268,9 @@ p.glossary-text {
 }
 
 .active-hospitals {
-  margin-bottom: .3125em;
   @include row();
+
+  margin-bottom: .3125em;
 }
 
 .hospital-in-compare-list {
@@ -293,7 +295,8 @@ p.glossary-text {
 }
 
 .share-row {
-  margin: 0 0 1em 0;
+  margin: 0 0 1em;
+
   @include media($desktop) {
     border-bottom: 1px solid rgb(204, 204, 204);
     border-top: 1px solid rgb(204, 204, 204);
@@ -310,21 +313,23 @@ p.glossary-text {
 }
 
 .share-cell {
-  width: 25%;
-  float: left;
+  border-bottom: 0;
+  border-left: 1px solid rgb(204, 204, 204);
+  color: $teal;
   display: inline-block;
-  border-bottom: 1px solid rgb(204, 204, 204);
+  float: left;
   font-size: .8em;
   padding: .75em 0;
   text-align: center;
-  color: $teal;
-  border-bottom: 0;
-  border-left: 1px solid rgb(204, 204, 204);
+  width: 25%;
+
+  @include media($desktop) {
+    width: 25%;
+  }
 
   &.first-share {
-    border-top: 1px solid rgb(204, 204, 204);
-    border-top: 0;
     border-left: 0;
+    border-top: 0;
   }
 
   i {
@@ -332,16 +337,13 @@ p.glossary-text {
   }
 
   .ul {
-    @include media($mobile){
+    @include media($mobile) {
       display: none;
     }
-    &:hover{
+
+    &:hover {
       text-decoration: underline;
     }
-  }
-
-  @include media($desktop) {
-    width: 25%;
   }
 }
 
@@ -510,10 +512,10 @@ label {
 
 .ac-container label {
   display: block;
+  margin-bottom: 1em;
   overflow: hidden;
   padding: 1em;
   position: relative;
-  margin-bottom: 1em;
   z-index: 20;
 }
 
@@ -600,12 +602,12 @@ label {
 
 .explainer-cards {
   &:after {
-   visibility: hidden;
-   display: block;
-   font-size: 0;
-   content: " ";
-   clear: both;
-   height: 0;
+    clear: both;
+    content: ' ';
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
  }
 }
 
@@ -673,14 +675,14 @@ label {
     margin-bottom: 1em;
   }
 
-  p.byline {
+  .byline {
     color: $dk-gray;
     font-size: .8em;
     font-style: italic;
     font-weight: 400;
   }
 
-  p.handle {
+  .handle {
     font-family: $base-sans-serif;
     font-size: .95em;
     font-weight: 300;
