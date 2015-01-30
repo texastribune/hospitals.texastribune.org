@@ -30,7 +30,7 @@ app.Views.Search = Marionette.ItemView.extend({
     this.cleanView();
     if (cad === ''){
       // TODO: find a better message
-      this.showError('Please type a Zipcode or a Hospital Name');
+      this.showError('Please provide an address');
     } else {
       this.trigger("call:search", cad);
     }
