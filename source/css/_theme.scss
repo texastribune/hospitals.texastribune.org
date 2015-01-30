@@ -335,13 +335,16 @@ p.glossary-text {
     @include media($mobile){
       display: none;
     }
-    &:hover{
+    &:hover {
       text-decoration: underline;
     }
   }
 
   @include media($desktop) {
     width: 25%;
+  }
+  @include media($mobile) {
+    font-size: 1em;
   }
 }
 
