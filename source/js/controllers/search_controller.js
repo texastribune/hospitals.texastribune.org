@@ -64,20 +64,6 @@ app.Controllers.SearchController = Marionette.Controller.extend({
     });
   },
 
-  searchByName: function(name, page) {
-    var regex = new RegExp(name, 'i'),
-        results;
-
-    results = app.hospitals.filter(function(hospital) {
-      if(hospital.get('name').toLowerCase().search(regex) !== -1){
-        return hospital;
-      }
-    });
-    this.center = [];
-    results = results.slice((page - 1) * this.perPage, page * this.perPage);
-    this.trigger('around:search', results);
-  },
-
   searchByLocation: function(page) {
     var self = this,
         locationFound,
