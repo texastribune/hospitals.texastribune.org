@@ -7,6 +7,7 @@ app.Views.HospitalsList = Marionette.CompositeView.extend({
     var $hospitalList = $("#hospital-list-all");
     var $toggle = $('.toggle');
     var $alpha = $('.alpha');
+    var $emailHospital = $('#email-hospital');
 
     $hospitalList.tablesorter({
       sortList: [[1, 0]],
@@ -21,7 +22,8 @@ app.Views.HospitalsList = Marionette.CompositeView.extend({
       }
     });
 
-    // whyyyyyy won't you work
+
+
     // $toggle.on('click', function(){
     //   if ($toggle.hasClass('alpha-hide')){
     //     $toggle.removeClass('alpha-hide').addClass('alpha-show');

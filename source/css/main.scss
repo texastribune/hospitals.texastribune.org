@@ -6,6 +6,7 @@
 @import 'layout';
 @import 'base_theme';
 @import 'theme';
+@import 'print';
 
 .view-all {
   cursor: pointer;
@@ -18,17 +19,25 @@ form {
 .map-and-selected {
   @include span-columns(12);
 
-  #map-location {
-    height: 400px;
-    margin-bottom: .7em;
-  }
+  margin-top: 2em;
 
   @include media($desktop) {
     @include span-columns(6);
   }
+
+  #map-location {
+    height: 400px;
+    margin-bottom: .7em;
+  }
 }
 
 #hospital-list {
+  @include media($desktop) {
+    .hospital-box {
+      height: 205px;
+    }
+  }
+
   .hospital-box {
     height: 210px;
     position: relative;
@@ -50,30 +59,30 @@ form {
     margin: .5em;
     text-align: center;
   }
-
-  @include media($desktop) {
-    .hospital-box {
-      height: 205px;
-    }
-  }
-}
-
-section.map-and-selected {
-  margin-top: 2em;
 }
 
 .hospital-information {
+  @include media($mobile) {
+    .hospital-data,
+    .hospital-map {
+      @include span-columns(12);
+    }
+  }
+
   .hospital-data {
     @include span-columns(4 of 8);
+
     p {
       margin: .5em;
     }
   }
 
   .hospital-map {
-    text-align: center;
     @include span-columns(4 of 8);
     @include omega();
+
+    text-align: center;
+
     .button {
       margin-top: 1em;
     }
@@ -84,44 +93,46 @@ section.map-and-selected {
     content: '';
     display: block;
   }
-
-  @include media($mobile) {
-    .hospital-data,
-    .hospital-map {
-      @include span-columns(12);
-    }
-  }
 }
 
 .year-toggle {
   @include span-columns(12);
-  margin: 0 0 1em 0;
-  text-align: center;
+
   font-weight: 700;
+  margin: 0 0 1em;
+  text-align: center;
+
   a {
-    text-decoration: none;
     color: #282828;
+    text-decoration: none;
   }
+
   .year-button {
     @include span-columns(2);
+
+    border-radius: 3px;
     cursor: pointer;
     padding: .5em;
-    border-radius: 3px;
-    &:first-child {
-      margin-right: .2em;
-    }
+
     @include media($mobile) {
       @include span-columns(6);
     }
+
+    &:first-child {
+      margin-right: .2em;
+    }
   }
+
   .other-year {
-    border: 1px solid $lt-gray;
     background-color: $lt-gray;
+    border: 1px solid $lt-gray;
   }
+
   .this-year {
-    border: 1px solid $tribune-yellow;
-    background-color: $tribune-yellow;
     @include omega();
+
+    background-color: $tribune-yellow;
+    border: 1px solid $tribune-yellow;
   }
 }
 
