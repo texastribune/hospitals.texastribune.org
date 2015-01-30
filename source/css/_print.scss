@@ -1,11 +1,10 @@
-@media print{
+@media print {
   footer,
   #google_image_div,
   .share-row,
   .search-container,
   .controls,
-  .year-toggle
-  {
-    display:none;
+  .year-toggle {
+    display: none;
   }
 }
