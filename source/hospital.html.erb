@@ -97,11 +97,11 @@ js: /js/hospital.js
       <h4>Emergency Care</h4>
     </header>
   </label>
+  <article class="ac-large">
   <header class="sub-section-header only-on-mobile content-block">
     <h4>Average time spent in the emergency room</h4>
   </header>
 
-  <article class="ac-large">
   <div class="content-block">
     <table>
       <thead>
@@ -156,12 +156,14 @@ js: /js/hospital.js
 
 <div class="ac-container">
   <input id="ac-2" type="checkbox">
-  <article class="ac-large">
-    <header class="section-header content-block ac ac-2">
-      <img class="section-icon" src="/img/icons/clinical.svg">
-      <h4>Clinical Care</h4>
-    </header>
+    <label for="ac-2">
+      <header class="section-header content-block ac ac-2">
+        <img class="section-icon" src="/img/icons/clinical.svg">
+        <h4>Clinical Care</h4>
+      </header>
+    </label>
 
+    <article class="ac-large">
     <header class="sub-section-header only-on-mobile content-block">
       <h4>Surgical complications</h4>
     </header>
@@ -228,10 +230,12 @@ js: /js/hospital.js
 
 <div class="ac-container">
   <input id="ac-3" type="checkbox">
+  <label for="ac-3">
   <header class="section-header content-block ac ac-3">
     <img class="section-icon" src="/img/icons/outcomes.svg">
     <h4>Patient Outcomes</h4>
   </header>
+  </label>
 
   <article class="ac-large">
     <header class="sub-section-header only-on-mobile content-block">
@@ -330,12 +334,13 @@ js: /js/hospital.js
 
 <div class="ac-container">
   <input id="ac-4" type="checkbox">
-  <article class="ac-large">
+  <label for="ac-4">
     <header class="section-header content-block ac ac-4">
       <img class="section-icon" src="/img/icons/patient.svg">
       <h4>Patient Experience</h4>
     </header>
-
+  </label>
+  <article class="ac-large">
     <header class="sub-section-header only-on-mobile content-block">
       <h4>Rates of death within 30 days of discharge</h4>
     </header>
