@@ -519,11 +519,13 @@ label {
 
 .ac-container label {
   display: block;
-  margin-bottom: 1em;
   overflow: hidden;
-  padding: 1em;
   position: relative;
   z-index: 20;
+}
+
+.category-margin {
+  margin-bottom: 1em;
 }
 
 .ac-container input:checked + label,
