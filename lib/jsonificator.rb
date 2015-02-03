@@ -1,5 +1,6 @@
 require 'json'
 require 'active_support/all'
+require 'uri'
 
 class Jsonificator < Middleman::Extension
   option :json_dir, 'data', 'Where are the json files'
@@ -43,7 +44,9 @@ class Jsonificator < Middleman::Extension
     {
       id: hospital_data["_id"],
       url: "/" + hospital_data["url"],
+      encoded_url: URI.escape(hospital_data["url"]),
       name: hospital_data["name"],
+      encoded_name: URI.escape(hospital_data["name"]),
       phone_number: hospital_data["phone_number"],
       address: hospital_data["address"],
       city: hospital_data["city"],
