@@ -3,26 +3,31 @@ title: Texas Hospitals Explorer | The Texas Tribune
 ---
 <div id="explorer-introduction" class="explorer-introduction">
   <div class="content-block">
-    <div class="row share-row" style="margin-bottom: 1em;">
-      <a target="_blank" title="share on Twitter" href="http://twitter.com/share?text=Check out the Texas Hospitals Explorer and learn more about quality of care at Texas' 377 hospitals&url=http://hospitals.texastribune.org/&hashtags=txhospitals">
+    <div class="row share-row">
+      <a target="_blank" title="share on Twitter" href="<%= "http://twitter.com/share?text=Learn more about Texas Hospitals with The Texas Tribune's Hospitals Explorer&hashtags=txhospitals" %>">
         <div class="share-cell first-share">
-          <i class="fa fa-twitter"></i> Tweet
+          <i class="fa fa-twitter"></i> <span class="ul">Tweet</span>
         </div>
       </a>
-      <a target="_blank" title="share on Facebook" href="http://www.facebook.com/sharer.php?u=http://hospitals.texastribune.org/">
+      <a target="_blank" title="share on Facebook" href="https://www.facebook.com/dialog/share?app_id=154122474650943&display=popup&href=http%3A%2F%2Fhospitals.texastribune.org%2F&redirect_uri=http%3A%2F%2Fhospitals.texastribune.org%2F">
         <div class="share-cell">
-          <i class="fa fa-facebook"></i> Recommend
+          <i class="fa fa-facebook"></i> <span class="ul">Recommend</span>
+        </div>
+      </a>
+      <a title="email" href="mailto:?subject=Texas%20Tribune%20Hospital%20Explorer&body=I%20thought%20you%20might%20be%20interested%20in%20learning%20more%20about%20Texas%20hospitals%20near%20you.%20Check%20out%20The%20Texas%20Tribune%27s%20Hospitals%20Explorer%20here%3A%20http%3A%2F%2Fhospitals.texastribune.org">
+        <div class="share-cell">
+          <i class="fa fa-envelope"></i> <span class="ul">Email</span>
+        </div>
+      </a>
+      <a href="" target="_blank" title="print this page" onclick="window.print()">
+        <div class="share-cell">
+          <i class="fa fa-print"></i> <span class="ul">Print</span>
         </div>
       </a>
     </div>
   </div>
   <div class="content-block call-to-action">
-    <p>Use The Texas Tribune Hospitals Explorer to learn more about the quality of care available at 377 Texas hospitals, and to see how hospitals in your area compare with one another and with state and national standards. This application allows you to review hospitals that have reported Medicare data collected and analyzed by the federal <a href="http://cms.hhs.gov/">Centers for Medicare &amp; Medicaid Services</a>.</p>
-  </div>
-  <div class="content-block content-block-full introduction-section">
-  </div>
-  <div class="content-block call-to-action">
-    <p>Search for hospitals near you or enter a Texas ZIP code to look up quality-of-care measures for any hospital in the state. Use the search to find information about a specific hospital, or find and select multiple hospitals to compare.</p>
+    <p>Use The Texas Tribune Hospitals Explorer to learn more about the quality of care available at 367 Texas hospitals based on Medicare data collected and analyzed by the federal <a href="http://cms.hhs.gov/">Centers for Medicare &amp; Medicaid Services</a>.</p>
   </div>
   <div class="loading" style="text-align:center;">
     <img src="/img/ajax-loader.gif">
@@ -36,18 +41,22 @@ title: Texas Hospitals Explorer | The Texas Tribune
   <div class="content-block">
   <div class="index-about">
       <div class="ac ac-1">
+        <img class="section-icon" src="/img/icons/emergency.svg">
         <h4>Emergency Care</h4>
       </div>
         <p class="glossary-text">How long could you expect to wait in a hospital's emergency department?</p>
       <div class="ac ac-2">
+        <img class="section-icon" src="/img/icons/clinical.svg">
         <h4>Clinical Care</h4>
       </div>
-        <p class="glossary-text">Does the hospital have higher or lower rates of surgical complications and health care-acquired infections than national standards?</p>
+        <p class="glossary-text">Does the hospital have higher or lower rates of surgical complications and health care-associated infections than national standards?</p>
       <div class="ac ac-3">
+        <img class="section-icon" src="/img/icons/outcomes.svg">
         <h4>Patient Outcomes</h4>
       </div>
         <p class="glossary-text">Are patients frequently readmitted to the hospital within 30 days of being discharged? Do more patients die within 30 days of being discharged than the national rate?</p>
       <div class="ac ac-4">
+        <img class="section-icon" src="/img/icons/patient.svg">
         <h4>Patient Experience</h4>
       </div>
         <p class="glossary-text">Do other patients recommend the hospital? Does the medical staff communicate well, and are the rooms clean and quiet, according to previous patients?</p>

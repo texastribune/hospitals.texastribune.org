@@ -2,6 +2,8 @@
 //=require underscore/underscore
 //=require backbone/backbone
 //=require marionette/lib/backbone.marionette
+//=require jquery.tablesorter/js/jquery.tablesorter.min.js
+//=require jquery.tablesorter/js/jquery.tablesorter.widgets.min.js
 
 //=require config
 //=require_tree ./templates
@@ -14,6 +16,7 @@
 //=require controllers/home_controller
 //=require controllers/select_controller
 //=require controllers/search_controller
+//=require controllers/hospitals_controller
 //=require views/hospital_empty_view
 //=require views/hospital_view
 //=require views/hospital_to_compare_view
@@ -22,3 +25,5 @@
 //=require views/hospitals_to_compare_view
 //=require views/hospitals_view
 //=require views/compare_view
+//=require views/hospital_listed_view
+//=require views/hospitals_list_view

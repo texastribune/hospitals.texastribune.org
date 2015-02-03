@@ -4,6 +4,7 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
     this.searchController = new app.Controllers.SearchController({
       view: this.searchView
     });
+    this.listenTo(this.searchView, 'list:hospitals', this.listHospitals);
 
     $('#explorer-introduction').show();
     this.listenTo(this.searchController, 'after:search', this.showSelect);
@@ -24,5 +25,9 @@ app.Controllers.HomeController = Marionette.Controller.extend( {
       this.searchController.close();
       this.close();
     }
+  },
+  listHospitals: function(){
+    app.mainRouter.navigate('list');
+    this.hospitalsController = new app.Controllers.HospitalsController();
   }
 });

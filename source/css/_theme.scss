@@ -35,21 +35,21 @@
     h1 {
       color: rgb(255, 255, 255);
       font-family: $base-serif;
-      font-size: 2.5em;
+      font-size: 2em;
       font-weight: 800;
       line-height: 1.15;
       margin-bottom: .25em;
       text-shadow: rgb(0, 0, 0) 3px 3px 0;
 
       @include media($desktop) {
-        font-size: 3.5em;
+        font-size: 2.75em;
       }
     }
 
     p {
       color: rgb(255, 255, 255);
       font-family: $base-sans-serif;
-      font-size: 1.25em;
+      font-size: 1em;
       letter-spacing: .0625em;
       line-height: 1.15;
       text-shadow: rgb(0, 0, 0) 2px 2px 0;
@@ -76,15 +76,21 @@
   margin-bottom: 1em;
 
   h2 {
-    font-size: 2em;
+    font-size: 1.4em;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: .5em;
+
+    .controls {
+      font-size: .7em;
+      text-align: right;
+    }
   }
 }
 
 .section-header {
   margin: 1.25em;
+  cursor: pointer;
 
   h3 {
     font-size: 1.625em;
@@ -92,7 +98,7 @@
   }
 
   h4 {
-    font-size: 1.25em;
+    font-size: 1.1em;
   }
 }
 
@@ -111,12 +117,15 @@
 .prose {
   p {
     font-family: $base-serif;
+    font-size: 1em;
     line-height: 1.4;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   }
 }
 
 .controls {
+  margin-bottom: .5em;
+
   @include media($mobile) {
     a:first-child {
       display: block;
@@ -146,7 +155,7 @@
   text-align: left;
 }
 
-p.glossary-text {
+.glossary-text {
   background: $glossary-gray;
   color: $bodytext-black;
   font-family: $base-sans-serif;
@@ -174,6 +183,7 @@ p.glossary-text {
   }
 
   .form-prompt {
+    display: block;
     font-size: .875em;
     font-style: italic;
     margin: 0 0 .5em;
@@ -182,7 +192,7 @@ p.glossary-text {
   .or-separator {
     display: block;
     font-weight: 800;
-    margin: 1em 0;
+    margin: .5em 0;
 
     @include media($desktop) {
       display: inline;
@@ -219,17 +229,16 @@ p.glossary-text {
   }
 
   input {
-    -webkit-appearance: none;
     border: 1px solid rgb(204, 204, 204);
-    border-radius: 3px;
+    border-radius: 4px;
     font-size: 1em;
-    height: 30px;
-    margin: 0;
-    padding: 7px 10px;
+    margin: 0 0 1em;
+    padding: 4px 10px;
     width: 100%;
 
     @include media($desktop) {
-      width: 300px;
+      margin: 0;
+      width: 400px;
     }
   }
 
@@ -261,8 +270,9 @@ p.glossary-text {
 }
 
 .active-hospitals {
-  margin-bottom: .3125em;
   @include row();
+
+  margin-bottom: .3125em;
 }
 
 .hospital-in-compare-list {
@@ -287,6 +297,8 @@ p.glossary-text {
 }
 
 .share-row {
+  margin: 0 0 1em;
+
   @include media($desktop) {
     border-bottom: 1px solid rgb(204, 204, 204);
     border-top: 1px solid rgb(204, 204, 204);
@@ -303,32 +315,43 @@ p.glossary-text {
 }
 
 .share-cell {
-  border-bottom: 1px solid rgb(204, 204, 204);
+  border-bottom: 0;
+  border-left: 1px solid rgb(204, 204, 204);
+  color: $teal;
+  display: inline-block;
+  float: left;
   font-size: .8em;
   padding: .75em 0;
   text-align: center;
+  width: 25%;
 
   @include media($desktop) {
-    border-bottom: 0;
-    border-left: 1px solid rgb(204, 204, 204);
+    width: 25%;
   }
 
   &.first-share {
-    border-top: 1px solid rgb(204, 204, 204);
-
-    @include media($desktop) {
-      border-top: 0;
-      border-left: 0;
-    }
+    border-left: 0;
+    border-top: 0;
   }
 
   i {
     padding: 0;
   }
 
+  .ul {
+    @include media($mobile) {
+      display: none;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   @include media($desktop) {
-    float: left;
-    width: 50%;
+    width: 25%;
+  }
+  @include media($mobile) {
+    font-size: 1.5em;
   }
 }
 
@@ -498,9 +521,12 @@ label {
 .ac-container label {
   display: block;
   overflow: hidden;
-  padding: 1em;
   position: relative;
   z-index: 20;
+}
+
+.category-margin {
+  margin-bottom: 1em;
 }
 
 .ac-container input:checked + label,
@@ -512,6 +538,11 @@ label {
   .fa-chevron-down {
     display: inline;
   }
+}
+
+.section-icon{
+  float: left;
+  margin-right: .75em;
 }
 
 .ac {
@@ -571,7 +602,7 @@ label {
 }
 
 .ac-container article {
-  @include transition-duration(1s);
+  @include transition(all .2s ease);
   max-height: 0;
   overflow: hidden;
   position: relative;
@@ -579,11 +610,20 @@ label {
 }
 
 .ac-container input:checked ~ article {
-  @include transition-duration(1s);
-
   &.ac-large {
-    max-height: 9999px;
+    max-height: 2000px;
   }
+}
+
+.explainer-cards {
+  &:after {
+    clear: both;
+    content: ' ';
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+ }
 }
 
 .explainer-card-header {
@@ -646,11 +686,18 @@ label {
     text-transform: uppercase;
   }
 
-  p.contributor {
-    font-weight: 600;
+  p {
+    margin-bottom: 1em;
   }
 
-  p.handle {
+  .byline {
+    color: $dk-gray;
+    font-size: .8em;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .handle {
     font-family: $base-sans-serif;
     font-size: .95em;
     font-weight: 300;

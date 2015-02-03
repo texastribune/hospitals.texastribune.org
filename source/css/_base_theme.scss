@@ -1,9 +1,7 @@
 body {
   color: $bodytext-black;
   font-family: $base-sans-serif;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1;
-  text-rendering: optimizelegibility;
 }
 
 a {
@@ -49,7 +47,6 @@ button,
   display: inline-block;
   font-family: $base-sans-serif;
   letter-spacing: .03rem;
-  vertical-align: middle;
   @include button(flat, $tribune-yellow);
 
   &:disabled {

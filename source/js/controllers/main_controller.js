@@ -5,6 +5,11 @@ app.Controllers.MainController = Marionette.Controller.extend({
     this.showSearch();
   },
 
+  listHospitals: function() {
+    app.mainRouter.navigate('list');
+    this.hospitalsController = new app.Controllers.HospitalsController();
+  },
+
   search: function(query) {
     this.selectController = new app.Controllers.SelectController({
       searching: query
