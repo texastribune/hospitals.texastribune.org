@@ -9,7 +9,7 @@
           <i class="fa fa-twitter"></i> <span class="ul">Tweet</span>
         </div>
       </a>
-      <a target="_blank" title="share on Facebook" href="https://www.facebook.com/dialog/feed?app_id=154122474650943&display=popup&name=Texas%20Hospitals%20Explorer&link=<%= encodeURIComponent(window.location) %>&redirect_uri=http%3A%2F%2Fhospitals.texastribune.org%2F&description=Learn%20how%20<% _(children).each(function(model, index) { %><%= encodeURIComponent(model.name) %><% if(index===0){ %> and<% } %> <% }); %>%20stack%20up%20against%20each%20other%20using%20the%20Texas%20Tribune%27s%20Hospitals%20Explorer.">
+      <a target="_blank" title="share on Facebook" href="http://www.facebook.com/sharer.php?u=<%= window.location %>">
         <div class="share-cell">
           <i class="fa fa-facebook"></i> <span class="ul">Recommend</span>
         </div>
