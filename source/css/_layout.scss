@@ -30,9 +30,10 @@
 .newsletter-house {
   @include outer-container;
   background-color: $glossary-gray;
-  padding: 1em 1em .25em 1em;
-  margin-left: 1.25em;
-  margin-right: 1.25em;
+  padding: .5em;
+  color: $dk-gray;
+  line-height: 1.3;
+  margin-top: 1em;
   .input-group{
     margin: .5em 0 0 0;
   }
@@ -40,18 +41,19 @@
     @include span-columns(12);
     margin-bottom: .5em;
     @include media($desktop) {
-      @include span-columns(8);
-      margin: 0;
+      @include span-columns(6);
+      margin-top: .25em;
       padding-top: .25em;
     }
   }
   input[type=submit] {
-    @include span-columns(12);
+    @include span-columns(6);
     @include button(flat, $tribune-yellow);
     font-weight: 700;
+    font-family: $base-sans-serif;
     @include media($desktop) {
       @include span-columns(3);
-      margin-left: .5em;
+      margin-left: .25em;
     }
   }
 }
