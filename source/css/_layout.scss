@@ -27,6 +27,22 @@
   }
 }
 
+.newsletter-house {
+  background-color: $glossary-gray;
+  padding: 1em 1em .75em 1em;
+  margin-left: 1.25em;
+  margin-right: 1.25em;
+  .input-group{
+    margin: .5em 0 0 0;
+  }
+  input[type=submit] {
+    background-color: $tribune-yellow;
+    border: 1px solid $tribune-yellow;
+    font-weight: 700;
+    margin-left: .25em;
+  }
+}
+
 .content-block {
   margin-left: 1.25em; // 20px left
   margin-right: 1.25em; // 20px right
