@@ -39,7 +39,10 @@
   }
   input[type=email] {
     @include span-columns(12);
-    margin-bottom: .5em;
+    margin: 0 0 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: .25em;
     @include media($desktop) {
       @include span-columns(6);
       margin-top: .25em;
