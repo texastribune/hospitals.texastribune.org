@@ -4,19 +4,21 @@
 
 To run this app you will need on your computer:
 
-* Ruby 2.1.2
+* Ruby 2.1.5
 * Node.js
 * Bower
 * bundler
 
 I recommend: [rbenv](https://github.com/sstephenson/rbenv) and [nvm](https://github.com/creationix/nvm).
 
+When you get errors about which Ruby version you're using, run `rbenv install 2.1.5`.
+
 ## Building
 
     bundle install
     bower install
-    middleman server
-
+    bundle exec middleman server
+    
 Don't forget to run `rbenv rehash` after installing gems to enable the binaries. Only if you are using `rbenv`.
 
 ##  Before deploying
