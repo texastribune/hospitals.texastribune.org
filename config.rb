@@ -19,7 +19,6 @@ activate :s3gzip, exts: %w(.js .css .html .htm .json .geojson)
 activate :directory_indexes
 activate :s3_sync do |s3_sync|
   s3_sync.bucket = 'newsapps.test.texastribune.org'
-  s3_sync.region = 'us-west-1'
 end
 
 set :css_dir, 'css'
