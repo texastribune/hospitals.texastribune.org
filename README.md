@@ -15,7 +15,8 @@ I recommend: [rbenv](https://github.com/sstephenson/rbenv) and [nvm](https://git
 
     bundle install
     bower install
-    middleman server
+    gem cleanup json
+    bundle exec middleman server
 
 Don't forget to run `rbenv rehash` after installing gems to enable the binaries. Only if you are using `rbenv`.
 
