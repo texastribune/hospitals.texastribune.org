@@ -3,11 +3,11 @@ require 'builder'
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 
 require 'jsonificator'
-require 's3_gzip'
+# require 's3_gzip'
 require 'active_support/all'
 
 ignore 'hospital.html'
-activate :gzip, exts: %w(.js .css .html .htm .json .geojson)
+# activate :gzip, exts: %w(.js .css .html .htm .json .geojson)
 activate :asset_hash
 activate :bower
 activate :bourbon
@@ -15,7 +15,7 @@ activate :bourbon
 activate :jsonificator do |j|
   j.jsonificator_template = 'hospital.html'
 end
-activate :s3gzip, exts: %w(.js .css .html .htm .json .geojson)
+# activate :s3gzip, exts: %w(.js .css .html .htm .json .geojson)
 activate :directory_indexes
 activate :s3_sync do |s3_sync|
   s3_sync.bucket = 'newsapps.test.texastribune.org'
